@@ -1,7 +1,7 @@
-import ExampleComponent from './'
+import EdiText from './'
 
-describe('ExampleComponent', () => {
+describe('EdiText', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(EdiText).toBeTruthy()
   })
 })

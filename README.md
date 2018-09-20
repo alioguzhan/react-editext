@@ -15,16 +15,28 @@ npm install --save react-editext
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-editext'
+import EdiText from 'react-editext'
 
 class Example extends Component {
+  onSave = val => {
+    console.log('Edited Value -> ', val)
+  }
   render () {
     return (
-      <MyComponent />
+      <div className="container">
+        <EdiText
+          type="text"
+          value='What is real? How do you define real?'
+          onSave={this.onSave}
+        />
+      </div>
     )
   }
 }
 ```
+## Props
+
+Will be updated.
 
 ## License
 

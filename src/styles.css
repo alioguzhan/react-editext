@@ -1,8 +1,46 @@
 /* add css styles here (optional) */
-
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+.editext-input {
+  outline: none;
+  padding: 5px;
+  width: 100%;
+  max-width: 250px;
+}
+.editext-editing-container {
+  display: flex;
+  align-items: center;
+}
+.editext-editing-container .action-buttons-container {
+  display: flex;
+  margin-left: 5px;
+}
+.editext-editing-container .action-buttons-container:last-child {
+  margin-left: 5px;
+}
+button {
+  border-radius: 1px;
+  outline: none;
+  padding: 5px;
+  width: 30px;
+}
+button:hover {
+  cursor: pointer;
+}
+.editext-cancel-button {
+  color: crimson;
+}
+.editext-cancel-button:before {
+  content: '\2715';
+}
+.editext-edit-button {
+  color: #000;
+}
+.editext-edit-button:before {
+  content: '\270E'
+}
+.editext-save-button {
+  color: darkgreen;
+  margin-right: 3px;
+}
+.editext-save-button:before {
+  content: '\2713';
 }
