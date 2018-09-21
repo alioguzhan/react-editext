@@ -10,8 +10,14 @@
 npm install --save react-editext
 ```
 
-## Usage
+Or with yarn:
 
+```bash
+yarn add react-editext
+```
+
+## Usage
+EdiText is highly customizable. Here is a basic usage:
 ```jsx
 import React, { Component } from 'react'
 
@@ -34,9 +40,23 @@ class Example extends Component {
   }
 }
 ```
+You can customize almost everything based on your needs. Please navigate to [Props](#Props) section. I mean, just scroll down.
 ## Props
+| Prop | Type | Required |Default | Note
+|---|---|---|---|---|
+value|string|Yes|`''`|Value of the content and input [in edit mode]
+type|string|Yes|text|Input type. Possible options are: `text`, `number`, `email`, `textarea`
+onSave|function|Yes||Function will be called when save button clicked. `value` is passed to cb.
+onCancel|function|No||Function will be called when editing is cancelled.
+saveButtonText|string|No|`''`|Title for save button. Default is: &#10003;
+cancelButtonText|string|No|`''`|Title for cancel button. Default is: &#10005;
+editButtonText|string|No|`''`|Title for edit button. Default is: &#9998;
+saveButtonClassName|string|No|editext-save-button|Custom class name for save button.
+cancelButtonClassName|string|No|editext-cancel-button|Custom class name for cancel button.
+editButtonClassName|string|No|editext-edit-button|Custom class name for edit button.
+inputClassName|string|No|editext-input|Custom class name for input element.
+containerClassName|string|No|editext-editing-container|Custom class name for container div.
 
-Will be updated.
 
 ## License
 
