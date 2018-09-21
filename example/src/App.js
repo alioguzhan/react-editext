@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { light } from 'react-syntax-highlighter/styles/prism';
 import EdiText from "react-editext";
 
 const example1 = `import React, { Component } from 'react'
@@ -21,18 +22,16 @@ export default class App extends Component {
   }
 }
 `;
-const example2 = `
-<EdiText
+const example2 = `<EdiText
   type='textarea'
   inputClassName="textarea"
-  value="How do you define real? If you're talking about what you can feel, what you can smell,
+  value="How do you define real? If you're talking about what you can feel, what you can smell,\\
   what you can taste and see, then real is simply electrical signals interpreted by your brain"
   onSave={this.onSave}
 />
 
 `;
-const example3 = `
-<EdiText
+const example3 = `<EdiText
   type="textarea"
   inputClassName="text"
   saveButtonText="Apply"
@@ -42,8 +41,7 @@ const example3 = `
   onSave={this.onSave}
 />
 `;
-const example4 = `
-<EdiText
+const example4 = `<EdiText
   type="text"
   validationMessage="Please type at least 10 characters."
   validation={val => val.length >= 20}
@@ -88,7 +86,7 @@ export default class App extends Component {
             </p>
             <div className="columns">
               <div className="column is-half">
-                <SyntaxHighlighter language="javascript">
+                <SyntaxHighlighter language="javascript" style={light}>
                   {example1}
                 </SyntaxHighlighter>
               </div>
@@ -112,7 +110,7 @@ export default class App extends Component {
             </p>
             <div className="columns">
               <div className="column is-half">
-                <SyntaxHighlighter language="javascript">
+                <SyntaxHighlighter language="javascript" style={light}>
                   {example2}
                 </SyntaxHighlighter>
               </div>
@@ -136,7 +134,7 @@ export default class App extends Component {
             </p>
             <div className="columns">
               <div className="column is-half">
-                <SyntaxHighlighter language="javascript">
+                <SyntaxHighlighter language="javascript" style={light}>
                   {example3}
                 </SyntaxHighlighter>
               </div>
@@ -162,7 +160,7 @@ export default class App extends Component {
             </p>
             <div className="columns">
               <div className="column is-half">
-                <SyntaxHighlighter language="javascript">
+                <SyntaxHighlighter language="javascript" style={light}>
                   {example4}
                 </SyntaxHighlighter>
               </div>
