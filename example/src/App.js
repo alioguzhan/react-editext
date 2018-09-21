@@ -179,6 +179,14 @@ export default class App extends Component {
             </div>
           </div>
         </div>
+        <footer className="footer" style={{padding: 20}}>
+          <div className="content has-text-centered">
+            <p>
+              <strong>React EdiText</strong> by <a href="https://github.com/alioguzhan">Ali Oguzhan Yildiz</a>. The source code is licensed
+              <a href="https://opensource.org/licenses/MIT"> MIT</a>.
+            </p>
+          </div>
+        </footer>
       </div>
     );
   }
