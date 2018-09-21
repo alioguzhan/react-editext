@@ -2,7 +2,9 @@
 
 > Editable Text Component for React Applications
 
-[![NPM](https://img.shields.io/npm/v/react-editext.svg)](https://www.npmjs.com/package/react-editext) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-editext.svg)](https://www.npmjs.com/package/react-editext) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) 
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+
 
 ## Install
 
@@ -17,7 +19,7 @@ yarn add react-editext
 ```
 
 ## Usage
-EdiText is highly customizable. Here is a basic usage:
+EdiText is highly customizable. You can see more examples [here](https://alioguzhan.github.io/react-editext). Here is a basic usage:
 ```jsx
 import React, { Component } from 'react'
 

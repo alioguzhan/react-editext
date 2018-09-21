@@ -46,6 +46,7 @@ export default class EdiText extends Component {
             value={this.state.value}
             onChange={this.onInputChange}
             autoFocus={this.state.editing}
+            rows={5}
           />
         )
       } else {
@@ -63,25 +64,18 @@ export default class EdiText extends Component {
         <div className={this.props.containerClassName}>
           {inputElem}
           <div className={styles['action-buttons-container']}>
-            <div onClick={this.onSave}>
-              {this.props.saveButton ? (
-                <this.props.saveButton />
-              ) : (
-                <button className={this.props.saveButtonClassName}>
-                  {this.props.saveButtonText}
-                </button>
-              )}
-            </div>
-            <div onClick={this.onCancel}>
-              {this.props.cancelButton ? (
-                <this.props.cancelButton />
-              ) : (
-                <button
-                  className={this.props.cancelButtonClassName}>
-                  {this.props.cancelButtonText}
-                </button>
-              )}
-            </div>
+            <button
+              className={this.props.saveButtonClassName}
+              onClick={this.onSave}
+            >
+              {this.props.saveButtonText}
+            </button>
+            <button
+              className={this.props.cancelButtonClassName}
+              onClick={this.onCancel}
+            >
+              {this.props.cancelButtonText}
+            </button>
           </div>
         </div>
       )
@@ -92,18 +86,13 @@ export default class EdiText extends Component {
     return (
       <div className={this.props.containerClassName}>
         {elm}
-        <div
-          onClick={() => this.setState({ editing: true })}
-          className={styles['action-buttons-container']}
-        >
-          {this.props.editButton ? (
-            <this.props.editButton />
-          ) : (
-            <button
-              className={this.props.editButtonClassName}>
-              {this.props.editButtonText}
-            </button>
-          )}
+        <div className={styles['action-buttons-container']}>
+          <button
+            className={this.props.editButtonClassName}
+            onClick={() => this.setState({ editing: true })}
+          >
+            {this.props.editButtonText}
+          </button>
         </div>
       </div>
     )
@@ -133,10 +122,6 @@ EdiText.propTypes = {
   // Events
   onCancel: PropTypes.func,
   onSave: PropTypes.func.isRequired,
-  // Custom action elements
-  saveButton: PropTypes.element,
-  cancelButton: PropTypes.element,
-  editButton: PropTypes.element,
   // classNames
   inputClassName: PropTypes.string,
   saveButtonClassName: PropTypes.string,

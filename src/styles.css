@@ -1,9 +1,18 @@
-/* add css styles here (optional) */
-.editext-input {
+button {
+  border-radius: 1px;
   outline: none;
-  padding: 5px;
+  padding: 0.6em;
+  min-width: 30px;
+  height: 100%;
+}
+button:hover {
+  cursor: pointer;
+}
+.editext-input {
   width: 100%;
-  max-width: 250px;
+  border: 1px solid rgb(212, 212, 212);
+  padding: 0.6em;
+  outline: none;
 }
 .editext-editing-container {
   display: flex;
@@ -16,26 +25,19 @@
 .editext-editing-container .action-buttons-container:last-child {
   margin-left: 5px;
 }
-button {
-  border-radius: 1px;
-  outline: none;
-  padding: 5px;
-  width: 30px;
-}
-button:hover {
-  cursor: pointer;
-}
 .editext-cancel-button {
   color: crimson;
 }
 .editext-cancel-button:before {
   content: '\2715';
+  margin: 3px;
 }
 .editext-edit-button {
   color: #000;
 }
 .editext-edit-button:before {
-  content: '\270E'
+  content: '\270E';
+  margin: 3px;
 }
 .editext-save-button {
   color: darkgreen;
@@ -43,4 +45,5 @@ button:hover {
 }
 .editext-save-button:before {
   content: '\2713';
+  margin: 3px;
 }
