@@ -7,6 +7,7 @@ export default class EdiText extends Component {
     super(props)
     this.state = {
       editing: false,
+      valid: true,
       value: this.props.value || '',
       savedValue: ''
     }
@@ -14,6 +15,7 @@ export default class EdiText extends Component {
 
   onInputChange = e => {
     this.setState({
+      valid: true,
       value: e.target.value
     })
   }
@@ -21,6 +23,7 @@ export default class EdiText extends Component {
   onCancel = () => {
     this.setState(
       {
+        valid: true,
         editing: false,
         value: this.state.savedValue || this.props.value
       }, () => this.props.onCancel(this.state.value)
@@ -28,6 +31,9 @@ export default class EdiText extends Component {
   }
 
   onSave = () => {
+    if (!this.props.validation(this.state.value)) {
+      return this.setState({ valid: false })
+    }
     this.setState(
       {
         editing: false,
@@ -61,22 +67,31 @@ export default class EdiText extends Component {
         )
       }
       return (
-        <div className={this.props.containerClassName}>
-          {inputElem}
-          <div className={styles['action-buttons-container']}>
-            <button
-              className={this.props.saveButtonClassName}
-              onClick={this.onSave}
-            >
-              {this.props.saveButtonText}
-            </button>
-            <button
-              className={this.props.cancelButtonClassName}
-              onClick={this.onCancel}
-            >
-              {this.props.cancelButtonText}
-            </button>
+        <div className={styles['editext-main-container']}>
+          <div className={this.props.containerClassName}>
+            {/* <div className={styles['input-container']}> */}
+            {inputElem}
+            {/* </div> */}
+            <div className={styles['action-buttons-container']}>
+              <button
+                className={this.props.saveButtonClassName}
+                onClick={this.onSave}
+              >
+                {this.props.saveButtonText}
+              </button>
+              <button
+                className={this.props.cancelButtonClassName}
+                onClick={this.onCancel}
+              >
+                {this.props.cancelButtonText}
+              </button>
+            </div>
           </div>
+          {!this.state.valid &&
+            <div className={styles['editext-validation-message']}>
+              {this.props.validationMessage}
+            </div>
+          }
         </div>
       )
     }
@@ -102,6 +117,8 @@ export default class EdiText extends Component {
 EdiText.defaultProps = {
   value: '',
   type: 'text',
+  validationMessage: 'Invalid Content',
+  validation: value => true,
   onCancel: () => {},
   cancelButtonText: '',
   saveButtonText: '',
@@ -118,7 +135,11 @@ EdiText.propTypes = {
   children: PropTypes.node,
   // Required props
   value: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  validationMessage: PropTypes.string,
+  validation: PropTypes.func,
+  type: PropTypes.oneOf(
+    ['text', 'textarea', 'email', 'number']
+  ).isRequired,
   // Events
   onCancel: PropTypes.func,
   onSave: PropTypes.func.isRequired,

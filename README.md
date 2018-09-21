@@ -48,6 +48,8 @@ You can customize almost everything based on your needs. Please navigate to [Pro
 |---|---|---|---|---|
 value|string|Yes|`''`|Value of the content and input [in edit mode]
 type|string|Yes|text|Input type. Possible options are: `text`, `number`, `email`, `textarea`
+validation|function|No||Pass your own validation function. takes one param -> `value`. It must return `true` or `false`
+validationMessage|string|No|Invalid Content| If validation fails this message will appear
 onSave|function|Yes||Function will be called when save button clicked. `value` is passed to cb.
 onCancel|function|No||Function will be called when editing is cancelled.
 saveButtonText|string|No|`''`|Title for save button. Default is: &#10003;

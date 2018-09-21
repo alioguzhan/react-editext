@@ -7,12 +7,27 @@ button {
 }
 button:hover {
   cursor: pointer;
+  background-color: rgba(148, 148, 148, 0.1);
+}
+.input-container {
+  width: 100%;
+  display: flex;
 }
 .editext-input {
   width: 100%;
   border: 1px solid rgb(212, 212, 212);
   padding: 0.6em;
   outline: none;
+}
+.editext-main-container {
+  display: flex;
+  flex-direction: column;
+}
+.editext-validation-message {
+  font-weight: 500;
+  color: crimson;
+  font-size: .7em;
+  margin-top: 3px;
 }
 .editext-editing-container {
   display: flex;

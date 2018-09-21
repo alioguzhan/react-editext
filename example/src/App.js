@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-
 import EdiText from "react-editext";
 
 const example1 = `import React, { Component } from 'react'
@@ -43,6 +42,16 @@ const example3 = `
   onSave={this.onSave}
 />
 `;
+const example4 = `
+<EdiText
+  type="text"
+  validationMessage="Please type at least 10 characters."
+  validation={val => val.length >= 20}
+  value="The Matrix has you.."
+  onSave={this.onSave}
+/>`
+
+
 export default class App extends Component {
   onSave = val => {
     console.log("Edited Value -> ", val);
@@ -57,6 +66,11 @@ export default class App extends Component {
               <h2 className="subtitle">
                 Editable Text Component for React Applications
               </h2>
+                <span style={{marginRight: 5}}><a className="github-button" href="https://github.com/alioguzhan/react-editext" data-size="large"
+                data-show-count="true" aria-label="Star alioguzhan/react-editext on GitHub">Star</a></span>
+                <span>
+                <a className="github-button" href="https://github.com/alioguzhan/react-editext/fork" data-size="large" 
+                data-show-count="true" aria-label="Fork alioguzhan/react-editext on GitHub">Fork</a></span>
             </div>
           </div>
         </section>
@@ -134,6 +148,31 @@ export default class App extends Component {
                   cancelButtonText="Cancel"
                   editButtonText="Edit"
                   value="Why, Mr. Anderson? Why? Why do you persist?"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Validate the Content</div>
+            <p className="content">
+              You can validate the value of input before save. Just pass a function to <code>validation</code> prop.
+              And you also can set a validation message which will appear when validation fails. See the example.
+              Delete some characters from content and try to save it.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript">
+                  {example4}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="text"
+                  validationMessage="Please type at least 10 characters."
+                  validation={val => val.length >= 20}
+                  value="The Matrix has you.."
                   onSave={this.onSave}
                 />
               </div>
