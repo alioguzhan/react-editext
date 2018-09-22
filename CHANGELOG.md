@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 - 2018-09-23
+- Added `className` prop for custom styling to text content
+- Added tests
+
 ## 1.1.0 - 2018-09-22
 - Trigger save action on press Enter
 - Improve default styling for Firefox and Safari

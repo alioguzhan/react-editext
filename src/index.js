@@ -79,9 +79,7 @@ export default class EdiText extends Component {
       return (
         <div className={styles['editext-main-container']}>
           <div className={this.props.containerClassName}>
-            {/* <div className={styles['input-container']}> */}
             {inputElem}
-            {/* </div> */}
             <div className={styles['action-buttons-container']}>
               <button
                 className={this.props.saveButtonClassName}
@@ -105,12 +103,9 @@ export default class EdiText extends Component {
         </div>
       )
     }
-    const elm = this.props.children
-      ? { ...this.props.children, props: { children: this.state.value } }
-      : this.state.value
     return (
       <div className={this.props.containerClassName}>
-        {elm}
+        <span className={this.props.className}>{this.state.value}</span>
         <div className={styles['action-buttons-container']}>
           <button
             className={this.props.editButtonClassName}
@@ -142,9 +137,8 @@ EdiText.defaultProps = {
 }
 
 EdiText.propTypes = {
-  // Default children prop for component
-  children: PropTypes.node,
   // Required props
+  className: PropTypes.string,
   value: PropTypes.string.isRequired,
   validationMessage: PropTypes.string,
   validation: PropTypes.func,

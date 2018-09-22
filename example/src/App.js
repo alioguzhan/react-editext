@@ -43,9 +43,16 @@ const example3 = `<EdiText
 `;
 const example4 = `<EdiText
   type="text"
-  validationMessage="Please type at least 10 characters."
+  validationMessage="Please type at least 20 characters."
   validation={val => val.length >= 20}
   value="The Matrix has you.."
+  onSave={this.onSave}
+/>`
+
+const example5 = `<EdiText
+  type="text"
+  className="my-react-header"
+  value="Hello React!"
   onSave={this.onSave}
 />`
 
@@ -168,9 +175,33 @@ export default class App extends Component {
                 <div className="subtitle">Output</div>
                 <EdiText
                   type="text"
-                  validationMessage="Please type at least 10 characters."
+                  validationMessage="Please type at least 20 characters."
                   validation={val => val.length >= 20}
                   value="The Matrix has you.."
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Custom Class Name for Text</div>
+            <p className="content">
+            You may want to add some styling to your text content instad of render it as a plain text. To do that, 
+            you can use <code>className</code> prop. The class name that passed to this prop will be used for styling
+            text.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example5}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="text"
+                  className="my-react-header"
+                  value="Hello React!"
                   onSave={this.onSave}
                 />
               </div>
