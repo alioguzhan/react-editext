@@ -4,6 +4,10 @@ button {
   padding: 0.6em;
   min-width: 30px;
   height: 100%;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+  background-color: #fff;
 }
 button:hover {
   cursor: pointer;

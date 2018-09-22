@@ -42,6 +42,14 @@ export default class EdiText extends Component {
     )
   }
 
+  onKeyPress = event => {
+    if (event.key === 'Enter' ||
+        event.charCode === 13 ||
+        event.key === 'Enter') {
+      this.onSave()
+    }
+  }
+
   render() {
     if (this.state.editing) {
       let inputElem
@@ -52,6 +60,7 @@ export default class EdiText extends Component {
             value={this.state.value}
             onChange={this.onInputChange}
             autoFocus={this.state.editing}
+            onKeyDown={this.onKeyPress}
             rows={5}
           />
         )
@@ -63,6 +72,7 @@ export default class EdiText extends Component {
             value={this.state.value}
             onChange={this.onInputChange}
             autoFocus={this.state.editing}
+            onKeyDown={this.onKeyPress}
           />
         )
       }
