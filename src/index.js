@@ -133,11 +133,12 @@ EdiText.defaultProps = {
   cancelButtonText: '',
   saveButtonText: '',
   editButtonText: '',
-  saveButtonClassName: styles['editext-save-button'],
-  cancelButtonClassName: styles['editext-cancel-button'],
-  editButtonClassName: styles['editext-edit-button'],
-  inputClassName: styles['editext-input'],
-  containerClassName: styles['editext-editing-container']
+  // Enzyme does not work propery with dynamic styles. This is temp. workaround.
+  saveButtonClassName: styles['editext-save-button'] || 'editext-save-button',
+  cancelButtonClassName: styles['editext-cancel-button'] || 'editext-cancel-button',
+  editButtonClassName: styles['editext-edit-button'] || 'editext-edit-button',
+  inputClassName: styles['editext-input'] || 'editext-input',
+  containerClassName: styles['editext-editing-container'] || 'editext-editing-container'
 }
 
 EdiText.propTypes = {
