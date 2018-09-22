@@ -63,7 +63,7 @@ containerClassName|string|No|editext-editing-container|Custom class name for con
 
 ## To Do
 
-- [ ] Write Tests
+- [x] Write Tests
 
 ## License
 
