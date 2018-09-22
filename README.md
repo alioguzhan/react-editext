@@ -19,7 +19,7 @@ yarn add react-editext
 ```
 
 ## Usage
-EdiText is highly customizable. You can see more examples [here](https://alioguzhan.github.io/react-editext). Here is a basic usage:
+EdiText is highly customizable. You can see more examples [here](https://alioguzhan.github.io/react-editext/). Here is a basic usage:
 ```jsx
 import React, { Component } from 'react'
 
