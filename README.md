@@ -61,6 +61,9 @@ editButtonClassName|string|No|editext-edit-button|Custom class name for edit but
 inputClassName|string|No|editext-input|Custom class name for input element.
 containerClassName|string|No|editext-editing-container|Custom class name for container div.
 
+## To Do
+
+- [ ] Write Tests
 
 ## License
 
