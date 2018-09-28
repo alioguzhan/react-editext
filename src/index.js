@@ -82,12 +82,14 @@ export default class EdiText extends Component {
             {inputElem}
             <div className={styles['action-buttons-container']}>
               <button
+                type='button'
                 className={this.props.saveButtonClassName}
                 onClick={this.onSave}
               >
                 {this.props.saveButtonText}
               </button>
               <button
+                type='button'
                 className={this.props.cancelButtonClassName}
                 onClick={this.onCancel}
               >
@@ -108,6 +110,7 @@ export default class EdiText extends Component {
         <span className={this.props.className}>{this.state.value}</span>
         <div className={styles['action-buttons-container']}>
           <button
+            type='button'
             className={this.props.editButtonClassName}
             onClick={() => this.setState({ editing: true })}
           >
