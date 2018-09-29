@@ -92,6 +92,24 @@ const example6 = `<EdiText
   onSave={this.onSave}
 />`
 
+const example7 = `<EdiText
+  type="text"
+  inputProps={{
+    placeholder: 'Type your answer here',
+    style: {
+      backgroundColor: '#233C51',
+      color: '#E6ECF1',
+      fontWeight: 500,
+      maxWidth: 200
+    },
+    name: 'answer1'
+  }}
+  viewProps={{
+    className: 'custom-view-class'
+  }}
+  value="No. The honor is still mine."
+  onSave={this.onSave}
+/>`
 
 export default class App extends Component {
   onSave = val => {
@@ -283,6 +301,42 @@ export default class App extends Component {
                     style: { borderRadius: 3 }
                   }}
                   value="Hello React!"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Custom Props for Input Element</div>
+            <p className="content">
+            It is likely that you will want to add some props to input element.
+            You can pass any valid HTML attribute to the input element via <code>inputProps</code>.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example7}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <p style={{ marginBottom: 10 }}>What was the Morpheus' answer when Neo say 'It was an honor, sir' ?</p>
+                <EdiText
+                  type="text"
+                  inputProps={{
+                    placeholder: 'Type your answer here',
+                    style: {
+                      backgroundColor: '#233C51',
+                      color: '#E6ECF1',
+                      fontWeight: 500,
+                      width: 250
+                    },
+                    name: 'answer1'
+                  }}
+                  viewProps={{
+                    className: 'custom-view-class'
+                  }}
+                  value="No. The honor is still mine."
                   onSave={this.onSave}
                 />
               </div>

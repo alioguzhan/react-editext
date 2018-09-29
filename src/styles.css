@@ -41,9 +41,6 @@ button:hover {
   display: flex;
   margin-left: 5px;
 }
-.editext-editing-container .action-buttons-container:last-child {
-  margin-left: 5px;
-}
 .editext-cancel-button {
   color: crimson;
 }

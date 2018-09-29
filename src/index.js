@@ -86,47 +86,62 @@ export default class EdiText extends Component {
     }
   }
   _renderEditingMode = () => {
+    const {
+      containerClassName,
+      saveButtonClassName,
+      saveButtonText,
+      cancelButtonClassName,
+      cancelButtonText,
+      onValidationFail,
+      validationMessage
+    } = this.props
     const inputElem = this._renderInput()
     return (
       <div className={styles['editext-main-container']}>
-        <div className={this.props.containerClassName}>
+        <div className={containerClassName}>
           {inputElem}
           <div className={styles['action-buttons-container']}>
             <button
               type='button'
-              className={this.props.saveButtonClassName}
+              className={saveButtonClassName}
               onClick={this._onSave}
             >
-              {this.props.saveButtonText}
+              {saveButtonText}
             </button>
             <button
               type='button'
-              className={this.props.cancelButtonClassName}
+              className={cancelButtonClassName}
               onClick={this._onCancel}
             >
-              {this.props.cancelButtonText}
+              {cancelButtonText}
             </button>
           </div>
         </div>
-        {!this.state.valid && !this.props.onValidationFail &&
+        {!this.state.valid && !onValidationFail &&
           <div className={styles['editext-validation-message']}>
-            {this.props.validationMessage}
+            {validationMessage}
           </div>
         }
       </div>
     )
   }
   _renderViewMode = () => {
+    const {
+      containerClassName,
+      viewProps,
+      editButtonClassName,
+      editButtonText
+    } = this.props
     return (
-      <div className={this.props.containerClassName}>
-        <div {...this.props.viewProps}>{this.state.value}</div>
+      <div className={containerClassName}>
+        <div {...viewProps}>{this.state.value}</div>
         <div className={styles['action-buttons-container']}>
           <button
             type='button'
-            className={this.props.editButtonClassName}
+            className={editButtonClassName}
             onClick={this._activateEditMode}
           >
-            {this.props.editButtonText}
+            {editButtonText}
           </button>
         </div>
       </div>
