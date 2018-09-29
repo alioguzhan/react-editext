@@ -24,7 +24,15 @@ export default class App extends Component {
 `;
 const example2 = `<EdiText
   type='textarea'
-  inputClassName="textarea"
+  inputProps={{
+    className: 'textarea',
+    placeholder: 'Type your content here',
+    style: {
+      outline: 'none',
+      minWidth: 'auto'
+    },
+    rows: 5
+  }}
   value="How do you define real? If you're talking about what you can feel, what you can smell,\\
   what you can taste and see, then real is simply electrical signals interpreted by your brain"
   onSave={this.onSave}
@@ -33,7 +41,6 @@ const example2 = `<EdiText
 `;
 const example3 = `<EdiText
   type="textarea"
-  inputClassName="text"
   saveButtonText="Apply"
   cancelButtonText="Cancel"
   editButtonText="Edit"
@@ -51,7 +58,10 @@ const example4 = `<EdiText
 
 const example5 = `<EdiText
   type="text"
-  className="my-react-header"
+  contentProps={{
+    className: 'my-react-header',
+    style: { borderRadius: 3 }
+  }}
   value="Hello React!"
   onSave={this.onSave}
 />`
@@ -74,7 +84,7 @@ export default class App extends Component {
                 <span style={{marginRight: 5}}><a className="github-button" href="https://github.com/alioguzhan/react-editext" data-size="large"
                 data-show-count="true" aria-label="Star alioguzhan/react-editext on GitHub">Star</a></span>
                 <span>
-                <a className="github-button" href="https://github.com/alioguzhan/react-editext/fork" data-size="large" 
+                <a className="github-button" href="https://github.com/alioguzhan/react-editext/fork" data-size="large"
                 data-show-count="true" aria-label="Fork alioguzhan/react-editext on GitHub">Fork</a></span>
             </div>
           </div>
@@ -82,7 +92,7 @@ export default class App extends Component {
         <div className="container">
           <div className="tile is-parent is-vertical is-12">
             <p><strong>EdiText</strong> is a React component that converts your text into editable content. Below you can see some examples.</p>
-            <p>For installation and available props please see the 
+            <p>For installation and available props please see the
               <a href="https://github.com/alioguzhan/react-editext"> repository page</a>.
             </p>
           </div>
@@ -110,8 +120,8 @@ export default class App extends Component {
           <div className="tile is-parent is-vertical is-10">
             <div className="subtitle">Textarea for Editing Input</div>
             <p className="content">
-              You can use {"<textarea>"} for editing if your content is too
-              long. Also you can specify custom class name for the input element.
+              You can use <code>{"<textarea>"}</code> for editing if your content is too
+              long. Also you can specify custom class name and other props for the input element.
               Since this page has built with Bulma.io, we passed <code>textarea</code>
               as class name.
             </p>
@@ -125,7 +135,15 @@ export default class App extends Component {
                 <div className="subtitle">Output</div>
                 <EdiText
                   type="textarea"
-                  inputClassName="textarea"
+                  inputProps={{
+                    className: 'textarea',
+                    placeholder: 'Type your content here',
+                    style: {
+                      outline: 'none',
+                      minWidth: 'auto'
+                    },
+                    rows: 5
+                  }}
                   value="How do you define real? If you're talking about what you can feel, what you can smell,
                   what you can taste and see, then real is simply electrical signals interpreted by your brain"
                   onSave={this.onSave}
@@ -184,11 +202,11 @@ export default class App extends Component {
             </div>
           </div>
           <div className="tile is-parent is-vertical is-10">
-            <div className="subtitle">Custom Class Name for Text</div>
+            <div className="subtitle">Custom Class Name and other props for Text</div>
             <p className="content">
-            You may want to add some styling to your text content instad of render it as a plain text. To do that, 
-            you can use <code>className</code> prop. The class name that passed to this prop will be used for styling
-            text.
+            You may want to add some styling to your text content instead of render it as a plain text. To do that you can use
+            <code>contentProps</code> prop. You can pass any valid HTML attribute.
+            These props will be passed to content <code>div</code>.
             </p>
             <div className="columns">
               <div className="column is-half">
@@ -200,7 +218,10 @@ export default class App extends Component {
                 <div className="subtitle">Output</div>
                 <EdiText
                   type="text"
-                  className="my-react-header"
+                  contentProps={{
+                    className: 'my-react-header',
+                    style: { borderRadius: 3 }
+                  }}
                   value="Hello React!"
                   onSave={this.onSave}
                 />

@@ -13,14 +13,14 @@ export default class EdiText extends Component {
     }
   }
 
-  onInputChange = e => {
+  _onInputChange = e => {
     this.setState({
       valid: true,
       value: e.target.value
     })
   }
 
-  onCancel = () => {
+  _onCancel = () => {
     this.setState(
       {
         valid: true,
@@ -30,7 +30,14 @@ export default class EdiText extends Component {
     )
   }
 
-  onSave = () => {
+  _activateEditMode = () => {
+    this.setState({
+      editing: true
+    })
+  }
+
+  _onSave = () => {
+    const { onSave } = this.props
     if (!this.props.validation(this.state.value)) {
       return this.setState({ valid: false })
     }
@@ -38,87 +45,92 @@ export default class EdiText extends Component {
       {
         editing: false,
         savedValue: this.state.value
-      }, () => this.props.onSave(this.state.savedValue)
+      }, () => onSave(this.state.savedValue)
     )
   }
 
-  onKeyPress = event => {
+  _onKeyPress = event => {
     if (event.key === 'Enter' ||
-        event.charCode === 13 ||
-        event.key === 'Enter') {
-      this.onSave()
+      event.charCode === 13 ||
+      event.key === 'Enter') {
+      this._onSave()
     }
   }
-
-  render() {
-    if (this.state.editing) {
-      let inputElem
-      if (this.props.type === 'textarea') {
-        inputElem = (
-          <textarea
-            className={this.props.inputClassName}
-            value={this.state.value}
-            onChange={this.onInputChange}
-            autoFocus={this.state.editing}
-            onKeyDown={this.onKeyPress}
-            rows={5}
-          />
-        )
-      } else {
-        inputElem = (
-          <input
-            type={this.props.type}
-            className={this.props.inputClassName}
-            value={this.state.value}
-            onChange={this.onInputChange}
-            autoFocus={this.state.editing}
-            onKeyDown={this.onKeyPress}
-          />
-        )
-      }
+  _renderInput() {
+    if (this.props.type === 'textarea') {
       return (
-        <div className={styles['editext-main-container']}>
-          <div className={this.props.containerClassName}>
-            {inputElem}
-            <div className={styles['action-buttons-container']}>
-              <button
-                type='button'
-                className={this.props.saveButtonClassName}
-                onClick={this.onSave}
-              >
-                {this.props.saveButtonText}
-              </button>
-              <button
-                type='button'
-                className={this.props.cancelButtonClassName}
-                onClick={this.onCancel}
-              >
-                {this.props.cancelButtonText}
-              </button>
-            </div>
-          </div>
-          {!this.state.valid &&
-            <div className={styles['editext-validation-message']}>
-              {this.props.validationMessage}
-            </div>
-          }
-        </div>
+        <textarea
+          className={styles['editext-input']}
+          value={this.state.value}
+          onChange={this._onInputChange}
+          autoFocus={this.state.editing}
+          onKeyDown={this._onKeyPress}
+          {...this.props.inputProps}
+        />
+      )
+    } else {
+      return (
+        <input
+          type={this.props.type}
+          className={styles['editext-input']}
+          value={this.state.value}
+          onChange={this._onInputChange}
+          autoFocus={this.state.editing}
+          onKeyDown={this._onKeyPress}
+          {...this.props.inputProps}
+        />
       )
     }
+  }
+  _renderEditingMode = () => {
+    const inputElem = this._renderInput()
+    return (
+      <div className={styles['editext-main-container']}>
+        <div className={this.props.containerClassName}>
+          {inputElem}
+          <div className={styles['action-buttons-container']}>
+            <button
+              type='button'
+              className={this.props.saveButtonClassName}
+              onClick={this._onSave}
+            >
+              {this.props.saveButtonText}
+            </button>
+            <button
+              type='button'
+              className={this.props.cancelButtonClassName}
+              onClick={this._onCancel}
+            >
+              {this.props.cancelButtonText}
+            </button>
+          </div>
+        </div>
+        {!this.state.valid &&
+          <div className={styles['editext-validation-message']}>
+            {this.props.validationMessage}
+          </div>
+        }
+      </div>
+    )
+  }
+  _renderContentMode = () => {
     return (
       <div className={this.props.containerClassName}>
-        <span className={this.props.className}>{this.state.value}</span>
+        <div {...this.props.contentProps}>{this.state.value}</div>
         <div className={styles['action-buttons-container']}>
           <button
             type='button'
             className={this.props.editButtonClassName}
-            onClick={() => this.setState({ editing: true })}
+            onClick={this._activateEditMode}
           >
             {this.props.editButtonText}
           </button>
         </div>
       </div>
     )
+  }
+  render() {
+    return this.state.editing ? this._renderEditingMode() : this._renderContentMode()
   }
 }
 
@@ -127,7 +139,7 @@ EdiText.defaultProps = {
   type: 'text',
   validationMessage: 'Invalid Content',
   validation: value => true,
-  onCancel: () => {},
+  onCancel: () => { },
   cancelButtonText: '',
   saveButtonText: '',
   editButtonText: '',
@@ -140,8 +152,8 @@ EdiText.defaultProps = {
 }
 
 EdiText.propTypes = {
-  // Required props
-  className: PropTypes.string,
+  inputProps: PropTypes.object,
+  contentProps: PropTypes.object,
   value: PropTypes.string.isRequired,
   validationMessage: PropTypes.string,
   validation: PropTypes.func,
@@ -152,9 +164,8 @@ EdiText.propTypes = {
   onCancel: PropTypes.func,
   onSave: PropTypes.func.isRequired,
   // classNames
-  inputClassName: PropTypes.string,
-  saveButtonClassName: PropTypes.string,
   containerClassName: PropTypes.string,
+  saveButtonClassName: PropTypes.string,
   editButtonClassName: PropTypes.string,
   cancelButtonClassName: PropTypes.string,
   // Custom Button Texts
