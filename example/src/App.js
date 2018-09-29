@@ -56,7 +56,33 @@ const example4 = `<EdiText
   onSave={this.onSave}
 />`
 
-const example5 = `<EdiText
+const example5 = `export default class App extends Component {
+  onSave = val => {
+    console.log('Edited Value -> ', val)
+  }
+
+  validationFailed = textValue => {
+    alert(\`The text <\${textValue}> is not valid.\nYou shall not use the word SMITH here!!!\`)
+  }
+
+  render () {
+    return (
+      <EdiText
+        type="text"
+        validation={val => val.toLowerCase().indexOf('smith') < 0}
+        onValidationFail={this.validationFailed}
+        inputProps={{
+          placeholder: "Don't use the word 'Smith'..."
+        }}
+        value="Why Mr. Anderson? Why? Why? Why?"
+        onSave={this.onSave}
+      />
+    )
+  }
+}
+`
+
+const example6 = `<EdiText
   type="text"
   viewProps={{
     className: 'my-react-header',
@@ -70,7 +96,12 @@ const example5 = `<EdiText
 export default class App extends Component {
   onSave = val => {
     console.log("Edited Value -> ", val);
-  };
+  }
+
+  validationFailed = textValue => {
+    alert(`The text <${textValue}> is not valid.\nYou shall not use the word SMITH here!!!`)
+  }
+
   render() {
     return (
       <div>
@@ -202,6 +233,35 @@ export default class App extends Component {
             </div>
           </div>
           <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Custom Validation</div>
+            <p className="content">
+              EdiText has a very basic validation handling. You will probably want to use an external library to
+              show custom and fancy validation warnings or messages. You can track the validity of input value with
+              <code>onValidationFail</code> prop. Just pass your method to listen and react against validation updates.
+              <strong>Type the word 'Smith' into below input and try to save it.</strong>
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example5}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="text"
+                  validation={val => val.toLowerCase().indexOf('smith') < 0}
+                  onValidationFail={this.validationFailed}
+                  inputProps={{
+                    placeholder: "Don't use the word 'Smith'..."
+                  }}
+                  value="Why Mr. Anderson? Why? Why? Why?"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
             <div className="subtitle">Custom Class Name and other props for Text</div>
             <p className="content">
             You may want to add some styling to your text content instead of render it as a plain text. To do that you can use
@@ -211,7 +271,7 @@ export default class App extends Component {
             <div className="columns">
               <div className="column is-half">
                 <SyntaxHighlighter language="javascript" style={light}>
-                  {example5}
+                  {example6}
                 </SyntaxHighlighter>
               </div>
               <div className="column">

@@ -8,7 +8,7 @@ export default class EdiText extends Component {
     this.state = {
       editing: false,
       valid: true,
-      value: this.props.value || '',
+      value: props.value || '',
       savedValue: ''
     }
   }
@@ -37,9 +37,12 @@ export default class EdiText extends Component {
   }
 
   _onSave = () => {
-    const { onSave } = this.props
-    if (!this.props.validation(this.state.value)) {
-      return this.setState({ valid: false })
+    const { onSave, validation, onValidationFail } = this.props
+    const isValid = validation(this.state.value)
+    if (!isValid) {
+      return this.setState({ valid: false }, () => {
+        onValidationFail && onValidationFail(this.state.value)
+      })
     }
     this.setState(
       {
@@ -105,7 +108,7 @@ export default class EdiText extends Component {
             </button>
           </div>
         </div>
-        {!this.state.valid &&
+        {!this.state.valid && !this.props.onValidationFail &&
           <div className={styles['editext-validation-message']}>
             {this.props.validationMessage}
           </div>
@@ -137,7 +140,7 @@ export default class EdiText extends Component {
 EdiText.defaultProps = {
   value: '',
   type: 'text',
-  validationMessage: 'Invalid Content',
+  validationMessage: 'Invalid Value',
   validation: value => true,
   onCancel: () => { },
   cancelButtonText: '',
@@ -156,6 +159,7 @@ EdiText.propTypes = {
   value: PropTypes.string.isRequired,
   validationMessage: PropTypes.string,
   validation: PropTypes.func,
+  onValidationFail: PropTypes.func,
   type: PropTypes.oneOf(
     ['text', 'textarea', 'email', 'number']
   ).isRequired,
