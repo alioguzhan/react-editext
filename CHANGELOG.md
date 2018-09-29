@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1 - 2018-09-29
+- Added `type=button` to all buttons.
+- Improve tests
+
 ## 1.2.0 - 2018-09-23
 - Added `className` prop for custom styling to text content
 - Added tests
