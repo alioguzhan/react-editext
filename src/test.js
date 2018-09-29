@@ -36,19 +36,20 @@ test('props are working fine', () => {
 test('text input initial value is same as prop value', () => {
   const editext = mount(
     <EdiText
+      type='text'
       value='Wake up Neo'
       onSave={val => true}
     />
   )
   const editButtonClassName = editext.props().editButtonClassName
-  const inputClassName = editext.props().inputClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
-  expect(editext.find(`input.${inputClassName}`).props().value).toEqual(editext.props().value)
+  expect(editext.find(`input[type="text"]`).first().props().value).toEqual(editext.props().value)
 })
 
 test('editing text input updates the state', () => {
   const editext = mount(
     <EdiText
+      type='text'
       value='Wake up Neo'
       onSave={val => true}
     />
@@ -56,8 +57,7 @@ test('editing text input updates the state', () => {
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
 
-  const inputClassName = editext.props().inputClassName
-  const editInput = editext.find(`input.${inputClassName}`)
+  const editInput = editext.find(`input[type="text"]`).first()
   editInput.instance().value = 'updated matrix'
   editInput.simulate('change')
 
@@ -74,9 +74,8 @@ test('editing textarea updates the state', () => {
   )
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
-  const inputClassName = editext.props().inputClassName
 
-  const editInput = editext.find(`textarea.${inputClassName}`)
+  const editInput = editext.find(`textarea`)
   editInput.instance().value = 'updated matrix-2'
   editInput.simulate('change')
   expect(editext.state().value).toEqual('updated matrix-2')
@@ -92,9 +91,8 @@ test('cancelling reverts input value to prop value', () => {
   )
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
-  const inputClassName = editext.props().inputClassName
 
-  const editInput = editext.find(`input.${inputClassName}`)
+  const editInput = editext.find(`input[type="text"]`)
   editInput.instance().value = 'updated matrix-2'
   editInput.simulate('change')
 
@@ -118,8 +116,7 @@ test('saving sets input value properly', () => {
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
 
-  const inputClassName = editext.props().inputClassName
-  const editInput = editext.find(`input.${inputClassName}`)
+  const editInput = editext.find(`input[type="text"]`)
   editInput.instance().value = 'updated value.'
   editInput.simulate('change')
 
@@ -186,8 +183,7 @@ test('validation prop validates the input value', () => {
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
 
-  const inputClassName = editext.props().inputClassName
-  const editInput = editext.find(`input.${inputClassName}`)
+  const editInput = editext.find(`input[type="text"]`)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
   editInput.simulate('change')
 
