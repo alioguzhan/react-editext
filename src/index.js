@@ -113,10 +113,10 @@ export default class EdiText extends Component {
       </div>
     )
   }
-  _renderContentMode = () => {
+  _renderViewMode = () => {
     return (
       <div className={this.props.containerClassName}>
-        <div {...this.props.contentProps}>{this.state.value}</div>
+        <div {...this.props.viewProps}>{this.state.value}</div>
         <div className={styles['action-buttons-container']}>
           <button
             type='button'
@@ -130,7 +130,7 @@ export default class EdiText extends Component {
     )
   }
   render() {
-    return this.state.editing ? this._renderEditingMode() : this._renderContentMode()
+    return this.state.editing ? this._renderEditingMode() : this._renderViewMode()
   }
 }
 
@@ -152,7 +152,7 @@ EdiText.defaultProps = {
 
 EdiText.propTypes = {
   inputProps: PropTypes.object,
-  contentProps: PropTypes.object,
+  viewProps: PropTypes.object,
   value: PropTypes.string.isRequired,
   validationMessage: PropTypes.string,
   validation: PropTypes.func,

@@ -58,7 +58,7 @@ const example4 = `<EdiText
 
 const example5 = `<EdiText
   type="text"
-  contentProps={{
+  viewProps={{
     className: 'my-react-header',
     style: { borderRadius: 3 }
   }}
@@ -205,7 +205,7 @@ export default class App extends Component {
             <div className="subtitle">Custom Class Name and other props for Text</div>
             <p className="content">
             You may want to add some styling to your text content instead of render it as a plain text. To do that you can use
-            <code>contentProps</code> prop. You can pass any valid HTML attribute.
+            <code>viewProps</code> prop. You can pass any valid HTML attribute.
             These props will be passed to content <code>div</code>.
             </p>
             <div className="columns">
@@ -218,7 +218,7 @@ export default class App extends Component {
                 <div className="subtitle">Output</div>
                 <EdiText
                   type="text"
-                  contentProps={{
+                  viewProps={{
                     className: 'my-react-header',
                     style: { borderRadius: 3 }
                   }}
