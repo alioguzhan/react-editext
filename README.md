@@ -65,9 +65,13 @@ saveButtonClassName|string|No|editext-save-button|Custom class name for save but
 cancelButtonClassName|string|No|editext-cancel-button|Custom class name for cancel button.
 editButtonClassName|string|No|editext-edit-button|Custom class name for edit button.
 
-## To Do
+## Browser Support
 
-- [x] Write Tests
+[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| ✔ | ✔ | ✔ | ✔ | ✔ | ✔ ? |
+
+* `rows` prop for textarea has no effect in IE/Edge. You can set its `height` with some css.
 
 ## License
 
