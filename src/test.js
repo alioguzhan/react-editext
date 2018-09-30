@@ -256,6 +256,7 @@ test('custom button titles are set properly', () => {
   )
   const editButtonClassName = editext.props().editButtonClassName
   const editButton = editext.find(`button.${editButtonClassName}`)
+  expect(editButton.text()).toEqual(editext.props().editButtonText)
   editButton.simulate('click')
 
   const saveButtonClassName = editext.props().saveButtonClassName
@@ -264,7 +265,6 @@ test('custom button titles are set properly', () => {
   const cancelButtonClassName = editext.props().cancelButtonClassName
   const cancelButton = editext.find(`button.${cancelButtonClassName}`)
 
-  expect(editButton.text()).toEqual(editext.props().editButtonText)
   expect(saveButton.text()).toEqual(editext.props().saveButtonText)
   expect(cancelButton.text()).toEqual(editext.props().cancelButtonText)
 })

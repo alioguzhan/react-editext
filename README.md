@@ -64,7 +64,6 @@ editButtonText|string|No|`''`|Title for edit button. Default is: &#9998;
 saveButtonClassName|string|No|editext-save-button|Custom class name for save button.
 cancelButtonClassName|string|No|editext-cancel-button|Custom class name for cancel button.
 editButtonClassName|string|No|editext-edit-button|Custom class name for edit button.
-containerClassName|string|No|editext-editing-container|Custom class name for container div.
 
 ## To Do
 

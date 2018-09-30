@@ -63,7 +63,7 @@ export default class EdiText extends Component {
     if (this.props.type === 'textarea') {
       return (
         <textarea
-          className={styles['editext-input']}
+          className={styles.editext_input}
           value={this.state.value}
           onChange={this._onInputChange}
           autoFocus={this.state.editing}
@@ -75,7 +75,7 @@ export default class EdiText extends Component {
       return (
         <input
           type={this.props.type}
-          className={styles['editext-input']}
+          className={styles.editext_input}
           value={this.state.value}
           onChange={this._onInputChange}
           autoFocus={this.state.editing}
@@ -87,7 +87,6 @@ export default class EdiText extends Component {
   }
   _renderEditingMode = () => {
     const {
-      containerClassName,
       saveButtonClassName,
       saveButtonText,
       cancelButtonClassName,
@@ -98,10 +97,10 @@ export default class EdiText extends Component {
     } = this.props
     const inputElem = this._renderInput()
     return (
-      <div className={styles['editext-main-container']}>
-        <div className={containerClassName}>
+      <React.Fragment>
+        <div>
           {inputElem}
-          <div className={styles['action-buttons-container']}>
+          <div className={styles.editext_action_buttons}>
             <button
               type='button'
               className={saveButtonClassName}
@@ -119,25 +118,24 @@ export default class EdiText extends Component {
           </div>
         </div>
         {!this.state.valid && !onValidationFail &&
-          <div className={styles['editext-validation-message']}>
+          <div className={styles.editext_validation_message}>
             {validationMessage}
           </div>
         }
         {hint && <div className={styles.hint}>{hint}</div>}
-      </div>
+      </React.Fragment>
     )
   }
   _renderViewMode = () => {
     const {
-      containerClassName,
       viewProps,
       editButtonClassName,
       editButtonText
     } = this.props
     return (
-      <div className={containerClassName}>
+      <div>
         <div {...viewProps}>{this.state.value}</div>
-        <div className={styles['action-buttons-container']}>
+        <div className={styles.editext_action_buttons}>
           <button
             type='button'
             className={editButtonClassName}
@@ -150,7 +148,12 @@ export default class EdiText extends Component {
     )
   }
   render() {
-    return this.state.editing ? this._renderEditingMode() : this._renderViewMode()
+    const mode = this.state.editing ? this._renderEditingMode() : this._renderViewMode()
+    return (
+      <div className={styles.editext_main_container}>
+        { mode }
+      </div>
+    )
   }
 }
 
@@ -164,10 +167,9 @@ EdiText.defaultProps = {
   saveButtonText: '',
   editButtonText: '',
   // Enzyme does not work propery with dynamic styles. This is temp. workaround.
-  saveButtonClassName: styles['editext-save-button'] || 'editext-save-button',
-  cancelButtonClassName: styles['editext-cancel-button'] || 'editext-cancel-button',
-  editButtonClassName: styles['editext-edit-button'] || 'editext-edit-button',
-  containerClassName: styles['editext-editing-container'] || 'editext-editing-container'
+  saveButtonClassName: styles.editext_save_button || 'editext_save_button',
+  cancelButtonClassName: styles.editext_cancel_button || 'editext_cancel_button',
+  editButtonClassName: styles.editext_edit_button || 'editext_edit_button'
 }
 
 EdiText.propTypes = {
@@ -185,7 +187,6 @@ EdiText.propTypes = {
   onCancel: PropTypes.func,
   onSave: PropTypes.func.isRequired,
   // classNames
-  containerClassName: PropTypes.string,
   saveButtonClassName: PropTypes.string,
   editButtonClassName: PropTypes.string,
   cancelButtonClassName: PropTypes.string,
