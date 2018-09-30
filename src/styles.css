@@ -63,3 +63,9 @@ button:hover {
   content: '\2713';
   margin: 3px;
 }
+.hint {
+  font-weight: 500;
+  color: lightslategray;
+  font-size: .7em;
+  margin-top: 3px;
+}

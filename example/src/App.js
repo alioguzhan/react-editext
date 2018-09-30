@@ -94,13 +94,14 @@ const example6 = `<EdiText
 
 const example7 = `<EdiText
   type="text"
+  hint="It is from Matrix Revolutions."
   inputProps={{
     placeholder: 'Type your answer here',
     style: {
       backgroundColor: '#233C51',
       color: '#E6ECF1',
       fontWeight: 500,
-      maxWidth: 200
+      width: 250
     },
     name: 'answer1'
   }}
@@ -108,6 +109,17 @@ const example7 = `<EdiText
     className: 'custom-view-class'
   }}
   value="No. The honor is still mine."
+  onSave={this.onSave}
+/>`
+
+const example8 = `<EdiText
+  type="text"
+  hint="React is not a framework, it is a library."
+  viewProps={{
+    className: 'react-answer-1',
+    style: { borderRadius: 3 }
+  }}
+  value="I am not sure..."
   onSave={this.onSave}
 />`
 
@@ -163,6 +175,34 @@ export default class App extends Component {
                   value="What is real? How do you define real?"
                   onSave={this.onSave}
                 />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Show a Hint Message</div>
+            <p className="content">
+            If you don't want to use another library and just want to show a simple message as hint, use the <code>hint</code> prop.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example8}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <p>What is the main difference between React and Angular?</p>
+                <div className="custom-wrapper">
+                  <EdiText
+                    type="text"
+                    hint="React is not a framework, it is a library."
+                    viewProps={{
+                      className: 'react-answer-1',
+                    }}
+                    value="I am not sure..."
+                    onSave={this.onSave}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -226,6 +266,72 @@ export default class App extends Component {
             </div>
           </div>
           <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Custom Props for Input Element</div>
+            <p className="content">
+            It is likely that you will want to add some props to input element.
+            You can pass any valid HTML attribute to the input element via <code>inputProps</code>.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example7}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <p>What was the Morpheus' answer when Neo say 'It was an honor, sir' ?</p>
+                <div className="custom-wrapper">
+                  <EdiText
+                    type="text"
+                    hint="It is from Matrix Revolutions."
+                    inputProps={{
+                      placeholder: 'Type your answer here',
+                      style: {
+                        backgroundColor: '#233C51',
+                        color: '#E6ECF1',
+                        fontWeight: 500,
+                        width: 250
+                      },
+                      name: 'answer1'
+                    }}
+                    viewProps={{
+                      className: 'custom-view-class'
+                    }}
+                    value="No. The honor is still mine."
+                    onSave={this.onSave}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Custom Props for Text Element</div>
+            <p className="content">
+            You may want to add some styling to your text content instead of render it as a plain text. To do that you can use
+            <code>viewProps</code> prop. You can pass any valid HTML attribute.
+            These props will be passed to content <code>div</code>.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example6}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="text"
+                  viewProps={{
+                    className: 'my-react-header',
+                    style: { borderRadius: 3 }
+                  }}
+                  value="Hello React!"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
             <div className="subtitle">Validate the Content</div>
             <p className="content">
               You can validate the value of input before save. Just pass a function to <code>validation</code> prop.
@@ -274,69 +380,6 @@ export default class App extends Component {
                     placeholder: "Don't use the word 'Smith'..."
                   }}
                   value="Why Mr. Anderson? Why? Why? Why?"
-                  onSave={this.onSave}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="tile is-parent is-vertical is-10">
-            <div className="subtitle">Custom Class Name and other props for Text</div>
-            <p className="content">
-            You may want to add some styling to your text content instead of render it as a plain text. To do that you can use
-            <code>viewProps</code> prop. You can pass any valid HTML attribute.
-            These props will be passed to content <code>div</code>.
-            </p>
-            <div className="columns">
-              <div className="column is-half">
-                <SyntaxHighlighter language="javascript" style={light}>
-                  {example6}
-                </SyntaxHighlighter>
-              </div>
-              <div className="column">
-                <div className="subtitle">Output</div>
-                <EdiText
-                  type="text"
-                  viewProps={{
-                    className: 'my-react-header',
-                    style: { borderRadius: 3 }
-                  }}
-                  value="Hello React!"
-                  onSave={this.onSave}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="tile is-parent is-vertical is-10">
-            <div className="subtitle">Custom Props for Input Element</div>
-            <p className="content">
-            It is likely that you will want to add some props to input element.
-            You can pass any valid HTML attribute to the input element via <code>inputProps</code>.
-            </p>
-            <div className="columns">
-              <div className="column is-half">
-                <SyntaxHighlighter language="javascript" style={light}>
-                  {example7}
-                </SyntaxHighlighter>
-              </div>
-              <div className="column">
-                <div className="subtitle">Output</div>
-                <p style={{ marginBottom: 10 }}>What was the Morpheus' answer when Neo say 'It was an honor, sir' ?</p>
-                <EdiText
-                  type="text"
-                  inputProps={{
-                    placeholder: 'Type your answer here',
-                    style: {
-                      backgroundColor: '#233C51',
-                      color: '#E6ECF1',
-                      fontWeight: 500,
-                      width: 250
-                    },
-                    name: 'answer1'
-                  }}
-                  viewProps={{
-                    className: 'custom-view-class'
-                  }}
-                  value="No. The honor is still mine."
                   onSave={this.onSave}
                 />
               </div>

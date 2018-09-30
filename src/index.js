@@ -93,7 +93,8 @@ export default class EdiText extends Component {
       cancelButtonClassName,
       cancelButtonText,
       onValidationFail,
-      validationMessage
+      validationMessage,
+      hint
     } = this.props
     const inputElem = this._renderInput()
     return (
@@ -122,6 +123,7 @@ export default class EdiText extends Component {
             {validationMessage}
           </div>
         }
+        {hint && <div className={styles.hint}>{hint}</div>}
       </div>
     )
   }
@@ -172,6 +174,7 @@ EdiText.propTypes = {
   inputProps: PropTypes.object,
   viewProps: PropTypes.object,
   value: PropTypes.string.isRequired,
+  hint: PropTypes.string,
   validationMessage: PropTypes.string,
   validation: PropTypes.func,
   onValidationFail: PropTypes.func,

@@ -1,6 +1,6 @@
 import React from 'react'
 import EdiText from './'
-import {configure, mount} from 'enzyme'
+import {configure, mount, shallow} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
@@ -29,8 +29,17 @@ test('props are working fine', () => {
   expect(editext.props().type).toEqual('text')
   expect(editext.props().value).toEqual('Wake up Neo')
   expect(editext.props().onSave).toBeInstanceOf(Function)
-  editext.setProps({ type: 'textarea' })
+  editext.setProps({
+    type: 'textarea',
+    hint: 'iamhint',
+    inputProps: {
+      className: 'my-class-name',
+      name: 'username'
+    }
+  })
   expect(editext.props().type).toEqual('textarea')
+  expect(editext.props().hint).toEqual('iamhint')
+  expect(editext.props().inputProps).toMatchObject({className: 'my-class-name', name: 'username'})
 })
 
 test('text input initial value is same as prop value', () => {
