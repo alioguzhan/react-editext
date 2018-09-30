@@ -52,13 +52,6 @@ export default class EdiText extends Component {
     )
   }
 
-  _onKeyPress = event => {
-    if (event.key === 'Enter' ||
-      event.charCode === 13 ||
-      event.key === 'Enter') {
-      this._onSave()
-    }
-  }
   _renderInput() {
     if (this.props.type === 'textarea') {
       return (
@@ -67,7 +60,6 @@ export default class EdiText extends Component {
           value={this.state.value}
           onChange={this._onInputChange}
           autoFocus={this.state.editing}
-          onKeyDown={this._onKeyPress}
           {...this.props.inputProps}
         />
       )
@@ -79,7 +71,6 @@ export default class EdiText extends Component {
           value={this.state.value}
           onChange={this._onInputChange}
           autoFocus={this.state.editing}
-          onKeyDown={this._onKeyPress}
           {...this.props.inputProps}
         />
       )
