@@ -21,6 +21,8 @@ And very special thanks to [Oririner](https://www.reddit.com/user/Oririner) from
   > You don't have to stick to the default validation message and styling. You can track the `validity` and act based on its value. See the examples page.
 - Add `hint` prop.
   > Useful if you want to show a simple hint message at the bottom of input element.
+- Support for more input types. :white_check_mark:
+  > New Types -> `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`
 - Add more examples -> https://alioguzhan.github.io/react-editext/
 - Remove `inputClassName` and `containerClassName` props :warning: :x:
   > Since we added `inputProps` and `viewProps` these are no longer needed.
