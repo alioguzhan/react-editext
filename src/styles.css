@@ -13,56 +13,55 @@ button:hover {
   cursor: pointer;
   background-color: rgba(148, 148, 148, 0.1);
 }
-.input-container {
-  width: 100%;
-  display: flex;
-}
-.editext-input {
+.editext_input {
   width: 100%;
   border: 1px solid rgb(212, 212, 212);
   padding: 0.6em;
   outline: none;
 }
-.editext-main-container {
+.editext_main_container {
   display: flex;
   flex-direction: column;
 }
-.editext-validation-message {
+.editext_main_container > div:first-child {
+  display: flex;
+  align-items: center;
+}
+.editext_validation_message {
   font-weight: 500;
   color: crimson;
   font-size: .7em;
   margin-top: 3px;
 }
-.editext-editing-container {
-  display: flex;
-  align-items: center;
-}
-.editext-editing-container .action-buttons-container {
+.editext_action_buttons {
   display: flex;
   margin-left: 5px;
 }
-.editext-editing-container .action-buttons-container:last-child {
-  margin-left: 5px;
-}
-.editext-cancel-button {
+.editext_cancel_button {
   color: crimson;
 }
-.editext-cancel-button:before {
+.editext_cancel_button:before {
   content: '\2715';
   margin: 3px;
 }
-.editext-edit-button {
+.editext_edit_button {
   color: #000;
 }
-.editext-edit-button:before {
+.editext_edit_button:before {
   content: '\270E';
   margin: 3px;
 }
-.editext-save-button {
+.editext_save_button {
   color: darkgreen;
   margin-right: 3px;
 }
-.editext-save-button:before {
+.editext_save_button:before {
   content: '\2713';
   margin: 3px;
+}
+.hint {
+  font-weight: 500;
+  color: lightslategray;
+  font-size: .7em;
+  margin-top: 3px;
 }
