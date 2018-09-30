@@ -172,7 +172,10 @@ EdiText.propTypes = {
   validation: PropTypes.func,
   onValidationFail: PropTypes.func,
   type: PropTypes.oneOf(
-    ['text', 'textarea', 'email', 'number']
+    [
+      'text', 'textarea', 'email', 'number', 'date', 'datetime-local',
+      'time', 'month', 'url', 'week', 'tel'
+    ]
   ).isRequired,
   // Events
   onCancel: PropTypes.func,

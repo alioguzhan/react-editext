@@ -49,8 +49,8 @@ You can customize almost everything based on your needs. Please navigate to [Pro
 | Prop | Type | Required |Default | Note
 |---|---|---|---|---|
 value|string|Yes|`''`|Value of the content and input [in edit mode]
-type|string|Yes|text|Input type. Possible options are: `text`, `number`, `email`, `textarea`
-hint|string|No|text|A simple hint message appears at the bottom of input element
+type|string|Yes|text|Input type. Possible options are: `text`, `number`, `email`, `textarea`, `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`
+hint|string|No|`''`|A simple hint message appears at the bottom of input element
 onSave|function|Yes||Function will be called when save button clicked. `value` is passed to cb.
 inputProps|object|No||Props to be passed to input element. Any kind of valid DOM attributes are welcome.
 viewProps|object|No||Props to be passed to div element that shows the text. You can specify your own `styles` or `className`
@@ -61,9 +61,9 @@ onCancel|function|No||Function will be called when editing is cancelled.
 saveButtonText|string|No|`''`|Title for save button. Default is: &#10003;
 cancelButtonText|string|No|`''`|Title for cancel button. Default is: &#10005;
 editButtonText|string|No|`''`|Title for edit button. Default is: &#9998;
-saveButtonClassName|string|No|editext-save-button|Custom class name for save button.
-cancelButtonClassName|string|No|editext-cancel-button|Custom class name for cancel button.
-editButtonClassName|string|No|editext-edit-button|Custom class name for edit button.
+saveButtonClassName|string|No||Custom class name for save button.
+cancelButtonClassName|string|No||Custom class name for cancel button.
+editButtonClassName|string|No||Custom class name for edit button.
 
 ## Browser Support
 

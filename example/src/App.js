@@ -123,6 +123,17 @@ const example8 = `<EdiText
   onSave={this.onSave}
 />`
 
+const example9 = `<EdiText
+  type="date"
+  inputProps={{
+    min: "2000-01-01",
+    max: "2049-01-01"
+  }}
+  hint="All dates are allowed between 2000 and 2049"
+  value={new Date().toDateString()}
+  onSave={this.onSave}
+/>`
+
 export default class App extends Component {
   onSave = val => {
     console.log("Edited Value -> ", val);
@@ -380,6 +391,33 @@ export default class App extends Component {
                     placeholder: "Don't use the word 'Smith'..."
                   }}
                   value="Why Mr. Anderson? Why? Why? Why?"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Usage for Date Values</div>
+            <p className="content">
+              You can use EdiText for date inputs as well. Just type <code>date</code> to type prop.
+              Other related and types are <code>datetime-local</code>, <code>time</code>, <code>week</code>, <code>month</code>
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example9}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="date"
+                  inputProps={{
+                    min: "2000-01-01",
+                    max: "2049-01-01"
+                  }}
+                  hint="All dates are allowed between 2000 and 2049"
+                  value={new Date().toLocaleString()}
                   onSave={this.onSave}
                 />
               </div>
