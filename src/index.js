@@ -57,21 +57,21 @@ export default class EdiText extends Component {
       return (
         <textarea
           className={styles.editext_input}
+          {...this.props.inputProps}
           value={this.state.value}
           onChange={this._onInputChange}
           autoFocus={this.state.editing}
-          {...this.props.inputProps}
         />
       )
     } else {
       return (
         <input
-          type={this.props.type}
           className={styles.editext_input}
+          {...this.props.inputProps}
           value={this.state.value}
+          type={this.props.type}
           onChange={this._onInputChange}
           autoFocus={this.state.editing}
-          {...this.props.inputProps}
         />
       )
     }
