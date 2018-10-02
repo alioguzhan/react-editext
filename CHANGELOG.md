@@ -10,6 +10,10 @@
   </ul>
 </details>
 
+## 2.0.1 - October 2, 2018
+
+- fix - move inputProps top to prevent overrides to component logic.
+
 ## 2.0.0 - September 30, 2018 :rocket: :fire: :pushpin:
 This version brings some important and breaking changes. Please consider to upgrade v2.
 
