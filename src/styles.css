@@ -23,7 +23,12 @@ button:hover {
   display: flex;
   flex-direction: column;
 }
-.editext_main_container > div:first-child {
+.editext_editing_container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.editext_view_container {
   display: flex;
   align-items: center;
 }

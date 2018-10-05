@@ -88,8 +88,8 @@ export default class EdiText extends Component {
     } = this.props
     const inputElem = this._renderInput()
     return (
-      <React.Fragment>
-        <div>
+      <div>
+        <div className={styles.editext_editing_container}>
           {inputElem}
           <div className={styles.editext_action_buttons}>
             <button
@@ -114,7 +114,7 @@ export default class EdiText extends Component {
           </div>
         }
         {hint && <div className={styles.hint}>{hint}</div>}
-      </React.Fragment>
+      </div>
     )
   }
   _renderViewMode = () => {
@@ -124,7 +124,7 @@ export default class EdiText extends Component {
       editButtonText
     } = this.props
     return (
-      <div>
+      <div className={styles.editext_view_container}>
         <div {...viewProps}>{this.state.value}</div>
         <div className={styles.editext_action_buttons}>
           <button
