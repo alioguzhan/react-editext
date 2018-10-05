@@ -134,6 +134,20 @@ const example9 = `<EdiText
   onSave={this.onSave}
 />`
 
+const example10 = `<EdiText
+  type="text"
+  hint={
+    <span className="custom-hint">
+      <i>PhoneGap is a hybrid technology, not native.</i>
+    </span>
+  }
+  viewProps={{
+    className: 'react-answer-1',
+  }}
+  value="I am not sure..."
+  onSave={this.onSave}
+/>`
+
 export default class App extends Component {
   onSave = val => {
     console.log("Edited Value -> ", val);
@@ -207,6 +221,38 @@ export default class App extends Component {
                   <EdiText
                     type="text"
                     hint="React is not a framework, it is a library."
+                    viewProps={{
+                      className: 'react-answer-1',
+                    }}
+                    value="I am not sure..."
+                    onSave={this.onSave}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Custom Element as Hint Message</div>
+            <p className="content">
+            In fact, you can render any valid React Element in hint section.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example10}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <p>What is the difference between React Native and PhoneGap ?</p>
+                <div className="custom-wrapper">
+                  <EdiText
+                    type="text"
+                    hint={
+                      <span className="custom-hint">
+                        <i>PhoneGap is a hybrid technology, not native.</i>
+                      </span>
+                    }
                     viewProps={{
                       className: 'react-answer-1',
                     }}

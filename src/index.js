@@ -167,7 +167,7 @@ EdiText.propTypes = {
   inputProps: PropTypes.object,
   viewProps: PropTypes.object,
   value: PropTypes.string.isRequired,
-  hint: PropTypes.string,
+  hint: PropTypes.node,
   validationMessage: PropTypes.string,
   validation: PropTypes.func,
   onValidationFail: PropTypes.func,

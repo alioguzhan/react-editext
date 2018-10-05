@@ -16,3 +16,12 @@
   padding: 20px;
   margin-top: 10px;
 }
+
+.custom-hint {
+  font-size: 12px;
+  color: brown;
+  font-weight: bold;
+}
+.custom-hint:before {
+  content: '\2618';
+}
