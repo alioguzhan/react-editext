@@ -1,3 +1,22 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="2.1.0"></a>
+# 2.1.0 (2018-10-05)
+
+
+### Bug Fixes
+
+* revert React.Fragment usage ([3eaf836](https://github.com/alioguzhan/react-editext/commit/3eaf836))
+
+
+### Features
+
+* allow any valid element for hint prop ([1d802b6](https://github.com/alioguzhan/react-editext/commit/1d802b6))
+
+
+
 ## 2.0.1 - October 2, 2018
 
 - fix - move inputProps top to prevent overrides to component logic.
