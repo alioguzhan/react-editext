@@ -1,15 +1,3 @@
-# Changelog
-
-## [ Unreleased ]
-<details>
-  <summary>
-    Changes that have landed in master but are not yet released.
-    Click to see more.
-  </summary>
-  <ul>
-  </ul>
-</details>
-
 ## 2.0.1 - October 2, 2018
 
 - fix - move inputProps top to prevent overrides to component logic.
