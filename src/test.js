@@ -1,6 +1,6 @@
 import React from 'react'
 import EdiText from './'
-import {configure, mount, shallow} from 'enzyme'
+import {configure, mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
@@ -14,8 +14,7 @@ test('edit button activates editing mode', () => {
     />
   )
   expect(editext.state().editing).toEqual(false)
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+  editext.find(`button`).at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 })
 
@@ -98,15 +97,13 @@ test('cancelling reverts the input value to prop value', () => {
       onSave={val => true}
     />
   )
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+  editext.find(`button`).at(0).simulate('click')
 
   const editInput = editext.find(`input[type="text"]`)
   editInput.instance().value = 'updated matrix-2'
   editInput.simulate('change')
 
-  const cancelButtonClassName = editext.props().cancelButtonClassName
-  const cancelButton = editext.find(`button.${cancelButtonClassName}`)
+  const cancelButton = editext.find(`button`).at(1)
   expect(editext.state().value).toEqual('updated matrix-2')
   cancelButton.simulate('click')
   expect(editext.state().value).toEqual(editext.props().value)
@@ -122,15 +119,13 @@ test('save action sets the input value properly', () => {
   )
   expect(editext.state().editing).toEqual(false)
 
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+  editext.find(`button`).at(0).simulate('click')
 
   const editInput = editext.find(`input[type="text"]`)
   editInput.instance().value = 'updated value.'
   editInput.simulate('change')
 
-  const saveButtonClassName = editext.props().saveButtonClassName
-  const saveButton = editext.find(`button.${saveButtonClassName}`)
+  const saveButton = editext.find(`button`).at(0)
   saveButton.simulate('click')
 
   expect(editext.state().savedValue).toEqual('updated value.')
@@ -146,12 +141,10 @@ test('cancel action deactivates the editing mode', () => {
   )
   expect(editext.state().editing).toEqual(false)
 
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+  editext.find(`button`).at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
-  const cancelButtonClassName = editext.props().cancelButtonClassName
-  const cancelButton = editext.find(`button.${cancelButtonClassName}`)
+  const cancelButton = editext.find(`button`).at(1)
   cancelButton.simulate('click')
   expect(editext.state().editing).toEqual(false)
 })
@@ -165,13 +158,10 @@ test('save action deactivates the editing mode', () => {
     />
   )
   expect(editext.state().editing).toEqual(false)
-
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+  editext.find(`button`).at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
-  const saveButtonClassName = editext.props().saveButtonClassName
-  const saveButton = editext.find(`button.${saveButtonClassName}`)
+  const saveButton = editext.find(`button`).at(0)
   saveButton.simulate('click')
   expect(editext.state().editing).toEqual(false)
 })
@@ -189,15 +179,13 @@ test('validation prop validates the input value', () => {
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+  editext.find(`button`).at(0).simulate('click')
 
-  const editInput = editext.find(`input[type="text"]`)
+  const editInput = editext.find(`input[type="text"]`).at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
   editInput.simulate('change')
 
-  const saveButtonClassName = editext.props().saveButtonClassName
-  const saveButton = editext.find(`button.${saveButtonClassName}`)
+  const saveButton = editext.find(`button`).at(0)
   saveButton.simulate('click')
   expect(editext.state().valid).toEqual(false)
   expect(editext.state().editing).toEqual(true)
@@ -225,15 +213,13 @@ test('onValidationFail method is being triggered when validation fails', () => {
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+  editext.find(`button`).at(0).simulate('click')
 
-  const editInput = editext.find(`input[type="text"]`)
+  const editInput = editext.find(`input[type="text"]`).at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
   editInput.simulate('change')
 
-  const saveButtonClassName = editext.props().saveButtonClassName
-  const saveButton = editext.find(`button.${saveButtonClassName}`)
+  const saveButton = editext.find(`button`).at(0)
   saveButton.simulate('click')
 
   expect(isValid).toEqual(false)
@@ -254,16 +240,13 @@ test('custom button titles are set properly', () => {
       onSave={val => true}
     />
   )
-  const editButtonClassName = editext.props().editButtonClassName
-  const editButton = editext.find(`button.${editButtonClassName}`)
+  const editButton = editext.find(`button`).at(0)
   expect(editButton.text()).toEqual(editext.props().editButtonText)
   editButton.simulate('click')
 
-  const saveButtonClassName = editext.props().saveButtonClassName
-  const saveButton = editext.find(`button.${saveButtonClassName}`)
+  const saveButton = editext.find(`button`).at(0)
 
-  const cancelButtonClassName = editext.props().cancelButtonClassName
-  const cancelButton = editext.find(`button.${cancelButtonClassName}`)
+  const cancelButton = editext.find(`button`).at(1)
 
   expect(saveButton.text()).toEqual(editext.props().saveButtonText)
   expect(cancelButton.text()).toEqual(editext.props().cancelButtonText)

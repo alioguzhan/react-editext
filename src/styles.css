@@ -1,4 +1,4 @@
-button {
+.Editext__button {
   border-radius: 1px;
   outline: none;
   padding: 0.6em;
@@ -7,64 +7,63 @@ button {
   border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
   border-style: solid;
   border-width: 1px;
-  background-color: #fff;
 }
-button:hover {
+.Editext__button:hover {
   cursor: pointer;
   background-color: rgba(148, 148, 148, 0.1);
 }
-.editext_input {
+.Editext__input {
   width: 100%;
   border: 1px solid rgb(212, 212, 212);
   padding: 0.6em;
   outline: none;
 }
-.editext_main_container {
+.Editext__main_container {
   display: flex;
   flex-direction: column;
 }
-.editext_editing_container {
+.Editext__editing_container {
   display: flex;
   flex: 1;
   align-items: center;
 }
-.editext_view_container {
+.Editext__view_container {
   display: flex;
   align-items: center;
 }
-.editext_validation_message {
+.Editext__buttons_container {
+  display: flex;
+  margin-left: 5px;
+}
+.Editext__validation_message {
   font-weight: 500;
   color: crimson;
   font-size: .7em;
   margin-top: 3px;
 }
-.editext_action_buttons {
-  display: flex;
-  margin-left: 5px;
-}
-.editext_cancel_button {
+.Editext__cancel_button {
   color: crimson;
 }
-.editext_cancel_button:before {
+.Editext__cancel_button:before {
   content: '\2715';
   margin: 3px;
 }
-.editext_edit_button {
+.Editext__edit_button {
   color: #000;
 }
-.editext_edit_button:before {
+.Editext__edit_button:before {
   content: '\270E';
   margin: 3px;
 }
-.editext_save_button {
+.Editext__save_button {
   color: darkgreen;
   margin-right: 3px;
 }
-.editext_save_button:before {
+.Editext__save_button:before {
   content: '\2713';
   margin: 3px;
 }
-.hint {
+.Editext__hint {
   font-weight: 500;
   color: lightslategray;
   font-size: .7em;

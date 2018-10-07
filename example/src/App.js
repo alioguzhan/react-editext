@@ -148,6 +148,18 @@ const example10 = `<EdiText
   onSave={this.onSave}
 />`
 
+const example11 = `<EdiText
+  type="text"
+  saveButtonText="Apply"
+  cancelButtonText="Cancel"
+  saveButtonClassName="custom-save-button"
+  editButtonClassName="custom-edit-button"
+  cancelButtonClassName="custom-cancel-button"
+  editButtonText="Edit"
+  value="Why, Mr. Anderson? Why? Why do you persist?"
+  onSave={this.onSave}
+/>`
+
 export default class App extends Component {
   onSave = val => {
     console.log("Edited Value -> ", val);
@@ -315,6 +327,33 @@ export default class App extends Component {
                   type="text"
                   saveButtonText="Apply"
                   cancelButtonText="Cancel"
+                  editButtonText="Edit"
+                  value="Why, Mr. Anderson? Why? Why do you persist?"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Custom HTML Classes for Buttons</div>
+            <p className="content">
+                You can use your own classes for action buttons [Edit - Save - Cancel]
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example11}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="text"
+                  saveButtonText="Apply"
+                  cancelButtonText="Cancel"
+                  saveButtonClassName="custom-save-button"
+                  editButtonClassName="custom-edit-button"
+                  cancelButtonClassName="custom-cancel-button"
                   editButtonText="Edit"
                   value="Why, Mr. Anderson? Why? Why do you persist?"
                   onSave={this.onSave}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.css'
+import classnames from 'classnames'
 
 export default class EdiText extends Component {
   constructor(props) {
@@ -11,6 +12,10 @@ export default class EdiText extends Component {
       value: props.value || '',
       savedValue: ''
     }
+    this.editButton = React.createRef()
+    this.saveButton = React.createRef()
+    this.cancelButton = React.createRef()
+    this.input = React.createRef()
   }
 
   _onInputChange = e => {
@@ -56,7 +61,8 @@ export default class EdiText extends Component {
     if (this.props.type === 'textarea') {
       return (
         <textarea
-          className={styles.editext_input}
+          ref={this.input}
+          className={styles.Editext__input}
           {...this.props.inputProps}
           value={this.state.value}
           onChange={this._onInputChange}
@@ -66,7 +72,8 @@ export default class EdiText extends Component {
     } else {
       return (
         <input
-          className={styles.editext_input}
+          ref={this.input}
+          className={styles.Editext__input}
           {...this.props.inputProps}
           value={this.state.value}
           type={this.props.type}
@@ -87,21 +94,35 @@ export default class EdiText extends Component {
       hint
     } = this.props
     const inputElem = this._renderInput()
+    // calculate save button classes
+    const saveButtonDefaultClasses = classnames(
+      `${styles.Editext__button}`,
+      `${styles.Editext__save_button}`
+    )
+    const saveButtonClass = saveButtonClassName || saveButtonDefaultClasses
+    // calculate cancel button classes
+    const cancelButtonDefaultClasses = classnames(
+      `${styles.Editext__button}`,
+      `${styles.Editext__cancel_button}`
+    )
+    const cancelButtonClass = cancelButtonClassName || cancelButtonDefaultClasses
     return (
       <div>
-        <div className={styles.editext_editing_container}>
+        <div className={styles.Editext__editing_container}>
           {inputElem}
-          <div className={styles.editext_action_buttons}>
+          <div className={styles.Editext__buttons_container}>
             <button
+              ref={this.saveButton}
               type='button'
-              className={saveButtonClassName}
+              className={saveButtonClass}
               onClick={this._onSave}
             >
               {saveButtonText}
             </button>
             <button
+              ref={this.cancelButton}
               type='button'
-              className={cancelButtonClassName}
+              className={cancelButtonClass}
               onClick={this._onCancel}
             >
               {cancelButtonText}
@@ -109,11 +130,11 @@ export default class EdiText extends Component {
           </div>
         </div>
         {!this.state.valid && !onValidationFail &&
-          <div className={styles.editext_validation_message}>
+          <div className={styles.Editext__validation_message}>
             {validationMessage}
           </div>
         }
-        {hint && <div className={styles.hint}>{hint}</div>}
+        {hint && <div className={styles.Editext__hint}>{hint}</div>}
       </div>
     )
   }
@@ -123,13 +144,20 @@ export default class EdiText extends Component {
       editButtonClassName,
       editButtonText
     } = this.props
+    // calculate edit button classes
+    const editButtonDefaultClasses = classnames(
+      `${styles.Editext__button}`,
+      `${styles.Editext__edit_button}`
+    )
+    const editButtonClass = editButtonClassName || editButtonDefaultClasses
     return (
-      <div className={styles.editext_view_container}>
+      <div className={styles.Editext__view_container}>
         <div {...viewProps}>{this.state.value}</div>
-        <div className={styles.editext_action_buttons}>
+        <div className={styles.Editext__buttons_container}>
           <button
+            ref={this.editButton}
             type='button'
-            className={editButtonClassName}
+            className={editButtonClass}
             onClick={this._activateEditMode}
           >
             {editButtonText}
@@ -141,7 +169,7 @@ export default class EdiText extends Component {
   render() {
     const mode = this.state.editing ? this._renderEditingMode() : this._renderViewMode()
     return (
-      <div className={styles.editext_main_container}>
+      <div className={styles.Editext__main_container}>
         { mode }
       </div>
     )
@@ -156,11 +184,7 @@ EdiText.defaultProps = {
   onCancel: () => { },
   cancelButtonText: '',
   saveButtonText: '',
-  editButtonText: '',
-  // Enzyme does not work propery with dynamic styles. This is temp. workaround.
-  saveButtonClassName: styles.editext_save_button || 'editext_save_button',
-  cancelButtonClassName: styles.editext_cancel_button || 'editext_cancel_button',
-  editButtonClassName: styles.editext_edit_button || 'editext_edit_button'
+  editButtonText: ''
 }
 
 EdiText.propTypes = {

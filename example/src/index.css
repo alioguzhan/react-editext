@@ -25,3 +25,18 @@
 .custom-hint:before {
   content: '\2618';
 }
+.custom-save-button {
+  background-color: purple;
+  color: white;
+  padding: 5px;
+}
+.custom-edit-button {
+  background-color: cadetblue;
+  color: white;
+  padding: 5px;
+}
+.custom-cancel-button {
+  background-color: darkolivegreen;
+  color: white;
+  padding: 5px;
+}
