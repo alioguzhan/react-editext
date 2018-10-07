@@ -10,7 +10,7 @@
 }
 .Editext__button:hover {
   cursor: pointer;
-  background-color: rgba(148, 148, 148, 0.1);
+  background-color: rgba(241, 241, 241, 1.00)
 }
 .Editext__input {
   width: 100%;
@@ -68,4 +68,5 @@
   color: lightslategray;
   font-size: .7em;
   margin-top: 3px;
+  text-align: left;
 }

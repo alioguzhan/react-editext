@@ -2,6 +2,15 @@
   "name": "react-editext",
   "version": "2.1.1",
   "description": "Editable Text Component for React Applications",
+  "keywords": [
+    "react",
+    "editable",
+    "editable text",
+    "editable content",
+    "contenteditable",
+    "content editable",
+    "inline edit"
+  ],
   "author": "alioguzhan",
   "license": "MIT",
   "repository": "alioguzhan/react-editext",
