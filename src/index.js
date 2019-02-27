@@ -86,9 +86,9 @@ export default class EdiText extends Component {
   _renderEditingMode = () => {
     const {
       saveButtonClassName,
-      saveButtonText,
+      saveButtonContent,
       cancelButtonClassName,
-      cancelButtonText,
+      cancelButtonContent,
       onValidationFail,
       validationMessage,
       hint
@@ -117,7 +117,7 @@ export default class EdiText extends Component {
               className={saveButtonClass}
               onClick={this._onSave}
             >
-              {saveButtonText}
+              {saveButtonContent}
             </button>
             <button
               ref={this.cancelButton}
@@ -125,7 +125,7 @@ export default class EdiText extends Component {
               className={cancelButtonClass}
               onClick={this._onCancel}
             >
-              {cancelButtonText}
+              {cancelButtonContent}
             </button>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default class EdiText extends Component {
     const {
       viewProps,
       editButtonClassName,
-      editButtonText
+      editButtonContent
     } = this.props
     // calculate edit button classes
     const editButtonDefaultClasses = classnames(
@@ -160,7 +160,7 @@ export default class EdiText extends Component {
             className={editButtonClass}
             onClick={this._activateEditMode}
           >
-            {editButtonText}
+            {editButtonContent}
           </button>
         </div>
       </div>
@@ -182,9 +182,9 @@ EdiText.defaultProps = {
   validationMessage: 'Invalid Value',
   validation: value => true,
   onCancel: () => { },
-  cancelButtonText: '',
-  saveButtonText: '',
-  editButtonText: ''
+  cancelButtonContent: '',
+  saveButtonContent: '',
+  editButtonContent: ''
 }
 
 EdiText.propTypes = {
@@ -209,7 +209,7 @@ EdiText.propTypes = {
   editButtonClassName: PropTypes.string,
   cancelButtonClassName: PropTypes.string,
   // Custom Button Texts
-  cancelButtonText: PropTypes.string,
-  saveButtonText: PropTypes.string,
-  editButtonText: PropTypes.string
+  cancelButtonContent: PropTypes.any,
+  saveButtonContent: PropTypes.any,
+  editButtonContent: PropTypes.any
 }
