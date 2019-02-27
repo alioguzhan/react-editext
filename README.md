@@ -59,12 +59,13 @@ validation|function|No||Pass your own validation function. takes one param -> `v
 validationMessage|string|No|Invalid Value| If validation fails this message will appear
 onValidationFail|function|No||Pass your own function to track when validation failed. See Examples page for the usage.
 onCancel|function|No||Function will be called when editing is cancelled.
-saveButtonText|string|No|`''`|Title for save button. Default is: &#10003;
-cancelButtonText|string|No|`''`|Title for cancel button. Default is: &#10005;
-editButtonText|string|No|`''`|Title for edit button. Default is: &#9998;
+saveButtonContent|node|No|`''`|Content for save button. Any valid element is allowed. Default is: &#10003;
+cancelButtonContent|node|No|`''`|Content for cancel button. Any valid element is allowed. Default is: &#10005;
+editButtonContent|node|No|`''`|Content for edit button. Any valid element is allowed. Default is: &#9998;
 saveButtonClassName|string|No||Custom class name for save button.
 cancelButtonClassName|string|No||Custom class name for cancel button.
 editButtonClassName|string|No||Custom class name for edit button.
+hideIcons|bool|No|`false`|Set it to `true` if you don't want to see default icons on action buttons. See Examples page for more details.
 
 ## Browser Support
 

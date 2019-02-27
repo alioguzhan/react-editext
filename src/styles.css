@@ -63,6 +63,10 @@
   content: '\2713';
   margin: 3px;
 }
+.Editext__hide_default_icons:before {
+  content: none;
+  margin: 0;
+}
 .Editext__hint {
   font-weight: 500;
   color: lightslategray;

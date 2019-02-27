@@ -41,9 +41,9 @@ const example2 = `<EdiText
 `;
 const example3 = `<EdiText
   type="textarea"
-  saveButtonText="Apply"
-  cancelButtonText="Cancel"
-  editButtonText="Edit"
+  saveButtonContent="Apply"
+  cancelButtonContent={<strong>Cancel</strong>}
+  editButtonContent="Edit"
   value="Why, Mr. Anderson? Why? Why do you persist?"
   onSave={this.onSave}
 />
@@ -150,14 +150,24 @@ const example10 = `<EdiText
 
 const example11 = `<EdiText
   type="text"
-  saveButtonText="Apply"
-  cancelButtonText="Cancel"
+  saveButtonContent="Apply"
+  cancelButtonContent="Cancel"
   saveButtonClassName="custom-save-button"
   editButtonClassName="custom-edit-button"
   cancelButtonClassName="custom-cancel-button"
-  editButtonText="Edit"
+  editButtonContent="Edit"
   value="Why, Mr. Anderson? Why? Why do you persist?"
   onSave={this.onSave}
+/>`
+
+const example12 = `<EdiText
+  type="textarea"
+  saveButtonContent="Apply"
+  cancelButtonContent={<strong>Cancel</strong>}
+  editButtonContent="Edit"
+  value="Why, Mr. Anderson? Why? Why do you persist?"
+  onSave={this.onSave}
+  hideIcons={true}
 />`
 
 export default class App extends Component {
@@ -310,10 +320,10 @@ export default class App extends Component {
             </div>
           </div>
           <div className="tile is-parent is-vertical is-10">
-            <div className="subtitle">Custom Button Titles</div>
+            <div className="subtitle">Custom Button Contents</div>
             <p className="content">
-              By default, Action buttons have no titles. They are just icons. But
-              you can append any text next to those icons. See the example below.
+              By default, Action buttons have no titles. They are just some simple icons. But
+              you can append <strong>any valid element</strong> next to those icons. See the example below.
             </p>
             <div className="columns">
               <div className="column is-half">
@@ -325,10 +335,36 @@ export default class App extends Component {
                 <div className="subtitle">Output</div>
                 <EdiText
                   type="text"
-                  saveButtonText="Apply"
-                  cancelButtonText="Cancel"
-                  editButtonText="Edit"
+                  saveButtonContent="Apply"
+                  cancelButtonContent={<strong>Cancel</strong>}
+                  editButtonContent="Edit"
                   value="Why, Mr. Anderson? Why? Why do you persist?"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Removing Default Icons</div>
+            <p className="content">
+              If you prefer to disable default icons, you can set <code>hideIcons</code> prop to <code>true</code>.
+              Don't forget to set a content or title for your actions buttons. They will have empty labels otherwise.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example12}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="text"
+                  saveButtonContent="Apply"
+                  cancelButtonContent={<strong>Cancel</strong>}
+                  editButtonContent="Edit"
+                  value="Why, Mr. Anderson? Why? Why do you persist?"
+                  hideIcons={true}
                   onSave={this.onSave}
                 />
               </div>
@@ -349,12 +385,12 @@ export default class App extends Component {
                 <div className="subtitle">Output</div>
                 <EdiText
                   type="text"
-                  saveButtonText="Apply"
-                  cancelButtonText="Cancel"
+                  saveButtonContent="Apply"
+                  cancelButtonContent="Cancel"
                   saveButtonClassName="custom-save-button"
                   editButtonClassName="custom-edit-button"
                   cancelButtonClassName="custom-cancel-button"
-                  editButtonText="Edit"
+                  editButtonContent="Edit"
                   value="Why, Mr. Anderson? Why? Why do you persist?"
                   onSave={this.onSave}
                 />

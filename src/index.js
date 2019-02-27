@@ -86,24 +86,27 @@ export default class EdiText extends Component {
   _renderEditingMode = () => {
     const {
       saveButtonClassName,
-      saveButtonText,
+      saveButtonContent,
       cancelButtonClassName,
-      cancelButtonText,
+      cancelButtonContent,
       onValidationFail,
       validationMessage,
-      hint
+      hint,
+      hideIcons
     } = this.props
     const inputElem = this._renderInput()
     // calculate save button classes
     const saveButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
-      `${styles.Editext__save_button}`
+      `${styles.Editext__save_button}`,
+      hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const saveButtonClass = saveButtonClassName || saveButtonDefaultClasses
     // calculate cancel button classes
     const cancelButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
-      `${styles.Editext__cancel_button}`
+      `${styles.Editext__cancel_button}`,
+      hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const cancelButtonClass = cancelButtonClassName || cancelButtonDefaultClasses
     return (
@@ -117,7 +120,7 @@ export default class EdiText extends Component {
               className={saveButtonClass}
               onClick={this._onSave}
             >
-              {saveButtonText}
+              {saveButtonContent}
             </button>
             <button
               ref={this.cancelButton}
@@ -125,7 +128,7 @@ export default class EdiText extends Component {
               className={cancelButtonClass}
               onClick={this._onCancel}
             >
-              {cancelButtonText}
+              {cancelButtonContent}
             </button>
           </div>
         </div>
@@ -142,12 +145,14 @@ export default class EdiText extends Component {
     const {
       viewProps,
       editButtonClassName,
-      editButtonText
+      editButtonContent,
+      hideIcons
     } = this.props
     // calculate edit button classes
     const editButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
-      `${styles.Editext__edit_button}`
+      `${styles.Editext__edit_button}`,
+      hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const editButtonClass = editButtonClassName || editButtonDefaultClasses
     return (
@@ -160,7 +165,7 @@ export default class EdiText extends Component {
             className={editButtonClass}
             onClick={this._activateEditMode}
           >
-            {editButtonText}
+            {editButtonContent}
           </button>
         </div>
       </div>
@@ -182,9 +187,10 @@ EdiText.defaultProps = {
   validationMessage: 'Invalid Value',
   validation: value => true,
   onCancel: () => { },
-  cancelButtonText: '',
-  saveButtonText: '',
-  editButtonText: ''
+  cancelButtonContent: '',
+  saveButtonContent: '',
+  editButtonContent: '',
+  hideIcons: false
 }
 
 EdiText.propTypes = {
@@ -209,7 +215,8 @@ EdiText.propTypes = {
   editButtonClassName: PropTypes.string,
   cancelButtonClassName: PropTypes.string,
   // Custom Button Texts
-  cancelButtonText: PropTypes.string,
-  saveButtonText: PropTypes.string,
-  editButtonText: PropTypes.string
+  cancelButtonContent: PropTypes.any,
+  saveButtonContent: PropTypes.any,
+  editButtonContent: PropTypes.any,
+  hideIcons: PropTypes.bool
 }

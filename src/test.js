@@ -1,6 +1,6 @@
 import React from 'react'
 import EdiText from './'
-import {configure, mount} from 'enzyme'
+import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
@@ -28,17 +28,20 @@ test('props are working fine', () => {
   expect(editext.props().type).toEqual('text')
   expect(editext.props().value).toEqual('Wake up Neo')
   expect(editext.props().onSave).toBeInstanceOf(Function)
+  expect(editext.props().hideIcons).toEqual(false)
   editext.setProps({
     type: 'textarea',
     hint: 'iamhint',
     inputProps: {
       className: 'my-class-name',
       name: 'username'
-    }
+    },
+    hideIcons: true
   })
   expect(editext.props().type).toEqual('textarea')
   expect(editext.props().hint).toEqual('iamhint')
-  expect(editext.props().inputProps).toMatchObject({className: 'my-class-name', name: 'username'})
+  expect(editext.props().inputProps).toMatchObject({ className: 'my-class-name', name: 'username' })
+  expect(editext.props().hideIcons).toEqual(true)
 })
 
 test('text input initial value is same as prop value', () => {
@@ -233,21 +236,21 @@ test('custom button titles are set properly', () => {
   const editext = mount(
     <EdiText
       type='text'
-      saveButtonText='Apply'
-      cancelButtonText='Cancel'
-      editButtonText='Edit'
+      saveButtonContent='Apply'
+      cancelButtonContent='Cancel'
+      editButtonContent='Edit'
       value='Why, Mr. Anderson? Why? Why do you persist?'
       onSave={val => true}
     />
   )
   const editButton = editext.find(`button`).at(0)
-  expect(editButton.text()).toEqual(editext.props().editButtonText)
+  expect(editButton.text()).toEqual(editext.props().editButtonContent)
   editButton.simulate('click')
 
   const saveButton = editext.find(`button`).at(0)
 
   const cancelButton = editext.find(`button`).at(1)
 
-  expect(saveButton.text()).toEqual(editext.props().saveButtonText)
-  expect(cancelButton.text()).toEqual(editext.props().cancelButtonText)
+  expect(saveButton.text()).toEqual(editext.props().saveButtonContent)
+  expect(cancelButton.text()).toEqual(editext.props().cancelButtonContent)
 })
