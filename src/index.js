@@ -91,19 +91,22 @@ export default class EdiText extends Component {
       cancelButtonContent,
       onValidationFail,
       validationMessage,
-      hint
+      hint,
+      hideIcons
     } = this.props
     const inputElem = this._renderInput()
     // calculate save button classes
     const saveButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
-      `${styles.Editext__save_button}`
+      `${styles.Editext__save_button}`,
+      hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const saveButtonClass = saveButtonClassName || saveButtonDefaultClasses
     // calculate cancel button classes
     const cancelButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
-      `${styles.Editext__cancel_button}`
+      `${styles.Editext__cancel_button}`,
+      hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const cancelButtonClass = cancelButtonClassName || cancelButtonDefaultClasses
     return (
@@ -142,12 +145,14 @@ export default class EdiText extends Component {
     const {
       viewProps,
       editButtonClassName,
-      editButtonContent
+      editButtonContent,
+      hideIcons
     } = this.props
     // calculate edit button classes
     const editButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
-      `${styles.Editext__edit_button}`
+      `${styles.Editext__edit_button}`,
+      hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const editButtonClass = editButtonClassName || editButtonDefaultClasses
     return (
@@ -184,7 +189,8 @@ EdiText.defaultProps = {
   onCancel: () => { },
   cancelButtonContent: '',
   saveButtonContent: '',
-  editButtonContent: ''
+  editButtonContent: '',
+  hideIcons: false
 }
 
 EdiText.propTypes = {
@@ -211,5 +217,6 @@ EdiText.propTypes = {
   // Custom Button Texts
   cancelButtonContent: PropTypes.any,
   saveButtonContent: PropTypes.any,
-  editButtonContent: PropTypes.any
+  editButtonContent: PropTypes.any,
+  hideIcons: PropTypes.bool
 }

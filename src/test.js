@@ -28,17 +28,20 @@ test('props are working fine', () => {
   expect(editext.props().type).toEqual('text')
   expect(editext.props().value).toEqual('Wake up Neo')
   expect(editext.props().onSave).toBeInstanceOf(Function)
+  expect(editext.props().hideIcons).toEqual(false)
   editext.setProps({
     type: 'textarea',
     hint: 'iamhint',
     inputProps: {
       className: 'my-class-name',
       name: 'username'
-    }
+    },
+    hideIcons: true
   })
   expect(editext.props().type).toEqual('textarea')
   expect(editext.props().hint).toEqual('iamhint')
   expect(editext.props().inputProps).toMatchObject({ className: 'my-class-name', name: 'username' })
+  expect(editext.props().hideIcons).toEqual(true)
 })
 
 test('text input initial value is same as prop value', () => {

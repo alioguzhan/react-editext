@@ -65,6 +65,7 @@ editButtonContent|node|No|`''`|Content for edit button. Any valid element is all
 saveButtonClassName|string|No||Custom class name for save button.
 cancelButtonClassName|string|No||Custom class name for cancel button.
 editButtonClassName|string|No||Custom class name for edit button.
+hideIcons|bool|No|`false`|Set it to `true` if you don't want to see default icons on action buttons. See Examples page for more details.
 
 ## Browser Support
 

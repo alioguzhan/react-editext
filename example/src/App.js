@@ -160,6 +160,16 @@ const example11 = `<EdiText
   onSave={this.onSave}
 />`
 
+const example12 = `<EdiText
+  type="textarea"
+  saveButtonContent="Apply"
+  cancelButtonContent={<strong>Cancel</strong>}
+  editButtonContent="Edit"
+  value="Why, Mr. Anderson? Why? Why do you persist?"
+  onSave={this.onSave}
+  hideIcons={true}
+/>`
+
 export default class App extends Component {
   onSave = val => {
     console.log("Edited Value -> ", val);
@@ -329,6 +339,32 @@ export default class App extends Component {
                   cancelButtonContent={<strong>Cancel</strong>}
                   editButtonContent="Edit"
                   value="Why, Mr. Anderson? Why? Why do you persist?"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="tile is-parent is-vertical is-10">
+            <div className="subtitle">Removing Default Icons</div>
+            <p className="content">
+              If you prefer to disable default icons, you can set <code>hideIcons</code> prop to <code>true</code>.
+              Don't forget to set a content or title for your actions buttons. They will have empty labels otherwise.
+            </p>
+            <div className="columns">
+              <div className="column is-half">
+                <SyntaxHighlighter language="javascript" style={light}>
+                  {example12}
+                </SyntaxHighlighter>
+              </div>
+              <div className="column">
+                <div className="subtitle">Output</div>
+                <EdiText
+                  type="text"
+                  saveButtonContent="Apply"
+                  cancelButtonContent={<strong>Cancel</strong>}
+                  editButtonContent="Edit"
+                  value="Why, Mr. Anderson? Why? Why do you persist?"
+                  hideIcons={true}
                   onSave={this.onSave}
                 />
               </div>
