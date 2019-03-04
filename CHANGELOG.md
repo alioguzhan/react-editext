@@ -2,23 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-# [3.0.0](https://github.com/alioguzhan/react-editext/compare/v2.1.1...v3.0.0) (2019-02-27)
+## [3.0.1](https://github.com/alioguzhan/react-editext/compare/v3.0.0...v3.0.1) (2019-03-04)
 
 
 ### Bug Fixes
 
-* **styling:** minor fixes in default styles ([d76d8c2](https://github.com/alioguzhan/react-editext/commit/d76d8c2))
-
-
-### Features
-
-* allow any valid element for action buttons ([c1bea76](https://github.com/alioguzhan/react-editext/commit/c1bea76))
-* allow users to disable default icons ([784dd48](https://github.com/alioguzhan/react-editext/commit/784dd48))
-
-
-### BREAKING CHANGES
-
-* prop names for buttons are now changed. see `README.md`
+* example app fails after react-scripts upgrade ([3cd5f2f](https://github.com/alioguzhan/react-editext/commit/3cd5f2f))
+* example/package.json to reduce vulnerabilities ([9e18a51](https://github.com/alioguzhan/react-editext/commit/9e18a51))
 
 
 
