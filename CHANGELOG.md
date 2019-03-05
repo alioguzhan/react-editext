@@ -2,13 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [3.0.1](https://github.com/alioguzhan/react-editext/compare/v3.0.0...v3.0.1) (2019-03-04)
+# [3.1.0](https://github.com/alioguzhan/react-editext/compare/v3.0.1...v3.1.0) (2019-03-05)
 
 
-### Bug Fixes
+### Features
 
-* example app fails after react-scripts upgrade ([3cd5f2f](https://github.com/alioguzhan/react-editext/commit/3cd5f2f))
-* example/package.json to reduce vulnerabilities ([9e18a51](https://github.com/alioguzhan/react-editext/commit/9e18a51))
+* add typescript definition file [`d.ts`] ([245a406](https://github.com/alioguzhan/react-editext/commit/245a406))
 
 
 
