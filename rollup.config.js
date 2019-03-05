@@ -7,6 +7,9 @@ import url from 'rollup-plugin-url'
 
 import pkg from './package.json'
 
+const extensions = [
+  '.js', '.jsx'
+]
 export default {
   input: 'src/index.js',
   output: [
@@ -27,10 +30,7 @@ export default {
       modules: true
     }),
     url(),
-    babel({
-      exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
-    }),
+    babel({ extensions, include: ['src/**/*'], exclude: 'node_modules/**' }),
     resolve(),
     commonjs()
   ]
