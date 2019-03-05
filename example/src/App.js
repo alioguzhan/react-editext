@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import SyntaxHighlighter from 'react-syntax-highlighter/prism';
-import { light } from 'react-syntax-highlighter/styles/prism';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { light } from 'react-syntax-highlighter/dist/styles/prism';
 import EdiText from "react-editext";
 
 const example1 = `import React, { Component } from 'react'
