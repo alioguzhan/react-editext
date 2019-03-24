@@ -79,7 +79,8 @@
     "snyk": "^1.135.1"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "dependencies": {
     "classnames": "^2.2.6"
