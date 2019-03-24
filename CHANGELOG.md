@@ -2,12 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.1"></a>
 ## [3.1.1](https://github.com/alioguzhan/react-editext/compare/v3.1.0...v3.1.1) (2019-03-24)
 
 
 ### Bug Fixes
 
 * **package:** add `index.d.ts` file to npm package ([b40af98](https://github.com/alioguzhan/react-editext/commit/b40af98))
+
+
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/alioguzhan/react-editext/compare/v3.0.1...v3.1.0) (2019-03-05)
+
+
+### Features
+* add typescript definition file [`d.ts`] ([245a406](https://github.com/alioguzhan/react-editext/commit/245a406))
+
+
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/alioguzhan/react-editext/compare/v3.0.0...v3.0.1) (2019-03-04)
+
+
+
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/alioguzhan/react-editext/compare/v2.1.1...v3.0.0) (2019-02-27)
+
+
+### Bug Fixes
+
+* **styling:** minor fixes in default styles ([d76d8c2](https://github.com/alioguzhan/react-editext/commit/d76d8c2))
+
+
+### Features
+
+* allow any valid element for action buttons ([c1bea76](https://github.com/alioguzhan/react-editext/commit/c1bea76))
+* allow users to disable default icons ([784dd48](https://github.com/alioguzhan/react-editext/commit/784dd48))
+
+
+### BREAKING CHANGES
+
+* prop names for buttons are now changed. see `README.md`
 
 
 
@@ -32,7 +66,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="2.1.0"></a>
-# 2.1.0 (2018-10-05)
+# [2.1.0](https://github.com/alioguzhan/react-editext/compare/v2.0.1...v2.1.0) (2018-10-05)
 
 
 ### Bug Fixes
