@@ -31,12 +31,12 @@ declare module 'react-editext' {
         * takes one param -> `value`.
         * It must return `true` or `false`
         */
-        validation?: (...args: string) => boolean;
+        validation?: (...args: any[]) => boolean;
         /**
          * will be called when validation fails.
          * takes one param <value> which is the current value of input
          */
-        onValidationFail?: (...args: string) => any;
+        onValidationFail?: (...args: any[]) => any;
         /**
          * Input type. Possible options are:
          * `text`, `number`, `email`, `textarea`, `date`, 
@@ -51,7 +51,7 @@ declare module 'react-editext' {
          * will be called when user clicked save button.
          * takes one param <value> which is the current value of input
         */
-        onSave: (...args: string) => any;
+        onSave: (...args: any[]) => any;
         /**
          * Custom class name for SAVE button.
          * */
