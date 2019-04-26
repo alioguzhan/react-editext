@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * example/package.json to reduce vulnerabilities ([fe71d62](https://github.com/alioguzhan/react-editext/commit/fe71d62))
-* #10 fix typescript errors in `index.d.ts` file (@wesoft-systems)
+* [#10](https://github.com/alioguzhan/react-editext/pull/10) fix typescript errors in `index.d.ts` file ([@wesoft-systems](https://github.com/wesoft-systems))
 
 
 
