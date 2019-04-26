@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.2](https://github.com/alioguzhan/react-editext/compare/v3.1.1...v3.1.2) (2019-04-26)
+
+
+### Bug Fixes
+
+* example/package.json to reduce vulnerabilities ([fe71d62](https://github.com/alioguzhan/react-editext/commit/fe71d62))
+* #10 fix typescript errors in `index.d.ts` file (@wesoft-systems)
+
+
+
 <a name="3.1.1"></a>
 ## [3.1.1](https://github.com/alioguzhan/react-editext/compare/v3.1.0...v3.1.1) (2019-03-24)
 
