@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.2.0](https://github.com/alioguzhan/react-editext/compare/v3.1.1...v3.2.0) (2019-06-05)
+
+
+### Bug Fixes
+
+* example/package.json to reduce vulnerabilities ([fe71d62](https://github.com/alioguzhan/react-editext/commit/fe71d62))
+
+
+### Features
+
+* add new props to allow to override container styles. see [#11](https://github.com/alioguzhan/react-editext/issues/11) ([18b914d](https://github.com/alioguzhan/react-editext/commit/18b914d))
+
+
+
 ## [3.1.2](https://github.com/alioguzhan/react-editext/compare/v3.1.1...v3.1.2) (2019-04-26)
 
 
