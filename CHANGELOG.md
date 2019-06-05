@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.1](https://github.com/alioguzhan/react-editext/compare/v3.2.0...v3.2.1) (2019-06-05)
+
+
+### Bug Fixes
+
+* upgrade dev deps due to a vulnerability in `handlebars` ([9fbbd30](https://github.com/alioguzhan/react-editext/commit/9fbbd30))
+
+
+
 # [3.2.0](https://github.com/alioguzhan/react-editext/compare/v3.1.1...v3.2.0) (2019-06-05)
 
 
