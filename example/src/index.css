@@ -6,6 +6,12 @@
     background-color: #1F2229;
     color: #6CDAF7;
 }
+a {
+  color: #1F2229;
+}
+a:hover {
+  color: palevioletred;
+}
 .react-answer-1 {
   font-style: italic;
   font-size: 1.2em;
@@ -39,4 +45,17 @@
   background-color: darkolivegreen;
   color: white;
   padding: 5px;
+}
+
+.my-custom-view-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-custom-view-wrapper div:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }

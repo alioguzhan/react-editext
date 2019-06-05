@@ -170,6 +170,48 @@ const example12 = `<EdiText
   hideIcons={true}
 />`
 
+const example13 = `import React, { Component } from 'react'
+import EdiText from 'react-editext'
+
+export default class App extends Component {
+  onSave = val => {
+    console.log('Edited Value -> ', val)
+  }
+
+  render () {
+    return (
+      <EdiText
+        viewContainerClassName='my-custom-view-wrapper'
+        type='textarea'
+        inputProps={{
+          rows: 5
+        }}
+        saveButtonContent='Apply'
+        cancelButtonContent={<strong>Cancel</strong>}
+        editButtonContent='Edit This Quote'
+        value="How do you define real? If you're talking about what you can feel, what you can smell,
+        what you can taste and see, then real is simply electrical signals interpreted by your brain"
+        onSave={this.onSave}
+      />
+    )
+  }
+}
+`
+const example13Style = `
+.my-custom-view-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-custom-view-wrapper div:last-child {
+  /* Here we are styling the button container. */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}`
+
 export default class App extends Component {
   onSave = val => {
     console.log('Edited Value -> ', val)
@@ -231,8 +273,10 @@ export default class App extends Component {
               .
             </p>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Default Props</div>
+          <div className='tile is-parent is-vertical is-10' id='default-props'>
+            <div className='subtitle'>
+              <a href='#default-props'>Default Props</a>
+            </div>
             <p className='content'>
               This is the default usage without custom props.
             </p>
@@ -252,8 +296,13 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Show a Hint Message</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='show-a-hint-message'
+          >
+            <div className='subtitle'>
+              <a href='#show-a-hint-message'>Show a Hint Message</a>
+            </div>
             <p className='content'>
               If you don't want to use another library and just want to show a
               simple message as hint, use the <code>hint</code> prop.
@@ -281,8 +330,15 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Custom Element as Hint Message</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='custom-element-as-hint-message'
+          >
+            <div className='subtitle'>
+              <a href='#custom-element-as-hint-message'>
+                Custom Element as Hint Message
+              </a>
+            </div>
             <p className='content'>
               In fact, you can render any valid React Element in hint section.
             </p>
@@ -315,8 +371,15 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Textarea for Editing Input</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='textarea-for-editing-input'
+          >
+            <div className='subtitle'>
+              <a href='#textarea-for-editing-input'>
+                Textarea for Editing Input
+              </a>
+            </div>
             <p className='content'>
               You can use <code>{'<textarea>'}</code> for editing if your
               content is too long. Also you can specify custom class name and
@@ -350,8 +413,13 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Custom Button Contents</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='custom-button-contents'
+          >
+            <div className='subtitle'>
+              <a href='#custom-button-contents'>Custom Button Contents</a>
+            </div>
             <p className='content'>
               By default, Action buttons have no titles. They are just some
               simple icons. But you can append{' '}
@@ -377,8 +445,13 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Removing Default Icons</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='removing-default-icons'
+          >
+            <div className='subtitle'>
+              <a href='#removing-default-icons'>Removing Default Icons</a>
+            </div>
             <p className='content'>
               If you prefer to disable default icons, you can set{' '}
               <code>hideIcons</code> prop to <code>true</code>. Don't forget to
@@ -405,8 +478,15 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Custom HTML Classes for Buttons</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='custom-classes-for-buttons'
+          >
+            <div className='subtitle'>
+              <a href='#custom-classes-for-buttons'>
+                Custom HTML Classes for Buttons
+              </a>
+            </div>
             <p className='content'>
               You can use your own classes for action buttons [Edit - Save -
               Cancel]
@@ -433,8 +513,68 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Custom Props for Input Element</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='custom-classes-for-containers'
+          >
+            <div className='subtitle'>
+              <a href='#custom-classes-for-containers'>
+                Custom HTML Classes for Containers
+              </a>
+            </div>
+            <p className='content'>
+              You can use your own classes for main, edit and view containers.
+            </p>
+            <p className='content'>
+              <code>viewContainerClassName</code> and{' '}
+              <code>editContainerClassName</code>
+              have usually same styles. It is provided to assign different class
+              names for both. Yet you can omit one of them if you specify other
+              one. In that case, the specified class name will be applied to
+              both props.
+            </p>
+            <p className='content'>
+              There is also <code>mainContainerClassName</code> prop which
+              allows you to apply top-level styles to the EdiText component. But
+              you probably don't need this.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript' style={light}>
+                  {example13}
+                </SyntaxHighlighter>
+                <p>With some style:</p>
+                <SyntaxHighlighter language='css' style={light}>
+                  {example13Style}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  viewContainerClassName='my-custom-view-wrapper'
+                  type='textarea'
+                  inputProps={{
+                    rows: 5
+                  }}
+                  saveButtonContent='Apply'
+                  cancelButtonContent={<strong>Cancel</strong>}
+                  editButtonContent='Edit This Quote'
+                  value="How do you define real? If you're talking about what you can feel, what you can smell,
+                  what you can taste and see, then real is simply electrical signals interpreted by your brain"
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='custom-props-for-input-element'
+          >
+            <div className='subtitle'>
+              <a href='#custom-props-for-input-element'>
+                Custom Props for Input Element
+              </a>
+            </div>
             <p className='content'>
               It is likely that you will want to add some props to input
               element. You can pass any valid HTML attribute to the input
@@ -476,8 +616,15 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Custom Props for Text Element</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='custom-props-for-text-element'
+          >
+            <div className='subtitle'>
+              <a href='#custom-props-for-text-element'>
+                Custom Props for Text Element
+              </a>
+            </div>
             <p className='content'>
               You may want to add some styling to your text content instead of
               render it as a plain text. To do that you can use
@@ -504,8 +651,10 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Validate the Content</div>
+          <div className='tile is-parent is-vertical is-10' id='validation'>
+            <div className='subtitle'>
+              <a href='#validation'>Validate the Content</a>
+            </div>
             <p className='content'>
               You can validate the value of input before save. Just pass a
               function to <code>validation</code> prop. And you also can set a
@@ -531,8 +680,13 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Custom Validation</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='custom-validation'
+          >
+            <div className='subtitle'>
+              <a href='#custom-validation'>Custom Validation</a>
+            </div>
             <p className='content'>
               EdiText has a very basic validation handling. You will probably
               want to use an external library to show custom and fancy
@@ -565,8 +719,13 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10'>
-            <div className='subtitle'>Usage for Date Values</div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='usage-for-date-values'
+          >
+            <div className='subtitle'>
+              <a href='#usage-for-date-values'>Usage for Date Values</a>
+            </div>
             <p className='content'>
               You can use EdiText for date inputs as well. Just type{' '}
               <code>date</code> to type prop. Other related and types are{' '}

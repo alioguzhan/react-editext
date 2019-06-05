@@ -67,6 +67,9 @@ editButtonContent|node|No|`''`|Content for edit button. Any valid element is all
 saveButtonClassName|string|No||Custom class name for save button.
 cancelButtonClassName|string|No||Custom class name for cancel button.
 editButtonClassName|string|No||Custom class name for edit button.
+viewContainerClassName|string|No||Custom class name for the container in `view` mode.[See here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)
+editContainerClassName|string|No||Custom class name for the container in edit mode. Will be set to `viewContainerClassName` if you set it and omit this. See [here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)
+mainContainerClassName|string|No||Custom class name for the top-level main container. See [here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)
 hideIcons|bool|No|`false`|Set it to `true` if you don't want to see default icons on action buttons. See Examples page for more details.
 
 ## Browser Support

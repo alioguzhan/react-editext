@@ -31,7 +31,8 @@ export default class EdiText extends Component {
         valid: true,
         editing: false,
         value: this.state.savedValue || this.props.value
-      }, () => this.props.onCancel(this.state.value)
+      },
+      () => this.props.onCancel(this.state.value)
     )
   }
 
@@ -53,7 +54,8 @@ export default class EdiText extends Component {
       {
         editing: false,
         savedValue: this.state.value
-      }, () => onSave(this.state.savedValue)
+      },
+      () => onSave(this.state.savedValue)
     )
   }
 
@@ -88,6 +90,8 @@ export default class EdiText extends Component {
       saveButtonClassName,
       saveButtonContent,
       cancelButtonClassName,
+      editContainerClassName,
+      viewContainerClassName,
       cancelButtonContent,
       onValidationFail,
       validationMessage,
@@ -108,10 +112,14 @@ export default class EdiText extends Component {
       `${styles.Editext__cancel_button}`,
       hideIcons && `${styles.Editext__hide_default_icons}`
     )
-    const cancelButtonClass = cancelButtonClassName || cancelButtonDefaultClasses
+    const cancelButtonClass =
+      cancelButtonClassName || cancelButtonDefaultClasses
+    let editContainerClass = styles.Editext__editing_container
+    if (editContainerClassName) editContainerClass = editContainerClassName
+    if (viewContainerClassName) editContainerClass = viewContainerClassName
     return (
       <div>
-        <div className={styles.Editext__editing_container}>
+        <div className={editContainerClass}>
           {inputElem}
           <div className={styles.Editext__buttons_container}>
             <button
@@ -132,11 +140,11 @@ export default class EdiText extends Component {
             </button>
           </div>
         </div>
-        {!this.state.valid && !onValidationFail &&
+        {!this.state.valid && !onValidationFail && (
           <div className={styles.Editext__validation_message}>
             {validationMessage}
           </div>
-        }
+        )}
         {hint && <div className={styles.Editext__hint}>{hint}</div>}
       </div>
     )
@@ -146,6 +154,7 @@ export default class EdiText extends Component {
       viewProps,
       editButtonClassName,
       editButtonContent,
+      viewContainerClassName,
       hideIcons
     } = this.props
     // calculate edit button classes
@@ -155,8 +164,10 @@ export default class EdiText extends Component {
       hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const editButtonClass = editButtonClassName || editButtonDefaultClasses
+    const viewContainerClass =
+      viewContainerClassName || styles.Editext__view_container
     return (
-      <div className={styles.Editext__view_container}>
+      <div className={viewContainerClass}>
         <div {...viewProps}>{this.state.value}</div>
         <div className={styles.Editext__buttons_container}>
           <button
@@ -172,12 +183,12 @@ export default class EdiText extends Component {
     )
   }
   render() {
-    const mode = this.state.editing ? this._renderEditingMode() : this._renderViewMode()
-    return (
-      <div className={styles.Editext__main_container}>
-        { mode }
-      </div>
-    )
+    const mode = this.state.editing
+      ? this._renderEditingMode()
+      : this._renderViewMode()
+    const mainContainerClass =
+      this.props.mainContainerClassName || styles.Editext__main_container
+    return <div className={mainContainerClass}>{mode}</div>
   }
 }
 
@@ -186,7 +197,7 @@ EdiText.defaultProps = {
   type: 'text',
   validationMessage: 'Invalid Value',
   validation: value => true,
-  onCancel: () => { },
+  onCancel: () => {},
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
@@ -201,12 +212,19 @@ EdiText.propTypes = {
   validationMessage: PropTypes.string,
   validation: PropTypes.func,
   onValidationFail: PropTypes.func,
-  type: PropTypes.oneOf(
-    [
-      'text', 'textarea', 'email', 'number', 'date', 'datetime-local',
-      'time', 'month', 'url', 'week', 'tel'
-    ]
-  ).isRequired,
+  type: PropTypes.oneOf([
+    'text',
+    'textarea',
+    'email',
+    'number',
+    'date',
+    'datetime-local',
+    'time',
+    'month',
+    'url',
+    'week',
+    'tel'
+  ]).isRequired,
   // Events
   onCancel: PropTypes.func,
   onSave: PropTypes.func.isRequired,
@@ -214,6 +232,9 @@ EdiText.propTypes = {
   saveButtonClassName: PropTypes.string,
   editButtonClassName: PropTypes.string,
   cancelButtonClassName: PropTypes.string,
+  mainContainerClassName: PropTypes.string,
+  editContainerClassName: PropTypes.string,
+  viewContainerClassName: PropTypes.string,
   // Custom Button Texts
   cancelButtonContent: PropTypes.any,
   saveButtonContent: PropTypes.any,
