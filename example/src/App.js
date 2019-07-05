@@ -681,9 +681,11 @@ export default class App extends Component {
               </a>
             </div>
             <p className='content'>
-              You may want locate action buttons before the input element instead of after it.
-              Just pass the <code>buttonsAlign='before'</code> prop. You should be fine. Default value is already `after`.
-              So don't pass anything if you don't want to change this.
+              You may want locate action buttons before the input element
+              instead of after it. Just pass the{' '}
+              <code>buttonsAlign='before'</code> prop. You should be fine.
+              Default value is already `after`. So don't pass anything if you
+              don't want to change this.
             </p>
             <div className='columns'>
               <div className='column is-half'>
