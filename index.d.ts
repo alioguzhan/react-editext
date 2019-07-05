@@ -2,6 +2,7 @@ declare module 'react-editext' {
     import * as React from 'react';
 
     export type EdiTextType = "text" | "textarea" | "email" | "number" | "date" | "datetime-local" | "time" | "month" | "url" | "week" | "tel";
+    export type ButtonsAlignment = "after" | "before";
 
     export interface EdiTextProps {
         /**
@@ -39,7 +40,7 @@ declare module 'react-editext' {
         onValidationFail?: (...args: string[]) => any;
         /**
          * Input type. Possible options are:
-         * `text`, `number`, `email`, `textarea`, `date`, 
+         * `text`, `number`, `email`, `textarea`, `date`,
          * `datetime-local`, `time`, `month`, `url`, `week`, `tel`
          */
         type: EdiTextType;
@@ -73,15 +74,18 @@ declare module 'react-editext' {
          * Content for EDIT button. Any valid element and node are allowed. */
         editButtonContent?: any;
         /**
-         * Set it to `true` if you don't want to see default icons 
+         * Set it to `true` if you don't want to see default icons
         * on action buttons.See Examples page for more details.
         */
         hideIcons?: boolean;
-    }
+        /**
+         * Decides whether buttons will be located _BEFORE_ or _AFTER_
+         * the input element. Default is `after`.
+        */
+        buttonsAlign?: ButtonsAlignment;
+        }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {
         render(): JSX.Element;
-
     }
-
 }

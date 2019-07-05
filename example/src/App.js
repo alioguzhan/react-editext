@@ -211,6 +211,26 @@ const example13Style = `
   align-items: center;
   margin-top: 5px;
 }`
+const example14 = `import React, { Component } from 'react'
+import EdiText from 'react-editext'
+
+export default class App extends Component {
+  onSave = val => {
+    console.log('Edited Value -> ', val)
+  }
+
+  render () {
+    return (
+      <EdiText
+        type='text'
+        buttonsAlign='before'
+        value='What is real? How do you define real?'
+        onSave={this.onSave}
+      />
+    )
+  }
+}
+`
 
 export default class App extends Component {
   onSave = val => {
@@ -646,6 +666,37 @@ export default class App extends Component {
                     style: { borderRadius: 3 }
                   }}
                   value='Hello React!'
+                  onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='change-buttons-location'
+          >
+            <div className='subtitle'>
+              <a href='#change-buttons-location'>
+                Change the location of action buttons
+              </a>
+            </div>
+            <p className='content'>
+              You may want locate action buttons before the input element instead of after it.
+              Just pass the <code>buttonsAlign='before'</code> prop. You should be fine. Default value is already `after`.
+              So don't pass anything if you don't want to change this.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript' style={light}>
+                  {example14}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  type='text'
+                  buttonsAlign='before'
+                  value='What is real? How do you define real?'
                   onSave={this.onSave}
                 />
               </div>

@@ -96,7 +96,8 @@ export default class EdiText extends Component {
       onValidationFail,
       validationMessage,
       hint,
-      hideIcons
+      hideIcons,
+      buttonsAlign
     } = this.props
     const inputElem = this._renderInput()
     // calculate save button classes
@@ -117,11 +118,16 @@ export default class EdiText extends Component {
     let editContainerClass = styles.Editext__editing_container
     if (editContainerClassName) editContainerClass = editContainerClassName
     if (viewContainerClassName) editContainerClass = viewContainerClassName
+    const buttonsContainerClass = classnames(
+      styles.Editext__buttons_container,
+      buttonsAlign === 'before' && `${styles.Editext__buttons_before_aligned}`,
+      buttonsAlign === 'after' && `${styles.Editext__buttons_after_aligned}`
+    )
     return (
       <div>
         <div className={editContainerClass}>
-          {inputElem}
-          <div className={styles.Editext__buttons_container}>
+          { buttonsAlign === 'after' && inputElem }
+          <div className={buttonsContainerClass}>
             <button
               ref={this.saveButton}
               type='button'
@@ -139,6 +145,7 @@ export default class EdiText extends Component {
               {cancelButtonContent}
             </button>
           </div>
+          { buttonsAlign === 'before' && inputElem }
         </div>
         {!this.state.valid && !onValidationFail && (
           <div className={styles.Editext__validation_message}>
@@ -155,7 +162,8 @@ export default class EdiText extends Component {
       editButtonClassName,
       editButtonContent,
       viewContainerClassName,
-      hideIcons
+      hideIcons,
+      buttonsAlign
     } = this.props
     // calculate edit button classes
     const editButtonDefaultClasses = classnames(
@@ -166,10 +174,15 @@ export default class EdiText extends Component {
     const editButtonClass = editButtonClassName || editButtonDefaultClasses
     const viewContainerClass =
       viewContainerClassName || styles.Editext__view_container
+    const buttonsContainerClass = classnames(
+      styles.Editext__buttons_container,
+      buttonsAlign === 'before' && `${styles.Editext__buttons_before_aligned}`,
+      buttonsAlign === 'after' && `${styles.Editext__buttons_after_aligned}`
+    )
     return (
       <div className={viewContainerClass}>
-        <div {...viewProps}>{this.state.value}</div>
-        <div className={styles.Editext__buttons_container}>
+        { buttonsAlign === 'after' && <div {...viewProps}>{this.state.value}</div> }
+        <div className={buttonsContainerClass}>
           <button
             ref={this.editButton}
             type='button'
@@ -179,6 +192,7 @@ export default class EdiText extends Component {
             {editButtonContent}
           </button>
         </div>
+        { buttonsAlign === 'before' && <div {...viewProps}>{this.state.value}</div> }
       </div>
     )
   }
@@ -201,7 +215,8 @@ EdiText.defaultProps = {
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
-  hideIcons: false
+  hideIcons: false,
+  buttonsAlign: 'after'
 }
 
 EdiText.propTypes = {
@@ -239,5 +254,6 @@ EdiText.propTypes = {
   cancelButtonContent: PropTypes.any,
   saveButtonContent: PropTypes.any,
   editButtonContent: PropTypes.any,
-  hideIcons: PropTypes.bool
+  hideIcons: PropTypes.bool,
+  buttonsAlign: PropTypes.oneOf(['after', 'before'])
 }

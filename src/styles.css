@@ -33,6 +33,11 @@
 }
 .Editext__buttons_container {
   display: flex;
+}
+.Editext__buttons_before_aligned {
+  margin-right: 5px;
+}
+.Editext__buttons_after_aligned {
   margin-left: 5px;
 }
 .Editext__validation_message {
