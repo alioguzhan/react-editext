@@ -83,7 +83,20 @@ declare module 'react-editext' {
          * the input element. Default is `after`.
         */
         buttonsAlign?: ButtonsAlignment;
-        }
+        /**
+         * Custom class name for the container in view mode.
+         */
+        viewContainerClassName?: string;
+        /**
+         * Custom class name for the container in edit mode.
+         * Will be set to viewContainerClassName if you set it and omit this.
+         */
+        editContainerClassName?: string;
+        /**
+         * Custom class name for the top-level main container. 
+         */
+        mainContainerClassName?: string;
+    }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {
         render(): JSX.Element;
