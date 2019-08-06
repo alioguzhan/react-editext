@@ -230,7 +230,26 @@ export default class App extends Component {
   }
 }
 `
+const example15 = `import React, { Component } from 'react'
+import EdiText from 'react-editext'
 
+export default class App extends Component {
+  onSave = val => {
+    console.log('Edited Value -> ', val)
+  }
+
+  render () {
+    return (
+      <EdiText
+        type='text'
+        value='What is real? How do you define real?'
+        onSave={this.onSave}
+        editOnViewClick={true}
+      />
+    )
+  }
+}
+`
 export default class App extends Component {
   onSave = val => {
     console.log('Edited Value -> ', val)
@@ -801,6 +820,32 @@ export default class App extends Component {
                   hint='All dates are allowed between 2000 and 2049'
                   value={new Date().toLocaleString()}
                   onSave={this.onSave}
+                />
+              </div>
+            </div>
+          </div>
+          <div className='tile is-parent is-vertical is-10' id='edit-on-view-click'>
+            <div className='subtitle'>
+              <a href='#default-props'>Edit on View Click</a>
+            </div>
+            <p className='content'>
+              You may want to activate the editor when the view is clicked on
+              instead of clicking on the edit button. To do that you can use
+              <code>editOnViewClick</code> prop to <code>true</code>. 
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {example15}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  type='text'
+                  value='What is real? How do you define real?'
+                  onSave={this.onSave}
+                  editOnViewClick={true}
                 />
               </div>
             </div>

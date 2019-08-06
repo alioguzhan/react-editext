@@ -96,6 +96,10 @@ declare module 'react-editext' {
          * Custom class name for the top-level main container. 
          */
         mainContainerClassName?: string;
+        /**
+         * Set it to `true` if you want clicking on the view to activate the editor.
+         */
+        editOnViewClick?: false;
     }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {

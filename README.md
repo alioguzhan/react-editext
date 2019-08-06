@@ -73,6 +73,7 @@ editContainerClassName|string|No||Custom class name for the container in edit mo
 mainContainerClassName|string|No||Custom class name for the top-level main container. See [here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)
 hideIcons|bool|No|`false`|Set it to `true` if you don't want to see default icons on action buttons. See Examples page for more details.
 buttonsAlign|string|No|`after`|Set this to `before` if you want to locate action buttons before the input instead of after it. See [here](https://alioguzhan.github.io/react-editext/#change-buttons-location).
+editOnViewClick|bool|No|`false`|Set it to `true` if you want clicking on the view to activate the editor.
 
 ## Browser Support
 
