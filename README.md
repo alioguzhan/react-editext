@@ -1,4 +1,5 @@
 # react-editext
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 > Editable Text Component for React Applications
 
@@ -84,3 +85,19 @@ buttonsAlign|string|No|`after`|Set this to `before` if you want to locate action
 ## License
 
 MIT © [alioguzhan](https://github.com/alioguzhan)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/jdoklovic"><img src="https://avatars2.githubusercontent.com/u/620106?v=4" width="100px;" alt="jdoklovic"/><br /><sub><b>jdoklovic</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=jdoklovic" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
