@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/alioguzhan/react-editext/compare/v3.3.1...v3.4.0) (2019-08-06)
+
+### Features
+
+* add editOnViewClick prop to activate the edit mode by clicking the view instead of edit button ([119b28b](https://github.com/alioguzhan/react-editext/commit/119b28b))
+
 ### [3.3.1](https://github.com/alioguzhan/react-editext/compare/v3.3.0...v3.3.1) (2019-08-05)
 
 # [3.3.0](https://github.com/alioguzhan/react-editext/compare/v3.2.1...v3.3.0) (2019-07-05)
