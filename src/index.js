@@ -126,7 +126,7 @@ export default class EdiText extends Component {
     return (
       <div>
         <div className={editContainerClass}>
-          { buttonsAlign === 'after' && inputElem }
+          {buttonsAlign === 'after' && inputElem}
           <div className={buttonsContainerClass}>
             <button
               ref={this.saveButton}
@@ -145,7 +145,7 @@ export default class EdiText extends Component {
               {cancelButtonContent}
             </button>
           </div>
-          { buttonsAlign === 'before' && inputElem }
+          {buttonsAlign === 'before' && inputElem}
         </div>
         {!this.state.valid && !onValidationFail && (
           <div className={styles.Editext__validation_message}>
@@ -163,7 +163,8 @@ export default class EdiText extends Component {
       editButtonContent,
       viewContainerClassName,
       hideIcons,
-      buttonsAlign
+      buttonsAlign,
+      editOnViewClick
     } = this.props
     // calculate edit button classes
     const editButtonDefaultClasses = classnames(
@@ -179,9 +180,10 @@ export default class EdiText extends Component {
       buttonsAlign === 'before' && `${styles.Editext__buttons_before_aligned}`,
       buttonsAlign === 'after' && `${styles.Editext__buttons_after_aligned}`
     )
+    const viewClickHandler = (editOnViewClick) ? this._activateEditMode : undefined
     return (
       <div className={viewContainerClass}>
-        { buttonsAlign === 'after' && <div {...viewProps}>{this.state.value}</div> }
+        {buttonsAlign === 'after' && <div {...viewProps} onClick={viewClickHandler}>{this.state.value}</div>}
         <div className={buttonsContainerClass}>
           <button
             ref={this.editButton}
@@ -192,7 +194,7 @@ export default class EdiText extends Component {
             {editButtonContent}
           </button>
         </div>
-        { buttonsAlign === 'before' && <div {...viewProps}>{this.state.value}</div> }
+        {buttonsAlign === 'before' && <div {...viewProps} onClick={viewClickHandler}>{this.state.value}</div>}
       </div>
     )
   }
@@ -211,7 +213,7 @@ EdiText.defaultProps = {
   type: 'text',
   validationMessage: 'Invalid Value',
   validation: value => true,
-  onCancel: () => {},
+  onCancel: () => { },
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
