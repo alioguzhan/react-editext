@@ -22,6 +22,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "BrunoAderaldo",
+      "name": "Bruno Aderaldo",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/14007590?v=4",
+      "profile": "https://brunoaderaldo.netlify.com/",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
