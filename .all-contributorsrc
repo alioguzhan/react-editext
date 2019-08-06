@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "jdoklovic",
+      "name": "jdoklovic",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/620106?v=4",
+      "profile": "https://github.com/jdoklovic",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "react-editext",
+  "projectOwner": "alioguzhan",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
