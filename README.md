@@ -8,7 +8,7 @@
 [![Build Status](https://travis-ci.com/alioguzhan/react-editext.svg?branch=master)](https://travis-ci.com/alioguzhan/react-editext)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 
@@ -93,6 +93,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/jdoklovic"><img src="https://avatars2.githubusercontent.com/u/620106?v=4" width="100px;" alt="jdoklovic"/><br /><sub><b>jdoklovic</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=jdoklovic" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/wesoft-systems"><img src="https://avatars3.githubusercontent.com/u/8137662?v=4" width="100px;" alt="Obed Castillo"/><br /><sub><b>Obed Castillo</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=wesoft-systems" title="Code">💻</a></td>
+    <td align="center"><a href="http://atarimtr.co.il"><img src="https://avatars2.githubusercontent.com/u/4776263?v=4" width="100px;" alt="Yehuda Tiram"/><br /><sub><b>Yehuda Tiram</b></sub></a><br /><a href="#question-yehudaTiram" title="Answering Questions">💬</a></td>
   </tr>
 </table>
 
