@@ -32,6 +32,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "esskar",
+      "name": "Sascha Kiefer",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/65206?v=4",
+      "profile": "https://github.com/esskar",
+      "contributions": [
+        "question",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
