@@ -18,6 +18,14 @@ export default class EdiText extends Component {
     this.input = React.createRef()
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.value) {
+      this.setState({
+        value: nextProps.value
+      });
+    }
+  }
+
   _onInputChange = e => {
     this.setState({
       valid: true,
