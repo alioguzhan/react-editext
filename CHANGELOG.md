@@ -1,6 +1,13 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [3.5.0](https://github.com/alioguzhan/react-editext/compare/v3.4.1...v3.5.0) (2019-08-08)
+
+### Features
+
+* make `value` prop controllable ([361ac3b](https://github.com/alioguzhan/react-editext/commit/361ac3b))
+
 
 ## [3.4.1](https://github.com/alioguzhan/react-editext/compare/v3.3.1...v3.4.1) (2019-08-07)
 
