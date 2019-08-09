@@ -27,7 +27,7 @@ declare module 'react-editext' {
         /**
         If validation fails this message will appear
         */
-        validationMessage?: string;
+        validationMessage?: any;
         /** Pass your own validation function.
         * takes one param -> `value`.
         * It must return `true` or `false`
