@@ -250,6 +250,26 @@ export default class App extends Component {
   }
 }
 `
+const example16 = `import React, { Component } from 'react'
+import EdiText from 'react-editext'
+
+export default class App extends Component {
+  onSave = val => {
+    console.log('Edited Value -> ', val)
+  }
+
+  render () {
+    return (
+      <EdiText
+        type='text'
+        value='What is real? How do you define real?'
+        onSave={this.onSave}
+        editing={true}
+      />
+    )
+  }
+}
+`
 export default class App extends Component {
   onSave = val => {
     console.log('Edited Value -> ', val)
@@ -846,6 +866,31 @@ export default class App extends Component {
                   value='What is real? How do you define real?'
                   onSave={this.onSave}
                   editOnViewClick={true}
+                />
+              </div>
+            </div>
+          </div>
+          <div className='tile is-parent is-vertical is-10' id='edit-by-default'>
+            <div className='subtitle'>
+              <a href='#default-props'>Default Edit View</a>
+            </div>
+            <p className='content'>
+              You may want the editor to be active by default and/or be controlled externally.
+              To do that you can set <code>editing</code> prop to <code>true</code>. 
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {example16}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  type='text'
+                  value='What is real? How do you define real?'
+                  onSave={this.onSave}
+                  editing={true}
                 />
               </div>
             </div>

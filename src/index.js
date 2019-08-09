@@ -7,7 +7,7 @@ export default class EdiText extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      editing: false,
+      editing: props.editing,
       valid: true,
       value: props.value || '',
       savedValue: ''
@@ -22,6 +22,12 @@ export default class EdiText extends Component {
     if (nextProps.value) {
       this.setState({
         value: nextProps.value
+      });
+    }
+
+    if (nextProps.editing !== undefined) {
+      this.setState({
+        editing: nextProps.editing
       });
     }
   }
@@ -226,7 +232,8 @@ EdiText.defaultProps = {
   saveButtonContent: '',
   editButtonContent: '',
   hideIcons: false,
-  buttonsAlign: 'after'
+  buttonsAlign: 'after',
+  editing: false,
 }
 
 EdiText.propTypes = {
@@ -265,5 +272,6 @@ EdiText.propTypes = {
   saveButtonContent: PropTypes.any,
   editButtonContent: PropTypes.any,
   hideIcons: PropTypes.bool,
-  buttonsAlign: PropTypes.oneOf(['after', 'before'])
+  buttonsAlign: PropTypes.oneOf(['after', 'before']),
+  editing: PropTypes.bool,
 }

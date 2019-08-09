@@ -18,6 +18,21 @@ test('edit button activates editing mode', () => {
   expect(editext.state().editing).toEqual(true)
 })
 
+test('editing prop activates editing mode', () => {
+  const editext = mount(
+    <EdiText
+      value='Wake up Neo'
+      type='text'
+      onSave={val => val}
+      editing={true}
+    />
+  )
+  expect(editext.state().editing).toEqual(true)
+  const cancelButton = editext.find(`button`).at(1)
+  cancelButton.simulate('click')
+  expect(editext.state().editing).toEqual(false)
+})
+
 test('view click activates editing mode', () => {
   const editext = mount(
     <EdiText
