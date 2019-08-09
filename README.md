@@ -59,7 +59,7 @@ onSave|function|Yes||Function will be called when save button clicked. `value` i
 inputProps|object|No||Props to be passed to input element. Any kind of valid DOM attributes are welcome.
 viewProps|object|No||Props to be passed to div element that shows the text. You can specify your own `styles` or `className`
 validation|function|No||Pass your own validation function. takes one param -> `value`. It must return `true` or `false`
-validationMessage|string|No|Invalid Value| If validation fails this message will appear
+validationMessage|node|No|Invalid Value| If validation fails this message will appear
 onValidationFail|function|No||Pass your own function to track when validation failed. See Examples page for the usage.
 onCancel|function|No||Function will be called when editing is cancelled.
 saveButtonContent|node|No|`''`|Content for save button. Any valid element is allowed. Default is: &#10003;
