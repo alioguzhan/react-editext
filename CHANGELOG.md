@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/alioguzhan/react-editext/compare/v3.4.1...v3.6.0) (2019-08-10)
+
+
+### Features
+
+* Make editing state externally controllable ([481c469](https://github.com/alioguzhan/react-editext/commit/481c469))
+* text input now gets saved when enter is used, and gets canceled when escape is used ([8f9fb2b](https://github.com/alioguzhan/react-editext/commit/8f9fb2b))
+
 ## [3.5.0](https://github.com/alioguzhan/react-editext/compare/v3.4.1...v3.5.0) (2019-08-08)
 
 ### Features
