@@ -8,7 +8,7 @@
 [![Build Status](https://travis-ci.com/alioguzhan/react-editext.svg?branch=master)](https://travis-ci.com/alioguzhan/react-editext)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 
@@ -96,6 +96,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/wesoft-systems"><img src="https://avatars3.githubusercontent.com/u/8137662?v=4" width="100px;" alt="Obed Castillo"/><br /><sub><b>Obed Castillo</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=wesoft-systems" title="Code">💻</a></td>
     <td align="center"><a href="https://brunoaderaldo.netlify.com/"><img src="https://avatars3.githubusercontent.com/u/14007590?v=4" width="100px;" alt="Bruno Aderaldo"/><br /><sub><b>Bruno Aderaldo</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3ABrunoAderaldo" title="Bug reports">🐛</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=BrunoAderaldo" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/esskar"><img src="https://avatars1.githubusercontent.com/u/65206?v=4" width="100px;" alt="Sascha Kiefer"/><br /><sub><b>Sascha Kiefer</b></sub></a><br /><a href="#question-esskar" title="Answering Questions">💬</a> <a href="#ideas-esskar" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/sanehab"><img src="https://avatars0.githubusercontent.com/u/36003641?v=4" width="100px;" alt="Ehab Alsharif"/><br /><sub><b>Ehab Alsharif</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=sanehab" title="Code">💻</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=sanehab" title="Documentation">📖</a></td>
   </tr>
 </table>
 
