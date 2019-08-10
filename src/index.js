@@ -26,17 +26,6 @@ export default class EdiText extends Component {
     }
   }
 
-  _onInputKeyDown = e => {
-    const enterKeyCode = 13;
-    const escapeKeyCode = 27;
-    if (e.keyCode === enterKeyCode) {
-      this._onSave();
-    }
-    if (e.keyCode === escapeKeyCode) {
-      this._onCancel();
-    }
-  }
-
   _onInputChange = e => {
     this.setState({
       valid: true,
@@ -98,7 +87,6 @@ export default class EdiText extends Component {
           {...this.props.inputProps}
           value={this.state.value}
           type={this.props.type}
-          onKeyDown={this._onInputKeyDown}
           onChange={this._onInputChange}
           autoFocus={this.state.editing}
         />
