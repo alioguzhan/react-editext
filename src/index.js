@@ -22,13 +22,13 @@ export default class EdiText extends Component {
     if (nextProps.value) {
       this.setState({
         value: nextProps.value
-      });
+      })
     }
 
     if (nextProps.editing !== undefined) {
       this.setState({
         editing: nextProps.editing
-      });
+      })
     }
   }
 
@@ -194,10 +194,16 @@ export default class EdiText extends Component {
       buttonsAlign === 'before' && `${styles.Editext__buttons_before_aligned}`,
       buttonsAlign === 'after' && `${styles.Editext__buttons_after_aligned}`
     )
-    const viewClickHandler = (editOnViewClick) ? this._activateEditMode : undefined
+    const viewClickHandler = editOnViewClick
+      ? this._activateEditMode
+      : undefined
     return (
       <div className={viewContainerClass}>
-        {buttonsAlign === 'after' && <div {...viewProps} onClick={viewClickHandler}>{this.state.value}</div>}
+        {buttonsAlign === 'after' && (
+          <div {...viewProps} onClick={viewClickHandler}>
+            {this.state.value}
+          </div>
+        )}
         <div className={buttonsContainerClass}>
           <button
             ref={this.editButton}
@@ -208,7 +214,11 @@ export default class EdiText extends Component {
             {editButtonContent}
           </button>
         </div>
-        {buttonsAlign === 'before' && <div {...viewProps} onClick={viewClickHandler}>{this.state.value}</div>}
+        {buttonsAlign === 'before' && (
+          <div {...viewProps} onClick={viewClickHandler}>
+            {this.state.value}
+          </div>
+        )}
       </div>
     )
   }
@@ -227,13 +237,13 @@ EdiText.defaultProps = {
   type: 'text',
   validationMessage: 'Invalid Value',
   validation: value => true,
-  onCancel: () => { },
+  onCancel: () => {},
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
   hideIcons: false,
   buttonsAlign: 'after',
-  editing: false,
+  editing: false
 }
 
 EdiText.propTypes = {
@@ -273,5 +283,6 @@ EdiText.propTypes = {
   editButtonContent: PropTypes.any,
   hideIcons: PropTypes.bool,
   buttonsAlign: PropTypes.oneOf(['after', 'before']),
-  editing: PropTypes.bool,
+  editOnViewClick: PropTypes.bool,
+  editing: PropTypes.bool
 }
