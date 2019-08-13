@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.6.1](https://github.com/alioguzhan/react-editext/compare/v3.6.0...v3.6.1) (2019-08-13)
+
+
+### Bug Fixes
+
+* bug when updating value prop to blank ([200f6ff](https://github.com/alioguzhan/react-editext/commit/200f6ff))
+
 ## [3.6.0](https://github.com/alioguzhan/react-editext/compare/v3.4.1...v3.6.0) (2019-08-10)
 
 
