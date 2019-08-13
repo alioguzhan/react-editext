@@ -24,7 +24,7 @@ export default class EdiText extends Component {
       nextState.value = nextProps.value;
     }
 
-    if (nextProps.editing !== undefined && nextProps.editing !== this.state.editing) {
+    if (nextProps.editing !== undefined && nextProps.editing !== this.props.editing) {
       nextState.editing = nextProps.editing;
     }
 
