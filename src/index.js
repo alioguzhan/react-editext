@@ -19,16 +19,17 @@ export default class EdiText extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value) {
-      this.setState({
-        value: nextProps.value
-      })
+    const nextState = {}
+    if (nextProps.value !== undefined && nextProps.value !== this.state.value) {
+      nextState.value = nextProps.value;
     }
 
-    if (nextProps.editing !== undefined) {
-      this.setState({
-        editing: nextProps.editing
-      })
+    if (nextProps.editing !== undefined && nextProps.editing !== this.props.editing) {
+      nextState.editing = nextProps.editing;
+    }
+
+    if (Object.keys(nextState).length > 0) {
+      this.setState(nextState);
     }
   }
 
@@ -237,7 +238,7 @@ EdiText.defaultProps = {
   type: 'text',
   validationMessage: 'Invalid Value',
   validation: value => true,
-  onCancel: () => {},
+  onCancel: () => { },
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
