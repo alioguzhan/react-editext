@@ -4,6 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/react-editext.svg)](https://www.npmjs.com/package/react-editext)
 ![npm](https://img.shields.io/npm/dm/react-editext.svg)
+[![codecov](https://codecov.io/gh/alioguzhan/react-editext/branch/master/graph/badge.svg)](https://codecov.io/gh/alioguzhan/react-editext)
 [![Known Vulnerabilities](https://snyk.io/test/github/alioguzhan/react-editext/badge.svg)](https://snyk.io/test/github/alioguzhan/react-editext)
 [![Build Status](https://travis-ci.com/alioguzhan/react-editext.svg?branch=master)](https://travis-ci.com/alioguzhan/react-editext)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)

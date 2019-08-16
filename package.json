@@ -22,7 +22,8 @@
     "npm": ">=5"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test",
+    "test": "cross-env CI=1 react-scripts test --coverage",
+    "coverage": "codecov -e TRAVIS_NODE_VERSION -f coverage/*.json",
     "test:watch": "react-scripts test",
     "build": "rollup -c",
     "start": "rollup -c -w",
@@ -55,6 +56,7 @@
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
+    "codecov": "^3.5.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
