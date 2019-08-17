@@ -260,17 +260,28 @@ export default class App extends Component {
 
   render () {
     return (
-      <EdiText
-        type='text'
-        value='What is real? How do you define real?'
-        onSave={this.onSave}
-        editing={true}
-      />
+      <div>
+        <button
+          className='button is-small is-warning'
+          onClick={() => {
+            this.setState({ editing: !this.state.editing })
+          }}>
+            Toggle Editing Mode
+        </button>
+        <EdiText
+          type='text'
+          value='What is real? How do you define real?'
+          onSave={this.onSave}
+          editing={this.state.editing}
+        />
+      </div>
     )
   }
 }
 `
 export default class App extends Component {
+  state = { editing: false }
+
   onSave = val => {
     console.log('Edited Value -> ', val)
   }
@@ -851,7 +862,7 @@ export default class App extends Component {
             <p className='content'>
               You may want to activate the editor when the view is clicked on
               instead of clicking on the edit button. To do that you can use
-              <code>editOnViewClick</code> prop to <code>true</code>. 
+              <code>editOnViewClick</code> prop to <code>true</code>.
             </p>
             <div className='columns'>
               <div className='column is-half'>
@@ -872,11 +883,11 @@ export default class App extends Component {
           </div>
           <div className='tile is-parent is-vertical is-10' id='edit-by-default'>
             <div className='subtitle'>
-              <a href='#default-props'>Default Edit View</a>
+              <a href='#default-props'>Controlled Edit View</a>
             </div>
             <p className='content'>
               You may want the editor to be active by default and/or be controlled externally.
-              To do that you can set <code>editing</code> prop to <code>true</code>. 
+              To do that you can set <code>editing</code> prop to <code>true</code>.
             </p>
             <div className='columns'>
               <div className='column is-half'>
@@ -886,11 +897,19 @@ export default class App extends Component {
               </div>
               <div className='column'>
                 <div className='subtitle'>Output</div>
+                <div>
+                  <button
+                    className='button is-small is-warning'
+                    onClick={() => this.setState({ editing: !this.state.editing })}>
+                      Toggle Editing Mode
+                  </button>
+                </div>
+                <br />
                 <EdiText
                   type='text'
                   value='What is real? How do you define real?'
                   onSave={this.onSave}
-                  editing={true}
+                  editing={this.state.editing}
                 />
               </div>
             </div>
