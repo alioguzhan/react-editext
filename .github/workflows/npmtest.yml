@@ -21,10 +21,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - name: npm install, build and test
+      - name: npm install, build, test and coverage
         env:
           SKIP_PREFLIGHT_CHECK: true
         run: |
           npm install
           npm run build --if-present
           npm test
+          npm coverage
