@@ -28,4 +28,4 @@ jobs:
           npm install
           npm run build --if-present
           npm test
-          npm coverage
+          npm run coverage
