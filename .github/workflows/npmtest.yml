@@ -1,4 +1,4 @@
-name: Node.js Test
+name: build
 
 on:
   pull_request:
