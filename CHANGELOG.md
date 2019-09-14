@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/alioguzhan/react-editext/compare/v3.6.1...v3.7.0) (2019-09-14)
+
+
+### Bug Fixes
+
+* example/.snyk & example/package.json to reduce vulnerabilities ([72ac01c](https://github.com/alioguzhan/react-editext/commit/72ac01c))
+* migrate from `componentWillReceiveProps` to `componentDidUpdate` ([c355915](https://github.com/alioguzhan/react-editext/commit/c355915))
+
+
+### Features
+
+* get rid of our only dep: `classnames`. No more deps! ([d042ddc](https://github.com/alioguzhan/react-editext/commit/d042ddc))
+
 ### [3.6.1](https://github.com/alioguzhan/react-editext/compare/v3.6.0...v3.6.1) (2019-08-13)
 
 
