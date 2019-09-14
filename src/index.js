@@ -18,20 +18,21 @@ export default class EdiText extends Component {
     this.input = React.createRef()
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps, _prevState) {
     const nextState = {}
-    if (nextProps.value !== undefined && nextProps.value !== this.state.value) {
-      nextState.value = nextProps.value
+    if (this.props.value !== undefined && prevProps.value !== this.props.value) {
+      nextState.value = this.props.value
     }
 
     if (
-      nextProps.editing !== undefined &&
-      nextProps.editing !== this.props.editing
+      prevProps.editing !== undefined &&
+      prevProps.editing !== this.props.editing
     ) {
-      nextState.editing = nextProps.editing
+      nextState.editing = this.props.editing
     }
 
     if (Object.keys(nextState).length > 0) {
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState(nextState)
     }
   }
