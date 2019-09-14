@@ -59,6 +59,20 @@ test('props are working fine', () => {
   expect(editext.props().value).toEqual('Wake up Neo')
   expect(editext.props().onSave).toBeInstanceOf(Function)
   expect(editext.props().hideIcons).toEqual(false)
+  expect(editext.props().buttonsAlign).toEqual('after')
+  // ---
+  expect(editext.props().cancelButtonContent).toEqual('')
+  expect(editext.props().saveButtonContent).toEqual('')
+  expect(editext.props().editButtonContent).toEqual('')
+  // ---
+  expect(editext.props().cancelButtonClassName).toEqual(undefined)
+  expect(editext.props().saveButtonClassName).toEqual(undefined)
+  expect(editext.props().editButtonClassName).toEqual(undefined)
+  // ---
+  expect(editext.props().editContainerClassName).toEqual(undefined)
+  expect(editext.props().mainContainerClassName).toEqual(undefined)
+  expect(editext.props().viewContainerClassName).toEqual(undefined)
+
   editext.setProps({
     type: 'textarea',
     hint: 'iamhint',
@@ -66,12 +80,33 @@ test('props are working fine', () => {
       className: 'my-class-name',
       name: 'username'
     },
-    hideIcons: true
+    hideIcons: true,
+    editing: true,
+    buttonsAlign: 'before',
+    cancelButtonContent: 'revert',
+    saveButtonContent: 'apply',
+    editButtonContent: 'modify',
+    cancelButtonClassName: 'cancel-class',
+    saveButtonClassName: 'save-class',
+    editButtonClassName: 'edit-class',
+    mainContainerClassName: 'main-c-class',
+    editContainerClassName: 'edit-c-class',
+    viewContainerClassName: 'view-c-class'
   })
   expect(editext.props().type).toEqual('textarea')
   expect(editext.props().hint).toEqual('iamhint')
   expect(editext.props().inputProps).toMatchObject({ className: 'my-class-name', name: 'username' })
   expect(editext.props().hideIcons).toEqual(true)
+  expect(editext.props().buttonsAlign).toEqual('before')
+  expect(editext.props().cancelButtonContent).toEqual('revert')
+  expect(editext.props().saveButtonContent).toEqual('apply')
+  expect(editext.props().editButtonContent).toEqual('modify')
+  expect(editext.props().cancelButtonClassName).toEqual('cancel-class')
+  expect(editext.props().saveButtonClassName).toEqual('save-class')
+  expect(editext.props().editButtonClassName).toEqual('edit-class')
+  expect(editext.props().editContainerClassName).toEqual('edit-c-class')
+  expect(editext.props().mainContainerClassName).toEqual('main-c-class')
+  expect(editext.props().viewContainerClassName).toEqual('view-c-class')
 })
 
 test('text input initial value is same as prop value', () => {
@@ -82,9 +117,7 @@ test('text input initial value is same as prop value', () => {
       onSave={val => true}
     />
   )
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
-  expect(editext.find('input[type="text"]').first().props().value).toEqual(editext.props().value)
+  expect(editext.state().value).toEqual('Wake up Neo')
 })
 
 test('editing text input updates the state', () => {
@@ -95,8 +128,8 @@ test('editing text input updates the state', () => {
       onSave={val => true}
     />
   )
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
+
+  editext.find('button').simulate('click')
 
   const editInput = editext.find('input[type="text"]').first()
   editInput.instance().value = 'updated matrix'
@@ -113,9 +146,7 @@ test('editing textarea updates the state', () => {
       onSave={val => true}
     />
   )
-  const editButtonClassName = editext.props().editButtonClassName
-  editext.find(`button.${editButtonClassName}`).simulate('click')
-
+  editext.find('button').simulate('click')
   const editInput = editext.find('textarea')
   editInput.instance().value = 'updated matrix-2'
   editInput.simulate('change')
@@ -283,4 +314,25 @@ test('custom button titles are set properly', () => {
 
   expect(saveButton.text()).toEqual(editext.props().saveButtonContent)
   expect(cancelButton.text()).toEqual(editext.props().cancelButtonContent)
+})
+
+test('state listens to prop changes', () => {
+  const editext = mount(
+    <EdiText
+      type='text'
+      saveButtonContent='Apply'
+      cancelButtonContent='Cancel'
+      editButtonContent='Edit'
+      value='Neo'
+      editing={true}
+      onSave={val => true}
+    />
+  )
+  expect(editext.state().value).toEqual('Neo')
+  editext.setProps({ value: 'Tank' })
+  expect(editext.state().value).toEqual('Tank')
+
+  expect(editext.state().editing).toEqual(true)
+  editext.setProps({ editing: false })
+  expect(editext.state().editing).toEqual(false)
 })

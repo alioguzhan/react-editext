@@ -12,10 +12,6 @@ export default class EdiText extends Component {
       value: props.value || '',
       savedValue: ''
     }
-    this.editButton = React.createRef()
-    this.saveButton = React.createRef()
-    this.cancelButton = React.createRef()
-    this.input = React.createRef()
   }
 
   componentDidUpdate(prevProps, _prevState) {
@@ -82,7 +78,6 @@ export default class EdiText extends Component {
     if (this.props.type === 'textarea') {
       return (
         <textarea
-          ref={this.input}
           className={styles.Editext__input}
           {...this.props.inputProps}
           value={this.state.value}
@@ -93,7 +88,6 @@ export default class EdiText extends Component {
     } else {
       return (
         <input
-          ref={this.input}
           className={styles.Editext__input}
           {...this.props.inputProps}
           value={this.state.value}
@@ -149,7 +143,6 @@ export default class EdiText extends Component {
           {buttonsAlign === 'after' && inputElem}
           <div className={buttonsContainerClass}>
             <button
-              ref={this.saveButton}
               type='button'
               className={saveButtonClass}
               onClick={this.handleSave}
@@ -157,7 +150,6 @@ export default class EdiText extends Component {
               {saveButtonContent}
             </button>
             <button
-              ref={this.cancelButton}
               type='button'
               className={cancelButtonClass}
               onClick={this.handleCancel}
@@ -213,7 +205,6 @@ export default class EdiText extends Component {
         )}
         <div className={buttonsContainerClass}>
           <button
-            ref={this.editButton}
             type='button'
             className={editButtonClass}
             onClick={this.handleActivateEditMode}

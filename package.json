@@ -68,6 +68,7 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-standard": "^4.0.0",
     "gh-pages": "^2.0.1",
+    "identity-obj-proxy": "^3.0.0",
     "prettier-eslint": "^9.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.8.6",
