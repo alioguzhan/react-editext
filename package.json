@@ -86,7 +86,5 @@
     "dist",
     "index.d.ts"
   ],
-  "dependencies": {
-    "classnames": "^2.2.6"
-  }
+  "dependencies": {}
 }

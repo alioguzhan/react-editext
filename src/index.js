@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.css'
-import classnames from 'classnames'
 
+function classnames() {
+  /**
+   * Our simple classnames replica.
+   * This is enough for me.
+  */
+  return Array(...arguments).filter(a => a).join(' ')
+}
 export default class EdiText extends Component {
   constructor(props) {
     super(props)
