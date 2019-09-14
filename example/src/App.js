@@ -282,11 +282,11 @@ export default class App extends Component {
 export default class App extends Component {
   state = { editing: false }
 
-  onSave = val => {
+  handleSave = val => {
     console.log('Edited Value -> ', val)
   }
 
-  validationFailed = textValue => {
+  handleValidationFail = textValue => {
     window.alert(
       `The text <${textValue}> is not valid.\nYou shall not use the word SMITH here!!!`
     )
@@ -360,7 +360,7 @@ export default class App extends Component {
                 <EdiText
                   type='text'
                   value='What is real? How do you define real?'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -393,7 +393,7 @@ export default class App extends Component {
                       className: 'react-answer-1'
                     }}
                     value='I am not sure...'
-                    onSave={this.onSave}
+                    onSave={this.handleSave}
                   />
                 </div>
               </div>
@@ -434,7 +434,7 @@ export default class App extends Component {
                       className: 'react-answer-1'
                     }}
                     value='I am not sure...'
-                    onSave={this.onSave}
+                    onSave={this.handleSave}
                   />
                 </div>
               </div>
@@ -477,7 +477,7 @@ export default class App extends Component {
                   }}
                   value="How do you define real? If you're talking about what you can feel, what you can smell,
                   what you can taste and see, then real is simply electrical signals interpreted by your brain"
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -509,7 +509,7 @@ export default class App extends Component {
                   cancelButtonContent={<strong>Cancel</strong>}
                   editButtonContent='Edit'
                   value='Why, Mr. Anderson? Why? Why do you persist?'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -542,7 +542,7 @@ export default class App extends Component {
                   editButtonContent='Edit'
                   value='Why, Mr. Anderson? Why? Why do you persist?'
                   hideIcons={true}
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -577,7 +577,7 @@ export default class App extends Component {
                   cancelButtonClassName='custom-cancel-button'
                   editButtonContent='Edit'
                   value='Why, Mr. Anderson? Why? Why do you persist?'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -630,7 +630,7 @@ export default class App extends Component {
                   editButtonContent='Edit This Quote'
                   value="How do you define real? If you're talking about what you can feel, what you can smell,
                   what you can taste and see, then real is simply electrical signals interpreted by your brain"
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -679,7 +679,7 @@ export default class App extends Component {
                       className: 'custom-view-class'
                     }}
                     value='No. The honor is still mine.'
-                    onSave={this.onSave}
+                    onSave={this.handleSave}
                   />
                 </div>
               </div>
@@ -715,7 +715,7 @@ export default class App extends Component {
                     style: { borderRadius: 3 }
                   }}
                   value='Hello React!'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -748,7 +748,7 @@ export default class App extends Component {
                   type='text'
                   buttonsAlign='before'
                   value='What is real? How do you define real?'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -777,7 +777,7 @@ export default class App extends Component {
                   validationMessage='Please type at least 20 characters.'
                   validation={val => val.length >= 20}
                   value='The Matrix has you..'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -811,12 +811,12 @@ export default class App extends Component {
                 <EdiText
                   type='text'
                   validation={val => val.toLowerCase().indexOf('smith') < 0}
-                  onValidationFail={this.validationFailed}
+                  onValidationFail={this.handleValidationFail}
                   inputProps={{
                     placeholder: "Don't use the word 'Smith'..."
                   }}
                   value='Why Mr. Anderson? Why? Why? Why?'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -850,7 +850,7 @@ export default class App extends Component {
                   }}
                   hint='All dates are allowed between 2000 and 2049'
                   value={new Date().toLocaleString()}
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                 />
               </div>
             </div>
@@ -875,7 +875,7 @@ export default class App extends Component {
                 <EdiText
                   type='text'
                   value='What is real? How do you define real?'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                   editOnViewClick={true}
                 />
               </div>
@@ -900,7 +900,8 @@ export default class App extends Component {
                 <div>
                   <button
                     className='button is-small is-warning'
-                    onClick={() => this.setState({ editing: !this.state.editing })}>
+                    onClick={() => this.setState({ editing: !this.state.editing })}
+                  >
                       Toggle Editing Mode
                   </button>
                 </div>
@@ -908,7 +909,7 @@ export default class App extends Component {
                 <EdiText
                   type='text'
                   value='What is real? How do you define real?'
-                  onSave={this.onSave}
+                  onSave={this.handleSave}
                   editing={this.state.editing}
                 />
               </div>

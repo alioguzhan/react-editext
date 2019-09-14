@@ -36,14 +36,14 @@ export default class EdiText extends Component {
     }
   }
 
-  _onInputChange = e => {
+  handleInputChange = e => {
     this.setState({
       valid: true,
       value: e.target.value
     })
   }
 
-  _onCancel = () => {
+  handleCancel = () => {
     this.setState(
       {
         valid: true,
@@ -54,13 +54,13 @@ export default class EdiText extends Component {
     )
   }
 
-  _activateEditMode = () => {
+  handleActivateEditMode = () => {
     this.setState({
       editing: true
     })
   }
 
-  _onSave = () => {
+  handleSave = () => {
     const { onSave, validation, onValidationFail } = this.props
     const isValid = validation(this.state.value)
     if (!isValid) {
@@ -85,7 +85,7 @@ export default class EdiText extends Component {
           className={styles.Editext__input}
           {...this.props.inputProps}
           value={this.state.value}
-          onChange={this._onInputChange}
+          onChange={this.handleInputChange}
           autoFocus={this.state.editing}
         />
       )
@@ -97,12 +97,13 @@ export default class EdiText extends Component {
           {...this.props.inputProps}
           value={this.state.value}
           type={this.props.type}
-          onChange={this._onInputChange}
+          onChange={this.handleInputChange}
           autoFocus={this.state.editing}
         />
       )
     }
   }
+
   _renderEditingMode = () => {
     const {
       saveButtonClassName,
@@ -150,7 +151,7 @@ export default class EdiText extends Component {
               ref={this.saveButton}
               type='button'
               className={saveButtonClass}
-              onClick={this._onSave}
+              onClick={this.handleSave}
             >
               {saveButtonContent}
             </button>
@@ -158,7 +159,7 @@ export default class EdiText extends Component {
               ref={this.cancelButton}
               type='button'
               className={cancelButtonClass}
-              onClick={this._onCancel}
+              onClick={this.handleCancel}
             >
               {cancelButtonContent}
             </button>
@@ -174,6 +175,7 @@ export default class EdiText extends Component {
       </div>
     )
   }
+
   _renderViewMode = () => {
     const {
       viewProps,
@@ -199,7 +201,7 @@ export default class EdiText extends Component {
       buttonsAlign === 'after' && `${styles.Editext__buttons_after_aligned}`
     )
     const viewClickHandler = editOnViewClick
-      ? this._activateEditMode
+      ? this.handleActivateEditMode
       : undefined
     return (
       <div className={viewContainerClass}>
@@ -213,7 +215,7 @@ export default class EdiText extends Component {
             ref={this.editButton}
             type='button'
             className={editButtonClass}
-            onClick={this._activateEditMode}
+            onClick={this.handleActivateEditMode}
           >
             {editButtonContent}
           </button>
@@ -226,6 +228,7 @@ export default class EdiText extends Component {
       </div>
     )
   }
+
   render() {
     const mode = this.state.editing
       ? this._renderEditingMode()

@@ -14,7 +14,7 @@ test('edit button activates editing mode', () => {
     />
   )
   expect(editext.state().editing).toEqual(false)
-  editext.find(`button`).at(0).simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 })
 
@@ -28,7 +28,7 @@ test('editing prop activates editing mode', () => {
     />
   )
   expect(editext.state().editing).toEqual(true)
-  const cancelButton = editext.find(`button`).at(1)
+  const cancelButton = editext.find('button').at(1)
   cancelButton.simulate('click')
   expect(editext.state().editing).toEqual(false)
 })
@@ -44,7 +44,7 @@ test('view click activates editing mode', () => {
     />
   )
   expect(editext.state().editing).toEqual(false)
-  editext.find(`#viewdiv`).at(0).simulate('click')
+  editext.find('#viewdiv').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 })
 
@@ -84,7 +84,7 @@ test('text input initial value is same as prop value', () => {
   )
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
-  expect(editext.find(`input[type="text"]`).first().props().value).toEqual(editext.props().value)
+  expect(editext.find('input[type="text"]').first().props().value).toEqual(editext.props().value)
 })
 
 test('editing text input updates the state', () => {
@@ -98,7 +98,7 @@ test('editing text input updates the state', () => {
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
 
-  const editInput = editext.find(`input[type="text"]`).first()
+  const editInput = editext.find('input[type="text"]').first()
   editInput.instance().value = 'updated matrix'
   editInput.simulate('change')
 
@@ -116,7 +116,7 @@ test('editing textarea updates the state', () => {
   const editButtonClassName = editext.props().editButtonClassName
   editext.find(`button.${editButtonClassName}`).simulate('click')
 
-  const editInput = editext.find(`textarea`)
+  const editInput = editext.find('textarea')
   editInput.instance().value = 'updated matrix-2'
   editInput.simulate('change')
   expect(editext.state().value).toEqual('updated matrix-2')
@@ -130,13 +130,13 @@ test('cancelling reverts the input value to prop value', () => {
       onSave={val => true}
     />
   )
-  editext.find(`button`).at(0).simulate('click')
+  editext.find('button').at(0).simulate('click')
 
-  const editInput = editext.find(`input[type="text"]`)
+  const editInput = editext.find('input[type="text"]')
   editInput.instance().value = 'updated matrix-2'
   editInput.simulate('change')
 
-  const cancelButton = editext.find(`button`).at(1)
+  const cancelButton = editext.find('button').at(1)
   expect(editext.state().value).toEqual('updated matrix-2')
   cancelButton.simulate('click')
   expect(editext.state().value).toEqual(editext.props().value)
@@ -152,13 +152,13 @@ test('save action sets the input value properly', () => {
   )
   expect(editext.state().editing).toEqual(false)
 
-  editext.find(`button`).at(0).simulate('click')
+  editext.find('button').at(0).simulate('click')
 
-  const editInput = editext.find(`input[type="text"]`)
+  const editInput = editext.find('input[type="text"]')
   editInput.instance().value = 'updated value.'
   editInput.simulate('change')
 
-  const saveButton = editext.find(`button`).at(0)
+  const saveButton = editext.find('button').at(0)
   saveButton.simulate('click')
 
   expect(editext.state().savedValue).toEqual('updated value.')
@@ -174,10 +174,10 @@ test('cancel action deactivates the editing mode', () => {
   )
   expect(editext.state().editing).toEqual(false)
 
-  editext.find(`button`).at(0).simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
-  const cancelButton = editext.find(`button`).at(1)
+  const cancelButton = editext.find('button').at(1)
   cancelButton.simulate('click')
   expect(editext.state().editing).toEqual(false)
 })
@@ -191,10 +191,10 @@ test('save action deactivates the editing mode', () => {
     />
   )
   expect(editext.state().editing).toEqual(false)
-  editext.find(`button`).at(0).simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
-  const saveButton = editext.find(`button`).at(0)
+  const saveButton = editext.find('button').at(0)
   saveButton.simulate('click')
   expect(editext.state().editing).toEqual(false)
 })
@@ -212,13 +212,13 @@ test('validation prop validates the input value', () => {
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  editext.find(`button`).at(0).simulate('click')
+  editext.find('button').at(0).simulate('click')
 
-  const editInput = editext.find(`input[type="text"]`).at(0)
+  const editInput = editext.find('input[type="text"]').at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
   editInput.simulate('change')
 
-  const saveButton = editext.find(`button`).at(0)
+  const saveButton = editext.find('button').at(0)
   saveButton.simulate('click')
   expect(editext.state().valid).toEqual(false)
   expect(editext.state().editing).toEqual(true)
@@ -246,13 +246,13 @@ test('onValidationFail method is being triggered when validation fails', () => {
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  editext.find(`button`).at(0).simulate('click')
+  editext.find('button').at(0).simulate('click')
 
-  const editInput = editext.find(`input[type="text"]`).at(0)
+  const editInput = editext.find('input[type="text"]').at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
   editInput.simulate('change')
 
-  const saveButton = editext.find(`button`).at(0)
+  const saveButton = editext.find('button').at(0)
   saveButton.simulate('click')
 
   expect(isValid).toEqual(false)
@@ -273,13 +273,13 @@ test('custom button titles are set properly', () => {
       onSave={val => true}
     />
   )
-  const editButton = editext.find(`button`).at(0)
+  const editButton = editext.find('button').at(0)
   expect(editButton.text()).toEqual(editext.props().editButtonContent)
   editButton.simulate('click')
 
-  const saveButton = editext.find(`button`).at(0)
+  const saveButton = editext.find('button').at(0)
 
-  const cancelButton = editext.find(`button`).at(1)
+  const cancelButton = editext.find('button').at(1)
 
   expect(saveButton.text()).toEqual(editext.props().saveButtonContent)
   expect(cancelButton.text()).toEqual(editext.props().cancelButtonContent)
