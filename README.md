@@ -9,7 +9,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8763564ea68947e3a1c4067659468e59)](https://www.codacy.com/manual/alioguzhan/react-editext?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=alioguzhan/react-editext&amp;utm_campaign=Badge_Grade)
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 [![Known Vulnerabilities](https://snyk.io/test/github/alioguzhan/react-editext/badge.svg)](https://snyk.io/test/github/alioguzhan/react-editext)
-[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Install
