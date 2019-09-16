@@ -3,13 +3,13 @@
 > Editable Text Component for React Applications
 
 [![NPM](https://img.shields.io/npm/v/react-editext.svg)](https://www.npmjs.com/package/react-editext)
-![npm](https://img.shields.io/npm/dm/react-editext.svg)
+[![npm](https://img.shields.io/npm/dm/react-editext.svg)](https://www.npmjs.com/package/react-editext)
 [![Github](https://github.com/alioguzhan/react-editext/workflows/build/badge.svg)](https://github.com/alioguzhan/react-editext/actions)
 [![codecov](https://codecov.io/gh/alioguzhan/react-editext/branch/master/graph/badge.svg)](https://codecov.io/gh/alioguzhan/react-editext)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8763564ea68947e3a1c4067659468e59)](https://www.codacy.com/manual/alioguzhan/react-editext?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=alioguzhan/react-editext&amp;utm_campaign=Badge_Grade)
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 [![Known Vulnerabilities](https://snyk.io/test/github/alioguzhan/react-editext/badge.svg)](https://snyk.io/test/github/alioguzhan/react-editext)
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 
 ## Install
