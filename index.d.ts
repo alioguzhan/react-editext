@@ -93,7 +93,7 @@ declare module 'react-editext' {
          */
         editContainerClassName?: string;
         /**
-         * Custom class name for the top-level main container. 
+         * Custom class name for the top-level main container.
          */
         mainContainerClassName?: string;
         /**
@@ -104,6 +104,12 @@ declare module 'react-editext' {
          * Set it to `true` if you want the view state to be edit mode
          */
         editing?: boolean;
+        /**
+         * Will be called when the editing mode is active.
+         *
+         * `value` is the value of the input at the time when editing started.
+         */
+        onEditingStart?: (value:string) => any;
     }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {
