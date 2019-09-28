@@ -60,7 +60,7 @@ export default class EdiText extends Component {
   handleActivateEditMode = () => {
     this.setState({
       editing: true
-    })
+    }, () => { this.props.onEditingStart(this.state.value) })
   }
 
   handleSave = () => {
@@ -241,8 +241,9 @@ EdiText.defaultProps = {
   value: '',
   type: 'text',
   validationMessage: 'Invalid Value',
-  validation: value => true,
-  onCancel: () => {},
+  validation: _v => true,
+  onEditingStart: _v => null,
+  onCancel: _v => null,
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
@@ -275,6 +276,7 @@ EdiText.propTypes = {
   // Events
   onCancel: PropTypes.func,
   onSave: PropTypes.func.isRequired,
+  onEditingStart: PropTypes.func,
   // classNames
   saveButtonClassName: PropTypes.string,
   editButtonClassName: PropTypes.string,

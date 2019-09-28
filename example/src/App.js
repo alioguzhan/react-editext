@@ -279,8 +279,26 @@ export default class App extends Component {
   }
 }
 `
+const example17 = `import React, { Component } from 'react'
+import EdiText from 'react-editext'
+
 export default class App extends Component {
-  state = { editing: false }
+
+  render () {
+    return (
+      <EdiText
+        type='text'
+        onCancel={v => console.log('CANCELLED: ', v}
+        onEditingStart={v => console.log('EDITING STARTED: ', v}
+        onSave={v => console.log('SAVED: ', v}
+        value={"You've been living in a dream world, Neo."}
+      />
+    )
+  }
+}`
+
+export default class App extends Component {
+  state = { editing: false, logs: [] }
 
   handleSave = val => {
     console.log('Edited Value -> ', val)
@@ -362,6 +380,50 @@ export default class App extends Component {
                   value='What is real? How do you define real?'
                   onSave={this.handleSave}
                 />
+              </div>
+            </div>
+          </div>
+          <div className='tile is-parent is-vertical is-10' id='default-props'>
+            <div className='subtitle'>
+              <a href='#default-props'>Events</a>
+            </div>
+            <p className='content'>
+              You can listen events when user cancelled, saved or start editing.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {example17}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column is-half'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  onCancel={v => this.setState({
+                    logs: [...this.state.logs, `CANCELLED: ${v}`]
+                  })}
+                  onEditingStart={v => this.setState({
+                    logs: [...this.state.logs, `EDITING STARTED: ${v}`]
+                  })}
+                  onSave={v => this.setState({
+                    logs: [...this.state.logs, `SAVED: ${v}`]
+                  })}
+                  value={"You've been living in a dream world, Neo."}
+                />
+                <div className='subtitle' style={{ marginTop: 10 }}>
+                  Console
+                </div>
+                <pre style={{ overflowX: 'scroll', height: 200 }}>
+                  {this.state.logs.map((e, i) => (
+                    <p key={i}>{e}</p>
+                  ))}
+                </pre>
+                <button
+                  className='button is-small'
+                  onClick={() => this.setState({ logs: [] })}
+                >
+                  clear the logs
+                </button>
               </div>
             </div>
           </div>
@@ -874,6 +936,7 @@ export default class App extends Component {
                 <div className='subtitle'>Output</div>
                 <EdiText
                   type='text'
+                  onEditingStart={v => console.log('editing started: ', v)}
                   value='What is real? How do you define real?'
                   onSave={this.handleSave}
                   editOnViewClick={true}
