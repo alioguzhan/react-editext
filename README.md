@@ -74,6 +74,7 @@ hideIcons|bool|No|`false`|Set it to `true` if you don't want to see default icon
 buttonsAlign|string|No|`after`|Set this to `before` if you want to locate action buttons before the input instead of after it. See [here](https://alioguzhan.github.io/react-editext/#change-buttons-location).
 editOnViewClick|bool|No|`false`|Set it to `true` if you want clicking on the view to activate the editor.
 editing|bool|No|`false`|Set it to `true` if you want the view state to be edit mode.
+onEditingStart|function|No||Function that will be called when the editing mode is active. See [here](https://alioguzhan.github.io/react-editext/#events)
 
 ## Browser Support
 

@@ -383,12 +383,12 @@ export default class App extends Component {
               </div>
             </div>
           </div>
-          <div className='tile is-parent is-vertical is-10' id='default-props'>
+          <div className='tile is-parent is-vertical is-10' id='events'>
             <div className='subtitle'>
-              <a href='#default-props'>Events</a>
+              <a href='#events'>Events</a>
             </div>
             <p className='content'>
-              You can listen events when user cancelled, saved or start editing.
+              You can listen events when user cancels, saves or starts editing.
             </p>
             <div className='columns'>
               <div className='column is-half'>
