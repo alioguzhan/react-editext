@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.8.0](https://github.com/alioguzhan/react-editext/compare/v3.7.0...v3.8.0) (2019-10-02)
+
+
+### Features
+
+* add new prop `showButtonsOnHover` ([0d17c53](https://github.com/alioguzhan/react-editext/commit/0d17c53))
+* new prop `onEditingStart` to check if editing started ([886df21](https://github.com/alioguzhan/react-editext/commit/886df21))
+
 ## [3.7.0](https://github.com/alioguzhan/react-editext/compare/v3.6.1...v3.7.0) (2019-09-14)
 
 
