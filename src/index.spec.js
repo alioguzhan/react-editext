@@ -59,6 +59,7 @@ test('props are working fine', () => {
   expect(editext.props().value).toEqual('Wake up Neo')
   expect(editext.props().onSave).toBeInstanceOf(Function)
   expect(editext.props().hideIcons).toEqual(false)
+  expect(editext.props().showButtonsOnHover).toEqual(undefined)
   expect(editext.props().buttonsAlign).toEqual('after')
   // ---
   expect(editext.props().cancelButtonContent).toEqual('')
@@ -82,6 +83,7 @@ test('props are working fine', () => {
     },
     hideIcons: true,
     editing: true,
+    showButtonsOnHover: true,
     buttonsAlign: 'before',
     cancelButtonContent: 'revert',
     saveButtonContent: 'apply',
@@ -97,6 +99,7 @@ test('props are working fine', () => {
   expect(editext.props().hint).toEqual('iamhint')
   expect(editext.props().inputProps).toMatchObject({ className: 'my-class-name', name: 'username' })
   expect(editext.props().hideIcons).toEqual(true)
+  expect(editext.props().showButtonsOnHover).toEqual(true)
   expect(editext.props().buttonsAlign).toEqual('before')
   expect(editext.props().cancelButtonContent).toEqual('revert')
   expect(editext.props().saveButtonContent).toEqual('apply')

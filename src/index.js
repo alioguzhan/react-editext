@@ -183,7 +183,8 @@ export default class EdiText extends Component {
       viewContainerClassName,
       hideIcons,
       buttonsAlign,
-      editOnViewClick
+      editOnViewClick,
+      showButtonsOnHover
     } = this.props
     // calculate edit button classes
     const editButtonDefaultClasses = classnames(
@@ -192,8 +193,10 @@ export default class EdiText extends Component {
       hideIcons && `${styles.Editext__hide_default_icons}`
     )
     const editButtonClass = editButtonClassName || editButtonDefaultClasses
-    const viewContainerClass =
-      viewContainerClassName || styles.Editext__view_container
+    const viewContainerClass = classnames(
+      viewContainerClassName || styles.Editext__view_container,
+      showButtonsOnHover && `${styles.Editext__buttons_showButtonsOnHover}`
+    )
     const buttonsContainerClass = classnames(
       styles.Editext__buttons_container,
       buttonsAlign === 'before' && `${styles.Editext__buttons_before_aligned}`,
@@ -291,5 +294,6 @@ EdiText.propTypes = {
   hideIcons: PropTypes.bool,
   buttonsAlign: PropTypes.oneOf(['after', 'before']),
   editOnViewClick: PropTypes.bool,
-  editing: PropTypes.bool
+  editing: PropTypes.bool,
+  showButtonsOnHover: PropTypes.bool
 }

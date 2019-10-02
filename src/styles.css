@@ -34,6 +34,12 @@
 .Editext__buttons_container {
   display: flex;
 }
+.Editext__buttons_showButtonsOnHover .Editext__buttons_container {
+  visibility: hidden;
+}
+.Editext__buttons_showButtonsOnHover:hover .Editext__buttons_container {
+  visibility: visible;
+}
 .Editext__buttons_before_aligned {
   margin-right: 5px;
 }

@@ -110,6 +110,11 @@ declare module 'react-editext' {
          * `value` is the value of the input at the time when editing started.
          */
         onEditingStart?: (value:string) => any;
+        /**
+         * Set it to `true` if you want to display action buttons **only**
+         * when the text hovered by the user.
+         */
+        showButtonsOnHover?: boolean;
     }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {

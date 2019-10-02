@@ -35,9 +35,8 @@ const example2 = `<EdiText
   value="How do you define real? If you're talking about what you can feel, what you can smell,\\
   what you can taste and see, then real is simply electrical signals interpreted by your brain"
   onSave={this.onSave}
-/>
+/>`
 
-`
 const example3 = `<EdiText
   type="textarea"
   saveButtonContent="Apply"
@@ -45,8 +44,8 @@ const example3 = `<EdiText
   editButtonContent="Edit"
   value="Why, Mr. Anderson? Why? Why do you persist?"
   onSave={this.onSave}
-/>
-`
+/>`
+
 const example4 = `<EdiText
   type="text"
   validationMessage="Please type at least 20 characters."
@@ -78,8 +77,7 @@ const example5 = `export default class App extends Component {
       />
     )
   }
-}
-`
+}`
 
 const example6 = `<EdiText
   type="text"
@@ -194,8 +192,8 @@ export default class App extends Component {
       />
     )
   }
-}
-`
+}`
+
 const example13Style = `
 .my-custom-view-wrapper {
   display: flex;
@@ -248,8 +246,8 @@ export default class App extends Component {
       />
     )
   }
-}
-`
+}`
+
 const example16 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
@@ -277,8 +275,8 @@ export default class App extends Component {
       </div>
     )
   }
-}
-`
+}`
+
 const example17 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
@@ -296,6 +294,12 @@ export default class App extends Component {
     )
   }
 }`
+
+const example18 = `<EdiText
+  showButtonsOnHover
+  value="Why, Mr. Anderson? Why? Why do you persist?"
+  onSave={this.onSave}()
+/>`
 
 export default class App extends Component {
   state = { editing: false, logs: [] }
@@ -424,6 +428,33 @@ export default class App extends Component {
                 >
                   clear the logs
                 </button>
+              </div>
+            </div>
+          </div>
+          <div className='tile is-parent is-vertical is-10' id='show-on-hover'>
+            <div className='subtitle'>
+              <a href='#show-on-hover'>Show Button on Hover</a>
+            </div>
+            <p className='content'>
+              Pass <code>showButtonsOnHover</code> prop if you want to display
+              the action buttons only when the text hovered by the user.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {example18}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <div className='custom-wrapper' style={{ padding: 10 }}>
+                  <EdiText
+                    type='text'
+                    showButtonsOnHover
+                    value='What is real? How do you define real?'
+                    onSave={this.handleSave}
+                  />
+                </div>
               </div>
             </div>
           </div>

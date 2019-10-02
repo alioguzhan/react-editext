@@ -75,6 +75,7 @@ buttonsAlign|string|No|`after`|Set this to `before` if you want to locate action
 editOnViewClick|bool|No|`false`|Set it to `true` if you want clicking on the view to activate the editor.
 editing|bool|No|`false`|Set it to `true` if you want the view state to be edit mode.
 onEditingStart|function|No||Function that will be called when the editing mode is active. See [here](https://alioguzhan.github.io/react-editext/#events)
+showButtonsOnHover|bool|No|`false`|Set it to `true` if you want to display action buttons **only** when the text hovered by the user. See [here](https://alioguzhan.github.io/react-editext/#show-on-hover)
 
 ## Browser Support
 
@@ -83,6 +84,10 @@ onEditingStart|function|No||Function that will be called when the editing mode i
 | :white_check_mark: | :white_check_mark:| :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: :exclamation: |
 
 * `rows` prop for textarea has no effect in IE/Edge. You can set its `height` with some css.
+
+## To Do
+
+  * [ ] Write better and more tests
 
 ## Contributors ✨
 
