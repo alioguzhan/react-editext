@@ -52,7 +52,7 @@ You can customize almost everything based on your needs. Please navigate to [Pro
 | Prop | Type | Required |Default | Note
 |---|---|---|---|---|
 value|string|Yes|`''`|Value of the content and input [in edit mode]
-type|string|Yes|text|Input type. Possible options are: `text`, `number`, `email`, `textarea`, `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`
+type|string|Yes|text|Input type. Possible options are: `text`, `password`, `number`, `email`, `textarea`, `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`
 hint|node|No|`''`|A simple hint message appears at the bottom of input element. Any valid element is allowed.
 onSave|function|Yes||Function will be called when save button clicked. `value` is passed to cb.
 inputProps|object|No||Props to be passed to input element. Any kind of valid DOM attributes are welcome.

@@ -266,6 +266,7 @@ EdiText.propTypes = {
   type: PropTypes.oneOf([
     'text',
     'textarea',
+    'password',
     'email',
     'number',
     'date',
