@@ -10,13 +10,16 @@
     "react-dom": "^16.10.1",
     "react-editext": "link:..",
     "react-scripts": "^3.1.2",
-    "react-syntax-highlighter": "^11.0.2"
+    "react-syntax-highlighter": "^11.0.2",
+    "snyk": "^1.237.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "browserslist": [
     ">0.2%",
