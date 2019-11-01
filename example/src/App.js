@@ -298,7 +298,13 @@ export default class App extends Component {
 const example18 = `<EdiText
   showButtonsOnHover
   value="Why, Mr. Anderson? Why? Why do you persist?"
-  onSave={this.onSave}()
+  onSave={this.onSave}
+/>`
+
+const example19 = `<EdiText
+  submitOnEnter
+  value="The Keymaker"
+  onSave={this.onSave}
 />`
 
 export default class App extends Component {
@@ -977,7 +983,7 @@ export default class App extends Component {
           </div>
           <div className='tile is-parent is-vertical is-10' id='edit-by-default'>
             <div className='subtitle'>
-              <a href='#default-props'>Controlled Edit View</a>
+              <a href='#edit-by-default'>Controlled Edit View</a>
             </div>
             <p className='content'>
               You may want the editor to be active by default and/or be controlled externally.
@@ -1005,6 +1011,33 @@ export default class App extends Component {
                   value='What is real? How do you define real?'
                   onSave={this.handleSave}
                   editing={this.state.editing}
+                />
+              </div>
+            </div>
+          </div>
+          <div className='tile is-parent is-vertical is-10' id='submit-on-enter'>
+            <div className='subtitle'>
+              <a href='#submit-on-enter'>Save on Enter</a>
+            </div>
+            <p className='content'>
+              Use this if you want to submit the form when `Enter` is pressed.
+              <br />
+              <strong>Be careful if you have multiple instances of <code>EdiText</code>
+              on the same page.
+              </strong>
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {example19}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  submitOnEnter
+                  value='The Keymaker'
+                  onSave={this.handleSave}
                 />
               </div>
             </div>

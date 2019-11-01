@@ -115,6 +115,11 @@ declare module 'react-editext' {
          * when the text hovered by the user.
          */
         showButtonsOnHover?: boolean;
+         /**
+         * Set it to `true` if you want to submit the form when `Enter`
+         * is pressed.
+         */
+        submitOnEnter?: boolean;
     }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {
