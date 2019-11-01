@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.9.0](https://github.com/alioguzhan/react-editext/compare/v3.8.1...v3.9.0) (2019-11-01)
+
+
+### Features
+
+* implement `submitOnEnter` propFixes [#46](https://github.com/alioguzhan/react-editext/issues/46) ([5f684b4](https://github.com/alioguzhan/react-editext/commit/5f684b41ce80f66f9f169e6b85bfe54aff3d8b30))
+
+
+### Bug Fixes
+
+* example/.snyk & example/package.json to reduce vulnerabilities ([d9c8fc0](https://github.com/alioguzhan/react-editext/commit/d9c8fc0d3e764314317a0ef8dca72177687aa533))
+
 ### [3.8.1](https://github.com/alioguzhan/react-editext/compare/v3.8.0...v3.8.1) (2019-10-05)
 
 
