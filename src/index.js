@@ -18,6 +18,8 @@ export default class EdiText extends Component {
       value: props.value || '',
       savedValue: ''
     }
+    this.saveButton = React.createRef()
+    this.input = React.createRef()
   }
 
   componentDidUpdate(prevProps, _prevState) {
@@ -37,6 +39,22 @@ export default class EdiText extends Component {
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState(nextState)
     }
+  }
+
+  _handleEnter = e => {
+    if (e.keyCode === 'Enter' || e.code === 'Enter' || e.keyCode === 27) {
+      if (this.input.current) this.handleSave()
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.submitOnEnter) {
+      window.addEventListener('keyup', this._handleEnter)
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keyup', this._handleEnter)
   }
 
   handleInputChange = e => {
@@ -84,6 +102,7 @@ export default class EdiText extends Component {
     if (this.props.type === 'textarea') {
       return (
         <textarea
+          ref={this.input}
           className={styles.Editext__input}
           {...this.props.inputProps}
           value={this.state.value}
@@ -94,6 +113,7 @@ export default class EdiText extends Component {
     } else {
       return (
         <input
+          ref={this.input}
           className={styles.Editext__input}
           {...this.props.inputProps}
           value={this.state.value}
@@ -149,6 +169,7 @@ export default class EdiText extends Component {
           {buttonsAlign === 'after' && inputElem}
           <div className={buttonsContainerClass}>
             <button
+              ref={this.saveButton}
               type='button'
               className={saveButtonClass}
               onClick={this.handleSave}
@@ -296,5 +317,6 @@ EdiText.propTypes = {
   buttonsAlign: PropTypes.oneOf(['after', 'before']),
   editOnViewClick: PropTypes.bool,
   editing: PropTypes.bool,
-  showButtonsOnHover: PropTypes.bool
+  showButtonsOnHover: PropTypes.bool,
+  submitOnEnter: PropTypes.bool
 }
