@@ -80,8 +80,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-url": "^2.2.2",
-    "snyk": "^1.228.5"
+    "rollup-plugin-url": "^2.2.2"
   },
   "files": [
     "dist",
