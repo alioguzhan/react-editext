@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.9.1](https://github.com/alioguzhan/react-editext/compare/v3.9.0...v3.9.1) (2019-11-02)
+
+
+### Bug Fixes
+
+* **security:** update deps due to a security vuln in `set-value` ([14f4a0d](https://github.com/alioguzhan/react-editext/commit/14f4a0db7336e2ed88d73b99f3cee89292109730))
+
 ## [3.9.0](https://github.com/alioguzhan/react-editext/compare/v3.8.1...v3.9.0) (2019-11-01)
 
 
