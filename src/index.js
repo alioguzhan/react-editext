@@ -42,7 +42,8 @@ export default class EdiText extends Component {
   }
 
   _handleEnter = e => {
-    if (e.keyCode === 'Enter' || e.code === 'Enter' || e.keyCode === 27 || e.keyCode === 13) {
+    if (e.keyCode === 'Enter' || e.code === 'Enter' || e.keyCode === 27 
+          || e.keyCode === 13 || e.code === 'NumpadEnter') {
       if (this.input.current) this.handleSave()
     }
   }
