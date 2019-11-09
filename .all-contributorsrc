@@ -62,6 +62,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "hnhegde",
+      "name": "Harsha N Hegde",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4962589?v=4",
+      "profile": "http://agiliti.in",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
