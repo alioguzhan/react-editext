@@ -78,6 +78,27 @@ onEditingStart|function|No||Function that will be called when the editing mode i
 showButtonsOnHover|bool|No|`false`|Set it to `true` if you want to display action buttons **only** when the text hovered by the user. See [here](https://alioguzhan.github.io/react-editext/#show-on-hover)
 submitOnEnter|bool|No|`false`|Set it to `true` if you want to submit the form when `Enter` is pressed. __Be careful if you have multiple instances of `<EdiText/>` on the same page.__
 
+## Styling with `styled-components`
+
+
+You can style your `<EdiText/>` components with `styled-components` or similar libraries. You can either target internal HTML elements by their `type` ( or `order`) , or you can you can select them by attribute values.
+
+Each customizable HTML element has a `editext=xxx` attribute. Use below as a reference table:
+
+|Attr. Name|Description|
+|----------|-----------|
+|`view-container`| the container in `view` mode|
+|`edit-container`| the container in `edit` mode|
+|`button-container`| the container for the `save` and `cancel` buttons|
+|`edit-button`| use this to style the __edit button__|
+|`save-button`| use this to style the __save button__|
+|`cancel-button`| use this to style the __cancel button__|
+|`input`| There is only one input. You can select it directly or just use this attr value. |
+|`hint`| To style the hint container. |
+
+> See [the example code](https://alioguzhan.github.io/react-editext/#styled-components).
+
+
 ## Browser Support
 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge |

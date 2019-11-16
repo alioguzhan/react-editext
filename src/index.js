@@ -9,6 +9,40 @@ function classnames() {
   */
   return Array(...arguments).filter(a => a).join(' ')
 }
+
+const _attrs = {
+  /**
+   * This is for the end user. You can use below attributes if you want to
+   * style this component with `styled-components` or something like that.
+   * Example notation:
+   * <div class="EdiText_Buttons__container_34fgAsdf" editext="button-container">
+   * Example usage with styled-components:
+
+    const StyledEdiText = styled(EdiText)`
+      button[editext="edit-button"] {
+        color: #000;
+      }
+      button[editext="save-button"] {
+        background:#587C0C;
+        color: #fff;
+      }
+      input, textarea {
+        background: #1D2225;
+        color: #F4C361;
+        font-weight: bold;
+      }
+    `
+   */
+  viewContainer: 'view-container',
+  buttonContainer: 'button-container',
+  editContainer: 'edit-container',
+  editButton: 'edit-button',
+  saveButton: 'save-button',
+  cancelButton: 'cancel-button',
+  input: 'input',
+  hint: 'hint'
+}
+
 export default class EdiText extends Component {
   constructor(props) {
     super(props)
@@ -104,6 +138,7 @@ export default class EdiText extends Component {
         <textarea
           ref={this.input}
           className={styles.Editext__input}
+          editext={_attrs.input}
           {...this.props.inputProps}
           value={this.state.value}
           onChange={this.handleInputChange}
@@ -115,6 +150,7 @@ export default class EdiText extends Component {
         <input
           ref={this.input}
           className={styles.Editext__input}
+          editext={_attrs.input}
           {...this.props.inputProps}
           value={this.state.value}
           type={this.props.type}
@@ -165,11 +201,14 @@ export default class EdiText extends Component {
     )
     return (
       <div>
-        <div className={editContainerClass}>
+        <div className={editContainerClass} editext={_attrs.editContainer}>
           {buttonsAlign === 'after' && inputElem}
-          <div className={buttonsContainerClass}>
+          <div
+            className={buttonsContainerClass}
+          >
             <button
               ref={this.saveButton}
+              editext={_attrs.saveButton}
               type='button'
               className={saveButtonClass}
               onClick={this.handleSave}
@@ -178,6 +217,7 @@ export default class EdiText extends Component {
             </button>
             <button
               type='button'
+              editext={_attrs.cancelButton}
               className={cancelButtonClass}
               onClick={this.handleCancel}
             >
@@ -191,7 +231,11 @@ export default class EdiText extends Component {
             {validationMessage}
           </div>
         )}
-        {hint && <div className={styles.Editext__hint}>{hint}</div>}
+        {hint &&
+          <div className={styles.Editext__hint} editext={_attrs.hint}>
+            {hint}
+          </div>
+        }
       </div>
     )
   }
@@ -227,15 +271,16 @@ export default class EdiText extends Component {
       ? this.handleActivateEditMode
       : undefined
     return (
-      <div className={viewContainerClass}>
+      <div className={viewContainerClass} editext={_attrs.viewContainer}>
         {buttonsAlign === 'after' && (
-          <div {...viewProps} onClick={viewClickHandler}>
+          <div {...viewProps} onClick={viewClickHandler} editext='view'>
             {this.state.value}
           </div>
         )}
         <div className={buttonsContainerClass}>
           <button
             type='button'
+            editext={_attrs.editButton}
             className={editButtonClass}
             onClick={this.handleActivateEditMode}
           >
@@ -243,7 +288,7 @@ export default class EdiText extends Component {
           </button>
         </div>
         {buttonsAlign === 'before' && (
-          <div {...viewProps} onClick={viewClickHandler}>
+          <div {...viewProps} onClick={viewClickHandler} editext={_attrs.viewContainer}>
             {this.state.value}
           </div>
         )}
@@ -255,9 +300,11 @@ export default class EdiText extends Component {
     const mode = this.state.editing
       ? this._renderEditingMode()
       : this._renderViewMode()
-    const mainContainerClass =
-      this.props.mainContainerClassName || styles.Editext__main_container
-    return <div className={mainContainerClass}>{mode}</div>
+    const { mainContainerClassName, className } = this.props
+    const clsName = classnames(
+      mainContainerClassName || styles.Editext__main_container, className
+    )
+    return <div className={clsName}>{mode}</div>
   }
 }
 
@@ -303,6 +350,7 @@ EdiText.propTypes = {
   onSave: PropTypes.func.isRequired,
   onEditingStart: PropTypes.func,
   // classNames
+  className: PropTypes.string,
   saveButtonClassName: PropTypes.string,
   editButtonClassName: PropTypes.string,
   cancelButtonClassName: PropTypes.string,
