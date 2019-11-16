@@ -81,11 +81,11 @@ submitOnEnter|bool|No|`false`|Set it to `true` if you want to submit the form wh
 ## Styling with `styled-components`
 
 
-You can style your `<EdiText/>` components with `styled-components` or similar libraries. You can either target internal HTML elements by their `type` ( or `order`) , or you can you can select them by attribute values.
+You can style your `<EdiText/>` components with `styled-components` or similar libraries. You can either target internal HTML elements by their `type` ( or `order`) , or you can select them by attribute values.
 
 Each customizable HTML element has a `editext=xxx` attribute. Use below as a reference table:
 
-|Attr. Name|Description|
+|Attr. Value|Description|
 |----------|-----------|
 |`view-container`| the container in `view` mode|
 |`edit-container`| the container in `edit` mode|
@@ -96,6 +96,30 @@ Each customizable HTML element has a `editext=xxx` attribute. Use below as a ref
 |`input`| There is only one input. You can select it directly or just use this attr value. |
 |`hint`| To style the hint container. |
 
+Usage:
+
+```css
+ button[editext="cancel-button"] {
+    &:hover {
+      background: crimson;
+      color: #fff;
+    }
+  }
+
+  div[editext="view-container"] {
+    background: #6293C3;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  input, textarea { /** or input[editext="input"] {} */
+    background: #1D2225;
+    color: #F4C361;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+```
 > See [the example code](https://alioguzhan.github.io/react-editext/#styled-components).
 
 
