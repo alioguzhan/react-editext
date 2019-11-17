@@ -72,6 +72,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "justinkuntz",
+      "name": "Justin Kuntz",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/940266?v=4",
+      "profile": "http://www.creativesoapbox.com",
+      "contributions": [
+        "ideas",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
