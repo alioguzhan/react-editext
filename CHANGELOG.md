@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.10.0](https://github.com/alioguzhan/react-editext/compare/v3.9.1...v3.10.0) (2019-11-17)
+
+
+### Features
+
+* add `styled-components` support ([5ec01b5](https://github.com/alioguzhan/react-editext/commit/5ec01b50ebe15127ec39d93b81da8d2065b7a009))
+* submitOnEnter for numeric keypad Enter key (keyCode = 13) ([afc5c5d](https://github.com/alioguzhan/react-editext/commit/afc5c5db47196a0f2412b328d2df7b22663a2d15))
+
 ### [3.9.1](https://github.com/alioguzhan/react-editext/compare/v3.9.0...v3.9.1) (2019-11-02)
 
 
