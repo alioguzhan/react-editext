@@ -131,9 +131,6 @@ Usage:
 
 * `rows` prop for textarea has no effect in IE/Edge. You can set its `height` with some css.
 
-## To Do
-
-  * [ ] Write better and more tests
 
 ## Contributors ✨
 
