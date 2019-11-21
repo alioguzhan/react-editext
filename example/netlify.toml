@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/react-editext/*"
-  to = "/:splat"
-  status = 200
-  force = true
