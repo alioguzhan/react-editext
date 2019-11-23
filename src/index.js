@@ -75,20 +75,12 @@ export default class EdiText extends Component {
     }
   }
 
-  _handleEnter = e => {
-    if (e.keyCode === 'Enter' || e.code === 'Enter' || e.keyCode === 27 || e.keyCode === 13) {
-      if (this.input.current) this.handleSave()
-    }
-  }
-
-  componentDidMount() {
-    if (this.props.submitOnEnter) {
-      window.addEventListener('keyup', this._handleEnter)
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keyup', this._handleEnter)
+  handleEnter = e => {
+    const { submitOnEnter, inputProps } = this.props
+    const isEnter = [13, 27, 'Enter'].some(c => e.keyCode === c || e.code === c)
+    isEnter && submitOnEnter && this.handleSave()
+    isEnter && e.preventDefault()
+    inputProps.onKeyDown && inputProps.onKeyDown(e) // this sucks.
   }
 
   handleInputChange = e => {
@@ -152,6 +144,7 @@ export default class EdiText extends Component {
           className={styles.Editext__input}
           editext={_attrs.input}
           {...this.props.inputProps}
+          onKeyDown={this.handleEnter}
           value={this.state.value}
           type={this.props.type}
           onChange={this.handleInputChange}
@@ -234,8 +227,7 @@ export default class EdiText extends Component {
         {hint &&
           <div className={styles.Editext__hint} editext={_attrs.hint}>
             {hint}
-          </div>
-        }
+          </div>}
       </div>
     )
   }
@@ -315,6 +307,8 @@ EdiText.defaultProps = {
   validation: _v => true,
   onEditingStart: _v => null,
   onCancel: _v => null,
+  inputProps: { onKeyDown: _e => { } },
+  viewProps: {},
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',

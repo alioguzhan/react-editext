@@ -341,21 +341,30 @@ test('state listens to prop changes', () => {
 })
 
 test('pressing Enter saves the form', () => {
+  const onSave = v => v
   const editext = mount(
     <EdiText
       type='text'
       submitOnEnter={true}
-      onSave={val => true}
+      onSave={onSave}
     />
   )
+
+  const handleSave = jest.spyOn(editext.instance(), 'handleSave')
+  editext.instance().forceUpdate()
+
   expect(editext.state().editing).toEqual(false)
   editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
+  expect(handleSave.mock.calls.length).toBe(0)
+
   const editInput = editext.find('input[type="text"]').at(0)
   editInput.instance().value = 'matrix'
   editInput.simulate('change')
-  editext.simulate('keyup', { keyCode: 'Enter' })
-  // TODO: debug why below return true.
-  // expect(editext.state().editing).toEqual(false)
+  editInput.simulate('keyDown', { keyCode: 'Enter' })
+  expect(editext.state().editing).toEqual(false)
+  expect(editext.state().value).toEqual('matrix')
+  expect(editext.state().savedValue).toEqual('matrix')
+  expect(handleSave.mock.calls.length).toBe(1)
 })

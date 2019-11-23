@@ -9,12 +9,12 @@ declare module 'react-editext' {
          * Props to be passed to input element.
          * Any kind of valid DOM attributes are welcome
         */
-        inputProps?: Object;
+        inputProps?:React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
         /**
          * Props to be passed to div element that shows the text.
          * You can specify your own `styles` or `className`
         */
-        viewProps?: Object;
+        viewProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
         /**
         * Value of the content [in view mode] and input [in edit mode]
         */
