@@ -77,10 +77,9 @@ export default class EdiText extends Component {
 
   handleEnter = e => {
     const { submitOnEnter, inputProps } = this.props
-    if (e.keyCode === 'Enter' || e.code === 'Enter' || e.keyCode === 27 || e.keyCode === 13) {
-      if (submitOnEnter) this.handleSave()
-      e.preventDefault()
-    }
+    const isEnter = [13, 27, 'Enter'].some(c => e.keyCode === c || e.code === c)
+    isEnter && submitOnEnter && this.handleSave()
+    isEnter && e.preventDefault()
     inputProps.onKeyDown && inputProps.onKeyDown(e) // this sucks.
   }
 
@@ -308,7 +307,7 @@ EdiText.defaultProps = {
   validation: _v => true,
   onEditingStart: _v => null,
   onCancel: _v => null,
-  inputProps: { onKeyDown: _e => {} },
+  inputProps: { onKeyDown: _e => { } },
   viewProps: {},
   cancelButtonContent: '',
   saveButtonContent: '',
