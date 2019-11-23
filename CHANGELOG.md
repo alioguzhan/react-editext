@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.11.0](https://github.com/alioguzhan/react-editext/compare/v3.9.1...v3.11.0) (2019-11-23)
+
+
+### Features
+
+* add `styled-components` support ([5ec01b5](https://github.com/alioguzhan/react-editext/commit/5ec01b50ebe15127ec39d93b81da8d2065b7a009))
+* submitOnEnter for numeric keypad Enter key ([d4967da](https://github.com/alioguzhan/react-editext/commit/d4967da0ea814ec93d8c02ad12824065207fce0e))
+* submitOnEnter for numeric keypad Enter key (keyCode = 13) ([56cd082](https://github.com/alioguzhan/react-editext/commit/56cd08278c1199a2bc51a060ccc128171fbfaf82))
+* submitOnEnter for numeric keypad Enter key (keyCode = 13) ([afc5c5d](https://github.com/alioguzhan/react-editext/commit/afc5c5db47196a0f2412b328d2df7b22663a2d15))
+
+
+### Bug Fixes
+
+* `submitOnEnter` submits the whole form instead of submitting the text input. ([ac3dc45](https://github.com/alioguzhan/react-editext/commit/ac3dc453f75ac4ef1cdd76c1002df9f7bf8c041d)), closes [#54](https://github.com/alioguzhan/react-editext/issues/54)
+
 ## [3.10.0](https://github.com/alioguzhan/react-editext/compare/v3.9.1...v3.10.0) (2019-11-17)
 
 
