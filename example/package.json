@@ -9,7 +9,7 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-editext": "link:..",
-    "react-scripts": "^3.1.2",
+    "react-scripts": "^3.3.0",
     "react-syntax-highlighter": "^11.0.2",
     "styled-components": "^4.4.1"
   },
