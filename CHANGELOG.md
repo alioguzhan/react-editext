@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.11.1](https://github.com/alioguzhan/react-editext/compare/v3.11.0...v3.11.1) (2019-12-13)
+
+
+### Bug Fixes
+
+* example/package.json & example/yarn.lock to reduce vulnerabilities ([0c0d7ef](https://github.com/alioguzhan/react-editext/commit/0c0d7efc0ecc215f8ead2014d7aa039ce2e00d2d))
+* upgrade serialize-javascript to fix a vulnerability. ([6921947](https://github.com/alioguzhan/react-editext/commit/6921947a614d0dc1093019177d1a3997c58ec91f))
+
 ## [3.11.0](https://github.com/alioguzhan/react-editext/compare/v3.9.1...v3.11.0) (2019-11-23)
 
 
