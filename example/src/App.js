@@ -41,8 +41,9 @@ const StyledEdiText = styled(EdiText)`
 export default class App extends Component {
   state = { editing: false, logs: [] }
 
-  handleSave = val => {
+  handleSave = (val, inputProps) => {
     console.log('Edited Value -> ', val)
+    console.log('Edited input props -> ', inputProps)
   }
 
   handleValidationFail = textValue => {
