@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.12.0](https://github.com/alioguzhan/react-editext/compare/v3.11.1...v3.12.0) (2019-12-25)
+
+
+### Features
+
+* pass `inputProps` to event listener props ([cefa4b8](https://github.com/alioguzhan/react-editext/commit/cefa4b83989fd4b488e6f896c773bd976bec86c1))
+
 ### [3.11.1](https://github.com/alioguzhan/react-editext/compare/v3.11.0...v3.11.1) (2019-12-13)
 
 
