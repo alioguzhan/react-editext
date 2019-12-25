@@ -46,13 +46,16 @@ declare module 'react-editext' {
         type: EdiTextType;
         /**
          * will be called when user clicked cancel button
+         * @param value the current value of input when cancelled.
+         * @param inputProps inputProps that passed to the element.
         */
-        onCancel?: (...args: any[]) => any;
+        onCancel?: (value: any, inputProps: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>) => any;
         /**
          * will be called when user clicked save button.
-         * takes one param <value> which is the current value of input
+         * @param value the current value of input
+         * @param inputProps inputProps that passed to the element.
         */
-        onSave: (...args: string[]) => any;
+        onSave: (value: any, inputProps: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>) => any;
         /**
          * Custom class name for SAVE button.
          * */
@@ -107,9 +110,10 @@ declare module 'react-editext' {
         /**
          * Will be called when the editing mode is active.
          *
-         * `value` is the value of the input at the time when editing started.
+         * @param value the value of the input at the time when editing started.
+         * @param inputProps inputProps that passed to the element.
          */
-        onEditingStart?: (value:string) => any;
+        onEditingStart?: (value: any, inputProps: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> ) => any;
         /**
          * Set it to `true` if you want to display action buttons **only**
          * when the text hovered by the user.

@@ -97,7 +97,7 @@ export default class EdiText extends Component {
         editing: false,
         value: this.state.savedValue || this.props.value
       },
-      () => this.props.onCancel(this.state.value)
+      () => this.props.onCancel(this.state.value, this.props.inputProps)
     )
   }
 
@@ -108,7 +108,7 @@ export default class EdiText extends Component {
   }
 
   handleSave = () => {
-    const { onSave, validation, onValidationFail } = this.props
+    const { onSave, validation, onValidationFail, inputProps } = this.props
     const isValid = validation(this.state.value)
     if (!isValid) {
       return this.setState({ valid: false }, () => {
@@ -120,7 +120,7 @@ export default class EdiText extends Component {
         editing: false,
         savedValue: this.state.value
       },
-      () => onSave(this.state.savedValue)
+      () => onSave(this.state.savedValue, inputProps)
     )
   }
 
