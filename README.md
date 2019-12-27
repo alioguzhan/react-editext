@@ -137,22 +137,26 @@ Usage:
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/alioguzhan"><img src="https://avatars2.githubusercontent.com/u/1928541?v=4" width="100px;" alt="alioguzhan"/><br /><sub><b>alioguzhan</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=alioguzhan" title="Code">💻</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=alioguzhan" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/jdoklovic"><img src="https://avatars2.githubusercontent.com/u/620106?v=4" width="100px;" alt="jdoklovic"/><br /><sub><b>jdoklovic</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=jdoklovic" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/wesoft-systems"><img src="https://avatars3.githubusercontent.com/u/8137662?v=4" width="100px;" alt="Obed Castillo"/><br /><sub><b>Obed Castillo</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=wesoft-systems" title="Code">💻</a></td>
-    <td align="center"><a href="https://brunoaderaldo.netlify.com/"><img src="https://avatars3.githubusercontent.com/u/14007590?v=4" width="100px;" alt="Bruno Aderaldo"/><br /><sub><b>Bruno Aderaldo</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3ABrunoAderaldo" title="Bug reports">🐛</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=BrunoAderaldo" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/esskar"><img src="https://avatars1.githubusercontent.com/u/65206?v=4" width="100px;" alt="Sascha Kiefer"/><br /><sub><b>Sascha Kiefer</b></sub></a><br /><a href="#question-esskar" title="Answering Questions">💬</a> <a href="#ideas-esskar" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/sanehab"><img src="https://avatars0.githubusercontent.com/u/36003641?v=4" width="100px;" alt="Ehab Alsharif"/><br /><sub><b>Ehab Alsharif</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=sanehab" title="Code">💻</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=sanehab" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://agiliti.in"><img src="https://avatars3.githubusercontent.com/u/4962589?v=4" width="100px;" alt="Harsha N Hegde"/><br /><sub><b>Harsha N Hegde</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Ahnhegde" title="Bug reports">🐛</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=hnhegde" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/alioguzhan"><img src="https://avatars2.githubusercontent.com/u/1928541?v=4" width="100px;" alt=""/><br /><sub><b>alioguzhan</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=alioguzhan" title="Code">💻</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=alioguzhan" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/jdoklovic"><img src="https://avatars2.githubusercontent.com/u/620106?v=4" width="100px;" alt=""/><br /><sub><b>jdoklovic</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=jdoklovic" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/wesoft-systems"><img src="https://avatars3.githubusercontent.com/u/8137662?v=4" width="100px;" alt=""/><br /><sub><b>Obed Castillo</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=wesoft-systems" title="Code">💻</a></td>
+    <td align="center"><a href="https://brunoaderaldo.netlify.com/"><img src="https://avatars3.githubusercontent.com/u/14007590?v=4" width="100px;" alt=""/><br /><sub><b>Bruno Aderaldo</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3ABrunoAderaldo" title="Bug reports">🐛</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=BrunoAderaldo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/esskar"><img src="https://avatars1.githubusercontent.com/u/65206?v=4" width="100px;" alt=""/><br /><sub><b>Sascha Kiefer</b></sub></a><br /><a href="#question-esskar" title="Answering Questions">💬</a> <a href="#ideas-esskar" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/sanehab"><img src="https://avatars0.githubusercontent.com/u/36003641?v=4" width="100px;" alt=""/><br /><sub><b>Ehab Alsharif</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/commits?author=sanehab" title="Code">💻</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=sanehab" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://agiliti.in"><img src="https://avatars3.githubusercontent.com/u/4962589?v=4" width="100px;" alt=""/><br /><sub><b>Harsha N Hegde</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Ahnhegde" title="Bug reports">🐛</a> <a href="https://github.com/alioguzhan/react-editext/commits?author=hnhegde" title="Code">💻</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="http://www.creativesoapbox.com"><img src="https://avatars1.githubusercontent.com/u/940266?v=4" width="100px;" alt="Justin Kuntz"/><br /><sub><b>Justin Kuntz</b></sub></a><br /><a href="#ideas-justinkuntz" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Ajustinkuntz" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://www.creativesoapbox.com"><img src="https://avatars1.githubusercontent.com/u/940266?v=4" width="100px;" alt=""/><br /><sub><b>Justin Kuntz</b></sub></a><br /><a href="#ideas-justinkuntz" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Ajustinkuntz" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://soncco.com"><img src="https://avatars0.githubusercontent.com/u/1321736?v=4" width="100px;" alt=""/><br /><sub><b>Braulio Soncco</b></sub></a><br /><a href="#ideas-soncco" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

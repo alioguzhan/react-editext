@@ -82,11 +82,21 @@
         "ideas",
         "bug"
       ]
+    },
+    {
+      "login": "soncco",
+      "name": "Braulio Soncco",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1321736?v=4",
+      "profile": "http://soncco.com",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "react-editext",
   "projectOwner": "alioguzhan",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
