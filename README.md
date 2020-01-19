@@ -26,7 +26,7 @@ yarn add react-editext
 ## Usage
 EdiText is highly customizable. You can see more examples [here](https://alioguzhan.github.io/react-editext/). Here is a basic usage:
 ```jsx
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 
 import EdiText from 'react-editext'
 
