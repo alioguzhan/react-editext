@@ -48,6 +48,11 @@ function Example(props) {
     )
 }
 ```
+
+There is also a codesandbox template that you can fork and play with it:
+
+[![Edit react-editext-template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-editext-template-5twrh?fontsize=14&hidenavigation=1&theme=dark)
+
 You can customize almost everything based on your needs. Please navigate to [Props](#Props) section. I mean, just scroll down.
 ## Props
 | Prop | Type | Required |Default | Note
