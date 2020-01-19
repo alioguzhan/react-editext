@@ -26,25 +26,26 @@ yarn add react-editext
 ## Usage
 EdiText is highly customizable. You can see more examples [here](https://alioguzhan.github.io/react-editext/). Here is a basic usage:
 ```jsx
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 import EdiText from 'react-editext'
 
-class Example extends Component {
-  onSave = val => {
+function Example(props) {
+  const [value, setValue] = useState('What is real? How do you define real?')
+
+  const handleSave = val => {
     console.log('Edited Value -> ', val)
+    setValue(val)
   }
-  render () {
-    return (
+  return (
       <div className="container">
         <EdiText
           type="text"
-          value='What is real? How do you define real?'
-          onSave={this.onSave}
+          value={value}
+          onSave={handleSave}
         />
       </div>
     )
-  }
 }
 ```
 You can customize almost everything based on your needs. Please navigate to [Props](#Props) section. I mean, just scroll down.
