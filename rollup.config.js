@@ -4,12 +4,11 @@ import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
+import { terser } from 'rollup-plugin-terser'
 
 import pkg from './package.json'
 
-const extensions = [
-  '.js', '.jsx'
-]
+const extensions = ['.js', '.jsx']
 export default {
   input: 'src/index.js',
   output: [
@@ -22,6 +21,11 @@ export default {
       file: pkg.module,
       format: 'es',
       sourcemap: true
+    },
+    {
+      file: 'dist/index.min.js',
+      format: 'cjs',
+      sourcemap: true
     }
   ],
   plugins: [
@@ -32,6 +36,9 @@ export default {
     url(),
     babel({ extensions, include: ['src/**/*'], exclude: 'node_modules/**' }),
     resolve(),
-    commonjs()
+    commonjs(),
+    terser({
+      include: [/^.+\.min\.js$/, '*.es.*']
+    })
   ]
 }

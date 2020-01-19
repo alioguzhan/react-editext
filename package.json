@@ -14,7 +14,7 @@
   "author": "alioguzhan",
   "license": "MIT",
   "repository": "alioguzhan/react-editext",
-  "main": "dist/index.js",
+  "main": "dist/index.min.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "engines": {
@@ -80,6 +80,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-url": "^2.2.2"
   },
   "files": [

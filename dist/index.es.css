@@ -1,0 +1,87 @@
+.styles_Editext__button__6H8n_ {
+  border-radius: 1px;
+  outline: none;
+  padding: 0.6em;
+  min-width: 30px;
+  height: 100%;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+}
+.styles_Editext__button__6H8n_:hover {
+  cursor: pointer;
+  background-color: rgba(241, 241, 241, 1.00)
+}
+.styles_Editext__input__1534X {
+  width: 100%;
+  border: 1px solid rgb(212, 212, 212);
+  padding: 0.6em;
+  outline: none;
+}
+.styles_Editext__main_container__2Y-IL {
+  display: flex;
+  flex-direction: column;
+}
+.styles_Editext__editing_container__3yvUv {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.styles_Editext__view_container__2l2kB {
+  display: flex;
+  align-items: center;
+}
+.styles_Editext__buttons_container__1kphL {
+  display: flex;
+}
+.styles_Editext__buttons_showButtonsOnHover__EUUD5 .styles_Editext__buttons_container__1kphL {
+  visibility: hidden;
+}
+.styles_Editext__buttons_showButtonsOnHover__EUUD5:hover .styles_Editext__buttons_container__1kphL {
+  visibility: visible;
+}
+.styles_Editext__buttons_before_aligned__NnoWq {
+  margin-right: 5px;
+}
+.styles_Editext__buttons_after_aligned__1nlcG {
+  margin-left: 5px;
+}
+.styles_Editext__validation_message__3B-OU {
+  font-weight: 500;
+  color: crimson;
+  font-size: .7em;
+  margin-top: 3px;
+}
+.styles_Editext__cancel_button__259hb {
+  color: crimson;
+}
+.styles_Editext__cancel_button__259hb:before {
+  content: '\2715';
+  margin: 3px;
+}
+.styles_Editext__edit_button__hthOZ {
+  color: #000;
+}
+.styles_Editext__edit_button__hthOZ:before {
+  content: '\270E';
+  margin: 3px;
+}
+.styles_Editext__save_button__3WN6q {
+  color: darkgreen;
+  margin-right: 3px;
+}
+.styles_Editext__save_button__3WN6q:before {
+  content: '\2713';
+  margin: 3px;
+}
+.styles_Editext__hide_default_icons__AV_7m:before {
+  content: none;
+  margin: 0;
+}
+.styles_Editext__hint__2QU2S {
+  font-weight: 500;
+  color: lightslategray;
+  font-size: .7em;
+  margin-top: 3px;
+  text-align: left;
+}
