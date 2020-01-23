@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.12.2](https://github.com/alioguzhan/react-editext/compare/v3.12.1...v3.12.2) (2020-01-23)
+
+
+### Bug Fixes
+
+* pressing ESC on `submitOnEnter` saves the form ([a28fd1b](https://github.com/alioguzhan/react-editext/commit/a28fd1bf871872847aa1678e31587c697a2bda13)), closes [#60](https://github.com/alioguzhan/react-editext/issues/60)
+
 ### [3.12.1](https://github.com/alioguzhan/react-editext/compare/v3.12.0...v3.12.1) (2020-01-19)
 
 ## [3.12.0](https://github.com/alioguzhan/react-editext/compare/v3.11.1...v3.12.0) (2019-12-25)
