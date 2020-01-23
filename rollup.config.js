@@ -23,7 +23,7 @@ export default {
       sourcemap: true
     },
     {
-      file: 'dist/index.min.js',
+      file: 'dist/index.js',
       format: 'cjs',
       sourcemap: true
     }

@@ -197,7 +197,7 @@ function (_Component) {
       var _this$props = _this.props,
           submitOnEnter = _this$props.submitOnEnter,
           inputProps = _this$props.inputProps;
-      var isEnter = [13, 27, 'Enter'].some(function (c) {
+      var isEnter = [13, 'Enter'].some(function (c) {
         return e.keyCode === c || e.code === c;
       });
       isEnter && submitOnEnter && _this.handleSave();
