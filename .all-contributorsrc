@@ -91,6 +91,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "zig",
+      "name": "zig",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/85303?v=4",
+      "profile": "https://github.com/zig",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
