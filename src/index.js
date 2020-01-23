@@ -77,7 +77,7 @@ export default class EdiText extends Component {
 
   handleEnter = e => {
     const { submitOnEnter, inputProps } = this.props
-    const isEnter = [13, 27, 'Enter'].some(c => e.keyCode === c || e.code === c)
+    const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
     isEnter && submitOnEnter && this.handleSave()
     isEnter && e.preventDefault()
     inputProps.onKeyDown && inputProps.onKeyDown(e) // this sucks.
