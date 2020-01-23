@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.12.4](https://github.com/alioguzhan/react-editext/compare/v3.12.3...v3.12.4) (2020-01-23)
+
+
+### Bug Fixes
+
+* rollup builds the wrong file ([5bb4204](https://github.com/alioguzhan/react-editext/commit/5bb420493faab8ed9728b8d899518e0952e37041))
+
 ### [3.12.3](https://github.com/alioguzhan/react-editext/compare/v3.12.2...v3.12.3) (2020-01-23)
 
 ### [3.12.2](https://github.com/alioguzhan/react-editext/compare/v3.12.1...v3.12.2) (2020-01-23)
