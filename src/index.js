@@ -75,12 +75,19 @@ export default class EdiText extends Component {
     }
   }
 
-  handleEnter = e => {
-    const { submitOnEnter, inputProps } = this.props
+  handleKeyDown = e => {
+    const { submitOnEnter, inputProps, cancelOnEscape } = this.props
     const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
-    isEnter && submitOnEnter && this.handleSave()
-    isEnter && e.preventDefault()
-    inputProps.onKeyDown && inputProps.onKeyDown(e) // this sucks.
+    const isEscape = [27, 'Escape', 'Esc'].some(c => e.keyCode === c || e.code === c)
+    if (isEnter) {
+      submitOnEnter && this.handleSave()
+      e.preventDefault()
+    }
+    if (isEscape) {
+      cancelOnEscape && this.handleCancel()
+      e.preventDefault()
+    }
+    inputProps.onKeyDown && inputProps.onKeyDown(e) // TODO: this sucks.
   }
 
   handleInputChange = e => {
@@ -144,7 +151,7 @@ export default class EdiText extends Component {
           className={styles.Editext__input}
           editext={_attrs.input}
           {...this.props.inputProps}
-          onKeyDown={this.handleEnter}
+          onKeyDown={this.handleKeyDown}
           value={this.state.value}
           type={this.props.type}
           onChange={this.handleInputChange}
@@ -360,5 +367,6 @@ EdiText.propTypes = {
   editOnViewClick: PropTypes.bool,
   editing: PropTypes.bool,
   showButtonsOnHover: PropTypes.bool,
-  submitOnEnter: PropTypes.bool
+  submitOnEnter: PropTypes.bool,
+  cancelOnEscape: PropTypes.bool
 }

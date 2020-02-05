@@ -83,6 +83,7 @@ editing|bool|No|`false`|Set it to `true` if you want the view state to be edit m
 onEditingStart|function|No||Function that will be called when the editing mode is active. See [here](https://alioguzhan.github.io/react-editext/#events)
 showButtonsOnHover|bool|No|`false`|Set it to `true` if you want to display action buttons **only** when the text hovered by the user. See [here](https://alioguzhan.github.io/react-editext/#show-on-hover)
 submitOnEnter|bool|No|`false`|Set it to `true` if you want to submit the form when `Enter` is pressed. __Be careful if you have multiple instances of `<EdiText/>` on the same page.__
+cancelOnEscape|bool|No|`false`|Set it to `true` if you want to cancel the form when `Escape` is pressed.
 
 ## Styling with `styled-components`
 
