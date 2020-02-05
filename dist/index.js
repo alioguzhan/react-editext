@@ -193,16 +193,29 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EdiText).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleEnter", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "handleKeyDown", function (e) {
       var _this$props = _this.props,
           submitOnEnter = _this$props.submitOnEnter,
-          inputProps = _this$props.inputProps;
+          inputProps = _this$props.inputProps,
+          cancelOnEscape = _this$props.cancelOnEscape;
       var isEnter = [13, 'Enter'].some(function (c) {
         return e.keyCode === c || e.code === c;
       });
-      isEnter && submitOnEnter && _this.handleSave();
-      isEnter && e.preventDefault();
-      inputProps.onKeyDown && inputProps.onKeyDown(e); // this sucks.
+      var isEscape = [27, 'Escape', 'Esc'].some(function (c) {
+        return e.keyCode === c || e.code === c;
+      });
+
+      if (isEnter) {
+        submitOnEnter && _this.handleSave();
+        e.preventDefault();
+      }
+
+      if (isEscape) {
+        cancelOnEscape && _this.handleCancel();
+        e.preventDefault();
+      }
+
+      inputProps.onKeyDown && inputProps.onKeyDown(e); // TODO: this sucks.
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (e) {
@@ -387,7 +400,7 @@ function (_Component) {
           className: styles.Editext__input,
           editext: _attrs.input
         }, this.props.inputProps, {
-          onKeyDown: this.handleEnter,
+          onKeyDown: this.handleKeyDown,
           value: this.state.value,
           type: this.props.type,
           onChange: this.handleInputChange,
@@ -465,7 +478,8 @@ EdiText.propTypes = {
   editOnViewClick: PropTypes.bool,
   editing: PropTypes.bool,
   showButtonsOnHover: PropTypes.bool,
-  submitOnEnter: PropTypes.bool
+  submitOnEnter: PropTypes.bool,
+  cancelOnEscape: PropTypes.bool
 };
 
 module.exports = EdiText;

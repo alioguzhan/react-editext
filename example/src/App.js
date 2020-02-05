@@ -792,13 +792,14 @@ export default class App extends Component {
           {/* ============ End of Example ============ */}
           <div className='tile is-parent is-vertical is-10' id='submit-on-enter'>
             <div className='subtitle'>
-              <a href='#submit-on-enter'>Save on Enter</a>
+              <a href='#submit-on-enter'>Save on Enter && Cancel on Escape</a>
             </div>
             <p className='content'>
-              Use this if you want to submit the form when `Enter` is pressed.
+              Use this if you want to submit the form when `Enter` is pressed or cancel
+              it when `Escape` is pressed.
               <br />
               <strong>Be careful if you have multiple instances of <code>EdiText</code>
-              on the same page.
+              on the same page. Things can go crazy.
               </strong>
             </p>
             <div className='columns'>
@@ -811,6 +812,7 @@ export default class App extends Component {
                 <div className='subtitle'>Output</div>
                 <EdiText
                   submitOnEnter
+                  cancelOnEscape
                   value='The Keymaker'
                   onSave={this.handleSave}
                 />

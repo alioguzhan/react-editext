@@ -368,3 +368,37 @@ test('pressing Enter saves the form', () => {
   expect(editext.state().savedValue).toEqual('matrix')
   expect(handleSave.mock.calls.length).toBe(1)
 })
+
+test('pressing Escape cancels the form', () => {
+  const onSave = v => v
+  const onCancel = v => v
+  const editext = mount(
+    <EdiText
+      type='text'
+      value='oracle'
+      cancelOnEscape={true}
+      onSave={onSave}
+      onCancel={onCancel}
+    />
+  )
+
+  const handleSave = jest.spyOn(editext.instance(), 'handleSave')
+  const handleCancel = jest.spyOn(editext.instance(), 'handleCancel')
+  editext.instance().forceUpdate()
+
+  expect(editext.state().editing).toEqual(false)
+  editext.find('button').at(0).simulate('click')
+  expect(editext.state().editing).toEqual(true)
+
+  expect(handleSave.mock.calls.length).toBe(0)
+
+  const editInput = editext.find('input[type="text"]').at(0)
+  editInput.instance().value = 'seraph'
+  editInput.simulate('change')
+  editInput.simulate('keyDown', { keyCode: 27 })
+  expect(editext.state().editing).toEqual(false)
+  expect(editext.state().value).toEqual('oracle')
+  expect(editext.state().savedValue).toEqual('')
+  expect(handleCancel.mock.calls.length).toBe(1)
+  expect(handleSave.mock.calls.length).toBe(0)
+})

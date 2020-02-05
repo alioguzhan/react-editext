@@ -299,6 +299,7 @@ export const example18 = `<EdiText
 
 export const example19 = `<EdiText
   submitOnEnter
+  cancelOnEscape
   value="The Keymaker"
   onSave={this.onSave}
 />`

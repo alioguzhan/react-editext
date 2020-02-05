@@ -124,6 +124,11 @@ declare module 'react-editext' {
          * is pressed.
          */
         submitOnEnter?: boolean;
+         /**
+         * Set it to `true` if you want to cancel the form when `Escape`
+         * is pressed.
+         */
+        cancelOnEscape?: boolean;
     }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {
