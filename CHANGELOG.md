@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.13.0](https://github.com/alioguzhan/react-editext/compare/v3.12.4...v3.13.0) (2020-02-05)
+
+
+### Features
+
+* add cancelOnEscape prop ([88fbb8d](https://github.com/alioguzhan/react-editext/commit/88fbb8dc6c5931e986635cc99bba5c3177d07090))
+
 ### [3.12.4](https://github.com/alioguzhan/react-editext/compare/v3.12.3...v3.12.4) (2020-01-23)
 
 
