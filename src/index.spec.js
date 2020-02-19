@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import EdiText from '.'
 import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
@@ -8,14 +7,13 @@ configure({ adapter: new Adapter() })
 
 test('edit button activates editing mode', () => {
   const editext = mount(
-    <EdiText
-      value='Wake up Neo'
-      type='text'
-      onSave={val => val}
-    />
+    <EdiText value='Wake up Neo' type='text' onSave={val => val} />
   )
   expect(editext.state().editing).toEqual(false)
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
   expect(editext.state().editing).toEqual(true)
 })
 
@@ -45,17 +43,15 @@ test('view click activates editing mode', () => {
     />
   )
   expect(editext.state().editing).toEqual(false)
-  editext.find('#viewdiv').at(0).simulate('click')
+  editext
+    .find('#viewdiv')
+    .at(0)
+    .simulate('click')
   expect(editext.state().editing).toEqual(true)
 })
 
 test('props are working fine', () => {
-  const editext = mount(
-    <EdiText
-      value='Wake up Neo'
-      onSave={val => true}
-    />
-  )
+  const editext = mount(<EdiText value='Wake up Neo' onSave={val => true} />)
   expect(editext.props().type).toEqual('text')
   expect(editext.props().value).toEqual('Wake up Neo')
   expect(editext.props().onSave).toBeInstanceOf(Function)
@@ -98,7 +94,10 @@ test('props are working fine', () => {
   })
   expect(editext.props().type).toEqual('textarea')
   expect(editext.props().hint).toEqual('iamhint')
-  expect(editext.props().inputProps).toMatchObject({ className: 'my-class-name', name: 'username' })
+  expect(editext.props().inputProps).toMatchObject({
+    className: 'my-class-name',
+    name: 'username'
+  })
   expect(editext.props().hideIcons).toEqual(true)
   expect(editext.props().showButtonsOnHover).toEqual(true)
   expect(editext.props().buttonsAlign).toEqual('before')
@@ -115,22 +114,14 @@ test('props are working fine', () => {
 
 test('text input initial value is same as prop value', () => {
   const editext = mount(
-    <EdiText
-      type='text'
-      value='Wake up Neo'
-      onSave={val => true}
-    />
+    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
   )
   expect(editext.state().value).toEqual('Wake up Neo')
 })
 
 test('editing text input updates the state', () => {
   const editext = mount(
-    <EdiText
-      type='text'
-      value='Wake up Neo'
-      onSave={val => true}
-    />
+    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
   )
 
   editext.find('button').simulate('click')
@@ -144,11 +135,7 @@ test('editing text input updates the state', () => {
 
 test('editing textarea updates the state', () => {
   const editext = mount(
-    <EdiText
-      type='textarea'
-      value='Wake up Neo'
-      onSave={val => true}
-    />
+    <EdiText type='textarea' value='Wake up Neo' onSave={val => true} />
   )
   editext.find('button').simulate('click')
   const editInput = editext.find('textarea')
@@ -159,13 +146,12 @@ test('editing textarea updates the state', () => {
 
 test('cancelling reverts the input value to prop value', () => {
   const editext = mount(
-    <EdiText
-      type='text'
-      value='Wake up Neo'
-      onSave={val => true}
-    />
+    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
   )
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
 
   const editInput = editext.find('input[type="text"]')
   editInput.instance().value = 'updated matrix-2'
@@ -179,15 +165,14 @@ test('cancelling reverts the input value to prop value', () => {
 
 test('save action sets the input value properly', () => {
   const editext = mount(
-    <EdiText
-      type='text'
-      value='Wake up Neo'
-      onSave={val => true}
-    />
+    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
   )
   expect(editext.state().editing).toEqual(false)
 
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
 
   const editInput = editext.find('input[type="text"]')
   editInput.instance().value = 'updated value.'
@@ -201,15 +186,14 @@ test('save action sets the input value properly', () => {
 
 test('cancel action deactivates the editing mode', () => {
   const editext = mount(
-    <EdiText
-      type='text'
-      value='Wake up Neo'
-      onSave={val => true}
-    />
+    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
   )
   expect(editext.state().editing).toEqual(false)
 
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const cancelButton = editext.find('button').at(1)
@@ -219,14 +203,13 @@ test('cancel action deactivates the editing mode', () => {
 
 test('save action deactivates the editing mode', () => {
   const editext = mount(
-    <EdiText
-      type='text'
-      value='Wake up Neo'
-      onSave={val => true}
-    />
+    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
   )
   expect(editext.state().editing).toEqual(false)
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const saveButton = editext.find('button').at(0)
@@ -247,7 +230,10 @@ test('validation prop validates the input value', () => {
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
 
   const editInput = editext.find('input[type="text"]').at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
@@ -281,7 +267,10 @@ test('onValidationFail method is being triggered when validation fails', () => {
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
 
   const editInput = editext.find('input[type="text"]').at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
@@ -344,18 +333,17 @@ test('state listens to prop changes', () => {
 test('pressing Enter saves the form', () => {
   const onSave = v => v
   const editext = mount(
-    <EdiText
-      type='text'
-      submitOnEnter={true}
-      onSave={onSave}
-    />
+    <EdiText type='text' submitOnEnter={true} onSave={onSave} />
   )
 
   const handleSave = jest.spyOn(editext.instance(), 'handleSave')
   editext.instance().forceUpdate()
 
   expect(editext.state().editing).toEqual(false)
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   expect(handleSave.mock.calls.length).toBe(0)
@@ -388,7 +376,10 @@ test('pressing Escape cancels the form', () => {
   editext.instance().forceUpdate()
 
   expect(editext.state().editing).toEqual(false)
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   expect(handleSave.mock.calls.length).toBe(0)
@@ -421,7 +412,10 @@ test('unfocusing the input cancels the editing', () => {
 
   editext.instance().forceUpdate()
   expect(editext.state().editing).toEqual(false)
-  editext.find('button').at(0).simulate('click')
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const editInput = editext.find('input[type="text"]').at(0)
