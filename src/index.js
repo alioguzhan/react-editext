@@ -54,6 +54,8 @@ export default class EdiText extends Component {
     }
     this.saveButton = React.createRef()
     this.input = React.createRef()
+    this.editingContainer = React.createRef()
+    this.editingButtons = React.createRef()
   }
 
   componentDidUpdate(prevProps, _prevState) {
@@ -88,6 +90,13 @@ export default class EdiText extends Component {
       e.preventDefault()
     }
     inputProps.onKeyDown && inputProps.onKeyDown(e) // TODO: this sucks.
+  }
+
+  handleOnBlur = e => {
+    const { cancelOnUnfocus, inputProps } = this.props
+    const isEditingButton = this.editingButtons.current.contains(e.relatedTarget)
+    cancelOnUnfocus && !isEditingButton && this.handleCancel()
+    inputProps.onBlur && inputProps.onBlur(e) // TODO: this sucks.
   }
 
   handleInputChange = e => {
@@ -139,6 +148,7 @@ export default class EdiText extends Component {
           className={styles.Editext__input}
           editext={_attrs.input}
           {...this.props.inputProps}
+          onBlur={this.handleOnBlur}
           value={this.state.value}
           onChange={this.handleInputChange}
           autoFocus={this.state.editing}
@@ -152,6 +162,7 @@ export default class EdiText extends Component {
           editext={_attrs.input}
           {...this.props.inputProps}
           onKeyDown={this.handleKeyDown}
+          onBlur={this.handleOnBlur}
           value={this.state.value}
           type={this.props.type}
           onChange={this.handleInputChange}
@@ -201,10 +212,11 @@ export default class EdiText extends Component {
     )
     return (
       <div>
-        <div className={editContainerClass} editext={_attrs.editContainer}>
+        <div ref={this.editingContainer} className={editContainerClass} editext={_attrs.editContainer}>
           {buttonsAlign === 'after' && inputElem}
           <div
             className={buttonsContainerClass}
+            ref={this.editingButtons}
           >
             <button
               ref={this.saveButton}
@@ -314,7 +326,7 @@ EdiText.defaultProps = {
   validation: _v => true,
   onEditingStart: _v => null,
   onCancel: _v => null,
-  inputProps: { onKeyDown: _e => { } },
+  inputProps: { onKeyDown: _e => { }, onBlur: _e => { } },
   viewProps: {},
   cancelButtonContent: '',
   saveButtonContent: '',
@@ -368,5 +380,6 @@ EdiText.propTypes = {
   editing: PropTypes.bool,
   showButtonsOnHover: PropTypes.bool,
   submitOnEnter: PropTypes.bool,
-  cancelOnEscape: PropTypes.bool
+  cancelOnEscape: PropTypes.bool,
+  cancelOnUnfocus: PropTypes.bool
 }

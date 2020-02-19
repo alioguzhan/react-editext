@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import EdiText from '.'
 import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
@@ -399,6 +400,37 @@ test('pressing Escape cancels the form', () => {
   expect(editext.state().editing).toEqual(false)
   expect(editext.state().value).toEqual('oracle')
   expect(editext.state().savedValue).toEqual('')
+  expect(handleCancel.mock.calls.length).toBe(1)
+  expect(handleSave.mock.calls.length).toBe(0)
+})
+
+test('unfocusing the input cancels the editing', () => {
+  const onSave = v => v
+  const onCancel = v => v
+  const editext = mount(
+    <EdiText
+      type='text'
+      value='zion the first'
+      cancelOnUnfocus={true}
+      onSave={onSave}
+      onCancel={onCancel}
+    />
+  )
+  const handleSave = jest.spyOn(editext.instance(), 'handleSave')
+  const handleCancel = jest.spyOn(editext.instance(), 'handleCancel')
+
+  editext.instance().forceUpdate()
+  expect(editext.state().editing).toEqual(false)
+  editext.find('button').at(0).simulate('click')
+  expect(editext.state().editing).toEqual(true)
+
+  const editInput = editext.find('input[type="text"]').at(0)
+  editInput.simulate('change', {
+    target: { value: 'AAAA' }
+  })
+  editInput.simulate('blur')
+  expect(editext.state().editing).toEqual(false)
+  expect(editext.state().value).toEqual('zion the first')
   expect(handleCancel.mock.calls.length).toBe(1)
   expect(handleSave.mock.calls.length).toBe(0)
 })
