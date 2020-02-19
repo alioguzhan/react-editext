@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.14.0](https://github.com/alioguzhan/react-editext/compare/v3.13.0...v3.14.0) (2020-02-19)
+
+
+### Features
+
+* implement `cancelOnUnfocus` feature ([269bd80](https://github.com/alioguzhan/react-editext/commit/269bd802705a083c17f573a0e39adf509a6195a1))
+
 ## [3.13.0](https://github.com/alioguzhan/react-editext/compare/v3.12.4...v3.13.0) (2020-02-05)
 
 
