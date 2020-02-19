@@ -218,6 +218,17 @@ function (_Component) {
       inputProps.onKeyDown && inputProps.onKeyDown(e); // TODO: this sucks.
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleOnBlur", function (e) {
+      var _this$props2 = _this.props,
+          cancelOnUnfocus = _this$props2.cancelOnUnfocus,
+          inputProps = _this$props2.inputProps;
+
+      var isEditingButton = _this.editingButtons.current.contains(e.relatedTarget);
+
+      cancelOnUnfocus && !isEditingButton && _this.handleCancel();
+      inputProps.onBlur && inputProps.onBlur(e); // TODO: this sucks.
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (e) {
       _this.setState({
         valid: true,
@@ -244,11 +255,11 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSave", function () {
-      var _this$props2 = _this.props,
-          onSave = _this$props2.onSave,
-          validation = _this$props2.validation,
-          onValidationFail = _this$props2.onValidationFail,
-          inputProps = _this$props2.inputProps;
+      var _this$props3 = _this.props,
+          onSave = _this$props3.onSave,
+          validation = _this$props3.validation,
+          onValidationFail = _this$props3.onValidationFail,
+          inputProps = _this$props3.inputProps;
       var isValid = validation(_this.state.value);
 
       if (!isValid) {
@@ -268,18 +279,18 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "_renderEditingMode", function () {
-      var _this$props3 = _this.props,
-          saveButtonClassName = _this$props3.saveButtonClassName,
-          saveButtonContent = _this$props3.saveButtonContent,
-          cancelButtonClassName = _this$props3.cancelButtonClassName,
-          editContainerClassName = _this$props3.editContainerClassName,
-          viewContainerClassName = _this$props3.viewContainerClassName,
-          cancelButtonContent = _this$props3.cancelButtonContent,
-          onValidationFail = _this$props3.onValidationFail,
-          validationMessage = _this$props3.validationMessage,
-          hint = _this$props3.hint,
-          hideIcons = _this$props3.hideIcons,
-          buttonsAlign = _this$props3.buttonsAlign;
+      var _this$props4 = _this.props,
+          saveButtonClassName = _this$props4.saveButtonClassName,
+          saveButtonContent = _this$props4.saveButtonContent,
+          cancelButtonClassName = _this$props4.cancelButtonClassName,
+          editContainerClassName = _this$props4.editContainerClassName,
+          viewContainerClassName = _this$props4.viewContainerClassName,
+          cancelButtonContent = _this$props4.cancelButtonContent,
+          onValidationFail = _this$props4.onValidationFail,
+          validationMessage = _this$props4.validationMessage,
+          hint = _this$props4.hint,
+          hideIcons = _this$props4.hideIcons,
+          buttonsAlign = _this$props4.buttonsAlign;
 
       var inputElem = _this._renderInput(); // calculate save button classes
 
@@ -294,10 +305,12 @@ function (_Component) {
       if (viewContainerClassName) editContainerClass = viewContainerClassName;
       var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "".concat(styles.Editext__buttons_before_aligned), buttonsAlign === 'after' && "".concat(styles.Editext__buttons_after_aligned));
       return React__default.createElement("div", null, React__default.createElement("div", {
+        ref: _this.editingContainer,
         className: editContainerClass,
         editext: _attrs.editContainer
       }, buttonsAlign === 'after' && inputElem, React__default.createElement("div", {
-        className: buttonsContainerClass
+        className: buttonsContainerClass,
+        ref: _this.editingButtons
       }, React__default.createElement("button", {
         ref: _this.saveButton,
         editext: _attrs.saveButton,
@@ -318,15 +331,15 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "_renderViewMode", function () {
-      var _this$props4 = _this.props,
-          viewProps = _this$props4.viewProps,
-          editButtonClassName = _this$props4.editButtonClassName,
-          editButtonContent = _this$props4.editButtonContent,
-          viewContainerClassName = _this$props4.viewContainerClassName,
-          hideIcons = _this$props4.hideIcons,
-          buttonsAlign = _this$props4.buttonsAlign,
-          editOnViewClick = _this$props4.editOnViewClick,
-          showButtonsOnHover = _this$props4.showButtonsOnHover; // calculate edit button classes
+      var _this$props5 = _this.props,
+          viewProps = _this$props5.viewProps,
+          editButtonClassName = _this$props5.editButtonClassName,
+          editButtonContent = _this$props5.editButtonContent,
+          viewContainerClassName = _this$props5.viewContainerClassName,
+          hideIcons = _this$props5.hideIcons,
+          buttonsAlign = _this$props5.buttonsAlign,
+          editOnViewClick = _this$props5.editOnViewClick,
+          showButtonsOnHover = _this$props5.showButtonsOnHover; // calculate edit button classes
 
       var editButtonDefaultClasses = classnames("".concat(styles.Editext__button), "".concat(styles.Editext__edit_button), hideIcons && "".concat(styles.Editext__hide_default_icons));
       var editButtonClass = editButtonClassName || editButtonDefaultClasses;
@@ -360,6 +373,8 @@ function (_Component) {
     };
     _this.saveButton = React__default.createRef();
     _this.input = React__default.createRef();
+    _this.editingContainer = React__default.createRef();
+    _this.editingButtons = React__default.createRef();
     return _this;
   }
 
@@ -390,6 +405,7 @@ function (_Component) {
           className: styles.Editext__input,
           editext: _attrs.input
         }, this.props.inputProps, {
+          onBlur: this.handleOnBlur,
           value: this.state.value,
           onChange: this.handleInputChange,
           autoFocus: this.state.editing
@@ -401,6 +417,7 @@ function (_Component) {
           editext: _attrs.input
         }, this.props.inputProps, {
           onKeyDown: this.handleKeyDown,
+          onBlur: this.handleOnBlur,
           value: this.state.value,
           type: this.props.type,
           onChange: this.handleInputChange,
@@ -412,9 +429,9 @@ function (_Component) {
     key: "render",
     value: function render() {
       var mode = this.state.editing ? this._renderEditingMode() : this._renderViewMode();
-      var _this$props5 = this.props,
-          mainContainerClassName = _this$props5.mainContainerClassName,
-          className = _this$props5.className;
+      var _this$props6 = this.props,
+          mainContainerClassName = _this$props6.mainContainerClassName,
+          className = _this$props6.className;
       var clsName = classnames(mainContainerClassName || styles.Editext__main_container, className);
       return React__default.createElement("div", {
         className: clsName
@@ -438,7 +455,8 @@ EdiText.defaultProps = {
     return null;
   },
   inputProps: {
-    onKeyDown: function onKeyDown(_e) {}
+    onKeyDown: function onKeyDown(_e) {},
+    onBlur: function onBlur(_e) {}
   },
   viewProps: {},
   cancelButtonContent: '',
@@ -479,7 +497,8 @@ EdiText.propTypes = {
   editing: PropTypes.bool,
   showButtonsOnHover: PropTypes.bool,
   submitOnEnter: PropTypes.bool,
-  cancelOnEscape: PropTypes.bool
+  cancelOnEscape: PropTypes.bool,
+  cancelOnUnfocus: PropTypes.bool
 };
 
 module.exports = EdiText;

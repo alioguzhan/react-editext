@@ -129,6 +129,11 @@ declare module 'react-editext' {
          * is pressed.
          */
         cancelOnEscape?: boolean;
+        /**
+         * Set it to `true` if you want to cancel the form when the input
+         * is unfocused.
+         */
+        cancelOnUnfocus?: boolean;
     }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {

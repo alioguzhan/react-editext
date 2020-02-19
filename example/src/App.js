@@ -790,9 +790,9 @@ export default class App extends Component {
             </div>
           </div>
           {/* ============ End of Example ============ */}
-          <div className='tile is-parent is-vertical is-10' id='submit-on-enter'>
+          <div className='tile is-parent is-vertical is-10' id='save-on-enter'>
             <div className='subtitle'>
-              <a href='#submit-on-enter'>Save on Enter && Cancel on Escape</a>
+              <a href='#save-on-enter'>Save on Enter and Cancel on Escape</a>
             </div>
             <p className='content'>
               Use this if you want to submit the form when `Enter` is pressed or cancel
@@ -815,6 +815,31 @@ export default class App extends Component {
                   cancelOnEscape
                   value='The Keymaker'
                   onSave={this.handleSave}
+                />
+              </div>
+            </div>
+          </div>
+          {/* ============ End of Example ============ */}
+          <div className='tile is-parent is-vertical is-10' id='cancel-on-blur'>
+            <div className='subtitle'>
+              <a href='#cancel-on-blur'>Cancel on Unfocus (<code>onBlur</code>)</a>
+            </div>
+            <p className='content'>
+              Use this if you want to cancel the editing when the input lost focus.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {examples.example21}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  cancelOnUnfocus
+                  value='The Keymaker'
+                  onSave={this.handleSave}
+                  onCancel={v => console.log('CANCELLED: ', v)}
                 />
               </div>
             </div>

@@ -343,3 +343,10 @@ export const example20 = `const StyledEdiText = styled(EdiText)\`
   onSave={this.handleSave}
 />
 `
+
+export const example21 = `<EdiText
+  cancelOnUnfocus
+  value="Zion"
+  onSave={this.onSave}
+  onCancel={v => console.log('CANCELLED: ', v}
+/>`
