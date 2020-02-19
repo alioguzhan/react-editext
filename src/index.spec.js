@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import EdiText from '.'
 import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
