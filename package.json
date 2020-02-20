@@ -57,7 +57,7 @@
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
-    "codecov": "^3.6.1",
+    "codecov": "^3.6.5",
     "cross-env": "^7.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
