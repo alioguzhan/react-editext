@@ -885,7 +885,6 @@ export default class App extends Component {
                 <div className='subtitle'>Output</div>
                 <EdiText
                   submitOnUnfocus
-                  cancelOnUnfocus
                   value='The Oracle'
                   onSave={this.handleSave}
                   onCancel={v => console.log('CANCELLED: ', v)}
