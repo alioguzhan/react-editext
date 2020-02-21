@@ -1,47 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.css'
-
-function classnames() {
-  /**
-   * Our simple classnames replica.
-   * This is enough for me.
-  */
-  return Array(...arguments).filter(a => a).join(' ')
-}
-
-const _attrs = {
-  /**
-   * This is for the end user. You can use below attributes if you want to
-   * style this component with `styled-components` or something like that.
-   * Example notation:
-   * <div class="EdiText_Buttons__container_34fgAsdf" editext="button-container">
-   * Example usage with styled-components:
-
-    const StyledEdiText = styled(EdiText)`
-      button[editext="edit-button"] {
-        color: #000;
-      }
-      button[editext="save-button"] {
-        background:#587C0C;
-        color: #fff;
-      }
-      input, textarea {
-        background: #1D2225;
-        color: #F4C361;
-        font-weight: bold;
-      }
-    `
-   */
-  viewContainer: 'view-container',
-  buttonContainer: 'button-container',
-  editContainer: 'edit-container',
-  editButton: 'edit-button',
-  saveButton: 'save-button',
-  cancelButton: 'cancel-button',
-  input: 'input',
-  hint: 'hint'
-}
+import { cancelOnConflictMessage, dataAttributes, classnames } from './utils'
 
 export default class EdiText extends Component {
   constructor(props) {
@@ -56,6 +16,16 @@ export default class EdiText extends Component {
     this.input = React.createRef()
     this.editingContainer = React.createRef()
     this.editingButtons = React.createRef()
+  }
+
+  componentDidMount() {
+    this.checkPropsConsistency()
+  }
+
+  checkPropsConsistency() {
+    if (this.props.cancelOnUnfocus && this.props.submitOnUnfocus) {
+      console.warn(cancelOnConflictMessage)
+    }
   }
 
   componentDidUpdate(prevProps, _prevState) {
@@ -93,9 +63,10 @@ export default class EdiText extends Component {
   }
 
   handleOnBlur = e => {
-    const { cancelOnUnfocus, inputProps } = this.props
+    const { cancelOnUnfocus, submitOnUnfocus, inputProps } = this.props
     const isEditingButton = this.editingButtons.current.contains(e.relatedTarget)
     cancelOnUnfocus && !isEditingButton && this.handleCancel()
+    submitOnUnfocus && !isEditingButton && !cancelOnUnfocus && this.handleSave()
     inputProps.onBlur && inputProps.onBlur(e) // TODO: this sucks.
   }
 
@@ -146,7 +117,7 @@ export default class EdiText extends Component {
         <textarea
           ref={this.input}
           className={styles.Editext__input}
-          editext={_attrs.input}
+          editext={dataAttributes.input}
           {...this.props.inputProps}
           onBlur={this.handleOnBlur}
           value={this.state.value}
@@ -159,7 +130,7 @@ export default class EdiText extends Component {
         <input
           ref={this.input}
           className={styles.Editext__input}
-          editext={_attrs.input}
+          editext={dataAttributes.input}
           {...this.props.inputProps}
           onKeyDown={this.handleKeyDown}
           onBlur={this.handleOnBlur}
@@ -212,7 +183,7 @@ export default class EdiText extends Component {
     )
     return (
       <div>
-        <div ref={this.editingContainer} className={editContainerClass} editext={_attrs.editContainer}>
+        <div ref={this.editingContainer} className={editContainerClass} editext={dataAttributes.editContainer}>
           {buttonsAlign === 'after' && inputElem}
           <div
             className={buttonsContainerClass}
@@ -220,7 +191,7 @@ export default class EdiText extends Component {
           >
             <button
               ref={this.saveButton}
-              editext={_attrs.saveButton}
+              editext={dataAttributes.saveButton}
               type='button'
               className={saveButtonClass}
               onClick={this.handleSave}
@@ -229,7 +200,7 @@ export default class EdiText extends Component {
             </button>
             <button
               type='button'
-              editext={_attrs.cancelButton}
+              editext={dataAttributes.cancelButton}
               className={cancelButtonClass}
               onClick={this.handleCancel}
             >
@@ -244,7 +215,7 @@ export default class EdiText extends Component {
           </div>
         )}
         {hint &&
-          <div className={styles.Editext__hint} editext={_attrs.hint}>
+          <div className={styles.Editext__hint} editext={dataAttributes.hint}>
             {hint}
           </div>}
       </div>
@@ -282,7 +253,7 @@ export default class EdiText extends Component {
       ? this.handleActivateEditMode
       : undefined
     return (
-      <div className={viewContainerClass} editext={_attrs.viewContainer}>
+      <div className={viewContainerClass} editext={dataAttributes.viewContainer}>
         {buttonsAlign === 'after' && (
           <div {...viewProps} onClick={viewClickHandler} editext='view'>
             {this.state.value}
@@ -291,7 +262,7 @@ export default class EdiText extends Component {
         <div className={buttonsContainerClass}>
           <button
             type='button'
-            editext={_attrs.editButton}
+            editext={dataAttributes.editButton}
             className={editButtonClass}
             onClick={this.handleActivateEditMode}
           >
@@ -299,7 +270,7 @@ export default class EdiText extends Component {
           </button>
         </div>
         {buttonsAlign === 'before' && (
-          <div {...viewProps} onClick={viewClickHandler} editext={_attrs.viewContainer}>
+          <div {...viewProps} onClick={viewClickHandler} editext={dataAttributes.viewContainer}>
             {this.state.value}
           </div>
         )}
@@ -381,5 +352,6 @@ EdiText.propTypes = {
   showButtonsOnHover: PropTypes.bool,
   submitOnEnter: PropTypes.bool,
   cancelOnEscape: PropTypes.bool,
-  cancelOnUnfocus: PropTypes.bool
+  cancelOnUnfocus: PropTypes.bool,
+  submitOnUnfocus: PropTypes.bool
 }

@@ -837,7 +837,33 @@ export default class App extends Component {
                 <div className='subtitle'>Output</div>
                 <EdiText
                   cancelOnUnfocus
-                  value='The Keymaker'
+                  value='Zion'
+                  onSave={this.handleSave}
+                  onCancel={v => console.log('CANCELLED: ', v)}
+                />
+              </div>
+            </div>
+          </div>
+          {/* ============ End of Example ============ */}
+          <div className='tile is-parent is-vertical is-10' id='submit-on-blur'>
+            <div className='subtitle'>
+              <a href='#submit-on-blur'>Submit on Unfocus (<code>onBlur</code>)</a>
+            </div>
+            <p className='content'>
+              Use this if you want to save the value when the input lost focus.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {examples.example22}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  submitOnUnfocus
+                  cancelOnUnfocus
+                  value='The Oracle'
                   onSave={this.handleSave}
                   onCancel={v => console.log('CANCELLED: ', v)}
                 />

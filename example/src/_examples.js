@@ -350,3 +350,10 @@ export const example21 = `<EdiText
   onSave={this.onSave}
   onCancel={v => console.log('CANCELLED: ', v}
 />`
+
+export const example22 = `<EdiText
+  submitOnUnfocus
+  value="The Oracle"
+  onSave={this.onSave}
+  onCancel={v => console.log('CANCELLED: ', v}
+/>`

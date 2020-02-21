@@ -134,6 +134,11 @@ declare module 'react-editext' {
          * is unfocused.
          */
         cancelOnUnfocus?: boolean;
+        /**
+         * Set it to `true` if you want to save the form when the input
+         * is unfocused.
+         */
+        submitOnUnfocus?: boolean;
     }
 
     export default class EdiText extends React.Component<EdiTextProps, any> {

@@ -143,13 +143,12 @@ function classnames() {
   /**
    * Our simple classnames replica.
    * This is enough for me.
-  */
+   */
   return Array.apply(void 0, arguments).filter(function (a) {
     return a;
   }).join(' ');
 }
-
-var _attrs = {
+var dataAttributes = {
   /**
    * This is for the end user. You can use below attributes if you want to
    * style this component with `styled-components` or something like that.
@@ -180,6 +179,7 @@ var _attrs = {
   input: 'input',
   hint: 'hint'
 };
+var cancelOnConflictMessage = 'EdiText: Both `cancelOnUnfocus` and `submitOnUnfocus` are set to true. ' + '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
 
 var EdiText =
 /*#__PURE__*/
@@ -221,11 +221,13 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "handleOnBlur", function (e) {
       var _this$props2 = _this.props,
           cancelOnUnfocus = _this$props2.cancelOnUnfocus,
+          submitOnUnfocus = _this$props2.submitOnUnfocus,
           inputProps = _this$props2.inputProps;
 
       var isEditingButton = _this.editingButtons.current.contains(e.relatedTarget);
 
       cancelOnUnfocus && !isEditingButton && _this.handleCancel();
+      submitOnUnfocus && !isEditingButton && !cancelOnUnfocus && _this.handleSave();
       inputProps.onBlur && inputProps.onBlur(e); // TODO: this sucks.
     });
 
@@ -307,26 +309,26 @@ function (_Component) {
       return React__default.createElement("div", null, React__default.createElement("div", {
         ref: _this.editingContainer,
         className: editContainerClass,
-        editext: _attrs.editContainer
+        editext: dataAttributes.editContainer
       }, buttonsAlign === 'after' && inputElem, React__default.createElement("div", {
         className: buttonsContainerClass,
         ref: _this.editingButtons
       }, React__default.createElement("button", {
         ref: _this.saveButton,
-        editext: _attrs.saveButton,
+        editext: dataAttributes.saveButton,
         type: "button",
         className: saveButtonClass,
         onClick: _this.handleSave
       }, saveButtonContent), React__default.createElement("button", {
         type: "button",
-        editext: _attrs.cancelButton,
+        editext: dataAttributes.cancelButton,
         className: cancelButtonClass,
         onClick: _this.handleCancel
       }, cancelButtonContent)), buttonsAlign === 'before' && inputElem), !_this.state.valid && !onValidationFail && React__default.createElement("div", {
         className: styles.Editext__validation_message
       }, validationMessage), hint && React__default.createElement("div", {
         className: styles.Editext__hint,
-        editext: _attrs.hint
+        editext: dataAttributes.hint
       }, hint));
     });
 
@@ -348,7 +350,7 @@ function (_Component) {
       var viewClickHandler = editOnViewClick ? _this.handleActivateEditMode : undefined;
       return React__default.createElement("div", {
         className: viewContainerClass,
-        editext: _attrs.viewContainer
+        editext: dataAttributes.viewContainer
       }, buttonsAlign === 'after' && React__default.createElement("div", _extends({}, viewProps, {
         onClick: viewClickHandler,
         editext: "view"
@@ -356,12 +358,12 @@ function (_Component) {
         className: buttonsContainerClass
       }, React__default.createElement("button", {
         type: "button",
-        editext: _attrs.editButton,
+        editext: dataAttributes.editButton,
         className: editButtonClass,
         onClick: _this.handleActivateEditMode
       }, editButtonContent)), buttonsAlign === 'before' && React__default.createElement("div", _extends({}, viewProps, {
         onClick: viewClickHandler,
-        editext: _attrs.viewContainer
+        editext: dataAttributes.viewContainer
       }), _this.state.value));
     });
 
@@ -379,6 +381,18 @@ function (_Component) {
   }
 
   _createClass(EdiText, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.checkPropsConsistency();
+    }
+  }, {
+    key: "checkPropsConsistency",
+    value: function checkPropsConsistency() {
+      if (this.props.cancelOnUnfocus && this.props.submitOnUnfocus) {
+        console.warn(cancelOnConflictMessage);
+      }
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, _prevState) {
       var nextState = {};
@@ -403,7 +417,7 @@ function (_Component) {
         return React__default.createElement("textarea", _extends({
           ref: this.input,
           className: styles.Editext__input,
-          editext: _attrs.input
+          editext: dataAttributes.input
         }, this.props.inputProps, {
           onBlur: this.handleOnBlur,
           value: this.state.value,
@@ -414,7 +428,7 @@ function (_Component) {
         return React__default.createElement("input", _extends({
           ref: this.input,
           className: styles.Editext__input,
-          editext: _attrs.input
+          editext: dataAttributes.input
         }, this.props.inputProps, {
           onKeyDown: this.handleKeyDown,
           onBlur: this.handleOnBlur,
@@ -498,7 +512,8 @@ EdiText.propTypes = {
   showButtonsOnHover: PropTypes.bool,
   submitOnEnter: PropTypes.bool,
   cancelOnEscape: PropTypes.bool,
-  cancelOnUnfocus: PropTypes.bool
+  cancelOnUnfocus: PropTypes.bool,
+  submitOnUnfocus: PropTypes.bool
 };
 
 module.exports = EdiText;

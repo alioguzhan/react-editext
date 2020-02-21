@@ -2,6 +2,7 @@ import React from 'react'
 import EdiText from '.'
 import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import { cancelOnConflictMessage } from './utils'
 
 configure({ adapter: new Adapter() })
 
@@ -421,6 +422,92 @@ test('unfocusing the input cancels the editing', () => {
   const editInput = editext.find('input[type="text"]').at(0)
   editInput.simulate('change', {
     target: { value: 'AAAA' }
+  })
+  editInput.simulate('blur')
+  expect(editext.state().editing).toEqual(false)
+  expect(editext.state().value).toEqual('zion the first')
+  expect(handleCancel.mock.calls.length).toBe(1)
+  expect(handleSave.mock.calls.length).toBe(0)
+})
+
+test('unfocusing the input submits the form', () => {
+  const onSave = v => v
+  const onCancel = v => v
+  const editext = mount(
+    <EdiText
+      type='text'
+      value='zion the first'
+      submitOnUnfocus={true}
+      onSave={onSave}
+      onCancel={onCancel}
+    />
+  )
+  const handleSave = jest.spyOn(editext.instance(), 'handleSave')
+  const handleCancel = jest.spyOn(editext.instance(), 'handleCancel')
+
+  editext.instance().forceUpdate()
+  expect(editext.state().editing).toEqual(false)
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
+  expect(editext.state().editing).toEqual(true)
+
+  const editInput = editext.find('input[type="text"]').at(0)
+  editInput.simulate('change', {
+    target: { value: 'zion the second' }
+  })
+  editInput.simulate('blur')
+  expect(editext.state().editing).toEqual(false)
+  expect(editext.state().value).toEqual('zion the second')
+  expect(handleCancel.mock.calls.length).toBe(0)
+  expect(handleSave.mock.calls.length).toBe(1)
+})
+
+test('settings both cancelOnUnfocus and submitOnUnfocus throws warning ', () => {
+  const onSave = v => v
+  const onCancel = v => v
+  const warn = jest.spyOn(global.console, 'warn')
+  mount(
+    <EdiText
+      type='text'
+      value='zion the first'
+      submitOnUnfocus={true}
+      cancelOnUnfocus={true}
+      onSave={onSave}
+      onCancel={onCancel}
+    />
+  )
+  expect(warn).toHaveBeenCalledWith(cancelOnConflictMessage)
+})
+
+test('cancelOnUnfocus overrides the submitOnUnfocus prop ', () => {
+  const onSave = v => v
+  const onCancel = v => v
+  const editext = mount(
+    <EdiText
+      type='text'
+      value='zion the first'
+      submitOnUnfocus={true}
+      cancelOnUnfocus={true}
+      onSave={onSave}
+      onCancel={onCancel}
+    />
+  )
+  const handleSave = jest.spyOn(editext.instance(), 'handleSave')
+  const handleCancel = jest.spyOn(editext.instance(), 'handleCancel')
+
+  editext.instance().forceUpdate()
+  expect(editext.state().editing).toEqual(false)
+  editext
+    .find('button')
+    .at(0)
+    .simulate('click')
+  expect(editext.state().editing).toEqual(true)
+
+  const editInput = editext.find('input[type="text"]').at(0)
+  editInput.simulate('change', {
+    target: { value: 'zion the second' }
   })
   editInput.simulate('blur')
   expect(editext.state().editing).toEqual(false)
