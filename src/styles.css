@@ -10,7 +10,7 @@
 }
 .Editext__button:hover {
   cursor: pointer;
-  background-color: rgba(241, 241, 241, 1.00)
+  background-color: rgba(241, 241, 241, 1);
 }
 .Editext__input {
   width: 100%;
@@ -49,21 +49,21 @@
 .Editext__validation_message {
   font-weight: 500;
   color: crimson;
-  font-size: .7em;
+  font-size: 0.7em;
   margin-top: 3px;
 }
 .Editext__cancel_button {
   color: crimson;
 }
 .Editext__cancel_button:before {
-  content: '\2715';
+  content: "\2715";
   margin: 3px;
 }
 .Editext__edit_button {
   color: #000;
 }
 .Editext__edit_button:before {
-  content: '\270E';
+  content: "\270E";
   margin: 3px;
 }
 .Editext__save_button {
@@ -71,7 +71,7 @@
   margin-right: 3px;
 }
 .Editext__save_button:before {
-  content: '\2713';
+  content: "\2713";
   margin: 3px;
 }
 .Editext__hide_default_icons:before {
@@ -81,7 +81,7 @@
 .Editext__hint {
   font-weight: 500;
   color: lightslategray;
-  font-size: .7em;
+  font-size: 0.7em;
   margin-top: 3px;
   text-align: left;
 }

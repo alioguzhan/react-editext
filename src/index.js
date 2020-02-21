@@ -30,7 +30,10 @@ export default class EdiText extends Component {
 
   componentDidUpdate(prevProps, _prevState) {
     const nextState = {}
-    if (this.props.value !== undefined && prevProps.value !== this.props.value) {
+    if (
+      this.props.value !== undefined &&
+      prevProps.value !== this.props.value
+    ) {
       nextState.value = this.props.value
     }
 
@@ -50,7 +53,9 @@ export default class EdiText extends Component {
   handleKeyDown = e => {
     const { submitOnEnter, inputProps, cancelOnEscape } = this.props
     const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
-    const isEscape = [27, 'Escape', 'Esc'].some(c => e.keyCode === c || e.code === c)
+    const isEscape = [27, 'Escape', 'Esc'].some(
+      c => e.keyCode === c || e.code === c
+    )
     if (isEnter) {
       submitOnEnter && this.handleSave()
       e.preventDefault()
@@ -64,7 +69,9 @@ export default class EdiText extends Component {
 
   handleOnBlur = e => {
     const { cancelOnUnfocus, submitOnUnfocus, inputProps } = this.props
-    const isEditingButton = this.editingButtons.current.contains(e.relatedTarget)
+    const isEditingButton = this.editingButtons.current.contains(
+      e.relatedTarget
+    )
     cancelOnUnfocus && !isEditingButton && this.handleCancel()
     submitOnUnfocus && !isEditingButton && !cancelOnUnfocus && this.handleSave()
     inputProps.onBlur && inputProps.onBlur(e) // TODO: this sucks.
@@ -89,9 +96,14 @@ export default class EdiText extends Component {
   }
 
   handleActivateEditMode = () => {
-    this.setState({
-      editing: true
-    }, () => { this.props.onEditingStart(this.state.value) })
+    this.setState(
+      {
+        editing: true
+      },
+      () => {
+        this.props.onEditingStart(this.state.value)
+      }
+    )
   }
 
   handleSave = () => {
@@ -183,12 +195,13 @@ export default class EdiText extends Component {
     )
     return (
       <div>
-        <div ref={this.editingContainer} className={editContainerClass} editext={dataAttributes.editContainer}>
+        <div
+          ref={this.editingContainer}
+          className={editContainerClass}
+          editext={dataAttributes.editContainer}
+        >
           {buttonsAlign === 'after' && inputElem}
-          <div
-            className={buttonsContainerClass}
-            ref={this.editingButtons}
-          >
+          <div className={buttonsContainerClass} ref={this.editingButtons}>
             <button
               ref={this.saveButton}
               editext={dataAttributes.saveButton}
@@ -214,10 +227,11 @@ export default class EdiText extends Component {
             {validationMessage}
           </div>
         )}
-        {hint &&
+        {hint && (
           <div className={styles.Editext__hint} editext={dataAttributes.hint}>
             {hint}
-          </div>}
+          </div>
+        )}
       </div>
     )
   }
@@ -253,7 +267,10 @@ export default class EdiText extends Component {
       ? this.handleActivateEditMode
       : undefined
     return (
-      <div className={viewContainerClass} editext={dataAttributes.viewContainer}>
+      <div
+        className={viewContainerClass}
+        editext={dataAttributes.viewContainer}
+      >
         {buttonsAlign === 'after' && (
           <div {...viewProps} onClick={viewClickHandler} editext='view'>
             {this.state.value}
@@ -270,7 +287,11 @@ export default class EdiText extends Component {
           </button>
         </div>
         {buttonsAlign === 'before' && (
-          <div {...viewProps} onClick={viewClickHandler} editext={dataAttributes.viewContainer}>
+          <div
+            {...viewProps}
+            onClick={viewClickHandler}
+            editext={dataAttributes.viewContainer}
+          >
             {this.state.value}
           </div>
         )}
@@ -284,7 +305,8 @@ export default class EdiText extends Component {
       : this._renderViewMode()
     const { mainContainerClassName, className } = this.props
     const clsName = classnames(
-      mainContainerClassName || styles.Editext__main_container, className
+      mainContainerClassName || styles.Editext__main_container,
+      className
     )
     return <div className={clsName}>{mode}</div>
   }
@@ -297,7 +319,7 @@ EdiText.defaultProps = {
   validation: _v => true,
   onEditingStart: _v => null,
   onCancel: _v => null,
-  inputProps: { onKeyDown: _e => { }, onBlur: _e => { } },
+  inputProps: { onKeyDown: _e => {}, onBlur: _e => {} },
   viewProps: {},
   cancelButtonContent: '',
   saveButtonContent: '',
