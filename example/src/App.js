@@ -8,30 +8,32 @@ const StyledEdiText = styled(EdiText)`
   button {
     border-radius: 5px;
   }
-  button[editext="edit-button"] {
+  button[editext='edit-button'] {
     color: #000;
     width: 50px;
   }
-  button[editext="save-button"] {
+  button[editext='save-button'] {
     width: 50px;
     &:hover {
       background: greenyellow;
     }
   }
-  button[editext="cancel-button"] {
+  button[editext='cancel-button'] {
     &:hover {
       background: crimson;
       color: #fff;
     }
   }
-  input, textarea {
-    background: #1D2225;
-    color: #F4C361;
+  input,
+  textarea {
+    background: #1d2225;
+    color: #f4c361;
     font-weight: bold;
     border-radius: 5px;
   }
-  div[editext="view-container"], div[editext="edit-container"] {
-    background: #6293C3;
+  div[editext='view-container'],
+  div[editext='edit-container'] {
+    background: #6293c3;
     padding: 15px;
     border-radius: 5px;
     color: #fff;
@@ -126,13 +128,16 @@ export default class App extends Component {
             </div>
           </div>
           {/* ============ End of Example ============ */}
-          <div className='tile is-parent is-vertical is-10' id='styled-components'>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='styled-components'
+          >
             <div className='subtitle'>
               <a href='#styled-components'>Styling with styled-components</a>
             </div>
             <p className='content'>
-            You can style the EdiText with <code>styled-components</code>.
-            You can target internal elements by their types (and by order maybe?).
+              You can style the EdiText with <code>styled-components</code>. You
+              can target internal elements by their types (and by order maybe?).
             </p>
             <div className='columns'>
               <div className='column'>
@@ -167,15 +172,18 @@ export default class App extends Component {
               <div className='column is-half'>
                 <div className='subtitle'>Output</div>
                 <EdiText
-                  onCancel={v => this.setState({
-                    logs: [...this.state.logs, `CANCELLED: ${v}`]
-                  })}
-                  onEditingStart={v => this.setState({
-                    logs: [...this.state.logs, `EDITING STARTED: ${v}`]
-                  })}
-                  onSave={v => this.setState({
-                    logs: [...this.state.logs, `SAVED: ${v}`]
-                  })}
+                  onCancel={v =>
+                    this.setState({
+                      logs: [...this.state.logs, `CANCELLED: ${v}`]
+                    })}
+                  onEditingStart={v =>
+                    this.setState({
+                      logs: [...this.state.logs, `EDITING STARTED: ${v}`]
+                    })}
+                  onSave={v =>
+                    this.setState({
+                      logs: [...this.state.logs, `SAVED: ${v}`]
+                    })}
                   value={"You've been living in a dream world, Neo."}
                 />
                 <div className='subtitle' style={{ marginTop: 10 }}>
@@ -727,7 +735,10 @@ export default class App extends Component {
             </div>
           </div>
           {/* ============ End of Example ============ */}
-          <div className='tile is-parent is-vertical is-10' id='edit-on-view-click'>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='edit-on-view-click'
+          >
             <div className='subtitle'>
               <a href='#default-props'>Edit on View Click</a>
             </div>
@@ -755,13 +766,17 @@ export default class App extends Component {
             </div>
           </div>
           {/* ============ End of Example ============ */}
-          <div className='tile is-parent is-vertical is-10' id='edit-by-default'>
+          <div
+            className='tile is-parent is-vertical is-10'
+            id='edit-by-default'
+          >
             <div className='subtitle'>
               <a href='#edit-by-default'>Controlled Edit View</a>
             </div>
             <p className='content'>
-              You may want the editor to be active by default and/or be controlled externally.
-              To do that you can set <code>editing</code> prop to <code>true</code>.
+              You may want the editor to be active by default and/or be
+              controlled externally. To do that you can set <code>editing</code>{' '}
+              prop to <code>true</code>.
             </p>
             <div className='columns'>
               <div className='column is-half'>
@@ -774,9 +789,10 @@ export default class App extends Component {
                 <div>
                   <button
                     className='button is-small is-warning'
-                    onClick={() => this.setState({ editing: !this.state.editing })}
+                    onClick={() =>
+                      this.setState({ editing: !this.state.editing })}
                   >
-                      Toggle Editing Mode
+                    Toggle Editing Mode
                   </button>
                 </div>
                 <br />
@@ -795,11 +811,13 @@ export default class App extends Component {
               <a href='#save-on-enter'>Save on Enter and Cancel on Escape</a>
             </div>
             <p className='content'>
-              Use this if you want to submit the form when `Enter` is pressed or cancel
-              it when `Escape` is pressed.
+              Use this if you want to submit the form when `Enter` is pressed or
+              cancel it when `Escape` is pressed.
               <br />
-              <strong>Be careful if you have multiple instances of <code>EdiText</code>
-              on the same page. Things can go crazy.
+              <strong>
+                Be careful if you have multiple instances of{' '}
+                <code>EdiText</code>
+                on the same page. Things can go crazy.
               </strong>
             </p>
             <div className='columns'>
@@ -822,10 +840,13 @@ export default class App extends Component {
           {/* ============ End of Example ============ */}
           <div className='tile is-parent is-vertical is-10' id='cancel-on-blur'>
             <div className='subtitle'>
-              <a href='#cancel-on-blur'>Cancel on Unfocus (<code>onBlur</code>)</a>
+              <a href='#cancel-on-blur'>
+                Cancel on Unfocus (<code>onBlur</code>)
+              </a>
             </div>
             <p className='content'>
-              Use this if you want to cancel the editing when the input lost focus.
+              Use this if you want to cancel the editing when the input lost
+              focus.
             </p>
             <div className='columns'>
               <div className='column is-half'>
@@ -837,7 +858,34 @@ export default class App extends Component {
                 <div className='subtitle'>Output</div>
                 <EdiText
                   cancelOnUnfocus
-                  value='The Keymaker'
+                  value='Zion'
+                  onSave={this.handleSave}
+                  onCancel={v => console.log('CANCELLED: ', v)}
+                />
+              </div>
+            </div>
+          </div>
+          {/* ============ End of Example ============ */}
+          <div className='tile is-parent is-vertical is-10' id='submit-on-blur'>
+            <div className='subtitle'>
+              <a href='#submit-on-blur'>
+                Submit on Unfocus (<code>onBlur</code>)
+              </a>
+            </div>
+            <p className='content'>
+              Use this if you want to save the value when the input lost focus.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {examples.example22}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <div className='subtitle'>Output</div>
+                <EdiText
+                  submitOnUnfocus
+                  value='The Oracle'
                   onSave={this.handleSave}
                   onCancel={v => console.log('CANCELLED: ', v)}
                 />

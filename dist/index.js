@@ -135,7 +135,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".styles_Editext__button__6H8n_ {\n  border-radius: 1px;\n  outline: none;\n  padding: 0.6em;\n  min-width: 30px;\n  height: 100%;\n  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);\n  border-style: solid;\n  border-width: 1px;\n}\n.styles_Editext__button__6H8n_:hover {\n  cursor: pointer;\n  background-color: rgba(241, 241, 241, 1.00)\n}\n.styles_Editext__input__1534X {\n  width: 100%;\n  border: 1px solid rgb(212, 212, 212);\n  padding: 0.6em;\n  outline: none;\n}\n.styles_Editext__main_container__2Y-IL {\n  display: flex;\n  flex-direction: column;\n}\n.styles_Editext__editing_container__3yvUv {\n  display: flex;\n  flex: 1;\n  align-items: center;\n}\n.styles_Editext__view_container__2l2kB {\n  display: flex;\n  align-items: center;\n}\n.styles_Editext__buttons_container__1kphL {\n  display: flex;\n}\n.styles_Editext__buttons_showButtonsOnHover__EUUD5 .styles_Editext__buttons_container__1kphL {\n  visibility: hidden;\n}\n.styles_Editext__buttons_showButtonsOnHover__EUUD5:hover .styles_Editext__buttons_container__1kphL {\n  visibility: visible;\n}\n.styles_Editext__buttons_before_aligned__NnoWq {\n  margin-right: 5px;\n}\n.styles_Editext__buttons_after_aligned__1nlcG {\n  margin-left: 5px;\n}\n.styles_Editext__validation_message__3B-OU {\n  font-weight: 500;\n  color: crimson;\n  font-size: .7em;\n  margin-top: 3px;\n}\n.styles_Editext__cancel_button__259hb {\n  color: crimson;\n}\n.styles_Editext__cancel_button__259hb:before {\n  content: '\\2715';\n  margin: 3px;\n}\n.styles_Editext__edit_button__hthOZ {\n  color: #000;\n}\n.styles_Editext__edit_button__hthOZ:before {\n  content: '\\270E';\n  margin: 3px;\n}\n.styles_Editext__save_button__3WN6q {\n  color: darkgreen;\n  margin-right: 3px;\n}\n.styles_Editext__save_button__3WN6q:before {\n  content: '\\2713';\n  margin: 3px;\n}\n.styles_Editext__hide_default_icons__AV_7m:before {\n  content: none;\n  margin: 0;\n}\n.styles_Editext__hint__2QU2S {\n  font-weight: 500;\n  color: lightslategray;\n  font-size: .7em;\n  margin-top: 3px;\n  text-align: left;\n}\n";
+var css = ".styles_Editext__button__6H8n_ {\n  border-radius: 1px;\n  outline: none;\n  padding: 0.6em;\n  min-width: 30px;\n  height: 100%;\n  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);\n  border-style: solid;\n  border-width: 1px;\n}\n.styles_Editext__button__6H8n_:hover {\n  cursor: pointer;\n  background-color: rgba(241, 241, 241, 1);\n}\n.styles_Editext__input__1534X {\n  width: 100%;\n  border: 1px solid rgb(212, 212, 212);\n  padding: 0.6em;\n  outline: none;\n}\n.styles_Editext__main_container__2Y-IL {\n  display: flex;\n  flex-direction: column;\n}\n.styles_Editext__editing_container__3yvUv {\n  display: flex;\n  flex: 1;\n  align-items: center;\n}\n.styles_Editext__view_container__2l2kB {\n  display: flex;\n  align-items: center;\n}\n.styles_Editext__buttons_container__1kphL {\n  display: flex;\n}\n.styles_Editext__buttons_showButtonsOnHover__EUUD5 .styles_Editext__buttons_container__1kphL {\n  visibility: hidden;\n}\n.styles_Editext__buttons_showButtonsOnHover__EUUD5:hover .styles_Editext__buttons_container__1kphL {\n  visibility: visible;\n}\n.styles_Editext__buttons_before_aligned__NnoWq {\n  margin-right: 5px;\n}\n.styles_Editext__buttons_after_aligned__1nlcG {\n  margin-left: 5px;\n}\n.styles_Editext__validation_message__3B-OU {\n  font-weight: 500;\n  color: crimson;\n  font-size: 0.7em;\n  margin-top: 3px;\n}\n.styles_Editext__cancel_button__259hb {\n  color: crimson;\n}\n.styles_Editext__cancel_button__259hb:before {\n  content: \"\\2715\";\n  margin: 3px;\n}\n.styles_Editext__edit_button__hthOZ {\n  color: #000;\n}\n.styles_Editext__edit_button__hthOZ:before {\n  content: \"\\270E\";\n  margin: 3px;\n}\n.styles_Editext__save_button__3WN6q {\n  color: darkgreen;\n  margin-right: 3px;\n}\n.styles_Editext__save_button__3WN6q:before {\n  content: \"\\2713\";\n  margin: 3px;\n}\n.styles_Editext__hide_default_icons__AV_7m:before {\n  content: none;\n  margin: 0;\n}\n.styles_Editext__hint__2QU2S {\n  font-weight: 500;\n  color: lightslategray;\n  font-size: 0.7em;\n  margin-top: 3px;\n  text-align: left;\n}\n";
 var styles = {"Editext__button":"styles_Editext__button__6H8n_","Editext__input":"styles_Editext__input__1534X","Editext__main_container":"styles_Editext__main_container__2Y-IL","Editext__editing_container":"styles_Editext__editing_container__3yvUv","Editext__view_container":"styles_Editext__view_container__2l2kB","Editext__buttons_container":"styles_Editext__buttons_container__1kphL","Editext__buttons_showButtonsOnHover":"styles_Editext__buttons_showButtonsOnHover__EUUD5","Editext__buttons_before_aligned":"styles_Editext__buttons_before_aligned__NnoWq","Editext__buttons_after_aligned":"styles_Editext__buttons_after_aligned__1nlcG","Editext__validation_message":"styles_Editext__validation_message__3B-OU","Editext__cancel_button":"styles_Editext__cancel_button__259hb","Editext__edit_button":"styles_Editext__edit_button__hthOZ","Editext__save_button":"styles_Editext__save_button__3WN6q","Editext__hide_default_icons":"styles_Editext__hide_default_icons__AV_7m","Editext__hint":"styles_Editext__hint__2QU2S"};
 styleInject(css);
 
@@ -143,13 +143,12 @@ function classnames() {
   /**
    * Our simple classnames replica.
    * This is enough for me.
-  */
+   */
   return Array.apply(void 0, arguments).filter(function (a) {
     return a;
   }).join(' ');
 }
-
-var _attrs = {
+var dataAttributes = {
   /**
    * This is for the end user. You can use below attributes if you want to
    * style this component with `styled-components` or something like that.
@@ -180,6 +179,7 @@ var _attrs = {
   input: 'input',
   hint: 'hint'
 };
+var cancelOnConflictMessage = 'EdiText: Both `cancelOnUnfocus` and `submitOnUnfocus` are set to true. ' + '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
 
 var EdiText =
 /*#__PURE__*/
@@ -221,11 +221,13 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "handleOnBlur", function (e) {
       var _this$props2 = _this.props,
           cancelOnUnfocus = _this$props2.cancelOnUnfocus,
+          submitOnUnfocus = _this$props2.submitOnUnfocus,
           inputProps = _this$props2.inputProps;
 
       var isEditingButton = _this.editingButtons.current.contains(e.relatedTarget);
 
       cancelOnUnfocus && !isEditingButton && _this.handleCancel();
+      submitOnUnfocus && !isEditingButton && !cancelOnUnfocus && _this.handleSave();
       inputProps.onBlur && inputProps.onBlur(e); // TODO: this sucks.
     });
 
@@ -307,26 +309,26 @@ function (_Component) {
       return React__default.createElement("div", null, React__default.createElement("div", {
         ref: _this.editingContainer,
         className: editContainerClass,
-        editext: _attrs.editContainer
+        editext: dataAttributes.editContainer
       }, buttonsAlign === 'after' && inputElem, React__default.createElement("div", {
         className: buttonsContainerClass,
         ref: _this.editingButtons
       }, React__default.createElement("button", {
         ref: _this.saveButton,
-        editext: _attrs.saveButton,
+        editext: dataAttributes.saveButton,
         type: "button",
         className: saveButtonClass,
         onClick: _this.handleSave
       }, saveButtonContent), React__default.createElement("button", {
         type: "button",
-        editext: _attrs.cancelButton,
+        editext: dataAttributes.cancelButton,
         className: cancelButtonClass,
         onClick: _this.handleCancel
       }, cancelButtonContent)), buttonsAlign === 'before' && inputElem), !_this.state.valid && !onValidationFail && React__default.createElement("div", {
         className: styles.Editext__validation_message
       }, validationMessage), hint && React__default.createElement("div", {
         className: styles.Editext__hint,
-        editext: _attrs.hint
+        editext: dataAttributes.hint
       }, hint));
     });
 
@@ -348,7 +350,7 @@ function (_Component) {
       var viewClickHandler = editOnViewClick ? _this.handleActivateEditMode : undefined;
       return React__default.createElement("div", {
         className: viewContainerClass,
-        editext: _attrs.viewContainer
+        editext: dataAttributes.viewContainer
       }, buttonsAlign === 'after' && React__default.createElement("div", _extends({}, viewProps, {
         onClick: viewClickHandler,
         editext: "view"
@@ -356,12 +358,12 @@ function (_Component) {
         className: buttonsContainerClass
       }, React__default.createElement("button", {
         type: "button",
-        editext: _attrs.editButton,
+        editext: dataAttributes.editButton,
         className: editButtonClass,
         onClick: _this.handleActivateEditMode
       }, editButtonContent)), buttonsAlign === 'before' && React__default.createElement("div", _extends({}, viewProps, {
         onClick: viewClickHandler,
-        editext: _attrs.viewContainer
+        editext: dataAttributes.viewContainer
       }), _this.state.value));
     });
 
@@ -379,6 +381,18 @@ function (_Component) {
   }
 
   _createClass(EdiText, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.checkPropsConsistency();
+    }
+  }, {
+    key: "checkPropsConsistency",
+    value: function checkPropsConsistency() {
+      if (this.props.cancelOnUnfocus && this.props.submitOnUnfocus) {
+        console.warn(cancelOnConflictMessage);
+      }
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, _prevState) {
       var nextState = {};
@@ -403,7 +417,7 @@ function (_Component) {
         return React__default.createElement("textarea", _extends({
           ref: this.input,
           className: styles.Editext__input,
-          editext: _attrs.input
+          editext: dataAttributes.input
         }, this.props.inputProps, {
           onBlur: this.handleOnBlur,
           value: this.state.value,
@@ -414,7 +428,7 @@ function (_Component) {
         return React__default.createElement("input", _extends({
           ref: this.input,
           className: styles.Editext__input,
-          editext: _attrs.input
+          editext: dataAttributes.input
         }, this.props.inputProps, {
           onKeyDown: this.handleKeyDown,
           onBlur: this.handleOnBlur,
@@ -498,7 +512,8 @@ EdiText.propTypes = {
   showButtonsOnHover: PropTypes.bool,
   submitOnEnter: PropTypes.bool,
   cancelOnEscape: PropTypes.bool,
-  cancelOnUnfocus: PropTypes.bool
+  cancelOnUnfocus: PropTypes.bool,
+  submitOnUnfocus: PropTypes.bool
 };
 
 module.exports = EdiText;

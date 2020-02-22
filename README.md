@@ -85,6 +85,7 @@ showButtonsOnHover|bool|No|`false`|Set it to `true` if you want to display actio
 submitOnEnter|bool|No|`false`|Set it to `true` if you want to submit the form when `Enter` is pressed. __Be careful if you have multiple instances of `<EdiText/>` on the same page.__
 cancelOnEscape|bool|No|`false`|Set it to `true` if you want to cancel the form when `Escape` is pressed. See [here](https://alioguzhan.github.io/react-editext/#save-on-enter)
 cancelOnUnfocus|bool|No|`false`|Set it to `true` if you want to cancel the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#cancel-on-blur)
+submitOnUnfocus|bool|No|`false`|Set it to `true` if you want to submit the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#submit-on-blur)
 
 ## Styling with `styled-components`
 
