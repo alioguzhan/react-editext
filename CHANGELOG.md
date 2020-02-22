@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.15.0](https://github.com/alioguzhan/react-editext/compare/v3.14.0...v3.15.0) (2020-02-22)
+
+
+### Features
+
+* implement `submitOnUnfocus` feature ([dbb31b4](https://github.com/alioguzhan/react-editext/commit/dbb31b4b1952bef5d15fa70bb0ee39c7037afcb1))
+
 ## [3.14.0](https://github.com/alioguzhan/react-editext/compare/v3.13.0...v3.14.0) (2020-02-19)
 
 
