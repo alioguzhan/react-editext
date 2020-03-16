@@ -13,7 +13,7 @@
 ## Covid-19
 
 <div align="center">
-  <img src="./.github/wash.png" />
+  <img src="./wash.png" />
 </div>
 
 Icons are provided for free by [Icon Finder](https://www.iconfinder.com/p/coronavirus-awareness-icons) for coronavirus awareness.
