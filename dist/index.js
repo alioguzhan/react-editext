@@ -92,6 +92,19 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -106,6 +119,23 @@ function _possibleConstructorReturn(self, call) {
   }
 
   return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
 }
 
 function styleInject(css, ref) {
@@ -184,12 +214,14 @@ var cancelOnConflictMessage = 'EdiText: Both `cancelOnUnfocus` and `submitOnUnfo
 var EdiText = /*#__PURE__*/function (_Component) {
   _inherits(EdiText, _Component);
 
+  var _super = _createSuper(EdiText);
+
   function EdiText(props) {
     var _this;
 
     _classCallCheck(this, EdiText);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EdiText).call(this, props));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "handleKeyDown", function (e) {
       var _this$props = _this.props,
@@ -304,27 +336,27 @@ var EdiText = /*#__PURE__*/function (_Component) {
       if (editContainerClassName) editContainerClass = editContainerClassName;
       if (viewContainerClassName) editContainerClass = viewContainerClassName;
       var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "".concat(styles.Editext__buttons_before_aligned), buttonsAlign === 'after' && "".concat(styles.Editext__buttons_after_aligned));
-      return React__default.createElement("div", null, React__default.createElement("div", {
+      return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("div", {
         ref: _this.editingContainer,
         className: editContainerClass,
         editext: dataAttributes.editContainer
-      }, buttonsAlign === 'after' && inputElem, React__default.createElement("div", {
+      }, buttonsAlign === 'after' && inputElem, /*#__PURE__*/React__default.createElement("div", {
         className: buttonsContainerClass,
         ref: _this.editingButtons
-      }, React__default.createElement("button", {
+      }, /*#__PURE__*/React__default.createElement("button", {
         ref: _this.saveButton,
         editext: dataAttributes.saveButton,
         type: "button",
         className: saveButtonClass,
         onClick: _this.handleSave
-      }, saveButtonContent), React__default.createElement("button", {
+      }, saveButtonContent), /*#__PURE__*/React__default.createElement("button", {
         type: "button",
         editext: dataAttributes.cancelButton,
         className: cancelButtonClass,
         onClick: _this.handleCancel
-      }, cancelButtonContent)), buttonsAlign === 'before' && inputElem), !_this.state.valid && !onValidationFail && React__default.createElement("div", {
+      }, cancelButtonContent)), buttonsAlign === 'before' && inputElem), !_this.state.valid && !onValidationFail && /*#__PURE__*/React__default.createElement("div", {
         className: styles.Editext__validation_message
-      }, validationMessage), hint && React__default.createElement("div", {
+      }, validationMessage), hint && /*#__PURE__*/React__default.createElement("div", {
         className: styles.Editext__hint,
         editext: dataAttributes.hint
       }, hint));
@@ -346,20 +378,20 @@ var EdiText = /*#__PURE__*/function (_Component) {
       var viewContainerClass = classnames(viewContainerClassName || styles.Editext__view_container, showButtonsOnHover && "".concat(styles.Editext__buttons_showButtonsOnHover));
       var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "".concat(styles.Editext__buttons_before_aligned), buttonsAlign === 'after' && "".concat(styles.Editext__buttons_after_aligned));
       var viewClickHandler = editOnViewClick ? _this.handleActivateEditMode : undefined;
-      return React__default.createElement("div", {
+      return /*#__PURE__*/React__default.createElement("div", {
         className: viewContainerClass,
         editext: dataAttributes.viewContainer
-      }, buttonsAlign === 'after' && React__default.createElement("div", _extends({}, viewProps, {
+      }, buttonsAlign === 'after' && /*#__PURE__*/React__default.createElement("div", _extends({}, viewProps, {
         onClick: viewClickHandler,
         editext: "view"
-      }), _this.state.value), React__default.createElement("div", {
+      }), _this.state.value), /*#__PURE__*/React__default.createElement("div", {
         className: buttonsContainerClass
-      }, React__default.createElement("button", {
+      }, /*#__PURE__*/React__default.createElement("button", {
         type: "button",
         editext: dataAttributes.editButton,
         className: editButtonClass,
         onClick: _this.handleActivateEditMode
-      }, editButtonContent)), buttonsAlign === 'before' && React__default.createElement("div", _extends({}, viewProps, {
+      }, editButtonContent)), buttonsAlign === 'before' && /*#__PURE__*/React__default.createElement("div", _extends({}, viewProps, {
         onClick: viewClickHandler,
         editext: dataAttributes.viewContainer
       }), _this.state.value));
@@ -412,7 +444,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
     key: "_renderInput",
     value: function _renderInput() {
       if (this.props.type === 'textarea') {
-        return React__default.createElement("textarea", _extends({
+        return /*#__PURE__*/React__default.createElement("textarea", _extends({
           ref: this.input,
           className: styles.Editext__input,
           editext: dataAttributes.input
@@ -423,7 +455,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
           autoFocus: this.state.editing
         }));
       } else {
-        return React__default.createElement("input", _extends({
+        return /*#__PURE__*/React__default.createElement("input", _extends({
           ref: this.input,
           className: styles.Editext__input,
           editext: dataAttributes.input
@@ -445,7 +477,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
           mainContainerClassName = _this$props6.mainContainerClassName,
           className = _this$props6.className;
       var clsName = classnames(mainContainerClassName || styles.Editext__main_container, className);
-      return React__default.createElement("div", {
+      return /*#__PURE__*/React__default.createElement("div", {
         className: clsName
       }, mode);
     }
