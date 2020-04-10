@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.15.1](https://github.com/alioguzhan/react-editext/compare/v3.15.0...v3.15.1) (2020-04-10)
+
+
+### Bug Fixes
+
+* **security:** upgrade deps to fix a vulnerabilities ([565b1d6](https://github.com/alioguzhan/react-editext/commit/565b1d65cbfba4b394c4ca63629868d0ba79bb51))
+
 ## [3.15.0](https://github.com/alioguzhan/react-editext/compare/v3.14.0...v3.15.0) (2020-02-22)
 
 
