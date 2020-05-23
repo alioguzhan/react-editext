@@ -287,9 +287,7 @@ export default class App extends Component {
               </div>
               <div className='column'>
                 <div className='subtitle'>Output</div>
-                <p>
-                  What is the difference between React Native and PhoneGap ?
-                </p>
+                <p>What is the difference between React Native and PhoneGap?</p>
                 <div className='custom-wrapper'>
                   <EdiText
                     type='text'
@@ -533,7 +531,7 @@ export default class App extends Component {
                 <div className='subtitle'>Output</div>
                 <p>
                   What was the Morpheus' answer when Neo say 'It was an honor,
-                  sir' ?
+                  sir'?
                 </p>
                 <div className='custom-wrapper'>
                   <EdiText
