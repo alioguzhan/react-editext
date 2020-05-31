@@ -8,76 +8,95 @@
   border-style: solid;
   border-width: 1px;
 }
+
 .Editext__button:hover {
   cursor: pointer;
   background-color: rgba(241, 241, 241, 1);
 }
+
 .Editext__input {
   width: 100%;
   border: 1px solid rgb(212, 212, 212);
   padding: 0.6em;
   outline: none;
 }
+
 .Editext__main_container {
   display: flex;
   flex-direction: column;
 }
+
 .Editext__editing_container {
   display: flex;
   flex: 1;
   align-items: center;
 }
+
 .Editext__view_container {
   display: flex;
   align-items: center;
 }
+
 .Editext__buttons_container {
   display: flex;
 }
+
 .Editext__buttons_showButtonsOnHover .Editext__buttons_container {
   visibility: hidden;
 }
+
 .Editext__buttons_showButtonsOnHover:hover .Editext__buttons_container {
   visibility: visible;
 }
+
 .Editext__buttons_before_aligned {
   margin-right: 5px;
 }
+
 .Editext__buttons_after_aligned {
   margin-left: 5px;
 }
+
 .Editext__validation_message {
   font-weight: 500;
   color: crimson;
   font-size: 0.7em;
   margin-top: 3px;
 }
+
 .Editext__cancel_button {
   color: crimson;
 }
+
 .Editext__cancel_button:before {
   content: "\2715";
   margin: 3px;
 }
+
 .Editext__edit_button {
   color: #000;
 }
+
 .Editext__edit_button:before {
   content: "\270E";
   margin: 3px;
 }
+
 .Editext__save_button {
   color: darkgreen;
   margin-right: 3px;
 }
+
 .Editext__save_button:before {
   content: "\2713";
   margin: 3px;
 }
+
 .Editext__hide_default_icons:before {
   content: none;
   margin: 0;
 }
+
 .Editext__hint {
   font-weight: 500;
   color: lightslategray;
