@@ -10,7 +10,8 @@ export default class EdiText extends Component {
       editing: props.editing,
       valid: true,
       value: props.value || '',
-      savedValue: ''
+      savedValue: '',
+      viewFocused: false
     }
     this.saveButton = React.createRef()
     this.input = React.createRef()
@@ -75,6 +76,23 @@ export default class EdiText extends Component {
     cancelOnUnfocus && !isEditingButton && this.handleCancel()
     submitOnUnfocus && !isEditingButton && !cancelOnUnfocus && this.handleSave()
     inputProps.onBlur && inputProps.onBlur(e) // TODO: this sucks.
+  }
+
+  handleViewFocus = e => {
+    this.setState({ viewFocused: true })
+    const { startEditingOnFocus, viewProps } = this.props
+    startEditingOnFocus && this.setState({ editing: true })
+    viewProps.onFocus && viewProps.onFocus(e)
+  }
+
+  handleKeyDownForView = e => {
+    const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
+    const { startEditingOnEnter, viewProps } = this.props
+    if (isEnter && this.state.viewFocused) {
+      startEditingOnEnter && this.setState({ editing: true })
+      e.preventDefault()
+    }
+    viewProps.onKeyDown && viewProps.onKeyDown(e)
   }
 
   handleInputChange = e => {
@@ -286,6 +304,8 @@ export default class EdiText extends Component {
             // also backward compatibility.
             tabIndex={this.props.tabIndex}
             {...viewProps}
+            onKeyDown={this.handleKeyDownForView}
+            onFocus={this.handleViewFocus}
             onClick={viewClickHandler}
             editext='view'
           >
@@ -309,6 +329,8 @@ export default class EdiText extends Component {
             // also backward compatibility.
             tabIndex={this.props.tabIndex}
             {...viewProps}
+            onKeyDown={this.handleKeyDownForView}
+            onFocus={this.handleViewFocus}
             onClick={viewClickHandler}
             editext={dataAttributes.viewContainer}
           >
@@ -400,5 +422,7 @@ EdiText.propTypes = {
   // And tabIndex will probably be same for both view and input props
   // here we are adding a new prop just for this special case to save people
   // from creating duplicate code for both `inputProps` and `viewProps`
-  tabIndex: PropTypes.any
+  tabIndex: PropTypes.any,
+  startEditingOnFocus: PropTypes.bool,
+  startEditingOnEnter: PropTypes.bool
 }

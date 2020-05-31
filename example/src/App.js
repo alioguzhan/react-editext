@@ -891,6 +891,118 @@ export default class App extends Component {
             </div>
           </div>
           {/* ============ End of Example ============ */}
+          <div className='tile is-parent is-vertical is-10' id='edit-on-focus'>
+            <div className='subtitle'>
+              <a href='#edit-on-focus'>Start Editing on Focus</a>
+            </div>
+            <p className='content'>
+              Set <code>startEditingOnFocus</code> to <code>true</code> to
+              activate the editing mode when the view is in focus.
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {examples.example23}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <ol>
+                  <li>
+                    Click into plain input then press <code>Tab</code> to focus
+                    to <code>EdiText</code> input
+                  </li>
+                  <li>
+                    Make your changes then press <code>Tab</code> agian to save
+                    your changes and move to the next element.
+                  </li>
+                </ol>
+                <div className='subtitle'>Output</div>
+                <input
+                  placeholder='click here then press tab'
+                  tabIndex={1}
+                  style={{ marginBottom: 10 }}
+                />
+                <EdiText
+                  value='Some things never change'
+                  tabIndex={2}
+                  onSave={this.handleSave}
+                  submitOnUnfocus
+                  startEditingOnFocus
+                />
+                <EdiText
+                  value='Some things do'
+                  tabIndex={3}
+                  onSave={this.handleSave}
+                  submitOnUnfocus
+                  startEditingOnFocus
+                />
+                <input
+                  placeholder='Final Destination'
+                  tabIndex={4}
+                  style={{ marginTop: 10 }}
+                />
+              </div>
+            </div>
+          </div>
+          {/* ============ End of Example ============ */}
+          <div className='tile is-parent is-vertical is-10' id='edit-on-enter'>
+            <div className='subtitle'>
+              <a href='#edit-on-enter'>Start Editing on Enter</a>
+            </div>
+            <p className='content'>
+              Set <code>startEditingOnEnter</code> to <code>true</code> to
+              activate the editing mode when
+              <b> the view is in focus and the Enter key is pressed.</b>
+            </p>
+            <div className='columns'>
+              <div className='column is-half'>
+                <SyntaxHighlighter language='javascript'>
+                  {examples.example24}
+                </SyntaxHighlighter>
+              </div>
+              <div className='column'>
+                <ol>
+                  <li>
+                    Click into plain input then press <code>Tab</code> to focus
+                    to <code>EdiText</code> input
+                  </li>
+                  <li>
+                    Then, press <code>Enter</code> to activate the editing mode.
+                  </li>
+                  <li>
+                    Make your changes then press <code>Tab</code> agian to save
+                    your changes and move to the next element.
+                  </li>
+                </ol>
+                <div className='subtitle'>Output</div>
+                <input
+                  placeholder='click here then press tab'
+                  tabIndex={5}
+                  style={{ marginBottom: 10 }}
+                />
+                <EdiText
+                  value='Ever have that feeling?'
+                  tabIndex={6}
+                  onSave={this.handleSave}
+                  submitOnUnfocus
+                  startEditingOnEnter
+                />
+                <EdiText
+                  value='where you’re not sure if you’re awake or dreaming?'
+                  tabIndex={7}
+                  onSave={this.handleSave}
+                  submitOnUnfocus
+                  startEditingOnEnter
+                />
+                <input
+                  placeholder='Final Destination'
+                  tabIndex={8}
+                  style={{ marginTop: 10 }}
+                />
+              </div>
+            </div>
+          </div>
+          {/* ============ End of Example ============ */}
         </div>
         <footer className='footer' style={{ padding: 20 }}>
           <div className='content has-text-centered'>

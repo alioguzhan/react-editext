@@ -357,3 +357,51 @@ export const example22 = `<EdiText
   onSave={this.onSave}
   onCancel={v => console.log('CANCELLED: ', v}
 />`
+
+export const example23 = `<input
+  placeholder='click here then press tab'
+  tabIndex={1}
+/>
+<EdiText
+  value='Some things never change'
+  tabIndex={2}
+  onSave={this.handleSave}
+  submitOnUnfocus
+  startEditingOnFocus
+/>
+<EdiText
+  value='Some things do'
+  tabIndex={3}
+  onSave={this.handleSave}
+  submitOnUnfocus
+  startEditingOnFocus
+/>
+<input
+  placeholder='Final Destination'
+  tabIndex={4}
+/>
+`
+
+export const example24 = `<input
+  placeholder='click here then press tab'
+  tabIndex={5}
+/>
+<EdiText
+  value='Ever have that feeling?'
+  tabIndex={6}
+  onSave={this.handleSave}
+  submitOnUnfocus
+  startEditingOnEnter
+/>
+<EdiText
+  value='where you’re not sure if you’re awake or dreaming?'
+  tabIndex={7}
+  onSave={this.handleSave}
+  submitOnUnfocus
+  startEditingOnEnter
+/>
+<input
+  placeholder='Final Destination'
+  tabIndex={8}
+/>
+`

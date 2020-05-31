@@ -174,13 +174,25 @@ declare module 'react-editext' {
      * is unfocused.
      */
     submitOnUnfocus?: boolean
-    /** An helper shortcut in case you want to pass the same tabIndex to both
+    /**
+     * An helper shortcut in case you want to pass the same tabIndex to both
      * `viewProps` and `inputProps`.
      *
      * NOTE: This will be overriden if you pass the tabIndex in `viewProps`
      * or `inputProps`.
      */
     tabIndex?: number
+    /**
+     * Activates the edit mode when the view container is in focus.
+     */
+    startEditingOnFocus?: boolean
+    /**
+     * Activates the edit mode when the `Enter` key is pressed if the view
+     * container is focused.
+     *
+     * NOTE: This requires the element to be in focus.
+     */
+    startEditingOnEnter?: boolean
   }
 
   export default class EdiText extends React.Component<EdiTextProps, any> {
