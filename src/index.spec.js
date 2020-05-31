@@ -576,3 +576,37 @@ test('tabIndex prop in viewProps overrides the top level tabIndex', () => {
   const view = editext.find('div[editext="view"]').at(0)
   expect(view.getDOMNode().getAttribute('tabIndex')).toEqual('1')
 })
+
+test('pressing Enter activates the editing mode', () => {
+  const onSave = v => v
+  const editext = mount(
+    <EdiText
+      type='text'
+      startEditingOnEnter={true}
+      submitOnUnfocus={true}
+      onSave={onSave}
+    />
+  )
+
+  editext.instance().forceUpdate()
+  const view = editext.find('div[editext="view"]').at(0)
+  expect(editext.state().editing).toEqual(false)
+  expect(editext.state().viewFocused).toEqual(false)
+  view.simulate('focus')
+  view.simulate('keyDown', { keyCode: 'Enter' })
+  expect(editext.state().viewFocused).toEqual(true)
+  expect(editext.state().editing).toEqual(true)
+})
+
+test('focusing activates the editing mode', () => {
+  const onSave = v => v
+  const editext = mount(
+    <EdiText type='text' startEditingOnFocus={true} onSave={onSave} />
+  )
+  editext.instance().forceUpdate()
+
+  const view = editext.find('div[editext="view"]').at(0)
+  expect(editext.state().editing).toEqual(false)
+  view.simulate('focus')
+  expect(editext.state().editing).toEqual(true)
+})

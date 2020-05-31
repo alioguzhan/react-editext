@@ -88,10 +88,10 @@ export default class EdiText extends Component {
   handleKeyDownForView = e => {
     const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
     const { startEditingOnEnter, viewProps } = this.props
-    if (isEnter && this.state.viewFocused) {
-      startEditingOnEnter && this.setState({ editing: true })
-      e.preventDefault()
-    }
+    const startEditing =
+      isEnter && this.state.viewFocused && startEditingOnEnter
+    startEditing && e.preventDefault()
+    startEditing && this.setState({ editing: true })
     viewProps.onKeyDown && viewProps.onKeyDown(e)
   }
 
@@ -361,8 +361,8 @@ EdiText.defaultProps = {
   validation: _v => true,
   onEditingStart: _v => null,
   onCancel: _v => null,
-  inputProps: { onKeyDown: _e => {}, onBlur: _e => {} },
-  viewProps: {},
+  inputProps: { onKeyDown: _e => {}, onBlur: _e => {}, onFocus: _e => {} },
+  viewProps: { onKeyDown: _e => {}, onFocus: _e => {} },
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
