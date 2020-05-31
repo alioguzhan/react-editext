@@ -130,6 +130,10 @@ export default class EdiText extends Component {
           ref={this.input}
           className={styles.Editext__input}
           editext={dataAttributes.input}
+          // this is here because,
+          // we still allow people to pass the tabIndex via inputProps
+          // also backward compatibility.
+          tabIndex={this.props.tabIndex}
           {...this.props.inputProps}
           onBlur={this.handleOnBlur}
           value={this.state.value}
@@ -143,6 +147,10 @@ export default class EdiText extends Component {
           ref={this.input}
           className={styles.Editext__input}
           editext={dataAttributes.input}
+          // this is here because,
+          // we still allow people to pass the tabIndex via inputProps
+          // also backward compatibility.
+          tabIndex={this.props.tabIndex}
           {...this.props.inputProps}
           onKeyDown={this.handleKeyDown}
           onBlur={this.handleOnBlur}
@@ -272,7 +280,15 @@ export default class EdiText extends Component {
         editext={dataAttributes.viewContainer}
       >
         {buttonsAlign === 'after' && (
-          <div {...viewProps} onClick={viewClickHandler} editext='view'>
+          <div
+            // this is here because,
+            // we still allow people to pass the tabIndex via inputProps
+            // also backward compatibility.
+            tabIndex={this.props.tabIndex}
+            {...viewProps}
+            onClick={viewClickHandler}
+            editext='view'
+          >
             {this.state.value}
           </div>
         )}
@@ -288,6 +304,10 @@ export default class EdiText extends Component {
         </div>
         {buttonsAlign === 'before' && (
           <div
+            // this is here because,
+            // we still allow people to pass the tabIndex via inputProps
+            // also backward compatibility.
+            tabIndex={this.props.tabIndex}
             {...viewProps}
             onClick={viewClickHandler}
             editext={dataAttributes.viewContainer}
@@ -375,5 +395,10 @@ EdiText.propTypes = {
   submitOnEnter: PropTypes.bool,
   cancelOnEscape: PropTypes.bool,
   cancelOnUnfocus: PropTypes.bool,
-  submitOnUnfocus: PropTypes.bool
+  submitOnUnfocus: PropTypes.bool,
+  // navigating between inputs via tabbing is common.
+  // And tabIndex will probably be same for both view and input props
+  // here we are adding a new prop just for this special case to save people
+  // from creating duplicate code for both `inputProps` and `viewProps`
+  tabIndex: PropTypes.any
 }
