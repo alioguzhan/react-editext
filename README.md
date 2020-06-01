@@ -93,6 +93,9 @@ submitOnEnter|bool|No|`false`|Set it to `true` if you want to submit the form wh
 cancelOnEscape|bool|No|`false`|Set it to `true` if you want to cancel the form when `Escape` is pressed. See [here](https://alioguzhan.github.io/react-editext/#save-on-enter)
 cancelOnUnfocus|bool|No|`false`|Set it to `true` if you want to cancel the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#cancel-on-blur)
 submitOnUnfocus|bool|No|`false`|Set it to `true` if you want to submit the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#submit-on-blur)
+startEditingOnFocus|bool|No|`false`|Activates the edit mode when the view container is in focus. See [here](https://alioguzhan.github.io/react-editext/#edit-on-focus)
+startEditingOnEnter|bool|No|`false`|Activates the edit mode when the `Enter` key is pressed. See [here](https://alioguzhan.github.io/react-editext/#edit-on-enter)
+tabIndex|number|No||An helper shortcut in case you want to pass the same tabIndex to both `viewProps` and `inputProps`.
 
 ## Styling with `styled-components`
 

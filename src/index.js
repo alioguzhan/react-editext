@@ -10,7 +10,8 @@ export default class EdiText extends Component {
       editing: props.editing,
       valid: true,
       value: props.value || '',
-      savedValue: ''
+      savedValue: '',
+      viewFocused: false
     }
     this.saveButton = React.createRef()
     this.input = React.createRef()
@@ -77,6 +78,23 @@ export default class EdiText extends Component {
     inputProps.onBlur && inputProps.onBlur(e) // TODO: this sucks.
   }
 
+  handleViewFocus = e => {
+    this.setState({ viewFocused: true })
+    const { startEditingOnFocus, viewProps } = this.props
+    startEditingOnFocus && this.setState({ editing: true })
+    viewProps.onFocus && viewProps.onFocus(e)
+  }
+
+  handleKeyDownForView = e => {
+    const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
+    const { startEditingOnEnter, viewProps } = this.props
+    const startEditing =
+      isEnter && this.state.viewFocused && startEditingOnEnter
+    startEditing && e.preventDefault()
+    startEditing && this.setState({ editing: true })
+    viewProps.onKeyDown && viewProps.onKeyDown(e)
+  }
+
   handleInputChange = e => {
     this.setState({
       valid: true,
@@ -130,6 +148,10 @@ export default class EdiText extends Component {
           ref={this.input}
           className={styles.Editext__input}
           editext={dataAttributes.input}
+          // this is here because,
+          // we still allow people to pass the tabIndex via inputProps
+          // also backward compatibility.
+          tabIndex={this.props.tabIndex}
           {...this.props.inputProps}
           onBlur={this.handleOnBlur}
           value={this.state.value}
@@ -143,6 +165,10 @@ export default class EdiText extends Component {
           ref={this.input}
           className={styles.Editext__input}
           editext={dataAttributes.input}
+          // this is here because,
+          // we still allow people to pass the tabIndex via inputProps
+          // also backward compatibility.
+          tabIndex={this.props.tabIndex}
           {...this.props.inputProps}
           onKeyDown={this.handleKeyDown}
           onBlur={this.handleOnBlur}
@@ -272,7 +298,17 @@ export default class EdiText extends Component {
         editext={dataAttributes.viewContainer}
       >
         {buttonsAlign === 'after' && (
-          <div {...viewProps} onClick={viewClickHandler} editext='view'>
+          <div
+            // this is here because,
+            // we still allow people to pass the tabIndex via inputProps
+            // also backward compatibility.
+            tabIndex={this.props.tabIndex}
+            {...viewProps}
+            onKeyDown={this.handleKeyDownForView}
+            onFocus={this.handleViewFocus}
+            onClick={viewClickHandler}
+            editext='view'
+          >
             {this.state.value}
           </div>
         )}
@@ -288,7 +324,13 @@ export default class EdiText extends Component {
         </div>
         {buttonsAlign === 'before' && (
           <div
+            // this is here because,
+            // we still allow people to pass the tabIndex via inputProps
+            // also backward compatibility.
+            tabIndex={this.props.tabIndex}
             {...viewProps}
+            onKeyDown={this.handleKeyDownForView}
+            onFocus={this.handleViewFocus}
             onClick={viewClickHandler}
             editext={dataAttributes.viewContainer}
           >
@@ -319,8 +361,8 @@ EdiText.defaultProps = {
   validation: _v => true,
   onEditingStart: _v => null,
   onCancel: _v => null,
-  inputProps: { onKeyDown: _e => {}, onBlur: _e => {} },
-  viewProps: {},
+  inputProps: { onKeyDown: _e => {}, onBlur: _e => {}, onFocus: _e => {} },
+  viewProps: { onKeyDown: _e => {}, onFocus: _e => {} },
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
@@ -375,5 +417,12 @@ EdiText.propTypes = {
   submitOnEnter: PropTypes.bool,
   cancelOnEscape: PropTypes.bool,
   cancelOnUnfocus: PropTypes.bool,
-  submitOnUnfocus: PropTypes.bool
+  submitOnUnfocus: PropTypes.bool,
+  // navigating between inputs via tabbing is common.
+  // And tabIndex will probably be same for both view and input props
+  // here we are adding a new prop just for this special case to save people
+  // from creating duplicate code for both `inputProps` and `viewProps`
+  tabIndex: PropTypes.any,
+  startEditingOnFocus: PropTypes.bool,
+  startEditingOnEnter: PropTypes.bool
 }
