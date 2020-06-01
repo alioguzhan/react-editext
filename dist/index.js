@@ -165,7 +165,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".styles_Editext__button__6H8n_ {\n  border-radius: 1px;\n  outline: none;\n  padding: 0.6em;\n  min-width: 30px;\n  height: 100%;\n  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);\n  border-style: solid;\n  border-width: 1px;\n}\n.styles_Editext__button__6H8n_:hover {\n  cursor: pointer;\n  background-color: rgba(241, 241, 241, 1);\n}\n.styles_Editext__input__1534X {\n  width: 100%;\n  border: 1px solid rgb(212, 212, 212);\n  padding: 0.6em;\n  outline: none;\n}\n.styles_Editext__main_container__2Y-IL {\n  display: flex;\n  flex-direction: column;\n}\n.styles_Editext__editing_container__3yvUv {\n  display: flex;\n  flex: 1;\n  align-items: center;\n}\n.styles_Editext__view_container__2l2kB {\n  display: flex;\n  align-items: center;\n}\n.styles_Editext__buttons_container__1kphL {\n  display: flex;\n}\n.styles_Editext__buttons_showButtonsOnHover__EUUD5 .styles_Editext__buttons_container__1kphL {\n  visibility: hidden;\n}\n.styles_Editext__buttons_showButtonsOnHover__EUUD5:hover .styles_Editext__buttons_container__1kphL {\n  visibility: visible;\n}\n.styles_Editext__buttons_before_aligned__NnoWq {\n  margin-right: 5px;\n}\n.styles_Editext__buttons_after_aligned__1nlcG {\n  margin-left: 5px;\n}\n.styles_Editext__validation_message__3B-OU {\n  font-weight: 500;\n  color: crimson;\n  font-size: 0.7em;\n  margin-top: 3px;\n}\n.styles_Editext__cancel_button__259hb {\n  color: crimson;\n}\n.styles_Editext__cancel_button__259hb:before {\n  content: \"\\2715\";\n  margin: 3px;\n}\n.styles_Editext__edit_button__hthOZ {\n  color: #000;\n}\n.styles_Editext__edit_button__hthOZ:before {\n  content: \"\\270E\";\n  margin: 3px;\n}\n.styles_Editext__save_button__3WN6q {\n  color: darkgreen;\n  margin-right: 3px;\n}\n.styles_Editext__save_button__3WN6q:before {\n  content: \"\\2713\";\n  margin: 3px;\n}\n.styles_Editext__hide_default_icons__AV_7m:before {\n  content: none;\n  margin: 0;\n}\n.styles_Editext__hint__2QU2S {\n  font-weight: 500;\n  color: lightslategray;\n  font-size: 0.7em;\n  margin-top: 3px;\n  text-align: left;\n}\n";
+var css_248z = ".styles_Editext__button__6H8n_ {\n  border-radius: 1px;\n  outline: none;\n  padding: 0.6em;\n  min-width: 30px;\n  height: 100%;\n  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);\n  border-style: solid;\n  border-width: 1px;\n}\n\n.styles_Editext__button__6H8n_:hover {\n  cursor: pointer;\n  background-color: rgba(241, 241, 241, 1);\n}\n\n.styles_Editext__input__1534X {\n  width: 100%;\n  border: 1px solid rgb(212, 212, 212);\n  padding: 0.6em;\n  outline: none;\n}\n\n.styles_Editext__main_container__2Y-IL {\n  display: flex;\n  flex-direction: column;\n}\n\n.styles_Editext__editing_container__3yvUv {\n  display: flex;\n  flex: 1;\n  align-items: center;\n}\n\n.styles_Editext__view_container__2l2kB {\n  display: flex;\n  align-items: center;\n}\n\n.styles_Editext__buttons_container__1kphL {\n  display: flex;\n}\n\n.styles_Editext__buttons_showButtonsOnHover__EUUD5 .styles_Editext__buttons_container__1kphL {\n  visibility: hidden;\n}\n\n.styles_Editext__buttons_showButtonsOnHover__EUUD5:hover .styles_Editext__buttons_container__1kphL {\n  visibility: visible;\n}\n\n.styles_Editext__buttons_before_aligned__NnoWq {\n  margin-right: 5px;\n}\n\n.styles_Editext__buttons_after_aligned__1nlcG {\n  margin-left: 5px;\n}\n\n.styles_Editext__validation_message__3B-OU {\n  font-weight: 500;\n  color: crimson;\n  font-size: 0.7em;\n  margin-top: 3px;\n}\n\n.styles_Editext__cancel_button__259hb {\n  color: crimson;\n}\n\n.styles_Editext__cancel_button__259hb:before {\n  content: \"\\2715\";\n  margin: 3px;\n}\n\n.styles_Editext__edit_button__hthOZ {\n  color: #000;\n}\n\n.styles_Editext__edit_button__hthOZ:before {\n  content: \"\\270E\";\n  margin: 3px;\n}\n\n.styles_Editext__save_button__3WN6q {\n  color: darkgreen;\n  margin-right: 3px;\n}\n\n.styles_Editext__save_button__3WN6q:before {\n  content: \"\\2713\";\n  margin: 3px;\n}\n\n.styles_Editext__hide_default_icons__AV_7m:before {\n  content: none;\n  margin: 0;\n}\n\n.styles_Editext__hint__2QU2S {\n  font-weight: 500;\n  color: lightslategray;\n  font-size: 0.7em;\n  margin-top: 3px;\n  text-align: left;\n}\n";
 var styles = {"Editext__button":"styles_Editext__button__6H8n_","Editext__input":"styles_Editext__input__1534X","Editext__main_container":"styles_Editext__main_container__2Y-IL","Editext__editing_container":"styles_Editext__editing_container__3yvUv","Editext__view_container":"styles_Editext__view_container__2l2kB","Editext__buttons_container":"styles_Editext__buttons_container__1kphL","Editext__buttons_showButtonsOnHover":"styles_Editext__buttons_showButtonsOnHover__EUUD5","Editext__buttons_before_aligned":"styles_Editext__buttons_before_aligned__NnoWq","Editext__buttons_after_aligned":"styles_Editext__buttons_after_aligned__1nlcG","Editext__validation_message":"styles_Editext__validation_message__3B-OU","Editext__cancel_button":"styles_Editext__cancel_button__259hb","Editext__edit_button":"styles_Editext__edit_button__hthOZ","Editext__save_button":"styles_Editext__save_button__3WN6q","Editext__hide_default_icons":"styles_Editext__hide_default_icons__AV_7m","Editext__hint":"styles_Editext__hint__2QU2S"};
 styleInject(css_248z);
 
@@ -261,6 +261,35 @@ var EdiText = /*#__PURE__*/function (_Component) {
       inputProps.onBlur && inputProps.onBlur(e); // TODO: this sucks.
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleViewFocus", function (e) {
+      _this.setState({
+        viewFocused: true
+      });
+
+      var _this$props3 = _this.props,
+          startEditingOnFocus = _this$props3.startEditingOnFocus,
+          viewProps = _this$props3.viewProps;
+      startEditingOnFocus && _this.setState({
+        editing: true
+      });
+      viewProps.onFocus && viewProps.onFocus(e);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleKeyDownForView", function (e) {
+      var isEnter = [13, 'Enter'].some(function (c) {
+        return e.keyCode === c || e.code === c;
+      });
+      var _this$props4 = _this.props,
+          startEditingOnEnter = _this$props4.startEditingOnEnter,
+          viewProps = _this$props4.viewProps;
+      var startEditing = isEnter && _this.state.viewFocused && startEditingOnEnter;
+      startEditing && e.preventDefault();
+      startEditing && _this.setState({
+        editing: true
+      });
+      viewProps.onKeyDown && viewProps.onKeyDown(e);
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (e) {
       _this.setState({
         valid: true,
@@ -287,11 +316,11 @@ var EdiText = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSave", function () {
-      var _this$props3 = _this.props,
-          onSave = _this$props3.onSave,
-          validation = _this$props3.validation,
-          onValidationFail = _this$props3.onValidationFail,
-          inputProps = _this$props3.inputProps;
+      var _this$props5 = _this.props,
+          onSave = _this$props5.onSave,
+          validation = _this$props5.validation,
+          onValidationFail = _this$props5.onValidationFail,
+          inputProps = _this$props5.inputProps;
       var isValid = validation(_this.state.value);
 
       if (!isValid) {
@@ -311,18 +340,18 @@ var EdiText = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "_renderEditingMode", function () {
-      var _this$props4 = _this.props,
-          saveButtonClassName = _this$props4.saveButtonClassName,
-          saveButtonContent = _this$props4.saveButtonContent,
-          cancelButtonClassName = _this$props4.cancelButtonClassName,
-          editContainerClassName = _this$props4.editContainerClassName,
-          viewContainerClassName = _this$props4.viewContainerClassName,
-          cancelButtonContent = _this$props4.cancelButtonContent,
-          onValidationFail = _this$props4.onValidationFail,
-          validationMessage = _this$props4.validationMessage,
-          hint = _this$props4.hint,
-          hideIcons = _this$props4.hideIcons,
-          buttonsAlign = _this$props4.buttonsAlign;
+      var _this$props6 = _this.props,
+          saveButtonClassName = _this$props6.saveButtonClassName,
+          saveButtonContent = _this$props6.saveButtonContent,
+          cancelButtonClassName = _this$props6.cancelButtonClassName,
+          editContainerClassName = _this$props6.editContainerClassName,
+          viewContainerClassName = _this$props6.viewContainerClassName,
+          cancelButtonContent = _this$props6.cancelButtonContent,
+          onValidationFail = _this$props6.onValidationFail,
+          validationMessage = _this$props6.validationMessage,
+          hint = _this$props6.hint,
+          hideIcons = _this$props6.hideIcons,
+          buttonsAlign = _this$props6.buttonsAlign;
 
       var inputElem = _this._renderInput(); // calculate save button classes
 
@@ -363,15 +392,15 @@ var EdiText = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "_renderViewMode", function () {
-      var _this$props5 = _this.props,
-          viewProps = _this$props5.viewProps,
-          editButtonClassName = _this$props5.editButtonClassName,
-          editButtonContent = _this$props5.editButtonContent,
-          viewContainerClassName = _this$props5.viewContainerClassName,
-          hideIcons = _this$props5.hideIcons,
-          buttonsAlign = _this$props5.buttonsAlign,
-          editOnViewClick = _this$props5.editOnViewClick,
-          showButtonsOnHover = _this$props5.showButtonsOnHover; // calculate edit button classes
+      var _this$props7 = _this.props,
+          viewProps = _this$props7.viewProps,
+          editButtonClassName = _this$props7.editButtonClassName,
+          editButtonContent = _this$props7.editButtonContent,
+          viewContainerClassName = _this$props7.viewContainerClassName,
+          hideIcons = _this$props7.hideIcons,
+          buttonsAlign = _this$props7.buttonsAlign,
+          editOnViewClick = _this$props7.editOnViewClick,
+          showButtonsOnHover = _this$props7.showButtonsOnHover; // calculate edit button classes
 
       var editButtonDefaultClasses = classnames("".concat(styles.Editext__button), "".concat(styles.Editext__edit_button), hideIcons && "".concat(styles.Editext__hide_default_icons));
       var editButtonClass = editButtonClassName || editButtonDefaultClasses;
@@ -381,7 +410,14 @@ var EdiText = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/React__default.createElement("div", {
         className: viewContainerClass,
         editext: dataAttributes.viewContainer
-      }, buttonsAlign === 'after' && /*#__PURE__*/React__default.createElement("div", _extends({}, viewProps, {
+      }, buttonsAlign === 'after' && /*#__PURE__*/React__default.createElement("div", _extends({
+        // this is here because,
+        // we still allow people to pass the tabIndex via inputProps
+        // also backward compatibility.
+        tabIndex: _this.props.tabIndex
+      }, viewProps, {
+        onKeyDown: _this.handleKeyDownForView,
+        onFocus: _this.handleViewFocus,
         onClick: viewClickHandler,
         editext: "view"
       }), _this.state.value), /*#__PURE__*/React__default.createElement("div", {
@@ -391,7 +427,14 @@ var EdiText = /*#__PURE__*/function (_Component) {
         editext: dataAttributes.editButton,
         className: editButtonClass,
         onClick: _this.handleActivateEditMode
-      }, editButtonContent)), buttonsAlign === 'before' && /*#__PURE__*/React__default.createElement("div", _extends({}, viewProps, {
+      }, editButtonContent)), buttonsAlign === 'before' && /*#__PURE__*/React__default.createElement("div", _extends({
+        // this is here because,
+        // we still allow people to pass the tabIndex via inputProps
+        // also backward compatibility.
+        tabIndex: _this.props.tabIndex
+      }, viewProps, {
+        onKeyDown: _this.handleKeyDownForView,
+        onFocus: _this.handleViewFocus,
         onClick: viewClickHandler,
         editext: dataAttributes.viewContainer
       }), _this.state.value));
@@ -401,7 +444,8 @@ var EdiText = /*#__PURE__*/function (_Component) {
       editing: props.editing,
       valid: true,
       value: props.value || '',
-      savedValue: ''
+      savedValue: '',
+      viewFocused: false
     };
     _this.saveButton = React__default.createRef();
     _this.input = React__default.createRef();
@@ -447,7 +491,11 @@ var EdiText = /*#__PURE__*/function (_Component) {
         return /*#__PURE__*/React__default.createElement("textarea", _extends({
           ref: this.input,
           className: styles.Editext__input,
-          editext: dataAttributes.input
+          editext: dataAttributes.input // this is here because,
+          // we still allow people to pass the tabIndex via inputProps
+          // also backward compatibility.
+          ,
+          tabIndex: this.props.tabIndex
         }, this.props.inputProps, {
           onBlur: this.handleOnBlur,
           value: this.state.value,
@@ -458,7 +506,11 @@ var EdiText = /*#__PURE__*/function (_Component) {
         return /*#__PURE__*/React__default.createElement("input", _extends({
           ref: this.input,
           className: styles.Editext__input,
-          editext: dataAttributes.input
+          editext: dataAttributes.input // this is here because,
+          // we still allow people to pass the tabIndex via inputProps
+          // also backward compatibility.
+          ,
+          tabIndex: this.props.tabIndex
         }, this.props.inputProps, {
           onKeyDown: this.handleKeyDown,
           onBlur: this.handleOnBlur,
@@ -473,9 +525,9 @@ var EdiText = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       var mode = this.state.editing ? this._renderEditingMode() : this._renderViewMode();
-      var _this$props6 = this.props,
-          mainContainerClassName = _this$props6.mainContainerClassName,
-          className = _this$props6.className;
+      var _this$props8 = this.props,
+          mainContainerClassName = _this$props8.mainContainerClassName,
+          className = _this$props8.className;
       var clsName = classnames(mainContainerClassName || styles.Editext__main_container, className);
       return /*#__PURE__*/React__default.createElement("div", {
         className: clsName
@@ -500,9 +552,13 @@ EdiText.defaultProps = {
   },
   inputProps: {
     onKeyDown: function onKeyDown(_e) {},
-    onBlur: function onBlur(_e) {}
+    onBlur: function onBlur(_e) {},
+    onFocus: function onFocus(_e) {}
   },
-  viewProps: {},
+  viewProps: {
+    onKeyDown: function onKeyDown(_e) {},
+    onFocus: function onFocus(_e) {}
+  },
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
@@ -543,7 +599,14 @@ EdiText.propTypes = {
   submitOnEnter: PropTypes.bool,
   cancelOnEscape: PropTypes.bool,
   cancelOnUnfocus: PropTypes.bool,
-  submitOnUnfocus: PropTypes.bool
+  submitOnUnfocus: PropTypes.bool,
+  // navigating between inputs via tabbing is common.
+  // And tabIndex will probably be same for both view and input props
+  // here we are adding a new prop just for this special case to save people
+  // from creating duplicate code for both `inputProps` and `viewProps`
+  tabIndex: PropTypes.any,
+  startEditingOnFocus: PropTypes.bool,
+  startEditingOnEnter: PropTypes.bool
 };
 
 module.exports = EdiText;
