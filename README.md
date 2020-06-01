@@ -174,6 +174,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/zig"><img src="https://avatars3.githubusercontent.com/u/85303?v=4" width="100px;" alt=""/><br /><sub><b>zig</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Azig" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/isaiahtaylor"><img src="https://avatars1.githubusercontent.com/u/57509275?v=4" width="100px;" alt=""/><br /><sub><b>Isaiah Taylor</b></sub></a><br /><a href="#ideas-isaiahtaylor" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/anz000"><img src="https://avatars2.githubusercontent.com/u/12726957?v=4" width="100px;" alt=""/><br /><sub><b>anz000</b></sub></a><br /><a href="#ideas-anz000" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/amirmishani"><img src="https://avatars0.githubusercontent.com/u/11446580?v=4" width="100px;" alt=""/><br /><sub><b>Amir M</b></sub></a><br /><a href="#ideas-amirmishani" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
