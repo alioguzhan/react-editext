@@ -15,12 +15,14 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true
+      sourcemap: true,
+      plugins: [terser()]
     },
     {
       file: pkg.module,
       format: 'es',
-      sourcemap: true
+      sourcemap: true,
+      plugins: [terser()]
     },
     {
       file: 'dist/index.js',
@@ -36,9 +38,6 @@ export default {
     url(),
     babel({ extensions, include: ['src/**/*'], exclude: 'node_modules/**' }),
     resolve(),
-    commonjs(),
-    terser({
-      include: [/^.+\.min\.js$/, '*.es.*']
-    })
+    commonjs()
   ]
 }

@@ -122,11 +122,13 @@ function _possibleConstructorReturn(self, call) {
 }
 
 function _createSuper(Derived) {
-  return function () {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
     var Super = _getPrototypeOf(Derived),
         result;
 
-    if (_isNativeReflectConstruct()) {
+    if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -447,10 +449,10 @@ var EdiText = /*#__PURE__*/function (_Component) {
       savedValue: '',
       viewFocused: false
     };
-    _this.saveButton = React__default.createRef();
-    _this.input = React__default.createRef();
-    _this.editingContainer = React__default.createRef();
-    _this.editingButtons = React__default.createRef();
+    _this.saveButton = /*#__PURE__*/React__default.createRef();
+    _this.input = /*#__PURE__*/React__default.createRef();
+    _this.editingContainer = /*#__PURE__*/React__default.createRef();
+    _this.editingButtons = /*#__PURE__*/React__default.createRef();
     return _this;
   }
 
