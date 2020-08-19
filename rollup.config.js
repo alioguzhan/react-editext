@@ -16,18 +16,21 @@ export default {
       file: pkg.main,
       format: 'cjs',
       sourcemap: true,
-      plugins: [terser()]
+      plugins: [terser()],
+      exports: 'auto'
     },
     {
       file: pkg.module,
       format: 'es',
       sourcemap: true,
-      plugins: [terser()]
+      plugins: [terser()],
+      exports: 'auto'
     },
     {
       file: 'dist/index.js',
       format: 'cjs',
-      sourcemap: true
+      sourcemap: true,
+      exports: 'auto'
     }
   ],
   plugins: [
