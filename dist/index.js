@@ -1,10 +1,12 @@
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var React = require('react');
-var React__default = _interopDefault(React);
-var PropTypes = _interopDefault(require('prop-types'));
+var PropTypes = require('prop-types');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -367,27 +369,27 @@ var EdiText = /*#__PURE__*/function (_Component) {
       if (editContainerClassName) editContainerClass = editContainerClassName;
       if (viewContainerClassName) editContainerClass = viewContainerClassName;
       var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "".concat(styles.Editext__buttons_before_aligned), buttonsAlign === 'after' && "".concat(styles.Editext__buttons_after_aligned));
-      return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("div", {
+      return /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement("div", {
         ref: _this.editingContainer,
         className: editContainerClass,
         editext: dataAttributes.editContainer
-      }, buttonsAlign === 'after' && inputElem, /*#__PURE__*/React__default.createElement("div", {
+      }, buttonsAlign === 'after' && inputElem, /*#__PURE__*/React__default['default'].createElement("div", {
         className: buttonsContainerClass,
         ref: _this.editingButtons
-      }, /*#__PURE__*/React__default.createElement("button", {
+      }, /*#__PURE__*/React__default['default'].createElement("button", {
         ref: _this.saveButton,
         editext: dataAttributes.saveButton,
         type: "button",
         className: saveButtonClass,
         onClick: _this.handleSave
-      }, saveButtonContent), /*#__PURE__*/React__default.createElement("button", {
+      }, saveButtonContent), /*#__PURE__*/React__default['default'].createElement("button", {
         type: "button",
         editext: dataAttributes.cancelButton,
         className: cancelButtonClass,
         onClick: _this.handleCancel
-      }, cancelButtonContent)), buttonsAlign === 'before' && inputElem), !_this.state.valid && !onValidationFail && /*#__PURE__*/React__default.createElement("div", {
+      }, cancelButtonContent)), buttonsAlign === 'before' && inputElem), !_this.state.valid && !onValidationFail && /*#__PURE__*/React__default['default'].createElement("div", {
         className: styles.Editext__validation_message
-      }, validationMessage), hint && /*#__PURE__*/React__default.createElement("div", {
+      }, validationMessage), hint && /*#__PURE__*/React__default['default'].createElement("div", {
         className: styles.Editext__hint,
         editext: dataAttributes.hint
       }, hint));
@@ -409,10 +411,10 @@ var EdiText = /*#__PURE__*/function (_Component) {
       var viewContainerClass = classnames(viewContainerClassName || styles.Editext__view_container, showButtonsOnHover && "".concat(styles.Editext__buttons_showButtonsOnHover));
       var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "".concat(styles.Editext__buttons_before_aligned), buttonsAlign === 'after' && "".concat(styles.Editext__buttons_after_aligned));
       var viewClickHandler = editOnViewClick ? _this.handleActivateEditMode : undefined;
-      return /*#__PURE__*/React__default.createElement("div", {
+      return /*#__PURE__*/React__default['default'].createElement("div", {
         className: viewContainerClass,
         editext: dataAttributes.viewContainer
-      }, buttonsAlign === 'after' && /*#__PURE__*/React__default.createElement("div", _extends({
+      }, buttonsAlign === 'after' && /*#__PURE__*/React__default['default'].createElement("div", _extends({
         // this is here because,
         // we still allow people to pass the tabIndex via inputProps
         // also backward compatibility.
@@ -422,14 +424,14 @@ var EdiText = /*#__PURE__*/function (_Component) {
         onFocus: _this.handleViewFocus,
         onClick: viewClickHandler,
         editext: "view"
-      }), _this.state.value), /*#__PURE__*/React__default.createElement("div", {
+      }), _this.state.value), /*#__PURE__*/React__default['default'].createElement("div", {
         className: buttonsContainerClass
-      }, /*#__PURE__*/React__default.createElement("button", {
+      }, /*#__PURE__*/React__default['default'].createElement("button", {
         type: "button",
         editext: dataAttributes.editButton,
         className: editButtonClass,
         onClick: _this.handleActivateEditMode
-      }, editButtonContent)), buttonsAlign === 'before' && /*#__PURE__*/React__default.createElement("div", _extends({
+      }, editButtonContent)), buttonsAlign === 'before' && /*#__PURE__*/React__default['default'].createElement("div", _extends({
         // this is here because,
         // we still allow people to pass the tabIndex via inputProps
         // also backward compatibility.
@@ -449,10 +451,10 @@ var EdiText = /*#__PURE__*/function (_Component) {
       savedValue: '',
       viewFocused: false
     };
-    _this.saveButton = /*#__PURE__*/React__default.createRef();
-    _this.input = /*#__PURE__*/React__default.createRef();
-    _this.editingContainer = /*#__PURE__*/React__default.createRef();
-    _this.editingButtons = /*#__PURE__*/React__default.createRef();
+    _this.saveButton = /*#__PURE__*/React__default['default'].createRef();
+    _this.input = /*#__PURE__*/React__default['default'].createRef();
+    _this.editingContainer = /*#__PURE__*/React__default['default'].createRef();
+    _this.editingButtons = /*#__PURE__*/React__default['default'].createRef();
     return _this;
   }
 
@@ -490,7 +492,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
     key: "_renderInput",
     value: function _renderInput() {
       if (this.props.type === 'textarea') {
-        return /*#__PURE__*/React__default.createElement("textarea", _extends({
+        return /*#__PURE__*/React__default['default'].createElement("textarea", _extends({
           ref: this.input,
           className: styles.Editext__input,
           editext: dataAttributes.input // this is here because,
@@ -505,7 +507,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
           autoFocus: this.state.editing
         }));
       } else {
-        return /*#__PURE__*/React__default.createElement("input", _extends({
+        return /*#__PURE__*/React__default['default'].createElement("input", _extends({
           ref: this.input,
           className: styles.Editext__input,
           editext: dataAttributes.input // this is here because,
@@ -531,7 +533,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
           mainContainerClassName = _this$props8.mainContainerClassName,
           className = _this$props8.className;
       var clsName = classnames(mainContainerClassName || styles.Editext__main_container, className);
-      return /*#__PURE__*/React__default.createElement("div", {
+      return /*#__PURE__*/React__default['default'].createElement("div", {
         className: clsName
       }, mode);
     }
@@ -569,46 +571,46 @@ EdiText.defaultProps = {
   editing: false
 };
 EdiText.propTypes = {
-  inputProps: PropTypes.object,
-  viewProps: PropTypes.object,
-  value: PropTypes.string.isRequired,
-  hint: PropTypes.node,
-  validationMessage: PropTypes.node,
-  validation: PropTypes.func,
-  onValidationFail: PropTypes.func,
-  type: PropTypes.oneOf(['text', 'textarea', 'password', 'email', 'number', 'date', 'datetime-local', 'time', 'month', 'url', 'week', 'tel']).isRequired,
+  inputProps: PropTypes__default['default'].object,
+  viewProps: PropTypes__default['default'].object,
+  value: PropTypes__default['default'].string.isRequired,
+  hint: PropTypes__default['default'].node,
+  validationMessage: PropTypes__default['default'].node,
+  validation: PropTypes__default['default'].func,
+  onValidationFail: PropTypes__default['default'].func,
+  type: PropTypes__default['default'].oneOf(['text', 'textarea', 'password', 'email', 'number', 'date', 'datetime-local', 'time', 'month', 'url', 'week', 'tel']).isRequired,
   // Events
-  onCancel: PropTypes.func,
-  onSave: PropTypes.func.isRequired,
-  onEditingStart: PropTypes.func,
+  onCancel: PropTypes__default['default'].func,
+  onSave: PropTypes__default['default'].func.isRequired,
+  onEditingStart: PropTypes__default['default'].func,
   // classNames
-  className: PropTypes.string,
-  saveButtonClassName: PropTypes.string,
-  editButtonClassName: PropTypes.string,
-  cancelButtonClassName: PropTypes.string,
-  mainContainerClassName: PropTypes.string,
-  editContainerClassName: PropTypes.string,
-  viewContainerClassName: PropTypes.string,
+  className: PropTypes__default['default'].string,
+  saveButtonClassName: PropTypes__default['default'].string,
+  editButtonClassName: PropTypes__default['default'].string,
+  cancelButtonClassName: PropTypes__default['default'].string,
+  mainContainerClassName: PropTypes__default['default'].string,
+  editContainerClassName: PropTypes__default['default'].string,
+  viewContainerClassName: PropTypes__default['default'].string,
   // Custom Button Texts
-  cancelButtonContent: PropTypes.any,
-  saveButtonContent: PropTypes.any,
-  editButtonContent: PropTypes.any,
-  hideIcons: PropTypes.bool,
-  buttonsAlign: PropTypes.oneOf(['after', 'before']),
-  editOnViewClick: PropTypes.bool,
-  editing: PropTypes.bool,
-  showButtonsOnHover: PropTypes.bool,
-  submitOnEnter: PropTypes.bool,
-  cancelOnEscape: PropTypes.bool,
-  cancelOnUnfocus: PropTypes.bool,
-  submitOnUnfocus: PropTypes.bool,
+  cancelButtonContent: PropTypes__default['default'].any,
+  saveButtonContent: PropTypes__default['default'].any,
+  editButtonContent: PropTypes__default['default'].any,
+  hideIcons: PropTypes__default['default'].bool,
+  buttonsAlign: PropTypes__default['default'].oneOf(['after', 'before']),
+  editOnViewClick: PropTypes__default['default'].bool,
+  editing: PropTypes__default['default'].bool,
+  showButtonsOnHover: PropTypes__default['default'].bool,
+  submitOnEnter: PropTypes__default['default'].bool,
+  cancelOnEscape: PropTypes__default['default'].bool,
+  cancelOnUnfocus: PropTypes__default['default'].bool,
+  submitOnUnfocus: PropTypes__default['default'].bool,
   // navigating between inputs via tabbing is common.
   // And tabIndex will probably be same for both view and input props
   // here we are adding a new prop just for this special case to save people
   // from creating duplicate code for both `inputProps` and `viewProps`
-  tabIndex: PropTypes.any,
-  startEditingOnFocus: PropTypes.bool,
-  startEditingOnEnter: PropTypes.bool
+  tabIndex: PropTypes__default['default'].any,
+  startEditingOnFocus: PropTypes__default['default'].bool,
+  startEditingOnEnter: PropTypes__default['default'].bool
 };
 
 module.exports = EdiText;

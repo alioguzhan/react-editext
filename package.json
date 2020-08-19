@@ -30,7 +30,8 @@
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build && cp _redirects build/ ",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "release": "standard-version"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -81,7 +82,8 @@
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-postcss": "^3.1.5",
     "rollup-plugin-terser": "^7.0.0",
-    "rollup-plugin-url": "^3.0.1"
+    "rollup-plugin-url": "^3.0.1",
+    "standard-version": "^9.0.0"
   },
   "files": [
     "dist",
