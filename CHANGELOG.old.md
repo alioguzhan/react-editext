@@ -1,4 +1,4 @@
-## 2.0.0 - September 30, 2018 :rocket: :fire: :pushpin:
+# 2.0.0 - September 30, 2018
 
 This version brings some important and breaking changes. Please consider to upgrade v2.
 
@@ -20,7 +20,8 @@ And very special thanks to [Oririner](https://www.reddit.com/user/Oririner) from
 
   > New Types -> `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`
 
-- Add more examples -> https://alioguzhan.github.io/react-editext/
+- Add more examples -> [https://alioguzhan.github.io/react-editext/](https://alioguzhan.github.io/react-editext/)
+
 - Remove `inputClassName` and `containerClassName` props :warning: :x:
 
   > Since we added `inputProps` and `viewProps` these are no longer needed.
@@ -31,17 +32,21 @@ And very special thanks to [Oririner](https://www.reddit.com/user/Oririner) from
 ## 1.2.1 - September 29, 2018
 
 - Added `type=button` to all buttons.
+
 - Improve tests
 
 ## 1.2.0 - September 23, 2018
 
 - Added `className` prop for custom styling to text content
+
 - Added tests
 
 ## 1.1.0 - September 22, 2018
 
 - Trigger save action on press Enter
+
 - Improve default styling for Firefox and Safari
+
 - Added this changelog
 
 ## 1.0.1 - September 22, 2018
