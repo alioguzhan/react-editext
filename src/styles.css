@@ -68,7 +68,7 @@
   color: crimson;
 }
 
-.Editext__cancel_button:before {
+.Editext__cancel_button::before {
   content: "\2715";
   margin: 3px;
 }
@@ -77,7 +77,7 @@
   color: #000;
 }
 
-.Editext__edit_button:before {
+.Editext__edit_button::before {
   content: "\270E";
   margin: 3px;
 }
@@ -87,12 +87,12 @@
   margin-right: 3px;
 }
 
-.Editext__save_button:before {
+.Editext__save_button::before {
   content: "\2713";
   margin: 3px;
 }
 
-.Editext__hide_default_icons:before {
+.Editext__hide_default_icons::before {
   content: none;
   margin: 0;
 }
