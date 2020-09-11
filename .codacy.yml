@@ -1,0 +1,9 @@
+exclude_paths:
+  - ".bundle/**"
+  - "dist/**"
+  - "benchmarks/**/*"
+  - "**.min.js"
+  - "**.es.js"
+  - "**/tests/**"
+  - "**.spec.js"
+  - "example/**"
