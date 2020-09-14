@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/dm/react-editext.svg)](https://www.npmjs.com/package/react-editext)
 [![Github](https://github.com/alioguzhan/react-editext/workflows/build/badge.svg)](https://github.com/alioguzhan/react-editext/actions)
 [![codecov](https://codecov.io/gh/alioguzhan/react-editext/branch/master/graph/badge.svg)](https://codecov.io/gh/alioguzhan/react-editext)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8763564ea68947e3a1c4067659468e59)](https://www.codacy.com/manual/alioguzhan/react-editext?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=alioguzhan/react-editext&amp;utm_campaign=Badge_Grade)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alioguzhan_react-editext&metric=alert_status)](https://sonarcloud.io/dashboard?id=alioguzhan_react-editext)
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 [![Known Vulnerabilities](https://snyk.io/test/github/alioguzhan/react-editext/badge.svg)](https://snyk.io/test/github/alioguzhan/react-editext)
 
@@ -62,40 +62,40 @@ There is also a codesandbox template that you can fork and play with it:
 
 You can customize almost everything based on your needs. Please navigate to [Props](#Props) section. I mean, just scroll down.
 ## Props
-| Prop | Type | Required |Default | Note
-|---|---|---|---|---|
-value|string|Yes|`''`|Value of the content and input [in edit mode]
-type|string|Yes|text|Input type. Possible options are: `text`, `password`, `number`, `email`, `textarea`, `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`
-hint|node|No|`''`|A simple hint message appears at the bottom of input element. Any valid element is allowed.
-onSave|function|Yes||Function will be called when save button clicked. `value` and `inputProps` are passed to cb.
-inputProps|object|No||Props to be passed to input element. Any kind of valid DOM attributes are welcome.
-viewProps|object|No||Props to be passed to div element that shows the text. You can specify your own `styles` or `className`
-validation|function|No||Pass your own validation function. takes one param -> `value`. It must return `true` or `false`
-validationMessage|node|No|Invalid Value| If validation fails this message will appear
-onValidationFail|function|No||Pass your own function to track when validation failed. See Examples page for the usage.
-onCancel|function|No||Function will be called when editing is cancelled. `value` and `inputProps` are passed as params.
-saveButtonContent|node|No|`''`|Content for save button. Any valid element is allowed. Default is: &#10003;
-cancelButtonContent|node|No|`''`|Content for cancel button. Any valid element is allowed. Default is: &#10005;
-editButtonContent|node|No|`''`|Content for edit button. Any valid element is allowed. Default is: &#9998;
-saveButtonClassName|string|No||Custom class name for save button.
-cancelButtonClassName|string|No||Custom class name for cancel button.
-editButtonClassName|string|No||Custom class name for edit button.
-viewContainerClassName|string|No||Custom class name for the container in `view` mode.[See here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)
-editContainerClassName|string|No||Custom class name for the container in edit mode. Will be set to `viewContainerClassName` if you set it and omit this. See [here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)
-mainContainerClassName|string|No||Custom class name for the top-level main container. See [here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)
-hideIcons|bool|No|`false`|Set it to `true` if you don't want to see default icons on action buttons. See Examples page for more details.
-buttonsAlign|string|No|`after`|Set this to `before` if you want to locate action buttons before the input instead of after it. See [here](https://alioguzhan.github.io/react-editext/#change-buttons-location).
-editOnViewClick|bool|No|`false`|Set it to `true` if you want clicking on the view to activate the editor.
-editing|bool|No|`false`|Set it to `true` if you want the view state to be edit mode.
-onEditingStart|function|No||Function that will be called when the editing mode is active. See [here](https://alioguzhan.github.io/react-editext/#events)
-showButtonsOnHover|bool|No|`false`|Set it to `true` if you want to display action buttons **only** when the text hovered by the user. See [here](https://alioguzhan.github.io/react-editext/#show-on-hover)
-submitOnEnter|bool|No|`false`|Set it to `true` if you want to submit the form when `Enter` is pressed. __Be careful if you have multiple instances of `<EdiText/>` on the same page.__
-cancelOnEscape|bool|No|`false`|Set it to `true` if you want to cancel the form when `Escape` is pressed. See [here](https://alioguzhan.github.io/react-editext/#save-on-enter)
-cancelOnUnfocus|bool|No|`false`|Set it to `true` if you want to cancel the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#cancel-on-blur)
-submitOnUnfocus|bool|No|`false`|Set it to `true` if you want to submit the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#submit-on-blur)
-startEditingOnFocus|bool|No|`false`|Activates the edit mode when the view container is in focus. See [here](https://alioguzhan.github.io/react-editext/#edit-on-focus)
-startEditingOnEnter|bool|No|`false`|Activates the edit mode when the `Enter` key is pressed. See [here](https://alioguzhan.github.io/react-editext/#edit-on-enter)
-tabIndex|number|No||An helper shortcut in case you want to pass the same tabIndex to both `viewProps` and `inputProps`.
+| Prop                   | Type     | Required | Default       | Note                                                                                                                                                                                                         |
+| ---------------------- | -------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| value                  | string   | Yes      | `''`          | Value of the content and input [in edit mode]                                                                                                                                                                |
+| type                   | string   | Yes      | text          | Input type. Possible options are: `text`, `password`, `number`, `email`, `textarea`, `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`                                                         |
+| hint                   | node     | No       | `''`          | A simple hint message appears at the bottom of input element. Any valid element is allowed.                                                                                                                  |
+| onSave                 | function | Yes      |               | Function will be called when save button clicked. `value` and `inputProps` are passed to cb.                                                                                                                 |
+| inputProps             | object   | No       |               | Props to be passed to input element. Any kind of valid DOM attributes are welcome.                                                                                                                           |
+| viewProps              | object   | No       |               | Props to be passed to div element that shows the text. You can specify your own `styles` or `className`                                                                                                      |
+| validation             | function | No       |               | Pass your own validation function. takes one param -> `value`. It must return `true` or `false`                                                                                                              |
+| validationMessage      | node     | No       | Invalid Value | If validation fails this message will appear                                                                                                                                                                 |
+| onValidationFail       | function | No       |               | Pass your own function to track when validation failed. See Examples page for the usage.                                                                                                                     |
+| onCancel               | function | No       |               | Function will be called when editing is cancelled. `value` and `inputProps` are passed as params.                                                                                                            |
+| saveButtonContent      | node     | No       | `''`          | Content for save button. Any valid element is allowed. Default is: &#10003;                                                                                                                                  |
+| cancelButtonContent    | node     | No       | `''`          | Content for cancel button. Any valid element is allowed. Default is: &#10005;                                                                                                                                |
+| editButtonContent      | node     | No       | `''`          | Content for edit button. Any valid element is allowed. Default is: &#9998;                                                                                                                                   |
+| saveButtonClassName    | string   | No       |               | Custom class name for save button.                                                                                                                                                                           |
+| cancelButtonClassName  | string   | No       |               | Custom class name for cancel button.                                                                                                                                                                         |
+| editButtonClassName    | string   | No       |               | Custom class name for edit button.                                                                                                                                                                           |
+| viewContainerClassName | string   | No       |               | Custom class name for the container in `view` mode.[See here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)                                                                     |
+| editContainerClassName | string   | No       |               | Custom class name for the container in edit mode. Will be set to `viewContainerClassName` if you set it and omit this. See [here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers) |
+| mainContainerClassName | string   | No       |               | Custom class name for the top-level main container. See [here](https://alioguzhan.github.io/react-editext/#custom-classes-for-containers)                                                                    |
+| hideIcons              | bool     | No       | `false`       | Set it to `true` if you don't want to see default icons on action buttons. See Examples page for more details.                                                                                               |
+| buttonsAlign           | string   | No       | `after`       | Set this to `before` if you want to locate action buttons before the input instead of after it. See [here](https://alioguzhan.github.io/react-editext/#change-buttons-location).                             |
+| editOnViewClick        | bool     | No       | `false`       | Set it to `true` if you want clicking on the view to activate the editor.                                                                                                                                    |
+| editing                | bool     | No       | `false`       | Set it to `true` if you want the view state to be edit mode.                                                                                                                                                 |
+| onEditingStart         | function | No       |               | Function that will be called when the editing mode is active. See [here](https://alioguzhan.github.io/react-editext/#events)                                                                                 |
+| showButtonsOnHover     | bool     | No       | `false`       | Set it to `true` if you want to display action buttons **only** when the text hovered by the user. See [here](https://alioguzhan.github.io/react-editext/#show-on-hover)                                     |
+| submitOnEnter          | bool     | No       | `false`       | Set it to `true` if you want to submit the form when `Enter` is pressed. __Be careful if you have multiple instances of `<EdiText/>` on the same page.__                                                     |
+| cancelOnEscape         | bool     | No       | `false`       | Set it to `true` if you want to cancel the form when `Escape` is pressed. See [here](https://alioguzhan.github.io/react-editext/#save-on-enter)                                                              |
+| cancelOnUnfocus        | bool     | No       | `false`       | Set it to `true` if you want to cancel the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#cancel-on-blur)                                                    |
+| submitOnUnfocus        | bool     | No       | `false`       | Set it to `true` if you want to submit the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#submit-on-blur)                                                    |
+| startEditingOnFocus    | bool     | No       | `false`       | Activates the edit mode when the view container is in focus. See [here](https://alioguzhan.github.io/react-editext/#edit-on-focus)                                                                           |
+| startEditingOnEnter    | bool     | No       | `false`       | Activates the edit mode when the `Enter` key is pressed. See [here](https://alioguzhan.github.io/react-editext/#edit-on-enter)                                                                               |
+| tabIndex               | number   | No       |               | An helper shortcut in case you want to pass the same tabIndex to both `viewProps` and `inputProps`.                                                                                                          |
 
 ## Styling with `styled-components`
 
@@ -104,16 +104,16 @@ You can style your `<EdiText/>` components with `styled-components` or similar l
 
 Each customizable HTML element has a `editext=xxx` attribute. Use below as a reference table:
 
-|Attr. Value|Description|
-|----------|-----------|
-|`view-container`| the container in `view` mode|
-|`edit-container`| the container in `edit` mode|
-|`button-container`| the container for the `save` and `cancel` buttons|
-|`edit-button`| use this to style the __edit button__|
-|`save-button`| use this to style the __save button__|
-|`cancel-button`| use this to style the __cancel button__|
-|`input`| There is only one input. You can select it directly or just use this attr value. |
-|`hint`| To style the hint container. |
+| Attr. Value        | Description                                                                      |
+| ------------------ | -------------------------------------------------------------------------------- |
+| `view-container`   | the container in `view` mode                                                     |
+| `edit-container`   | the container in `edit` mode                                                     |
+| `button-container` | the container for the `save` and `cancel` buttons                                |
+| `edit-button`      | use this to style the __edit button__                                            |
+| `save-button`      | use this to style the __save button__                                            |
+| `cancel-button`    | use this to style the __cancel button__                                          |
+| `input`            | There is only one input. You can select it directly or just use this attr value. |
+| `hint`             | To style the hint container.                                                     |
 
 Usage:
 
@@ -144,9 +144,9 @@ Usage:
 
 ## Browser Support
 
-|[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge |
-| --------- | --------- | --------- | --------- | --------- | -------- |
-| :white_check_mark: | :white_check_mark:| :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: :exclamation: |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                | :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                        | :white_check_mark: :exclamation:                                                                                                                                                                                |
 
 * `rows` prop for textarea has no effect in IE/Edge. You can set its `height` with some css.
 
