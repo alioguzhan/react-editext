@@ -10,13 +10,6 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 [![Known Vulnerabilities](https://snyk.io/test/github/alioguzhan/react-editext/badge.svg)](https://snyk.io/test/github/alioguzhan/react-editext)
 
-## Covid-19
-
-<div align="center">
-  <img src="./wash.png" />
-</div>
-
-Icons are provided for free by [Icon Finder](https://www.iconfinder.com/p/coronavirus-awareness-icons) for coronavirus awareness.
 
 ## Install
 
