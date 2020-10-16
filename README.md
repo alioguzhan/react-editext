@@ -8,7 +8,6 @@
 [![codecov](https://codecov.io/gh/alioguzhan/react-editext/branch/master/graph/badge.svg)](https://codecov.io/gh/alioguzhan/react-editext)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alioguzhan_react-editext&metric=alert_status)](https://sonarcloud.io/dashboard?id=alioguzhan_react-editext)
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
-[![Known Vulnerabilities](https://snyk.io/test/github/alioguzhan/react-editext/badge.svg)](https://snyk.io/test/github/alioguzhan/react-editext)
 
 
 ## Install
