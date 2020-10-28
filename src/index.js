@@ -124,9 +124,9 @@ export default class EdiText extends Component {
     )
   }
 
-  handleSave = () => {
+  handleSave = async () => {
     const { onSave, validation, onValidationFail, inputProps } = this.props
-    const isValid = validation(this.state.value)
+    const isValid = await validation(this.state.value)
     if (!isValid) {
       return this.setState({ valid: false }, () => {
         onValidationFail && onValidationFail(this.state.value)
