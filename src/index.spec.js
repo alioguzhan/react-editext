@@ -391,7 +391,7 @@ test('pressing Escape cancels the form', () => {
   editInput.simulate('keyDown', { keyCode: 27 })
   expect(editext.state().editing).toEqual(false)
   expect(editext.state().value).toEqual('oracle')
-  expect(editext.state().savedValue).toEqual('')
+  expect(editext.state().savedValue).toEqual(undefined)
   expect(handleCancel.mock.calls.length).toBe(1)
   expect(handleSave.mock.calls.length).toBe(0)
 })
