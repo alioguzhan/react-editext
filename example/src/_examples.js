@@ -258,15 +258,15 @@ export default class App extends Component {
         <button
           className='button is-small is-warning'
           onClick={() => {
-            this.setState({ editing: !this.state.editing })
+            setEditing(e => !e })
           }}>
             Toggle Editing Mode
         </button>
         <EdiText
           type='text'
-          value='What is real? How do you define real?'
-          onSave={this.onSave}
-          editing={this.state.editing}
+          value={value}
+          onSave={onSave}
+          editing={editing}
         />
       </div>
     )
