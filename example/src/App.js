@@ -125,7 +125,7 @@ export default function App() {
               <div className="subtitle">Output</div>
               <EdiText
                 type="text"
-                value={data.name}
+                value="What is real? How do you define real?"
                 onSave={handleSave}
               />
             </div>
