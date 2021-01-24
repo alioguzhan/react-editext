@@ -302,10 +302,12 @@ var EdiText = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleCancel", function () {
+      var _this$state$savedValu;
+
       _this.setState({
         valid: true,
         editing: false,
-        value: _this.state.savedValue || _this.props.value
+        value: (_this$state$savedValu = _this.state.savedValue) !== null && _this$state$savedValu !== void 0 ? _this$state$savedValu : _this.props.value
       }, function () {
         return _this.props.onCancel(_this.state.value, _this.props.inputProps);
       });
@@ -448,7 +450,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
       editing: props.editing,
       valid: true,
       value: props.value || '',
-      savedValue: '',
+      savedValue: undefined,
       viewFocused: false
     };
     _this.saveButton = /*#__PURE__*/React__default['default'].createRef();

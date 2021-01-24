@@ -10,7 +10,7 @@ export default class EdiText extends Component {
       editing: props.editing,
       valid: true,
       value: props.value || '',
-      savedValue: '',
+      savedValue: undefined,
       viewFocused: false
     }
     this.saveButton = React.createRef()
@@ -107,7 +107,7 @@ export default class EdiText extends Component {
       {
         valid: true,
         editing: false,
-        value: this.state.savedValue || this.props.value
+        value: this.state.savedValue ?? this.props.value
       },
       () => this.props.onCancel(this.state.value, this.props.inputProps)
     )

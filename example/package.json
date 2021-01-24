@@ -9,9 +9,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-editext": "link:..",
-    "react-scripts": "^3.4.3",
-    "react-syntax-highlighter": "^13.5.0",
-    "styled-components": "^5.1.1"
+    "react-scripts": "^4.0.1",
+    "react-syntax-highlighter": "^15.4.3",
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
