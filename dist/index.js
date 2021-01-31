@@ -479,6 +479,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
 
       if (this.props.value !== undefined && prevProps.value !== this.props.value) {
         nextState.value = this.props.value;
+        nextState.savedValue = this.props.value;
       }
 
       if (prevProps.editing !== undefined && prevProps.editing !== this.props.editing) {

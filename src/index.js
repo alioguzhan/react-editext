@@ -36,6 +36,7 @@ export default class EdiText extends Component {
       prevProps.value !== this.props.value
     ) {
       nextState.value = this.props.value
+      nextState.savedValue = this.props.value
     }
 
     if (
@@ -51,11 +52,11 @@ export default class EdiText extends Component {
     }
   }
 
-  handleKeyDown = e => {
+  handleKeyDown = (e) => {
     const { submitOnEnter, inputProps, cancelOnEscape } = this.props
-    const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
+    const isEnter = [13, 'Enter'].some((c) => e.keyCode === c || e.code === c)
     const isEscape = [27, 'Escape', 'Esc'].some(
-      c => e.keyCode === c || e.code === c
+      (c) => e.keyCode === c || e.code === c
     )
     if (isEnter) {
       submitOnEnter && this.handleSave()
@@ -68,7 +69,7 @@ export default class EdiText extends Component {
     inputProps.onKeyDown && inputProps.onKeyDown(e) // TODO: this sucks.
   }
 
-  handleOnBlur = e => {
+  handleOnBlur = (e) => {
     const { cancelOnUnfocus, submitOnUnfocus, inputProps } = this.props
     const isEditingButton = this.editingButtons.current.contains(
       e.relatedTarget
@@ -78,15 +79,15 @@ export default class EdiText extends Component {
     inputProps.onBlur && inputProps.onBlur(e) // TODO: this sucks.
   }
 
-  handleViewFocus = e => {
+  handleViewFocus = (e) => {
     this.setState({ viewFocused: true })
     const { startEditingOnFocus, viewProps } = this.props
     startEditingOnFocus && this.setState({ editing: true })
     viewProps.onFocus && viewProps.onFocus(e)
   }
 
-  handleKeyDownForView = e => {
-    const isEnter = [13, 'Enter'].some(c => e.keyCode === c || e.code === c)
+  handleKeyDownForView = (e) => {
+    const isEnter = [13, 'Enter'].some((c) => e.keyCode === c || e.code === c)
     const { startEditingOnEnter, viewProps } = this.props
     const startEditing =
       isEnter && this.state.viewFocused && startEditingOnEnter
@@ -95,7 +96,7 @@ export default class EdiText extends Component {
     viewProps.onKeyDown && viewProps.onKeyDown(e)
   }
 
-  handleInputChange = e => {
+  handleInputChange = (e) => {
     this.setState({
       valid: true,
       value: e.target.value
@@ -231,14 +232,14 @@ export default class EdiText extends Component {
             <button
               ref={this.saveButton}
               editext={dataAttributes.saveButton}
-              type='button'
+              type="button"
               className={saveButtonClass}
               onClick={this.handleSave}
             >
               {saveButtonContent}
             </button>
             <button
-              type='button'
+              type="button"
               editext={dataAttributes.cancelButton}
               className={cancelButtonClass}
               onClick={this.handleCancel}
@@ -307,14 +308,14 @@ export default class EdiText extends Component {
             onKeyDown={this.handleKeyDownForView}
             onFocus={this.handleViewFocus}
             onClick={viewClickHandler}
-            editext='view'
+            editext="view"
           >
             {this.state.value}
           </div>
         )}
         <div className={buttonsContainerClass}>
           <button
-            type='button'
+            type="button"
             editext={dataAttributes.editButton}
             className={editButtonClass}
             onClick={this.handleActivateEditMode}
@@ -358,11 +359,15 @@ EdiText.defaultProps = {
   value: '',
   type: 'text',
   validationMessage: 'Invalid Value',
-  validation: _v => true,
-  onEditingStart: _v => null,
-  onCancel: _v => null,
-  inputProps: { onKeyDown: _e => {}, onBlur: _e => {}, onFocus: _e => {} },
-  viewProps: { onKeyDown: _e => {}, onFocus: _e => {} },
+  validation: (_v) => true,
+  onEditingStart: (_v) => null,
+  onCancel: (_v) => null,
+  inputProps: {
+    onKeyDown: (_e) => {},
+    onBlur: (_e) => {},
+    onFocus: (_e) => {}
+  },
+  viewProps: { onKeyDown: (_e) => {}, onFocus: (_e) => {} },
   cancelButtonContent: '',
   saveButtonContent: '',
   editButtonContent: '',
