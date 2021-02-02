@@ -262,9 +262,16 @@ export default class App extends Component {
           }}>
             Toggle Editing Mode
         </button>
+        <button
+          className="button is-small is-primary"
+          style={{ marginLeft: 10 }}
+          onClick={() => setData({ name: 'new value' })}
+        >
+          Set New Value
+        </button>
         <EdiText
           type='text'
-          value={value}
+          value={data.name}
           onSave={onSave}
           editing={editing}
         />
