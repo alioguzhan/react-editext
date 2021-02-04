@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.17.2](https://github.com/alioguzhan/react-editext/compare/v3.15.1...v3.17.2) (2021-02-04)
+
+### Bug Fixes
+
+* cancelling ignores existing value and resets to previous state [half fix] ([e3c84a4](https://github.com/alioguzhan/react-editext/commit/e3c84a48d9cd2e0f04b237c8346d2f15bd562ff0))
+* empty strings as input values are being ignored ([5d2992d](https://github.com/alioguzhan/react-editext/commit/5d2992d1b9ef427503c83bec5951b41410b2c5a4))
+* **security:** upgrade deps to fix a security vulnerability ([63c6356](https://github.com/alioguzhan/react-editext/commit/63c6356be08603cb585ade6350e45848403bfaec))
+* **security:** upgrade deps to fix a vulnerability ([0a6d904](https://github.com/alioguzhan/react-editext/commit/0a6d90489984f12febbfd14a74a411be3572c616))
+* **security:** upgrade dev. deps to fix some vulnerabilities ([4483f46](https://github.com/alioguzhan/react-editext/commit/4483f469ed072ccefd2b1d6da0467b98c3645082))
+* **security:** upgrade development deps to fix a vulnerability ([41345ca](https://github.com/alioguzhan/react-editext/commit/41345ca4b4ac9915ae982b6cfff9a769ca00cead))
+
 ### [3.17.1](https://github.com/alioguzhan/react-editext/compare/v3.15.1...v3.17.1) (2020-09-14)
 
 ### Bug Fixes
