@@ -1,24 +1,27 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import EdiText from 'react-editext'
 import styled from 'styled-components'
 import * as examples from './_examples'
 
+// eslint-disable-next-line no-unused-vars
 const StyledEdiText = styled(EdiText)`
   button {
     border-radius: 5px;
   }
-  button[editext="edit-button"] {
+  button[editext='edit-button'] {
     color: #000;
     width: 50px;
   }
-  button[editext="save-button"] {
+  button[editext='save-button'] {
     width: 50px;
     &:hover {
       background: greenyellow;
     }
   }
-  button[editext="cancel-button"] {
+  button[editext='cancel-button'] {
     &:hover {
       background: crimson;
       color: #fff;
@@ -31,8 +34,8 @@ const StyledEdiText = styled(EdiText)`
     font-weight: bold;
     border-radius: 5px;
   }
-  div[editext="view-container"],
-  div[editext="edit-container"] {
+  div[editext='view-container'],
+  div[editext='edit-container'] {
     background: #6293c3;
     padding: 15px;
     border-radius: 5px;
@@ -44,7 +47,7 @@ export default function App() {
   const [editing, setEditing] = useState(false)
   const [logs, setLogs] = useState([])
   // const [value, setValue] = useState('Wake up, Neo')
-  const [data] = useState({ name: 'Wake up, Neo...' })
+  const [data, setData] = useState({ name: 'Wake up, Neo...' })
 
   const handleSave = (val, inputProps) => {
     console.log('Edited Value -> ', val)
@@ -176,21 +179,11 @@ export default function App() {
             <div className="column is-half">
               <div className="subtitle">Output</div>
               <EdiText
-                onCancel={(v) =>
-                  setLogs(l => ([
-                    ...l, `CANCELLED: ${v}`
-                  ]))
-                }
+                onCancel={(v) => setLogs((l) => [...l, `CANCELLED: ${v}`])}
                 onEditingStart={(v) =>
-                  setLogs(l => ([
-                    ...l, `EDITING STARTED: ${v}`
-                  ]))
+                  setLogs((l) => [...l, `EDITING STARTED: ${v}`])
                 }
-                onSave={(v) =>
-                  setLogs(l => ([
-                    ...l, `SAVED: ${v}`
-                  ]))
-                }
+                onSave={(v) => setLogs((l) => [...l, `SAVED: ${v}`])}
                 value={"You've been living in a dream world, Neo."}
               />
               <div className="subtitle" style={{ marginTop: 10 }}>
@@ -201,10 +194,7 @@ export default function App() {
                   <p key={i}>{e}</p>
                 ))}
               </pre>
-              <button
-                className="button is-small"
-                onClick={() => setLogs([]) }
-              >
+              <button className="button is-small" onClick={() => setLogs([])}>
                 clear the logs
               </button>
             </div>
@@ -772,7 +762,7 @@ export default function App() {
           <p className="content">
             You may want the editor to be active by default and/or be controlled
             externally. To do that you can set <code>editing</code> prop to{' '}
-            <code>true</code>.
+            <code>true</code>, and set <code>value</code> prop to a state value.
           </p>
           <div className="columns">
             <div className="column is-half">
@@ -782,14 +772,19 @@ export default function App() {
             </div>
             <div className="column">
               <div className="subtitle">Output</div>
-              <div>
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <button
                   className="button is-small is-warning"
-                  onClick={() =>
-                    setEditing(e => !e)
-                  }
+                  onClick={() => setEditing((e) => !e)}
                 >
                   Toggle Editing Mode
+                </button>
+                <button
+                  className="button is-small is-primary"
+                  style={{ marginLeft: 10 }}
+                  onClick={() => setData({ name: 'new value' })}
+                >
+                  Set New Value
                 </button>
               </div>
               <br />

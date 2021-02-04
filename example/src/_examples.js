@@ -247,30 +247,38 @@ export default class App extends Component {
 export const example16 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
-export default class App extends Component {
-  onSave = val => {
+export default function App() {
+  const [editing, setEditing] = useState(false)
+  const [data, setData] = useState({ name: 'Wake up, Neo...' })
+
+  const onSave = val => {
     console.log('Edited Value -> ', val)
   }
 
-  render () {
-    return (
-      <div>
-        <button
-          className='button is-small is-warning'
-          onClick={() => {
-            setEditing(e => !e })
-          }}>
-            Toggle Editing Mode
-        </button>
-        <EdiText
-          type='text'
-          value={value}
-          onSave={onSave}
-          editing={editing}
-        />
-      </div>
-    )
-  }
+  return (
+    <div>
+      <button
+        className='button is-small is-warning'
+        onClick={() => {
+          setEditing(e => !e )
+        }}>
+          Toggle Editing Mode
+      </button>
+      <button
+        className="button is-small is-primary"
+        style={{ marginLeft: 10 }}
+        onClick={() => setData({ name: 'new value' })}
+      >
+        Set New Value
+      </button>
+      <EdiText
+        type='text'
+        value={data.name}
+        onSave={onSave}
+        editing={editing}
+      />
+    </div>
+  )
 }`
 
 export const example17 = `import React, { Component } from 'react'
