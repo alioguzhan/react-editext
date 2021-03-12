@@ -364,8 +364,7 @@ EdiText.defaultProps = {
   onCancel: (_v) => null,
   inputProps: {
     onKeyDown: (_e) => {},
-    onBlur: (_e) => {},
-    onFocus: (_e) => {}
+    onBlur: (_e) => {}
   },
   viewProps: { onKeyDown: (_e) => {}, onFocus: (_e) => {} },
   cancelButtonContent: '',

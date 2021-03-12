@@ -559,8 +559,7 @@ EdiText.defaultProps = {
   },
   inputProps: {
     onKeyDown: function onKeyDown(_e) {},
-    onBlur: function onBlur(_e) {},
-    onFocus: function onFocus(_e) {}
+    onBlur: function onBlur(_e) {}
   },
   viewProps: {
     onKeyDown: function onKeyDown(_e) {},
