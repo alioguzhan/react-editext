@@ -406,13 +406,15 @@ var EdiText = /*#__PURE__*/function (_Component) {
           hideIcons = _this$props7.hideIcons,
           buttonsAlign = _this$props7.buttonsAlign,
           editOnViewClick = _this$props7.editOnViewClick,
-          showButtonsOnHover = _this$props7.showButtonsOnHover; // calculate edit button classes
+          showButtonsOnHover = _this$props7.showButtonsOnHover,
+          renderValue = _this$props7.renderValue; // calculate edit button classes
 
       var editButtonDefaultClasses = classnames("".concat(styles.Editext__button), "".concat(styles.Editext__edit_button), hideIcons && "".concat(styles.Editext__hide_default_icons));
       var editButtonClass = editButtonClassName || editButtonDefaultClasses;
       var viewContainerClass = classnames(viewContainerClassName || styles.Editext__view_container, showButtonsOnHover && "".concat(styles.Editext__buttons_showButtonsOnHover));
       var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "".concat(styles.Editext__buttons_before_aligned), buttonsAlign === 'after' && "".concat(styles.Editext__buttons_after_aligned));
       var viewClickHandler = editOnViewClick ? _this.handleActivateEditMode : undefined;
+      var value = typeof renderValue === 'function' ? renderValue(_this.state.value) : _this.state.value;
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: viewContainerClass,
         editext: dataAttributes.viewContainer
@@ -426,7 +428,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
         onFocus: _this.handleViewFocus,
         onClick: viewClickHandler,
         editext: "view"
-      }), _this.state.value), /*#__PURE__*/React__default['default'].createElement("div", {
+      }), value), /*#__PURE__*/React__default['default'].createElement("div", {
         className: buttonsContainerClass
       }, /*#__PURE__*/React__default['default'].createElement("button", {
         type: "button",
@@ -443,7 +445,7 @@ var EdiText = /*#__PURE__*/function (_Component) {
         onFocus: _this.handleViewFocus,
         onClick: viewClickHandler,
         editext: dataAttributes.viewContainer
-      }), _this.state.value));
+      }), value));
     });
 
     _this.state = {
@@ -612,7 +614,8 @@ EdiText.propTypes = {
   // from creating duplicate code for both `inputProps` and `viewProps`
   tabIndex: PropTypes__default['default'].any,
   startEditingOnFocus: PropTypes__default['default'].bool,
-  startEditingOnEnter: PropTypes__default['default'].bool
+  startEditingOnEnter: PropTypes__default['default'].bool,
+  renderValue: PropTypes__default['default'].func
 };
 
 module.exports = EdiText;

@@ -193,6 +193,13 @@ declare module 'react-editext' {
      * NOTE: This requires the element to be in focus.
      */
     startEditingOnEnter?: boolean
+    /**
+     * Custom render method for the content in the view mode.
+     * Use this prop to customize the displayed value in view mode.
+     * The return value from this function will be rendered in view mode.
+     * You can return string or JSX. Both are allowed.
+     */
+    renderValue?: (value: any) => any
   }
 
   export default class EdiText extends React.Component<EdiTextProps, any> {

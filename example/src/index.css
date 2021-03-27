@@ -1,13 +1,13 @@
-.my-react-header{
-    font-size: 1.2em;
-    border: 1.5px solid #6CDAF7;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #1F2229;
-    color: #6CDAF7;
+.my-react-header {
+  font-size: 1.2em;
+  border: 1.5px solid #6cdaf7;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #1f2229;
+  color: #6cdaf7;
 }
 a {
-  color: #1F2229;
+  color: crimson;
 }
 a:hover {
   color: palevioletred;
