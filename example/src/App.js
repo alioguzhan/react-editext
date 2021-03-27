@@ -998,7 +998,7 @@ export default function App() {
         {/* ============ End of Example ============ */}
         <div className="tile is-parent is-vertical is-10" id="render-value">
           <div className="subtitle">
-            <a href="#edit-on-enter">Customizing Rendered Value</a>
+            <a href="#render-value">Customizing Rendered Value</a>
           </div>
           <p className="content">
             You may want to customize the renderd value. You may want to parse
