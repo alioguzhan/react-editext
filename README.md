@@ -9,7 +9,6 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alioguzhan_react-editext&metric=alert_status)](https://sonarcloud.io/dashboard?id=alioguzhan_react-editext)
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 
-
 ## Install
 
 ```bash
@@ -23,7 +22,9 @@ yarn add react-editext
 ```
 
 ## Usage
+
 EdiText is highly customizable. You can see more examples [here](https://alioguzhan.github.io/react-editext/). Here is a basic usage:
+
 ```jsx
 import React, { useState } from 'react'
 
@@ -32,19 +33,15 @@ import EdiText from 'react-editext'
 function Example(props) {
   const [value, setValue] = useState('What is real? How do you define real?')
 
-  const handleSave = val => {
+  const handleSave = (val) => {
     console.log('Edited Value -> ', val)
     setValue(val)
   }
   return (
-      <div className="container">
-        <EdiText
-          type="text"
-          value={value}
-          onSave={handleSave}
-        />
-      </div>
-    )
+    <div className="container">
+      <EdiText type="text" value={value} onSave={handleSave} />
+    </div>
+  )
 }
 ```
 
@@ -53,7 +50,9 @@ There is also a codesandbox template that you can fork and play with it:
 [![Edit react-editext-template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-editext-template-5twrh?fontsize=14&hidenavigation=1&theme=dark)
 
 You can customize almost everything based on your needs. Please navigate to [Props](#Props) section. I mean, just scroll down.
+
 ## Props
+
 | Prop                   | Type     | Required | Default       | Note                                                                                                                                                                                                         |
 | ---------------------- | -------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | value                  | string   | Yes      | `''`          | Value of the content and input [in edit mode]                                                                                                                                                                |
@@ -81,16 +80,16 @@ You can customize almost everything based on your needs. Please navigate to [Pro
 | editing                | bool     | No       | `false`       | Set it to `true` if you want the view state to be edit mode.                                                                                                                                                 |
 | onEditingStart         | function | No       |               | Function that will be called when the editing mode is active. See [here](https://alioguzhan.github.io/react-editext/#events)                                                                                 |
 | showButtonsOnHover     | bool     | No       | `false`       | Set it to `true` if you want to display action buttons **only** when the text hovered by the user. See [here](https://alioguzhan.github.io/react-editext/#show-on-hover)                                     |
-| submitOnEnter          | bool     | No       | `false`       | Set it to `true` if you want to submit the form when `Enter` is pressed. __Be careful if you have multiple instances of `<EdiText/>` on the same page.__                                                     |
+| submitOnEnter          | bool     | No       | `false`       | Set it to `true` if you want to submit the form when `Enter` is pressed. **Be careful if you have multiple instances of `<EdiText/>` on the same page.**                                                     |
 | cancelOnEscape         | bool     | No       | `false`       | Set it to `true` if you want to cancel the form when `Escape` is pressed. See [here](https://alioguzhan.github.io/react-editext/#save-on-enter)                                                              |
 | cancelOnUnfocus        | bool     | No       | `false`       | Set it to `true` if you want to cancel the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#cancel-on-blur)                                                    |
 | submitOnUnfocus        | bool     | No       | `false`       | Set it to `true` if you want to submit the form when clicked outside of the input. See [here](https://alioguzhan.github.io/react-editext/#submit-on-blur)                                                    |
 | startEditingOnFocus    | bool     | No       | `false`       | Activates the edit mode when the view container is in focus. See [here](https://alioguzhan.github.io/react-editext/#edit-on-focus)                                                                           |
 | startEditingOnEnter    | bool     | No       | `false`       | Activates the edit mode when the `Enter` key is pressed. See [here](https://alioguzhan.github.io/react-editext/#edit-on-enter)                                                                               |
 | tabIndex               | number   | No       |               | An helper shortcut in case you want to pass the same tabIndex to both `viewProps` and `inputProps`.                                                                                                          |
+| renderValue            | function | No       |               | Custom render method for the content in the view mode.Use this prop to customize the displayed value in view mode. [See here](https://alioguzhan.github.io/react-editext#render-value)                       |
 
 ## Styling with `styled-components`
-
 
 You can style your `<EdiText/>` components with `styled-components` or similar libraries. You can either target internal HTML elements by their `type` ( or `order`) , or you can select them by attribute values.
 
@@ -101,38 +100,40 @@ Each customizable HTML element has a `editext=xxx` attribute. Use below as a ref
 | `view-container`   | the container in `view` mode                                                     |
 | `edit-container`   | the container in `edit` mode                                                     |
 | `button-container` | the container for the `save` and `cancel` buttons                                |
-| `edit-button`      | use this to style the __edit button__                                            |
-| `save-button`      | use this to style the __save button__                                            |
-| `cancel-button`    | use this to style the __cancel button__                                          |
+| `edit-button`      | use this to style the **edit button**                                            |
+| `save-button`      | use this to style the **save button**                                            |
+| `cancel-button`    | use this to style the **cancel button**                                          |
 | `input`            | There is only one input. You can select it directly or just use this attr value. |
 | `hint`             | To style the hint container.                                                     |
 
 Usage:
 
 ```css
- button[editext="cancel-button"] {
-    &:hover {
-      background: crimson;
-      color: #fff;
-    }
-  }
-
-  div[editext="view-container"] {
-    background: #6293C3;
-    padding: 15px;
-    border-radius: 5px;
+button[editext='cancel-button'] {
+  &:hover {
+    background: crimson;
     color: #fff;
   }
+}
 
-  input, textarea { /** or input[editext="input"] {} */
-    background: #1D2225;
-    color: #F4C361;
-    font-weight: bold;
-    border-radius: 5px;
-  }
+div[editext='view-container'] {
+  background: #6293c3;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+input,
+textarea {
+  /** or input[editext="input"] {} */
+  background: #1d2225;
+  color: #f4c361;
+  font-weight: bold;
+  border-radius: 5px;
+}
 ```
-> See [the example code](https://alioguzhan.github.io/react-editext/#styled-components).
 
+> See [the example code](https://alioguzhan.github.io/react-editext/#styled-components).
 
 ## Browser Support
 
@@ -141,7 +142,6 @@ Usage:
 | :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                | :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                        | :white_check_mark: :exclamation:                                                                                                                                                                                |
 
 * `rows` prop for textarea has no effect in IE/Edge. You can set its `height` with some css.
-
 
 ## Contributors ✨
 
