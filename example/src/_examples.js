@@ -414,7 +414,7 @@ export const example24 = `<input
 />
 `
 export const example25 = `<EdiText
-  value="Unfortunately, no one can be told what The Matrix is."
+  value="this is the website of the matrix: wwww.whatisthematrix.com"
   onSave={handleSave}
   submitOnEnter
   renderValue={(value) => {
