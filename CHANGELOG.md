@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [3.17.2](https://github.com/alioguzhan/react-editext/compare/v3.15.1...v3.17.2) (2021-02-04)
+## [3.18.0](https://github.com/alioguzhan/react-editext/compare/v3.17.2...v3.18.0) (2021-04-02)
+
+
+### Features
+
+* add renderValue prop ([9c75c5a](https://github.com/alioguzhan/react-editext/commit/9c75c5a6aa1016dca52227aaf7f28ee31fc1acfb))
+
+### [3.17.2](https://github.com/alioguzhan/react-editext/compare/v3.17.1...v3.17.2) (2021-02-04)
 
 ### Bug Fixes
 
@@ -13,7 +20,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **security:** upgrade dev. deps to fix some vulnerabilities ([4483f46](https://github.com/alioguzhan/react-editext/commit/4483f469ed072ccefd2b1d6da0467b98c3645082))
 * **security:** upgrade development deps to fix a vulnerability ([41345ca](https://github.com/alioguzhan/react-editext/commit/41345ca4b4ac9915ae982b6cfff9a769ca00cead))
 
-### [3.17.1](https://github.com/alioguzhan/react-editext/compare/v3.15.1...v3.17.1) (2020-09-14)
+### [3.17.1](https://github.com/alioguzhan/react-editext/compare/v3.17.0...v3.17.1) (2020-09-14)
 
 ### Bug Fixes
 
@@ -27,7 +34,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **security:** upgrade dev. deps to fix some vulnerabilities ([4483f46](https://github.com/alioguzhan/react-editext/commit/4483f469ed072ccefd2b1d6da0467b98c3645082))
 * **security:** upgrade development deps to fix a vulnerability ([41345ca](https://github.com/alioguzhan/react-editext/commit/41345ca4b4ac9915ae982b6cfff9a769ca00cead))
 
-### [3.16.1](https://github.com/alioguzhan/react-editext/compare/v3.15.1...v3.16.1) (2020-07-15)
+### [3.16.1](https://github.com/alioguzhan/react-editext/compare/v3.16.0...v3.16.1) (2020-07-15)
 
 
 ### Bug Fixes
