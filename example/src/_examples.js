@@ -413,3 +413,21 @@ export const example24 = `<input
   tabIndex={8}
 />
 `
+export const example25 = `<EdiText
+  value="this is the website of the matrix: wwww.whatisthematrix.com"
+  onSave={handleSave}
+  submitOnEnter
+  renderValue={(value) => {
+    const regexp = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gi
+    const valueWithParsedURLS = value.replace(
+      regexp,
+      "<a target='_blank' href='http://$&'>$&</a>"
+    )
+    return (
+      <span
+        dangerouslySetInnerHTML={{ __html: valueWithParsedURLS }}
+      />
+    )
+  }}
+/>
+`

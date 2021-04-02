@@ -8,22 +8,19 @@ configure({ adapter: new Adapter() })
 
 test('edit button activates editing mode', () => {
   const editext = mount(
-    <EdiText value='Wake up Neo' type='text' onSave={val => val} />
+    <EdiText value="Wake up Neo" type="text" onSave={(val) => val} />
   )
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 })
 
 test('editing prop activates editing mode', () => {
   const editext = mount(
     <EdiText
-      value='Wake up Neo'
-      type='text'
-      onSave={val => val}
+      value="Wake up Neo"
+      type="text"
+      onSave={(val) => val}
       editing={true}
     />
   )
@@ -36,23 +33,20 @@ test('editing prop activates editing mode', () => {
 test('view click activates editing mode', () => {
   const editext = mount(
     <EdiText
-      value='Wake up Neo'
-      type='text'
+      value="Wake up Neo"
+      type="text"
       editOnViewClick={true}
       viewProps={{ id: 'viewdiv' }}
-      onSave={val => val}
+      onSave={(val) => val}
     />
   )
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('#viewdiv')
-    .at(0)
-    .simulate('click')
+  editext.find('#viewdiv').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 })
 
 test('props are working fine', () => {
-  const editext = mount(<EdiText value='Wake up Neo' onSave={val => true} />)
+  const editext = mount(<EdiText value="Wake up Neo" onSave={(val) => true} />)
   expect(editext.props().type).toEqual('text')
   expect(editext.props().value).toEqual('Wake up Neo')
   expect(editext.props().onSave).toBeInstanceOf(Function)
@@ -115,14 +109,14 @@ test('props are working fine', () => {
 
 test('text input initial value is same as prop value', () => {
   const editext = mount(
-    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
+    <EdiText type="text" value="Wake up Neo" onSave={(val) => true} />
   )
   expect(editext.state().value).toEqual('Wake up Neo')
 })
 
 test('editing text input updates the state', () => {
   const editext = mount(
-    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
+    <EdiText type="text" value="Wake up Neo" onSave={(val) => true} />
   )
 
   editext.find('button').simulate('click')
@@ -136,7 +130,7 @@ test('editing text input updates the state', () => {
 
 test('editing textarea updates the state', () => {
   const editext = mount(
-    <EdiText type='textarea' value='Wake up Neo' onSave={val => true} />
+    <EdiText type="textarea" value="Wake up Neo" onSave={(val) => true} />
   )
   editext.find('button').simulate('click')
   const editInput = editext.find('textarea')
@@ -147,12 +141,9 @@ test('editing textarea updates the state', () => {
 
 test('cancelling reverts the input value to prop value', () => {
   const editext = mount(
-    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
+    <EdiText type="text" value="Wake up Neo" onSave={(val) => true} />
   )
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
 
   const editInput = editext.find('input[type="text"]')
   editInput.instance().value = 'updated matrix-2'
@@ -166,14 +157,11 @@ test('cancelling reverts the input value to prop value', () => {
 
 test('save action sets the input value properly', () => {
   const editext = mount(
-    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
+    <EdiText type="text" value="Wake up Neo" onSave={(val) => true} />
   )
   expect(editext.state().editing).toEqual(false)
 
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
 
   const editInput = editext.find('input[type="text"]')
   editInput.instance().value = 'updated value.'
@@ -187,14 +175,11 @@ test('save action sets the input value properly', () => {
 
 test('cancel action deactivates the editing mode', () => {
   const editext = mount(
-    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
+    <EdiText type="text" value="Wake up Neo" onSave={(val) => true} />
   )
   expect(editext.state().editing).toEqual(false)
 
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const cancelButton = editext.find('button').at(1)
@@ -204,13 +189,10 @@ test('cancel action deactivates the editing mode', () => {
 
 test('save action deactivates the editing mode', () => {
   const editext = mount(
-    <EdiText type='text' value='Wake up Neo' onSave={val => true} />
+    <EdiText type="text" value="Wake up Neo" onSave={(val) => true} />
   )
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const saveButton = editext.find('button').at(0)
@@ -221,20 +203,17 @@ test('save action deactivates the editing mode', () => {
 test('validation prop validates the input value', () => {
   const editext = mount(
     <EdiText
-      type='text'
-      validationMessage='Please type at least 10 characters.'
-      validation={val => val.length >= 20}
-      value='The Matrix has you..'
-      onSave={val => true}
+      type="text"
+      validationMessage="Please type at least 10 characters."
+      validation={(val) => val.length >= 20}
+      value="The Matrix has you.."
+      onSave={(val) => true}
     />
   )
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
 
   const editInput = editext.find('input[type="text"]').at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
@@ -249,7 +228,7 @@ test('validation prop validates the input value', () => {
 test('onValidationFail method is being triggered when validation fails', () => {
   let failedText = ''
   let isValid = true
-  const validationFailed = text => {
+  const validationFailed = (text) => {
     failedText = text
     isValid = false
   }
@@ -258,20 +237,17 @@ test('onValidationFail method is being triggered when validation fails', () => {
 
   const editext = mount(
     <EdiText
-      type='text'
-      validation={val => val.length >= 20}
+      type="text"
+      validation={(val) => val.length >= 20}
       onValidationFail={validationFailed}
-      value='The Matrix has you..'
-      onSave={val => true}
+      value="The Matrix has you.."
+      onSave={(val) => true}
     />
   )
   expect(editext.state().valid).toEqual(true)
   expect(editext.state().editing).toEqual(false)
 
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
 
   const editInput = editext.find('input[type="text"]').at(0)
   editInput.instance().value = 'matrix' // this is less then 10 chars.
@@ -290,12 +266,12 @@ test('onValidationFail method is being triggered when validation fails', () => {
 test('custom button titles are set properly', () => {
   const editext = mount(
     <EdiText
-      type='text'
-      saveButtonContent='Apply'
-      cancelButtonContent='Cancel'
-      editButtonContent='Edit'
-      value='Why, Mr. Anderson? Why? Why do you persist?'
-      onSave={val => true}
+      type="text"
+      saveButtonContent="Apply"
+      cancelButtonContent="Cancel"
+      editButtonContent="Edit"
+      value="Why, Mr. Anderson? Why? Why do you persist?"
+      onSave={(val) => true}
     />
   )
   const editButton = editext.find('button').at(0)
@@ -313,13 +289,13 @@ test('custom button titles are set properly', () => {
 test('state listens to prop changes', () => {
   const editext = mount(
     <EdiText
-      type='text'
-      saveButtonContent='Apply'
-      cancelButtonContent='Cancel'
-      editButtonContent='Edit'
-      value='Neo'
+      type="text"
+      saveButtonContent="Apply"
+      cancelButtonContent="Cancel"
+      editButtonContent="Edit"
+      value="Neo"
       editing={true}
-      onSave={val => true}
+      onSave={(val) => true}
     />
   )
   expect(editext.state().value).toEqual('Neo')
@@ -332,19 +308,16 @@ test('state listens to prop changes', () => {
 })
 
 test('pressing Enter saves the form', () => {
-  const onSave = v => v
+  const onSave = (v) => v
   const editext = mount(
-    <EdiText type='text' submitOnEnter={true} onSave={onSave} />
+    <EdiText type="text" submitOnEnter={true} onSave={onSave} />
   )
 
   const handleSave = jest.spyOn(editext.instance(), 'handleSave')
   editext.instance().forceUpdate()
 
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   expect(handleSave.mock.calls.length).toBe(0)
@@ -360,12 +333,12 @@ test('pressing Enter saves the form', () => {
 })
 
 test('pressing Escape cancels the form', () => {
-  const onSave = v => v
-  const onCancel = v => v
+  const onSave = (v) => v
+  const onCancel = (v) => v
   const editext = mount(
     <EdiText
-      type='text'
-      value='oracle'
+      type="text"
+      value="oracle"
       cancelOnEscape={true}
       onSave={onSave}
       onCancel={onCancel}
@@ -377,10 +350,7 @@ test('pressing Escape cancels the form', () => {
   editext.instance().forceUpdate()
 
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   expect(handleSave.mock.calls.length).toBe(0)
@@ -397,12 +367,12 @@ test('pressing Escape cancels the form', () => {
 })
 
 test('unfocusing the input cancels the editing', () => {
-  const onSave = v => v
-  const onCancel = v => v
+  const onSave = (v) => v
+  const onCancel = (v) => v
   const editext = mount(
     <EdiText
-      type='text'
-      value='zion the first'
+      type="text"
+      value="zion the first"
       cancelOnUnfocus={true}
       onSave={onSave}
       onCancel={onCancel}
@@ -413,10 +383,7 @@ test('unfocusing the input cancels the editing', () => {
 
   editext.instance().forceUpdate()
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const editInput = editext.find('input[type="text"]').at(0)
@@ -431,12 +398,12 @@ test('unfocusing the input cancels the editing', () => {
 })
 
 test('unfocusing the input submits the form', () => {
-  const onSave = v => v
-  const onCancel = v => v
+  const onSave = (v) => v
+  const onCancel = (v) => v
   const editext = mount(
     <EdiText
-      type='text'
-      value='zion the first'
+      type="text"
+      value="zion the first"
       submitOnUnfocus={true}
       onSave={onSave}
       onCancel={onCancel}
@@ -447,10 +414,7 @@ test('unfocusing the input submits the form', () => {
 
   editext.instance().forceUpdate()
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const editInput = editext.find('input[type="text"]').at(0)
@@ -465,13 +429,13 @@ test('unfocusing the input submits the form', () => {
 })
 
 test('settings both cancelOnUnfocus and submitOnUnfocus throws warning ', () => {
-  const onSave = v => v
-  const onCancel = v => v
+  const onSave = (v) => v
+  const onCancel = (v) => v
   const warn = jest.spyOn(global.console, 'warn')
   mount(
     <EdiText
-      type='text'
-      value='zion the first'
+      type="text"
+      value="zion the first"
       submitOnUnfocus={true}
       cancelOnUnfocus={true}
       onSave={onSave}
@@ -482,12 +446,12 @@ test('settings both cancelOnUnfocus and submitOnUnfocus throws warning ', () => 
 })
 
 test('cancelOnUnfocus overrides the submitOnUnfocus prop ', () => {
-  const onSave = v => v
-  const onCancel = v => v
+  const onSave = (v) => v
+  const onCancel = (v) => v
   const editext = mount(
     <EdiText
-      type='text'
-      value='zion the first'
+      type="text"
+      value="zion the first"
       submitOnUnfocus={true}
       cancelOnUnfocus={true}
       onSave={onSave}
@@ -499,10 +463,7 @@ test('cancelOnUnfocus overrides the submitOnUnfocus prop ', () => {
 
   editext.instance().forceUpdate()
   expect(editext.state().editing).toEqual(false)
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const editInput = editext.find('input[type="text"]').at(0)
@@ -517,17 +478,14 @@ test('cancelOnUnfocus overrides the submitOnUnfocus prop ', () => {
 })
 
 test('tabIndex is passed down to the both view and input props', () => {
-  const onSave = v => v
+  const onSave = (v) => v
   const editext = mount(
-    <EdiText type='text' value='niobe' tabIndex={333} onSave={onSave} />
+    <EdiText type="text" value="niobe" tabIndex={333} onSave={onSave} />
   )
   editext.instance().forceUpdate()
   const view = editext.find('div[editext="view"]').at(0)
   expect(view.getDOMNode().getAttribute('tabIndex')).toEqual('333')
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const editInput = editext.find('input[type="text"]').at(0)
@@ -535,11 +493,11 @@ test('tabIndex is passed down to the both view and input props', () => {
 })
 
 test('tabIndex prop in inputProps overrides the top level tabIndex', () => {
-  const onSave = v => v
+  const onSave = (v) => v
   const editext = mount(
     <EdiText
-      type='text'
-      value='niobe'
+      type="text"
+      value="niobe"
       tabIndex={2}
       inputProps={{
         tabIndex: 3
@@ -548,10 +506,7 @@ test('tabIndex prop in inputProps overrides the top level tabIndex', () => {
     />
   )
   editext.instance().forceUpdate()
-  editext
-    .find('button')
-    .at(0)
-    .simulate('click')
+  editext.find('button').at(0).simulate('click')
   expect(editext.state().editing).toEqual(true)
 
   const editInput = editext.find('input[type="text"]').at(0)
@@ -559,11 +514,11 @@ test('tabIndex prop in inputProps overrides the top level tabIndex', () => {
 })
 
 test('tabIndex prop in viewProps overrides the top level tabIndex', () => {
-  const onSave = v => v
+  const onSave = (v) => v
   const editext = mount(
     <EdiText
-      type='text'
-      value='niobe'
+      type="text"
+      value="niobe"
       tabIndex={0}
       viewProps={{
         tabIndex: 1
@@ -578,10 +533,10 @@ test('tabIndex prop in viewProps overrides the top level tabIndex', () => {
 })
 
 test('pressing Enter activates the editing mode', () => {
-  const onSave = v => v
+  const onSave = (v) => v
   const editext = mount(
     <EdiText
-      type='text'
+      type="text"
       startEditingOnEnter={true}
       submitOnUnfocus={true}
       onSave={onSave}
@@ -599,9 +554,9 @@ test('pressing Enter activates the editing mode', () => {
 })
 
 test('focusing activates the editing mode', () => {
-  const onSave = v => v
+  const onSave = (v) => v
   const editext = mount(
-    <EdiText type='text' startEditingOnFocus={true} onSave={onSave} />
+    <EdiText type="text" startEditingOnFocus={true} onSave={onSave} />
   )
   editext.instance().forceUpdate()
 
@@ -609,4 +564,62 @@ test('focusing activates the editing mode', () => {
   expect(editext.state().editing).toEqual(false)
   view.simulate('focus')
   expect(editext.state().editing).toEqual(true)
+})
+
+test('renderView prop working properly for string values', () => {
+  const onSave = (v) => v
+  const customRender = (v) => v.toUpperCase()
+  const editext = mount(
+    <EdiText
+      type="text"
+      value={'hello world'}
+      renderValue={customRender}
+      onSave={onSave}
+      submitOnEnter={true}
+    />
+  )
+  expect(editext.state().editing).toEqual(false)
+  editext.find('button').at(0).simulate('click')
+  expect(editext.state().editing).toEqual(true)
+
+  const editInput = editext.find('input[type="text"]').at(0)
+
+  editInput.instance().value = 'hello world, again'
+  editInput.simulate('change')
+  editInput.simulate('keyDown', { keyCode: 'Enter' })
+  expect(editext.state().editing).toEqual(false)
+
+  expect(editext.state().value).toEqual('hello world, again')
+  expect(editext.state().savedValue).toEqual('hello world, again')
+  const view = editext.find('div[editext="view"]').at(0)
+  expect(view.text()).toBe('HELLO WORLD, AGAIN')
+})
+
+test('renderView prop working properly for jsx expressions', () => {
+  const onSave = (v) => v
+  const customRender = (v) => <b>{v.toUpperCase()}</b>
+  const editext = mount(
+    <EdiText
+      type="text"
+      value={'hello world'}
+      renderValue={customRender}
+      onSave={onSave}
+      submitOnEnter={true}
+    />
+  )
+  expect(editext.state().editing).toEqual(false)
+  editext.find('button').at(0).simulate('click')
+  expect(editext.state().editing).toEqual(true)
+
+  const editInput = editext.find('input[type="text"]').at(0)
+
+  editInput.instance().value = 'hello world, again'
+  editInput.simulate('change')
+  editInput.simulate('keyDown', { keyCode: 'Enter' })
+  expect(editext.state().editing).toEqual(false)
+
+  expect(editext.state().value).toEqual('hello world, again')
+  expect(editext.state().savedValue).toEqual('hello world, again')
+  const view = editext.find('div[editext="view"]').at(0)
+  expect(view.html()).toContain('<b>HELLO WORLD, AGAIN</b>')
 })

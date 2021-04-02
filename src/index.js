@@ -272,7 +272,8 @@ export default class EdiText extends Component {
       hideIcons,
       buttonsAlign,
       editOnViewClick,
-      showButtonsOnHover
+      showButtonsOnHover,
+      renderValue
     } = this.props
     // calculate edit button classes
     const editButtonDefaultClasses = classnames(
@@ -293,6 +294,10 @@ export default class EdiText extends Component {
     const viewClickHandler = editOnViewClick
       ? this.handleActivateEditMode
       : undefined
+    const value =
+      typeof renderValue === 'function'
+        ? renderValue(this.state.value)
+        : this.state.value
     return (
       <div
         className={viewContainerClass}
@@ -310,7 +315,7 @@ export default class EdiText extends Component {
             onClick={viewClickHandler}
             editext="view"
           >
-            {this.state.value}
+            {value}
           </div>
         )}
         <div className={buttonsContainerClass}>
@@ -335,7 +340,7 @@ export default class EdiText extends Component {
             onClick={viewClickHandler}
             editext={dataAttributes.viewContainer}
           >
-            {this.state.value}
+            {value}
           </div>
         )}
       </div>
@@ -428,5 +433,6 @@ EdiText.propTypes = {
   // from creating duplicate code for both `inputProps` and `viewProps`
   tabIndex: PropTypes.any,
   startEditingOnFocus: PropTypes.bool,
-  startEditingOnEnter: PropTypes.bool
+  startEditingOnEnter: PropTypes.bool,
+  renderValue: PropTypes.func
 }

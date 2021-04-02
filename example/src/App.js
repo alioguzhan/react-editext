@@ -996,6 +996,47 @@ export default function App() {
           </div>
         </div>
         {/* ============ End of Example ============ */}
+        <div className="tile is-parent is-vertical is-10" id="render-value">
+          <div className="subtitle">
+            <a href="#render-value">Customizing Rendered Value</a>
+          </div>
+          <p className="content">
+            You may want to customize the renderd value. You may want to parse
+            it or apply some regular expressions before rendering.
+            <br />
+            You can pass <code>renderValue</code> function prop for this
+            purpose. EdiText will call that function before rendering the value.
+          </p>
+          <div className="columns">
+            <div className="column is-half">
+              <SyntaxHighlighter language="javascript" showLineNumbers={true}>
+                {examples.example25}
+              </SyntaxHighlighter>
+            </div>
+            <div className="column">
+              <div className="subtitle">Output</div>
+              <EdiText
+                value="this the website of the matrix: www.whatisthematrix.com"
+                onSave={handleSave}
+                submitOnEnter
+                editing={true}
+                renderValue={(value) => {
+                  const regexp = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gi
+                  const valueWithParsedURLS = value.replace(
+                    regexp,
+                    "<a target='_blank' href='http://$&'>$&</a>"
+                  )
+                  return (
+                    <span
+                      dangerouslySetInnerHTML={{ __html: valueWithParsedURLS }}
+                    />
+                  )
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        {/* ============ End of Example ============ */}
       </div>
       <footer className="footer" style={{ padding: 20 }}>
         <div className="content has-text-centered">
