@@ -1,12 +1,9 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
-// eslint-disable-next-line no-unused-vars
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import EdiText from 'react-editext'
 import styled from 'styled-components'
 import * as examples from './_examples'
 
-// eslint-disable-next-line no-unused-vars
 const StyledEdiText = styled(EdiText)`
   button {
     border-radius: 5px;
@@ -782,7 +779,9 @@ export default function App() {
                 <button
                   className="button is-small is-primary"
                   style={{ marginLeft: 10 }}
-                  onClick={() => setData({ name: 'new value' })}
+                  onClick={() =>
+                    setData({ name: 'new value: ' + Math.random().toFixed(4) })
+                  }
                 >
                   Set New Value
                 </button>
@@ -1019,7 +1018,6 @@ export default function App() {
                 value="this the website of the matrix: www.whatisthematrix.com"
                 onSave={handleSave}
                 submitOnEnter
-                editing={true}
                 renderValue={(value) => {
                   const regexp = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gi
                   const valueWithParsedURLS = value.replace(

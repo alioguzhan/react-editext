@@ -9,6 +9,8 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alioguzhan_react-editext&metric=alert_status)](https://sonarcloud.io/dashboard?id=alioguzhan_react-editext)
 ![Github All Contributors](https://img.shields.io/github/all-contributors/alioguzhan/react-editext)
 
+This project is generated from [react-typescript-library template](https://github.com/alioguzhan/react-typescript-library).
+
 ## Install
 
 ```bash
@@ -26,22 +28,22 @@ yarn add react-editext
 EdiText is highly customizable. You can see more examples [here](https://alioguzhan.github.io/react-editext/). Here is a basic usage:
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import EdiText from 'react-editext'
+import EdiText from 'react-editext';
 
 function Example(props) {
-  const [value, setValue] = useState('What is real? How do you define real?')
+  const [value, setValue] = useState('What is real? How do you define real?');
 
   const handleSave = (val) => {
-    console.log('Edited Value -> ', val)
-    setValue(val)
-  }
+    console.log('Edited Value -> ', val);
+    setValue(val);
+  };
   return (
     <div className="container">
       <EdiText type="text" value={value} onSave={handleSave} />
     </div>
-  )
+  );
 }
 ```
 
@@ -141,7 +143,7 @@ textarea {
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                | :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                        | :white_check_mark: :exclamation:                                                                                                                                                                                |
 
-* `rows` prop for textarea has no effect in IE. You can set its `height` with some css. (This is IE-specific. Edge is fine.)
+- `rows` prop for textarea has no effect in IE. You can set its `height` with some css. (This is IE-specific. Edge is fine.)
 
 ## Contributors ✨
 

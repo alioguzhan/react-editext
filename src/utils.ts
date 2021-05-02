@@ -1,11 +1,11 @@
-export function classnames() {
+export function classnames(...args: any[]) {
   /**
    * Our simple classnames replica.
    * This is enough for me.
    */
-  return Array(...arguments)
-    .filter(a => a)
-    .join(' ')
+  return Array(...args)
+    .filter((a) => a)
+    .join(' ');
 }
 
 export const dataAttributes = {
@@ -38,9 +38,9 @@ export const dataAttributes = {
   saveButton: 'save-button',
   cancelButton: 'cancel-button',
   input: 'input',
-  hint: 'hint'
-}
+  hint: 'hint',
+};
 
 export const cancelOnConflictMessage =
   'EdiText: Both `cancelOnUnfocus` and `submitOnUnfocus` are set to true. ' +
-  '`submitOnUnfocus` is ignored in this case. Please remove one of these.'
+  '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
