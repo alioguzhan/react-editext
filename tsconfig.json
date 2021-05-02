@@ -37,10 +37,13 @@
   "include": [
     "src/**/*"
   ],
+  "files": [
+    "src/index.tsx",
+    "src/utils.ts",
+    "src/index.d.ts",
+  ],
   "exclude": [
     "node_modules",
     "dist",
-    "src/**/*.spec.tsx",
-    "src/**/*.test.tsx"
   ]
 }
