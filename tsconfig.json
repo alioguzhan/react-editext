@@ -41,6 +41,5 @@
   "exclude": [
     "node_modules",
     "dist",
-    "**/*.spec.tsx"
   ]
 }
