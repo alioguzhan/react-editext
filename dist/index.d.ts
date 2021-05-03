@@ -27,8 +27,8 @@ interface EdiTextProps {
      */
     hint?: React.ReactNode;
     /**
-          If validation fails this message will appear
-          */
+     * If validation fails this message will appear
+     */
     validationMessage?: any;
     /** Pass your own validation function.
      * takes one param -> `value`.
@@ -106,10 +106,12 @@ interface EdiTextProps {
     mainContainerClassName?: string;
     /**
      * Set it to `true` if you want clicking on the view to activate the editor.
+     * @default false
      */
     editOnViewClick?: boolean;
     /**
      * Set it to `true` if you want the view state to be edit mode
+     * @default false
      */
     editing?: boolean;
     /**
@@ -122,26 +124,31 @@ interface EdiTextProps {
     /**
      * Set it to `true` if you want to display action buttons **only**
      * when the text hovered by the user.
+     * @default false
      */
     showButtonsOnHover?: boolean;
     /**
      * Set it to `true` if you want to submit the form when `Enter`
      * is pressed.
+     * @default false
      */
     submitOnEnter?: boolean;
     /**
      * Set it to `true` if you want to cancel the form when `Escape`
      * is pressed.
+     * @default false
      */
     cancelOnEscape?: boolean;
     /**
      * Set it to `true` if you want to cancel the form when the input
      * is unfocused.
+     * @default false
      */
     cancelOnUnfocus?: boolean;
     /**
      * Set it to `true` if you want to save the form when the input
      * is unfocused.
+     * @default false
      */
     submitOnUnfocus?: boolean;
     /**

@@ -206,11 +206,13 @@ function EdiText(_a) {
     }
     function handleSave() {
         var _a;
-        var isValid = (_a = props.validation) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal);
-        if (!isValid) {
-            setValid(false);
-            props.onValidationFail && props.onValidationFail(valueInternal);
-            return;
+        if (typeof props.validation === 'function') {
+            var isValid = (_a = props.validation) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal);
+            if (!isValid) {
+                setValid(false);
+                props.onValidationFail && props.onValidationFail(valueInternal);
+                return;
+            }
         }
         setEditingInternal(false);
         setSavedValue(valueInternal);
