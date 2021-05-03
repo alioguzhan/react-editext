@@ -6,8 +6,8 @@
   "private": true,
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "link:../node_modules/react",
-    "react-dom": "link:../node_modules/react-dom",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-editext": "link:..",
     "react-scripts": "^4.0.3",
     "react-syntax-highlighter": "^15.4.3",
