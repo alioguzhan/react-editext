@@ -32,7 +32,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:ci": "cross-env CI=1 jest",
-    "predeploy": "yarn install && cd example && yarn install && yarn run build",
+    "predeploy": "cd example && yarn install && yarn run build && cp _redirects build/",
     "deploy": "gh-pages -d example/build",
     "release": "standard-version",
     "prepare": "husky install"
