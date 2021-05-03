@@ -321,11 +321,13 @@ export default function EdiText({
   }
 
   function handleSave(): void {
-    const isValid = props.validation?.(valueInternal);
-    if (!isValid) {
-      setValid(false);
-      props.onValidationFail && props.onValidationFail(valueInternal);
-      return;
+    if (typeof props.validation === 'function') {
+      const isValid = props.validation?.(valueInternal);
+      if (!isValid) {
+        setValid(false);
+        props.onValidationFail && props.onValidationFail(valueInternal);
+        return;
+      }
     }
     setEditingInternal(false);
     setSavedValue(valueInternal);
