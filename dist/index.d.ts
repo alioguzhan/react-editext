@@ -44,6 +44,7 @@ interface EdiTextProps {
      * Input type. Possible options are:
      * `text`, `number`, `email`, `textarea`, `date`,
      * `datetime-local`, `time`, `month`, `url`, `week`, `tel`
+     * @default "text"
      */
     type?: EdiTextType;
     /**
@@ -81,11 +82,13 @@ interface EdiTextProps {
     /**
      * Set it to `true` if you don't want to see default icons
      * on action buttons.See Examples page for more details.
+     * @default "false"
      */
     hideIcons?: boolean;
     /**
      * Decides whether buttons will be located _BEFORE_ or _AFTER_
-     * the input element. Default is `after`.
+     * the input element.
+     * @default "after"
      */
     buttonsAlign?: ButtonsAlignment;
     /**
@@ -168,6 +171,6 @@ interface EdiTextProps {
      */
     renderValue?: (value: any) => any;
 }
-export default function EdiText({ value, type, validationMessage, cancelButtonContent, saveButtonContent, editButtonContent, hideIcons, buttonsAlign, editing, saveButtonClassName, cancelButtonClassName, editButtonClassName, viewContainerClassName, editContainerClassName, mainContainerClassName, showButtonsOnHover, cancelOnEscape, cancelOnUnfocus, submitOnUnfocus, submitOnEnter, startEditingOnEnter, startEditingOnFocus, tabIndex, className, hint, editOnViewClick, onSave, renderValue, validation, onValidationFail, onEditingStart, onCancel, inputProps, viewProps, }: EdiTextProps): JSX.Element;
+export default function EdiText({ value, type, validationMessage, cancelButtonContent, saveButtonContent, editButtonContent, buttonsAlign, saveButtonClassName, cancelButtonClassName, editButtonClassName, viewContainerClassName, editContainerClassName, mainContainerClassName, ...props }: EdiTextProps): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

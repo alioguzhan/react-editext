@@ -33,6 +33,18 @@ var __assign = function() {
     return __assign.apply(this, arguments);
 };
 
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -112,94 +124,97 @@ var cancelOnConflictMessage = 'EdiText: Both `cancelOnUnfocus` and `submitOnUnfo
     '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
 
 function EdiText(_a) {
-    var _b = _a.value, value = _b === void 0 ? '' : _b, _c = _a.type, type = _c === void 0 ? 'text' : _c, _d = _a.validationMessage, validationMessage = _d === void 0 ? 'Invalid Value' : _d, _f = _a.cancelButtonContent, cancelButtonContent = _f === void 0 ? '' : _f, _g = _a.saveButtonContent, saveButtonContent = _g === void 0 ? '' : _g, _h = _a.editButtonContent, editButtonContent = _h === void 0 ? '' : _h, _j = _a.hideIcons, hideIcons = _j === void 0 ? false : _j, _k = _a.buttonsAlign, buttonsAlign = _k === void 0 ? 'after' : _k, _l = _a.editing, editing = _l === void 0 ? false : _l, _m = _a.saveButtonClassName, saveButtonClassName = _m === void 0 ? '' : _m, _o = _a.cancelButtonClassName, cancelButtonClassName = _o === void 0 ? '' : _o, _p = _a.editButtonClassName, editButtonClassName = _p === void 0 ? '' : _p, _q = _a.viewContainerClassName, viewContainerClassName = _q === void 0 ? '' : _q, _r = _a.editContainerClassName, editContainerClassName = _r === void 0 ? '' : _r, _s = _a.mainContainerClassName, mainContainerClassName = _s === void 0 ? '' : _s, _t = _a.showButtonsOnHover, showButtonsOnHover = _t === void 0 ? false : _t, cancelOnEscape = _a.cancelOnEscape, cancelOnUnfocus = _a.cancelOnUnfocus, submitOnUnfocus = _a.submitOnUnfocus, submitOnEnter = _a.submitOnEnter, startEditingOnEnter = _a.startEditingOnEnter, startEditingOnFocus = _a.startEditingOnFocus, tabIndex = _a.tabIndex, className = _a.className, hint = _a.hint, editOnViewClick = _a.editOnViewClick, onSave = _a.onSave, renderValue = _a.renderValue, _u = _a.validation, validation = _u === void 0 ? function (_v) { return true; } : _u, onValidationFail = _a.onValidationFail, _w = _a.onEditingStart, onEditingStart = _w === void 0 ? function (_v) { return null; } : _w, _x = _a.onCancel, onCancel = _x === void 0 ? function (_v) { return null; } : _x, _y = _a.inputProps, inputProps = _y === void 0 ? {
-        onKeyDown: function (_e) { },
-        onBlur: function (_e) { },
-    } : _y, _z = _a.viewProps, viewProps = _z === void 0 ? {
-        onKeyDown: function (_e) { },
-        onFocus: function (_e) { },
-    } : _z;
+    var _b = _a.value, value = _b === void 0 ? '' : _b, _c = _a.type, type = _c === void 0 ? 'text' : _c, _d = _a.validationMessage, validationMessage = _d === void 0 ? 'Invalid Value' : _d, _e = _a.cancelButtonContent, cancelButtonContent = _e === void 0 ? '' : _e, _f = _a.saveButtonContent, saveButtonContent = _f === void 0 ? '' : _f, _g = _a.editButtonContent, editButtonContent = _g === void 0 ? '' : _g, _h = _a.buttonsAlign, buttonsAlign = _h === void 0 ? 'after' : _h, _j = _a.saveButtonClassName, saveButtonClassName = _j === void 0 ? '' : _j, _k = _a.cancelButtonClassName, cancelButtonClassName = _k === void 0 ? '' : _k, _l = _a.editButtonClassName, editButtonClassName = _l === void 0 ? '' : _l, _m = _a.viewContainerClassName, viewContainerClassName = _m === void 0 ? '' : _m, _o = _a.editContainerClassName, editContainerClassName = _o === void 0 ? '' : _o, _p = _a.mainContainerClassName, mainContainerClassName = _p === void 0 ? '' : _p, props = __rest(_a, ["value", "type", "validationMessage", "cancelButtonContent", "saveButtonContent", "editButtonContent", "buttonsAlign", "saveButtonClassName", "cancelButtonClassName", "editButtonClassName", "viewContainerClassName", "editContainerClassName", "mainContainerClassName"]);
     // state
-    var _0 = React.useState(editing), editingInternal = _0[0], setEditingInternal = _0[1];
-    var _1 = React.useState(true), valid = _1[0], setValid = _1[1];
-    var _2 = React.useState(value || ''), valueInternal = _2[0], setValueInternal = _2[1];
-    var _3 = React.useState(undefined), savedValue = _3[0], setSavedValue = _3[1];
-    var _4 = React.useState(false), viewFocused = _4[0], setViewFocused = _4[1];
+    var _q = React.useState(props.editing), editingInternal = _q[0], setEditingInternal = _q[1];
+    var _r = React.useState(true), valid = _r[0], setValid = _r[1];
+    var _s = React.useState(value || ''), valueInternal = _s[0], setValueInternal = _s[1];
+    var _t = React.useState(undefined), savedValue = _t[0], setSavedValue = _t[1];
+    var _u = React.useState(false), viewFocused = _u[0], setViewFocused = _u[1];
     // refs
     var saveButton = React__default['default'].createRef();
     var editingContainer = React__default['default'].createRef();
     var editingButtons = React__default['default'].createRef();
     React.useEffect(function () {
-        if (cancelOnUnfocus && submitOnUnfocus) {
+        if (props.cancelOnUnfocus && props.submitOnUnfocus) {
             console.warn(cancelOnConflictMessage);
         }
-    }, [cancelOnUnfocus, submitOnUnfocus]);
+    }, [props.cancelOnUnfocus, props.submitOnUnfocus]);
     React.useEffect(function () {
         if (value !== undefined) {
             setValueInternal(value);
             setSavedValue(value);
         }
-        if (editing !== undefined) {
-            setEditingInternal(editing);
+        if (props.editing !== undefined) {
+            setEditingInternal(props.editing);
         }
-    }, [editing, value]);
+    }, [props.editing, value]);
     function handleKeyDown(e) {
+        var _a;
         var isEnter = [13, 'Enter'].some(function (c) { return (e === null || e === void 0 ? void 0 : e.keyCode) === c || (e === null || e === void 0 ? void 0 : e.code) === c; });
         var isEscape = [27, 'Escape', 'Esc'].some(function (c) { return (e === null || e === void 0 ? void 0 : e.keyCode) === c || e.code === c; });
         if (isEnter) {
-            submitOnEnter && handleSave();
+            props.submitOnEnter && handleSave();
             e === null || e === void 0 ? void 0 : e.preventDefault();
         }
         if (isEscape) {
-            cancelOnEscape && handleCancel();
+            props.cancelOnEscape && handleCancel();
             e.preventDefault();
         }
-        (inputProps === null || inputProps === void 0 ? void 0 : inputProps.onKeyDown) && inputProps.onKeyDown(e); // TODO: this sucks.
+        ((_a = props.inputProps) === null || _a === void 0 ? void 0 : _a.onKeyDown) && props.inputProps.onKeyDown(e);
     }
     function handleOnBlur(e) {
-        var _a;
+        var _a, _b;
         var isEditingButton = (_a = editingButtons.current) === null || _a === void 0 ? void 0 : _a.contains(e === null || e === void 0 ? void 0 : e.relatedTarget);
-        cancelOnUnfocus && !isEditingButton && handleCancel();
-        submitOnUnfocus && !isEditingButton && !cancelOnUnfocus && handleSave();
-        (inputProps === null || inputProps === void 0 ? void 0 : inputProps.onBlur) && inputProps.onBlur(e); // TODO: this sucks.
+        props.cancelOnUnfocus && !isEditingButton && handleCancel();
+        props.submitOnUnfocus &&
+            !isEditingButton &&
+            !props.cancelOnUnfocus &&
+            handleSave();
+        ((_b = props.inputProps) === null || _b === void 0 ? void 0 : _b.onBlur) && props.inputProps.onBlur(e);
     }
     function handleViewFocus(e) {
+        var _a;
         setViewFocused(true);
-        startEditingOnFocus && setEditingInternal(true);
-        (viewProps === null || viewProps === void 0 ? void 0 : viewProps.onFocus) && viewProps.onFocus(e);
+        props.startEditingOnFocus && setEditingInternal(true);
+        ((_a = props.viewProps) === null || _a === void 0 ? void 0 : _a.onFocus) && props.viewProps.onFocus(e);
     }
     function handleKeyDownForView(e) {
+        var _a;
         var isEnter = [13, 'Enter'].some(function (c) { return e.keyCode === c || e.code === c; });
-        var startEditing = isEnter && viewFocused && startEditingOnEnter;
+        var startEditing = isEnter && viewFocused && props.startEditingOnEnter;
         startEditing && e.preventDefault();
         startEditing && setEditingInternal(true);
-        (viewProps === null || viewProps === void 0 ? void 0 : viewProps.onKeyDown) && viewProps.onKeyDown(e);
+        ((_a = props.viewProps) === null || _a === void 0 ? void 0 : _a.onKeyDown) && props.viewProps.onKeyDown(e);
     }
     function handleInputChange(e) {
         setValid(true);
         setValueInternal(e.target.value);
     }
     function handleCancel() {
+        var _a;
         var val = savedValue !== null && savedValue !== void 0 ? savedValue : value;
         setValid(true);
         setEditingInternal(false);
         setValueInternal(val);
-        onCancel === null || onCancel === void 0 ? void 0 : onCancel(val, inputProps);
+        (_a = props.onCancel) === null || _a === void 0 ? void 0 : _a.call(props, val, props.inputProps);
     }
     function handleActivateEditMode() {
+        var _a;
         setEditingInternal(true);
-        onEditingStart === null || onEditingStart === void 0 ? void 0 : onEditingStart(valueInternal, inputProps);
+        (_a = props.onEditingStart) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal, props.inputProps);
     }
     function handleSave() {
-        var isValid = validation(valueInternal);
+        var _a;
+        var isValid = (_a = props.validation) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal);
         if (!isValid) {
             setValid(false);
-            onValidationFail && onValidationFail(valueInternal);
+            props.onValidationFail && props.onValidationFail(valueInternal);
             return;
         }
         setEditingInternal(false);
         setSavedValue(valueInternal);
-        onSave(valueInternal, inputProps);
+        props.onSave(valueInternal, props.inputProps);
     }
     function _renderInput() {
         if (type === 'textarea') {
@@ -209,7 +224,7 @@ function EdiText(_a) {
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
-                tabIndex: tabIndex }, inputProps, { onBlur: handleOnBlur, value: valueInternal, onChange: handleInputChange, autoFocus: editingInternal }), void 0));
+                tabIndex: props.tabIndex }, props.inputProps, { onBlur: handleOnBlur, value: valueInternal, onChange: handleInputChange, autoFocus: editingInternal }), void 0));
         }
         else {
             return (jsxRuntime.jsx("input", __assign({ className: styles.Editext__input, 
@@ -218,16 +233,16 @@ function EdiText(_a) {
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
-                tabIndex: tabIndex }, inputProps, { onKeyDown: handleKeyDown, onBlur: handleOnBlur, value: valueInternal, type: type, onChange: handleInputChange, autoFocus: editingInternal }), void 0));
+                tabIndex: props.tabIndex }, props.inputProps, { onKeyDown: handleKeyDown, onBlur: handleOnBlur, value: valueInternal, type: type, onChange: handleInputChange, autoFocus: editingInternal }), void 0));
         }
     }
     function _renderEditingMode() {
         var inputElem = _renderInput();
         // calculate save button classes
-        var saveButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__save_button, hideIcons && "" + styles.Editext__hide_default_icons);
+        var saveButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__save_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
         var saveButtonClass = saveButtonClassName || saveButtonDefaultClasses;
         // calculate cancel button classes
-        var cancelButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__cancel_button, hideIcons && "" + styles.Editext__hide_default_icons);
+        var cancelButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__cancel_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
         var cancelButtonClass = cancelButtonClassName || cancelButtonDefaultClasses;
         var editContainerClass = styles.Editext__editing_container;
         if (editContainerClassName)
@@ -243,22 +258,23 @@ function EdiText(_a) {
                                 jsxRuntime.jsx("button", __assign({ type: "button", 
                                     // @ts-ignore
                                     editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, { children: cancelButtonContent }), void 0)] }), void 0), buttonsAlign === 'before' && inputElem] }), void 0),
-                !valid && !onValidationFail && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__validation_message }, { children: validationMessage }), void 0)),
-                hint && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__hint, 
+                !valid && !props.onValidationFail && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__validation_message }, { children: validationMessage }), void 0)),
+                props.hint && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__hint, 
                     // @ts-ignore
-                    editext: dataAttributes.hint }, { children: hint }), void 0))] }, void 0));
+                    editext: dataAttributes.hint }, { children: props.hint }), void 0))] }, void 0));
     }
     function _renderViewMode() {
         // calculate edit button classes
-        var editButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__edit_button, hideIcons && "" + styles.Editext__hide_default_icons);
+        var editButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__edit_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
         var editButtonClass = editButtonClassName || editButtonDefaultClasses;
-        var viewContainerClass = classnames(viewContainerClassName || styles.Editext__view_container, showButtonsOnHover && "" + styles.Editext__buttons_showButtonsOnHover);
+        var viewContainerClass = classnames(viewContainerClassName || styles.Editext__view_container, props.showButtonsOnHover &&
+            "" + styles.Editext__buttons_showButtonsOnHover);
         var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "" + styles.Editext__buttons_before_aligned, buttonsAlign === 'after' && "" + styles.Editext__buttons_after_aligned);
-        var viewClickHandler = editOnViewClick
+        var viewClickHandler = props.editOnViewClick
             ? handleActivateEditMode
             : undefined;
-        var _value = typeof renderValue === 'function'
-            ? renderValue(valueInternal)
+        var _value = typeof props.renderValue === 'function'
+            ? props.renderValue(valueInternal)
             : valueInternal;
         return (jsxRuntime.jsxs("div", __assign({ className: viewContainerClass, 
             // @ts-ignore
@@ -266,7 +282,7 @@ function EdiText(_a) {
                     // this is here because,
                     // we still allow people to pass the tabIndex via inputProps
                     // also backward compatibility.
-                    tabIndex: tabIndex }, viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
+                    tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
                     // @ts-ignore
                     editext: "view" }, { children: _value }), void 0)),
                 jsxRuntime.jsx("div", __assign({ className: buttonsContainerClass }, { children: jsxRuntime.jsx("button", __assign({ type: "button", 
@@ -276,12 +292,12 @@ function EdiText(_a) {
                     // this is here because,
                     // we still allow people to pass the tabIndex via inputProps
                     // also backward compatibility.
-                    tabIndex: tabIndex }, viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
+                    tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
                     // @ts-ignore
                     editext: dataAttributes.viewContainer }, { children: _value }), void 0))] }), void 0));
     }
     var mode = editingInternal ? _renderEditingMode() : _renderViewMode();
-    var clsName = classnames(mainContainerClassName || styles.Editext__main_container, className);
+    var clsName = classnames(mainContainerClassName || styles.Editext__main_container, props.className);
     return jsxRuntime.jsx("div", __assign({ className: clsName }, { children: mode }), void 0);
 }
 

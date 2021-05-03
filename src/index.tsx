@@ -62,8 +62,8 @@ interface EdiTextProps {
    */
   hint?: React.ReactNode;
   /**
-        If validation fails this message will appear
-        */
+   * If validation fails this message will appear
+   */
   validationMessage?: any;
   /** Pass your own validation function.
    * takes one param -> `value`.
@@ -79,6 +79,7 @@ interface EdiTextProps {
    * Input type. Possible options are:
    * `text`, `number`, `email`, `textarea`, `date`,
    * `datetime-local`, `time`, `month`, `url`, `week`, `tel`
+   * @default "text"
    */
   type?: EdiTextType;
   /**
@@ -116,11 +117,13 @@ interface EdiTextProps {
   /**
    * Set it to `true` if you don't want to see default icons
    * on action buttons.See Examples page for more details.
+   * @default "false"
    */
   hideIcons?: boolean;
   /**
    * Decides whether buttons will be located _BEFORE_ or _AFTER_
-   * the input element. Default is `after`.
+   * the input element.
+   * @default "after"
    */
   buttonsAlign?: ButtonsAlignment;
   /**
@@ -138,10 +141,12 @@ interface EdiTextProps {
   mainContainerClassName?: string;
   /**
    * Set it to `true` if you want clicking on the view to activate the editor.
+   * @default false
    */
   editOnViewClick?: boolean;
   /**
    * Set it to `true` if you want the view state to be edit mode
+   * @default false
    */
   editing?: boolean;
   /**
@@ -154,26 +159,31 @@ interface EdiTextProps {
   /**
    * Set it to `true` if you want to display action buttons **only**
    * when the text hovered by the user.
+   * @default false
    */
   showButtonsOnHover?: boolean;
   /**
    * Set it to `true` if you want to submit the form when `Enter`
    * is pressed.
+   * @default false
    */
   submitOnEnter?: boolean;
   /**
    * Set it to `true` if you want to cancel the form when `Escape`
    * is pressed.
+   * @default false
    */
   cancelOnEscape?: boolean;
   /**
    * Set it to `true` if you want to cancel the form when the input
    * is unfocused.
+   * @default false
    */
   cancelOnUnfocus?: boolean;
   /**
    * Set it to `true` if you want to save the form when the input
    * is unfocused.
+   * @default false
    */
   submitOnUnfocus?: boolean;
   /**
@@ -211,44 +221,18 @@ export default function EdiText({
   cancelButtonContent = '',
   saveButtonContent = '',
   editButtonContent = '',
-  hideIcons = false,
   buttonsAlign = 'after',
-  editing = false,
   saveButtonClassName = '',
   cancelButtonClassName = '',
   editButtonClassName = '',
   viewContainerClassName = '',
   editContainerClassName = '',
   mainContainerClassName = '',
-  showButtonsOnHover = false,
-  cancelOnEscape,
-  cancelOnUnfocus,
-  submitOnUnfocus,
-  submitOnEnter,
-  startEditingOnEnter,
-  startEditingOnFocus,
-  tabIndex,
-  className,
-  hint,
-  editOnViewClick,
-  onSave,
-  renderValue,
-  validation = (_v: string) => true,
-  onValidationFail,
-  onEditingStart = (_v: unknown) => null,
-  onCancel = (_v: unknown) => null,
-  inputProps = {
-    onKeyDown: (_e: KeyboardEvent<HTMLInputElement>) => {},
-    onBlur: (_e: FocusEvent<HTMLInputElement>) => {},
-  },
-  viewProps = {
-    onKeyDown: (_e: KeyboardEvent<HTMLInputElement>) => {},
-    onFocus: (_e: FocusEvent<HTMLInputElement>) => {},
-  },
+  ...props
 }: EdiTextProps) {
   // state
-  const [editingInternal, setEditingInternal] = useState(editing);
-  const [valid, setValid] = useState<Boolean>(true);
+  const [editingInternal, setEditingInternal] = useState(props.editing);
+  const [valid, setValid] = useState<boolean>(true);
   const [valueInternal, setValueInternal] = useState<string>(value || '');
   const [savedValue, setSavedValue] = useState<string | undefined>(undefined);
   const [viewFocused, setViewFocused] = useState<boolean>(false);
@@ -258,10 +242,10 @@ export default function EdiText({
   const editingButtons = React.createRef<any>();
 
   useEffect(() => {
-    if (cancelOnUnfocus && submitOnUnfocus) {
+    if (props.cancelOnUnfocus && props.submitOnUnfocus) {
       console.warn(cancelOnConflictMessage);
     }
-  }, [cancelOnUnfocus, submitOnUnfocus]);
+  }, [props.cancelOnUnfocus, props.submitOnUnfocus]);
 
   useEffect(() => {
     if (value !== undefined) {
@@ -269,10 +253,10 @@ export default function EdiText({
       setSavedValue(value);
     }
 
-    if (editing !== undefined) {
-      setEditingInternal(editing);
+    if (props.editing !== undefined) {
+      setEditingInternal(props.editing);
     }
-  }, [editing, value]);
+  }, [props.editing, value]);
 
   function handleKeyDown(e: KeyboardEvent<any>): void {
     const isEnter = [13, 'Enter'].some(
@@ -282,35 +266,38 @@ export default function EdiText({
       (c) => e?.keyCode === c || e.code === c
     );
     if (isEnter) {
-      submitOnEnter && handleSave();
+      props.submitOnEnter && handleSave();
       e?.preventDefault();
     }
     if (isEscape) {
-      cancelOnEscape && handleCancel();
+      props.cancelOnEscape && handleCancel();
       e.preventDefault();
     }
-    inputProps?.onKeyDown && inputProps.onKeyDown(e); // TODO: this sucks.
+    props.inputProps?.onKeyDown && props.inputProps.onKeyDown(e);
   }
 
   function handleOnBlur(e: FocusEvent<any>): void {
     const isEditingButton = editingButtons.current?.contains(e?.relatedTarget);
-    cancelOnUnfocus && !isEditingButton && handleCancel();
-    submitOnUnfocus && !isEditingButton && !cancelOnUnfocus && handleSave();
-    inputProps?.onBlur && inputProps.onBlur(e); // TODO: this sucks.
+    props.cancelOnUnfocus && !isEditingButton && handleCancel();
+    props.submitOnUnfocus &&
+      !isEditingButton &&
+      !props.cancelOnUnfocus &&
+      handleSave();
+    props.inputProps?.onBlur && props.inputProps.onBlur(e);
   }
 
   function handleViewFocus(e: FocusEvent<HTMLInputElement>): void {
     setViewFocused(true);
-    startEditingOnFocus && setEditingInternal(true);
-    viewProps?.onFocus && viewProps.onFocus(e);
+    props.startEditingOnFocus && setEditingInternal(true);
+    props.viewProps?.onFocus && props.viewProps.onFocus(e);
   }
 
   function handleKeyDownForView(e: KeyboardEvent<any>): void {
     const isEnter = [13, 'Enter'].some((c) => e.keyCode === c || e.code === c);
-    const startEditing = isEnter && viewFocused && startEditingOnEnter;
+    const startEditing = isEnter && viewFocused && props.startEditingOnEnter;
     startEditing && e.preventDefault();
     startEditing && setEditingInternal(true);
-    viewProps?.onKeyDown && viewProps.onKeyDown(e);
+    props.viewProps?.onKeyDown && props.viewProps.onKeyDown(e);
   }
 
   function handleInputChange(
@@ -325,24 +312,24 @@ export default function EdiText({
     setValid(true);
     setEditingInternal(false);
     setValueInternal(val);
-    onCancel?.(val, inputProps);
+    props.onCancel?.(val, props.inputProps);
   }
 
   function handleActivateEditMode(): void {
     setEditingInternal(true);
-    onEditingStart?.(valueInternal, inputProps);
+    props.onEditingStart?.(valueInternal, props.inputProps);
   }
 
   function handleSave(): void {
-    const isValid = validation(valueInternal);
+    const isValid = props.validation?.(valueInternal);
     if (!isValid) {
       setValid(false);
-      onValidationFail && onValidationFail(valueInternal);
+      props.onValidationFail && props.onValidationFail(valueInternal);
       return;
     }
     setEditingInternal(false);
     setSavedValue(valueInternal);
-    onSave(valueInternal, inputProps);
+    props.onSave(valueInternal, props.inputProps);
   }
 
   function _renderInput() {
@@ -355,8 +342,8 @@ export default function EdiText({
           // this is here because,
           // we still allow people to pass the tabIndex via inputProps
           // also backward compatibility.
-          tabIndex={tabIndex}
-          {...(inputProps as React.DetailedHTMLProps<
+          tabIndex={props.tabIndex}
+          {...(props.inputProps as React.DetailedHTMLProps<
             React.TextareaHTMLAttributes<HTMLTextAreaElement>,
             HTMLTextAreaElement
           >)}
@@ -375,8 +362,8 @@ export default function EdiText({
           // this is here because,
           // we still allow people to pass the tabIndex via inputProps
           // also backward compatibility.
-          tabIndex={tabIndex}
-          {...inputProps}
+          tabIndex={props.tabIndex}
+          {...props.inputProps}
           onKeyDown={handleKeyDown}
           onBlur={handleOnBlur}
           value={valueInternal}
@@ -394,14 +381,14 @@ export default function EdiText({
     const saveButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
       `${styles.Editext__save_button}`,
-      hideIcons && `${styles.Editext__hide_default_icons}`
+      props.hideIcons && `${styles.Editext__hide_default_icons}`
     );
     const saveButtonClass = saveButtonClassName || saveButtonDefaultClasses;
     // calculate cancel button classes
     const cancelButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
       `${styles.Editext__cancel_button}`,
-      hideIcons && `${styles.Editext__hide_default_icons}`
+      props.hideIcons && `${styles.Editext__hide_default_icons}`
     );
     const cancelButtonClass =
       cancelButtonClassName || cancelButtonDefaultClasses;
@@ -445,18 +432,18 @@ export default function EdiText({
           </div>
           {buttonsAlign === 'before' && inputElem}
         </div>
-        {!valid && !onValidationFail && (
+        {!valid && !props.onValidationFail && (
           <div className={styles.Editext__validation_message}>
             {validationMessage}
           </div>
         )}
-        {hint && (
+        {props.hint && (
           <div
             className={styles.Editext__hint}
             // @ts-ignore
             editext={dataAttributes.hint}
           >
-            {hint}
+            {props.hint}
           </div>
         )}
       </div>
@@ -468,24 +455,25 @@ export default function EdiText({
     const editButtonDefaultClasses = classnames(
       `${styles.Editext__button}`,
       `${styles.Editext__edit_button}`,
-      hideIcons && `${styles.Editext__hide_default_icons}`
+      props.hideIcons && `${styles.Editext__hide_default_icons}`
     );
     const editButtonClass = editButtonClassName || editButtonDefaultClasses;
     const viewContainerClass = classnames(
       viewContainerClassName || styles.Editext__view_container,
-      showButtonsOnHover && `${styles.Editext__buttons_showButtonsOnHover}`
+      props.showButtonsOnHover &&
+        `${styles.Editext__buttons_showButtonsOnHover}`
     );
     const buttonsContainerClass = classnames(
       styles.Editext__buttons_container,
       buttonsAlign === 'before' && `${styles.Editext__buttons_before_aligned}`,
       buttonsAlign === 'after' && `${styles.Editext__buttons_after_aligned}`
     );
-    const viewClickHandler = editOnViewClick
+    const viewClickHandler = props.editOnViewClick
       ? handleActivateEditMode
       : undefined;
     const _value =
-      typeof renderValue === 'function'
-        ? renderValue(valueInternal)
+      typeof props.renderValue === 'function'
+        ? props.renderValue(valueInternal)
         : valueInternal;
     return (
       <div
@@ -498,8 +486,8 @@ export default function EdiText({
             // this is here because,
             // we still allow people to pass the tabIndex via inputProps
             // also backward compatibility.
-            tabIndex={tabIndex}
-            {...viewProps}
+            tabIndex={props.tabIndex}
+            {...props.viewProps}
             onKeyDown={handleKeyDownForView}
             onFocus={handleViewFocus}
             onClick={viewClickHandler}
@@ -525,8 +513,8 @@ export default function EdiText({
             // this is here because,
             // we still allow people to pass the tabIndex via inputProps
             // also backward compatibility.
-            tabIndex={tabIndex}
-            {...viewProps}
+            tabIndex={props.tabIndex}
+            {...props.viewProps}
             onKeyDown={handleKeyDownForView}
             onFocus={handleViewFocus}
             onClick={viewClickHandler}
@@ -543,7 +531,7 @@ export default function EdiText({
   const mode = editingInternal ? _renderEditingMode() : _renderViewMode();
   const clsName = classnames(
     mainContainerClassName || styles.Editext__main_container,
-    className
+    props.className
   );
   return <div className={clsName}>{mode}</div>;
 }
