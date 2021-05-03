@@ -6,6 +6,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
+import del from 'rollup-plugin-delete';
 import pkg from './package.json';
 
 export default {
@@ -57,5 +58,13 @@ export default {
     commonjs(),
     // Resolve source maps to the original source
     sourceMaps(),
+    del({
+      targets: 'dist/*',
+      hook: 'buildStart',
+    }),
+    del({
+      targets: ['dist/utils.d.ts', 'dist/utils.d.ts.map'],
+      hook: 'generateBundle',
+    }),
   ],
 };

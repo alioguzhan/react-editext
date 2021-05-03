@@ -10,6 +10,7 @@
     ],
     "declaration": true,
     "declarationDir": "dist",
+    "declarationMap": true,
     "downlevelIteration": true,
     "outDir": "dist",
     "sourceMap": true,
@@ -37,13 +38,9 @@
   "include": [
     "src/**/*"
   ],
-  "files": [
-    "src/index.tsx",
-    "src/utils.ts",
-    "src/index.d.ts",
-  ],
   "exclude": [
     "node_modules",
     "dist",
+    "**/*.spec.tsx"
   ]
 }
