@@ -63,8 +63,13 @@ export default {
       hook: 'buildStart',
     }),
     del({
-      targets: ['dist/utils.d.ts', 'dist/utils.d.ts.map'],
-      hook: 'generateBundle',
+      targets: [
+        'dist/utils.d.ts',
+        'dist/utils.d.ts.map',
+        'dist/index.spec.d.ts',
+        'dist/index.spec.d.ts.map',
+      ],
+      hook: 'writeBundle',
     }),
   ],
 };

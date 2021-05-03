@@ -33,29 +33,6 @@ var __assign = function() {
     return __assign.apply(this, arguments);
 };
 
-function __read(o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-}
-
-function __spreadArray(to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-}
-
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -96,7 +73,7 @@ function classnames() {
      * Our simple classnames replica.
      * This is enough for me.
      */
-    return Array.apply(void 0, __spreadArray([], __read(args))).filter(function (a) { return a; })
+    return Array.apply(void 0, args).filter(function (a) { return a; })
         .join(' ');
 }
 var dataAttributes = {
@@ -143,11 +120,11 @@ function EdiText(_a) {
         onFocus: function (_e) { },
     } : _z;
     // state
-    var _0 = __read(React.useState(editing), 2), editingInternal = _0[0], setEditingInternal = _0[1];
-    var _1 = __read(React.useState(true), 2), valid = _1[0], setValid = _1[1];
-    var _2 = __read(React.useState(value || ''), 2), valueInternal = _2[0], setValueInternal = _2[1];
-    var _3 = __read(React.useState(undefined), 2), savedValue = _3[0], setSavedValue = _3[1];
-    var _4 = __read(React.useState(false), 2), viewFocused = _4[0], setViewFocused = _4[1];
+    var _0 = React.useState(editing), editingInternal = _0[0], setEditingInternal = _0[1];
+    var _1 = React.useState(true), valid = _1[0], setValid = _1[1];
+    var _2 = React.useState(value || ''), valueInternal = _2[0], setValueInternal = _2[1];
+    var _3 = React.useState(undefined), savedValue = _3[0], setSavedValue = _3[1];
+    var _4 = React.useState(false), viewFocused = _4[0], setViewFocused = _4[1];
     // refs
     var saveButton = React__default['default'].createRef();
     var editingContainer = React__default['default'].createRef();
