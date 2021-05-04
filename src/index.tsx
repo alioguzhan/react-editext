@@ -215,7 +215,7 @@ interface EdiTextProps {
 }
 
 export default function EdiText({
-  value = '',
+  value,
   type = 'text',
   validationMessage = 'Invalid Value',
   cancelButtonContent = '',
@@ -259,11 +259,9 @@ export default function EdiText({
   }, [props.editing, value]);
 
   function handleKeyDown(e: KeyboardEvent<any>): void {
-    const isEnter = [13, 'Enter'].some(
-      (c) => e?.keyCode === c || e?.code === c
-    );
+    const isEnter = [13, 'Enter'].some((c) => e.key === c || e.code === c);
     const isEscape = [27, 'Escape', 'Esc'].some(
-      (c) => e?.keyCode === c || e.code === c
+      (c) => e.code === c || e.key === c
     );
     if (isEnter) {
       props.submitOnEnter && handleSave();
@@ -293,7 +291,7 @@ export default function EdiText({
   }
 
   function handleKeyDownForView(e: KeyboardEvent<any>): void {
-    const isEnter = [13, 'Enter'].some((c) => e.keyCode === c || e.code === c);
+    const isEnter = [13, 'Enter'].some((c) => e.key === c || e.code === c);
     const startEditing = isEnter && viewFocused && props.startEditingOnEnter;
     startEditing && e.preventDefault();
     startEditing && setEditingInternal(true);
@@ -322,7 +320,7 @@ export default function EdiText({
 
   function handleSave(): void {
     if (typeof props.validation === 'function') {
-      const isValid = props.validation?.(valueInternal);
+      const isValid = props.validation(valueInternal);
       if (!isValid) {
         setValid(false);
         props.onValidationFail && props.onValidationFail(valueInternal);

@@ -365,3 +365,43 @@ test('custom inputProps are working', () => {
   expect(of).toBeCalled();
   expect(ob).toBeCalled();
 });
+
+test('make sure undefined value is ignored', () => {
+  const { container } = render(
+    <EdiText
+      // @ts-ignore
+      value={undefined}
+      onSave={() => false}
+    />
+  );
+  expect(container.querySelector('div[editext="view"]')?.textContent).toBe('');
+});
+
+test('onCancel prop is working', () => {
+  const oc = jest.fn((v) => v);
+  const { container } = render(
+    <EdiText value={VALUE} onSave={() => false} onCancel={oc} />
+  );
+  const button = container.querySelector('[editext="edit-button"]');
+  button && fireEvent.click(button, new MouseEvent('click'));
+  const input = container.querySelector('input');
+  expect(input).toBeInTheDocument();
+  expect(input?.value).toBe(VALUE);
+  const cnclButton = container.querySelector('[editext="cancel-button"]');
+  cnclButton && fireEvent.click(cnclButton, new MouseEvent('click'));
+  expect(input).not.toBeInTheDocument();
+  expect(oc).toBeCalled();
+});
+
+test('onEditingStart prop is working', () => {
+  const oc = jest.fn((v) => v);
+  const { container } = render(
+    <EdiText value={VALUE} onSave={() => false} onEditingStart={oc} />
+  );
+  const button = container.querySelector('[editext="edit-button"]');
+  button && fireEvent.click(button, new MouseEvent('click'));
+  const input = container.querySelector('input');
+  expect(input).toBeInTheDocument();
+  expect(input?.value).toBe(VALUE);
+  expect(oc).toBeCalled();
+});
