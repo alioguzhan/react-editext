@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/alioguzhan/react-editext/compare/v3.18.0...v4.0.0) (2021-05-04)
+
+No new features.
+
+- Source code is now `Typescript`.
+- Migrate to `Function Components`. No more Class Components.
+- Tests have rewritten with `@testing-library`.
+
 ## [3.18.0](https://github.com/alioguzhan/react-editext/compare/v3.17.2...v3.18.0) (2021-04-02)
 
 
