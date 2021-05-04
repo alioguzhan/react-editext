@@ -21,8 +21,8 @@ With v4.0, I rewrote this component.
 
 There should be NO breaking changes. If you encounter any problem after upgrading to `v.4.0.0`:
 
-1 - Please open an issue and let me know.
-2 - Install the latest version before 4.0: `yarn add react-editext@3.18.0`
+1. Please open an issue and let me know.
+2. Install the latest version before 4.0: `yarn add react-editext@3.18.0`
 
 ## Install
 
