@@ -180,4 +180,3 @@ interface EdiTextProps {
 }
 export default function EdiText({ value, type, validationMessage, cancelButtonContent, saveButtonContent, editButtonContent, buttonsAlign, saveButtonClassName, cancelButtonClassName, editButtonClassName, viewContainerClassName, editContainerClassName, mainContainerClassName, ...props }: EdiTextProps): JSX.Element;
 export {};
-//# sourceMappingURL=index.d.ts.map

@@ -10,7 +10,7 @@
     ],
     "declaration": true,
     "declarationDir": "dist",
-    "declarationMap": true,
+    "declarationMap": false,
     "downlevelIteration": false,
     "outDir": "dist",
     "sourceMap": true,

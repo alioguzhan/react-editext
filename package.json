@@ -16,7 +16,6 @@
   "repository": "alioguzhan/react-editext",
   "main": "dist/index.min.js",
   "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
   "engines": {
     "node": ">=10",
     "npm": ">=6"
@@ -24,6 +23,7 @@
   "files": [
     "dist"
   ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
     "build": "rollup -c rollup.config.js",
