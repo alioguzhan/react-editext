@@ -464,11 +464,6 @@ export default function App() {
             one. In that case, the specified class name will be applied to both
             props.
           </p>
-          <p className="content">
-            There is also <code>mainContainerClassName</code> prop which allows
-            you to apply top-level styles to the EdiText component. But you
-            probably don't need this.
-          </p>
           <div className="columns">
             <div className="column is-half">
               <SyntaxHighlighter language="javascript" showLineNumbers={true}>
@@ -509,8 +504,9 @@ export default function App() {
           </div>
           <p className="content">
             It is likely that you will want to add some props to input element.
-            You can pass any valid HTML attribute to the input element via{' '}
-            <code>inputProps</code>.
+            You can pass any valid HTML attribute to the input or view elements
+            via <code>inputProps</code>, <code>viewProps</code> or{' '}
+            <code>containerProps</code>.
           </p>
           <div className="columns">
             <div className="column is-half">
@@ -540,6 +536,10 @@ export default function App() {
                   }}
                   viewProps={{
                     className: 'custom-view-class'
+                  }}
+                  containerProps={{
+                    className: 'top-level-class',
+                    style: { marginTop: 20 }
                   }}
                   value="No. The honor is still mine."
                   onSave={handleSave}

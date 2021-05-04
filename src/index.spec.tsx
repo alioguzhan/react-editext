@@ -405,3 +405,30 @@ test('onEditingStart prop is working', () => {
   expect(input?.value).toBe(VALUE);
   expect(oc).toBeCalled();
 });
+
+test('custom containerProps are working', () => {
+  const kd = jest.fn(() => false);
+  const of = jest.fn(() => false);
+  const ob = jest.fn(() => false);
+  const { container } = render(
+    <EdiText
+      value={VALUE}
+      onSave={() => false}
+      containerProps={{
+        onKeyDown: kd,
+        onFocus: of,
+        onBlur: ob,
+        style: { marginTop: 20 },
+      }}
+    />
+  );
+  const mainContainer = container.querySelector('[editext="main-container"]');
+  if (mainContainer) {
+    fireEvent.focusIn(mainContainer);
+    fireEvent.keyDown(mainContainer, { key: 'Enter', code: 'Enter' });
+    fireEvent.blur(mainContainer);
+  }
+  expect(kd).toBeCalled();
+  expect(of).toBeCalled();
+  expect(ob).toBeCalled();
+});

@@ -14,9 +14,10 @@ interface EdiTextProps {
      */
     viewProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
     /**
-     * Class name for the root container of the EdiText.
+     * Props to be passed to div element that is container for all elements.
+     * You can use this if you want to style or select the whole container.
      */
-    className?: string;
+    containerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
     /**
      * Value of the content [in view mode] and input [in edit mode]
      */
@@ -102,6 +103,7 @@ interface EdiTextProps {
     editContainerClassName?: string;
     /**
      * Custom class name for the top-level main container.
+     * @deprecated please use `containerProps` instead of this
      */
     mainContainerClassName?: string;
     /**

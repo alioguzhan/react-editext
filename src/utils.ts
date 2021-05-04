@@ -31,6 +31,7 @@ export const dataAttributes = {
       }
     `
    */
+  mainContainer: 'main-container',
   viewContainer: 'view-container',
   buttonContainer: 'button-container',
   editContainer: 'edit-container',

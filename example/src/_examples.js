@@ -101,6 +101,10 @@ export const example7 = `<EdiText
   viewProps={{
     className: 'custom-view-class'
   }}
+  containerProps={{
+    className: 'top-level-class',
+    style: { marginTop: 20 }
+  }}
   value="No. The honor is still mine."
   onSave={this.onSave}
 />`
