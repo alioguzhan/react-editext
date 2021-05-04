@@ -248,6 +248,17 @@ test('pressing enter activates the edit mode', () => {
   expect(input).toBeInTheDocument();
 });
 
+test('focusing activates the edit mode', () => {
+  const { container } = render(
+    <EdiText value={VALUE} startEditingOnFocus onSave={() => false} />
+  );
+  const viewContainer = container.querySelector('[editext="view"]');
+  viewContainer && fireEvent.focusIn(viewContainer);
+  viewContainer && fireEvent.focus(viewContainer);
+  const input = screen.getByDisplayValue(VALUE);
+  expect(input).toBeInTheDocument();
+});
+
 test('controlled editing mode is working', () => {
   render(<Controlled />);
   const button = screen.getByText('toggle');
@@ -255,4 +266,102 @@ test('controlled editing mode is working', () => {
   expect(input).toBeInTheDocument();
   button && fireEvent.click(button, new MouseEvent('click'));
   expect(input).not.toBeInTheDocument();
+});
+
+test('custom class names and button contents are working', () => {
+  const cancelButtonContent = 'cancel';
+  const saveButtonContent = 'save';
+  const editButtonContent = 'edit';
+  const buttonsAlign = 'after';
+  const saveButtonClassName = 'save-btn';
+  const cancelButtonClassName = 'cancel-btn';
+  const editButtonClassName = 'edit-btn';
+  const viewContainerClassName = 'container-view';
+  const editContainerClassName = 'edit-view';
+  const mainContainerClassName = 'main-view';
+  const { container } = render(
+    <EdiText
+      cancelButtonContent={cancelButtonContent}
+      saveButtonContent={saveButtonContent}
+      editButtonContent={editButtonContent}
+      buttonsAlign={buttonsAlign}
+      saveButtonClassName={saveButtonClassName}
+      cancelButtonClassName={cancelButtonClassName}
+      editButtonClassName={editButtonClassName}
+      viewContainerClassName={viewContainerClassName}
+      editContainerClassName={editContainerClassName}
+      mainContainerClassName={mainContainerClassName}
+      value={VALUE}
+      onSave={() => false}
+    />
+  );
+  expect(
+    container.querySelector(`button.${editButtonClassName}`)
+  ).toBeInTheDocument();
+  expect(
+    container.querySelector(`div.${viewContainerClassName}`)
+  ).toBeInTheDocument();
+  expect(
+    container.querySelector(`div.${mainContainerClassName}`)
+  ).toBeInTheDocument();
+  expect(
+    container.querySelector(`div.${mainContainerClassName}`)
+  ).toBeInTheDocument();
+  const button = container.querySelector('[editext="edit-button"]');
+  expect(button?.textContent).toBe(editButtonContent);
+  button && fireEvent.click(button, new MouseEvent('click'));
+  expect(
+    container.querySelector(`button.${saveButtonClassName}`)
+  ).toBeInTheDocument();
+  expect(
+    container.querySelector(`button.${cancelButtonClassName}`)
+  ).toBeInTheDocument();
+});
+
+test('custom viewProps are working', () => {
+  const kd = jest.fn(() => false);
+  const of = jest.fn(() => false);
+  const ob = jest.fn(() => false);
+  const { container } = render(
+    <EdiText
+      value={VALUE}
+      onSave={() => false}
+      viewProps={{ onKeyDown: kd, onFocus: of, onBlur: ob }}
+    />
+  );
+  const viewContainer = container.querySelector('[editext="view"]');
+  if (viewContainer) {
+    fireEvent.focusIn(viewContainer);
+    fireEvent.keyDown(viewContainer, { key: 'Enter', code: 'Enter' });
+    fireEvent.blur(viewContainer);
+  }
+  expect(kd).toBeCalled();
+  expect(of).toBeCalled();
+  expect(ob).toBeCalled();
+});
+
+test('custom inputProps are working', () => {
+  const kd = jest.fn(() => false);
+  const of = jest.fn(() => false);
+  const ob = jest.fn(() => false);
+  const { container } = render(
+    <EdiText
+      value={VALUE}
+      onSave={() => false}
+      inputProps={{ onKeyDown: kd, onFocus: of, onBlur: ob }}
+    />
+  );
+  const button = container.querySelector('[editext="edit-button"]');
+  button && fireEvent.click(button, new MouseEvent('click'));
+  const input = container.querySelector('input');
+  expect(input).toBeInTheDocument();
+  expect(input?.value).toBe(VALUE);
+  if (input) {
+    fireEvent.focusIn(input);
+    fireEvent.keyDown(input, { key: 'Enter', code: 'enter' });
+    fireEvent.blur(input);
+  }
+  expect(kd).toBeCalled();
+  expect(of).toBeCalled();
+  expect(ob).toBeCalled();
 });
