@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import EdiText from 'react-editext'
+import EdiText, { InputProps } from 'react-editext'
 import styled from 'styled-components'
 import * as examples from './_examples'
 
@@ -42,18 +42,18 @@ const StyledEdiText = styled(EdiText)`
 
 export default function App() {
   const [editing, setEditing] = useState(false)
-  const [logs, setLogs] = useState([])
+  const [logs, setLogs] = useState<any[]>([])
   // const [value, setValue] = useState('Wake up, Neo')
   const [data, setData] = useState({ name: 'Wake up, Neo...' })
 
-  const handleSave = (val, inputProps) => {
+  const handleSave = (val: string, inputProps?: InputProps) => {
     console.log('Edited Value -> ', val)
     console.log('Edited input props -> ', inputProps)
     // setValue(val)
     // console.log('value in state: ', val)
   }
 
-  const handleValidationFail = (textValue) => {
+  const handleValidationFail = (textValue: string) => {
     window.alert(
       `The text <${textValue}> is not valid.\nYou shall not use the word SMITH here!!!`
     )
@@ -176,18 +176,22 @@ export default function App() {
             <div className="column is-half">
               <div className="subtitle">Output</div>
               <EdiText
-                onCancel={(v) => setLogs((l) => [...l, `CANCELLED: ${v}`])}
-                onEditingStart={(v) =>
-                  setLogs((l) => [...l, `EDITING STARTED: ${v}`])
+                onCancel={(v: string) =>
+                  setLogs((l: any) => [...l, `CANCELLED: ${v}`])
                 }
-                onSave={(v) => setLogs((l) => [...l, `SAVED: ${v}`])}
+                onEditingStart={(v: string) =>
+                  setLogs((l: any) => [...l, `EDITING STARTED: ${v}`])
+                }
+                onSave={(v: string) =>
+                  setLogs((l: any) => [...l, `SAVED: ${v}`])
+                }
                 value={"You've been living in a dream world, Neo."}
               />
               <div className="subtitle" style={{ marginTop: 10 }}>
                 Console
               </div>
               <pre style={{ overflowX: 'scroll', height: 200 }}>
-                {logs.map((e, i) => (
+                {logs.map((e: any, i: number) => (
                   <p key={i}>{e}</p>
                 ))}
               </pre>
@@ -639,7 +643,7 @@ export default function App() {
               <EdiText
                 type="text"
                 validationMessage="Please type at least 20 characters."
-                validation={(val) => val.length >= 20}
+                validation={(val: string) => val.length >= 20}
                 value="The Matrix has you.."
                 onSave={handleSave}
               />
@@ -674,7 +678,9 @@ export default function App() {
               <div className="subtitle">Output</div>
               <EdiText
                 type="text"
-                validation={(val) => val.toLowerCase().indexOf('smith') < 0}
+                validation={(val: string) =>
+                  val.toLowerCase().indexOf('smith') < 0
+                }
                 onValidationFail={handleValidationFail}
                 inputProps={{
                   placeholder: "Don't use the word 'Smith'..."
@@ -743,7 +749,9 @@ export default function App() {
               <div className="subtitle">Output</div>
               <EdiText
                 type="text"
-                onEditingStart={(v) => console.log('editing started: ', v)}
+                onEditingStart={(v: string) =>
+                  console.log('editing started: ', v)
+                }
                 value="What is real? How do you define real?"
                 onSave={handleSave}
                 editOnViewClick={true}
@@ -850,7 +858,7 @@ export default function App() {
                 cancelOnUnfocus
                 value="Zion"
                 onSave={handleSave}
-                onCancel={(v) => console.log('CANCELLED: ', v)}
+                onCancel={(v: string) => console.log('CANCELLED: ', v)}
               />
             </div>
           </div>
@@ -877,7 +885,7 @@ export default function App() {
                 submitOnUnfocus
                 value="The Oracle"
                 onSave={handleSave}
-                onCancel={(v) => console.log('CANCELLED: ', v)}
+                onCancel={(v: string) => console.log('CANCELLED: ', v)}
               />
             </div>
           </div>
@@ -1018,7 +1026,7 @@ export default function App() {
                 value="this the website of the matrix: www.whatisthematrix.com"
                 onSave={handleSave}
                 submitOnEnter
-                renderValue={(value) => {
+                renderValue={(value: string) => {
                   const regexp = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gi
                   const valueWithParsedURLS = value.replace(
                     regexp,

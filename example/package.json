@@ -5,13 +5,18 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.1",
+    "@types/react": "^17.0.4",
+    "@types/react-dom": "^17.0.3",
     "prop-types": "^15.7.2",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-editext": "link:..",
     "react-scripts": "^4.0.3",
     "react-syntax-highlighter": "^15.4.3",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,5 +30,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "snyk": true
+  "snyk": true,
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^13.5.0",
+    "@types/styled-components": "^5.1.9"
+  }
 }
