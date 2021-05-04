@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/alioguzhan/react-editext/compare/v4.1.0...v4.1.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* add `className` prop again to make styled-components work ([4e1f5fb](https://github.com/alioguzhan/react-editext/commit/4e1f5fbeeca01956572bf7054f73e15e87b6ecbb))
+
 ## [4.1.0](https://github.com/alioguzhan/react-editext/compare/v4.0.1...v4.1.0) (2021-05-04)
 
 
