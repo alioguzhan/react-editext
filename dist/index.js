@@ -124,13 +124,13 @@ var cancelOnConflictMessage = 'EdiText: Both `cancelOnUnfocus` and `submitOnUnfo
     '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
 
 function EdiText(_a) {
-    var _b = _a.value, value = _b === void 0 ? '' : _b, _c = _a.type, type = _c === void 0 ? 'text' : _c, _d = _a.validationMessage, validationMessage = _d === void 0 ? 'Invalid Value' : _d, _e = _a.cancelButtonContent, cancelButtonContent = _e === void 0 ? '' : _e, _f = _a.saveButtonContent, saveButtonContent = _f === void 0 ? '' : _f, _g = _a.editButtonContent, editButtonContent = _g === void 0 ? '' : _g, _h = _a.buttonsAlign, buttonsAlign = _h === void 0 ? 'after' : _h, _j = _a.saveButtonClassName, saveButtonClassName = _j === void 0 ? '' : _j, _k = _a.cancelButtonClassName, cancelButtonClassName = _k === void 0 ? '' : _k, _l = _a.editButtonClassName, editButtonClassName = _l === void 0 ? '' : _l, _m = _a.viewContainerClassName, viewContainerClassName = _m === void 0 ? '' : _m, _o = _a.editContainerClassName, editContainerClassName = _o === void 0 ? '' : _o, _p = _a.mainContainerClassName, mainContainerClassName = _p === void 0 ? '' : _p, props = __rest(_a, ["value", "type", "validationMessage", "cancelButtonContent", "saveButtonContent", "editButtonContent", "buttonsAlign", "saveButtonClassName", "cancelButtonClassName", "editButtonClassName", "viewContainerClassName", "editContainerClassName", "mainContainerClassName"]);
+    var value = _a.value, _b = _a.type, type = _b === void 0 ? 'text' : _b, _c = _a.validationMessage, validationMessage = _c === void 0 ? 'Invalid Value' : _c, _d = _a.cancelButtonContent, cancelButtonContent = _d === void 0 ? '' : _d, _e = _a.saveButtonContent, saveButtonContent = _e === void 0 ? '' : _e, _f = _a.editButtonContent, editButtonContent = _f === void 0 ? '' : _f, _g = _a.buttonsAlign, buttonsAlign = _g === void 0 ? 'after' : _g, _h = _a.saveButtonClassName, saveButtonClassName = _h === void 0 ? '' : _h, _j = _a.cancelButtonClassName, cancelButtonClassName = _j === void 0 ? '' : _j, _k = _a.editButtonClassName, editButtonClassName = _k === void 0 ? '' : _k, _l = _a.viewContainerClassName, viewContainerClassName = _l === void 0 ? '' : _l, _m = _a.editContainerClassName, editContainerClassName = _m === void 0 ? '' : _m, _o = _a.mainContainerClassName, mainContainerClassName = _o === void 0 ? '' : _o, props = __rest(_a, ["value", "type", "validationMessage", "cancelButtonContent", "saveButtonContent", "editButtonContent", "buttonsAlign", "saveButtonClassName", "cancelButtonClassName", "editButtonClassName", "viewContainerClassName", "editContainerClassName", "mainContainerClassName"]);
     // state
-    var _q = React.useState(props.editing), editingInternal = _q[0], setEditingInternal = _q[1];
-    var _r = React.useState(true), valid = _r[0], setValid = _r[1];
-    var _s = React.useState(value || ''), valueInternal = _s[0], setValueInternal = _s[1];
-    var _t = React.useState(undefined), savedValue = _t[0], setSavedValue = _t[1];
-    var _u = React.useState(false), viewFocused = _u[0], setViewFocused = _u[1];
+    var _p = React.useState(props.editing), editingInternal = _p[0], setEditingInternal = _p[1];
+    var _q = React.useState(true), valid = _q[0], setValid = _q[1];
+    var _r = React.useState(value || ''), valueInternal = _r[0], setValueInternal = _r[1];
+    var _s = React.useState(undefined), savedValue = _s[0], setSavedValue = _s[1];
+    var _t = React.useState(false), viewFocused = _t[0], setViewFocused = _t[1];
     // refs
     var saveButton = React__default['default'].createRef();
     var editingContainer = React__default['default'].createRef();
@@ -151,8 +151,8 @@ function EdiText(_a) {
     }, [props.editing, value]);
     function handleKeyDown(e) {
         var _a;
-        var isEnter = [13, 'Enter'].some(function (c) { return (e === null || e === void 0 ? void 0 : e.keyCode) === c || (e === null || e === void 0 ? void 0 : e.code) === c; });
-        var isEscape = [27, 'Escape', 'Esc'].some(function (c) { return (e === null || e === void 0 ? void 0 : e.keyCode) === c || e.code === c; });
+        var isEnter = [13, 'Enter'].some(function (c) { return e.key === c || e.code === c; });
+        var isEscape = [27, 'Escape', 'Esc'].some(function (c) { return e.code === c || e.key === c; });
         if (isEnter) {
             props.submitOnEnter && handleSave();
             e === null || e === void 0 ? void 0 : e.preventDefault();
@@ -181,7 +181,7 @@ function EdiText(_a) {
     }
     function handleKeyDownForView(e) {
         var _a;
-        var isEnter = [13, 'Enter'].some(function (c) { return e.keyCode === c || e.code === c; });
+        var isEnter = [13, 'Enter'].some(function (c) { return e.key === c || e.code === c; });
         var startEditing = isEnter && viewFocused && props.startEditingOnEnter;
         startEditing && e.preventDefault();
         startEditing && setEditingInternal(true);
@@ -205,9 +205,8 @@ function EdiText(_a) {
         (_a = props.onEditingStart) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal, props.inputProps);
     }
     function handleSave() {
-        var _a;
         if (typeof props.validation === 'function') {
-            var isValid = (_a = props.validation) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal);
+            var isValid = props.validation(valueInternal);
             if (!isValid) {
                 setValid(false);
                 props.onValidationFail && props.onValidationFail(valueInternal);
