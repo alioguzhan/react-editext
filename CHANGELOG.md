@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/alioguzhan/react-editext/compare/v4.0.1...v4.1.0) (2021-05-04)
+
+
+### Features
+
+* add `containerProps` to pass props to the root level container ([fd4b0a3](https://github.com/alioguzhan/react-editext/commit/fd4b0a3d8543061453a4bb9fdd0014a29cece457))
+
 ### [4.0.1](https://github.com/alioguzhan/react-editext/compare/v4.0.0...v4.0.1) (2021-05-04)
 
 ## [4.0.0](https://github.com/alioguzhan/react-editext/compare/v3.18.0...v4.0.0) (2021-05-04)
