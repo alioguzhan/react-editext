@@ -45,3 +45,5 @@ export const dataAttributes = {
 export const cancelOnConflictMessage =
   'EdiText: Both `cancelOnUnfocus` and `submitOnUnfocus` are set to true. ' +
   '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
+
+export const defaultValidationMessage = 'Invalid Value';

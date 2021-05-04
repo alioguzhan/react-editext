@@ -33,18 +33,6 @@ var __assign = function() {
     return __assign.apply(this, arguments);
 };
 
-function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-}
-
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -123,16 +111,16 @@ var dataAttributes = {
 };
 var cancelOnConflictMessage = 'EdiText: Both `cancelOnUnfocus` and `submitOnUnfocus` are set to true. ' +
     '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
+var defaultValidationMessage = 'Invalid Value';
 
-function EdiText(_a) {
-    var _b;
-    var value = _a.value, _c = _a.type, type = _c === void 0 ? 'text' : _c, _d = _a.validationMessage, validationMessage = _d === void 0 ? 'Invalid Value' : _d, _e = _a.cancelButtonContent, cancelButtonContent = _e === void 0 ? '' : _e, _f = _a.saveButtonContent, saveButtonContent = _f === void 0 ? '' : _f, _g = _a.editButtonContent, editButtonContent = _g === void 0 ? '' : _g, _h = _a.buttonsAlign, buttonsAlign = _h === void 0 ? 'after' : _h, _j = _a.saveButtonClassName, saveButtonClassName = _j === void 0 ? '' : _j, _k = _a.cancelButtonClassName, cancelButtonClassName = _k === void 0 ? '' : _k, _l = _a.editButtonClassName, editButtonClassName = _l === void 0 ? '' : _l, _m = _a.viewContainerClassName, viewContainerClassName = _m === void 0 ? '' : _m, _o = _a.editContainerClassName, editContainerClassName = _o === void 0 ? '' : _o, _p = _a.mainContainerClassName, mainContainerClassName = _p === void 0 ? '' : _p, props = __rest(_a, ["value", "type", "validationMessage", "cancelButtonContent", "saveButtonContent", "editButtonContent", "buttonsAlign", "saveButtonClassName", "cancelButtonClassName", "editButtonClassName", "viewContainerClassName", "editContainerClassName", "mainContainerClassName"]);
+function EdiText(props) {
+    var _a;
     // state
-    var _q = React.useState(props.editing), editingInternal = _q[0], setEditingInternal = _q[1];
-    var _r = React.useState(true), valid = _r[0], setValid = _r[1];
-    var _s = React.useState(value || ''), valueInternal = _s[0], setValueInternal = _s[1];
-    var _t = React.useState(undefined), savedValue = _t[0], setSavedValue = _t[1];
-    var _u = React.useState(false), viewFocused = _u[0], setViewFocused = _u[1];
+    var _b = React.useState(props.editing), editingInternal = _b[0], setEditingInternal = _b[1];
+    var _c = React.useState(true), valid = _c[0], setValid = _c[1];
+    var _d = React.useState(props.value || ''), valueInternal = _d[0], setValueInternal = _d[1];
+    var _e = React.useState(undefined), savedValue = _e[0], setSavedValue = _e[1];
+    var _f = React.useState(false), viewFocused = _f[0], setViewFocused = _f[1];
     // refs
     var saveButton = React__default['default'].createRef();
     var editingContainer = React__default['default'].createRef();
@@ -143,14 +131,14 @@ function EdiText(_a) {
         }
     }, [props.cancelOnUnfocus, props.submitOnUnfocus]);
     React.useEffect(function () {
-        if (value !== undefined) {
-            setValueInternal(value);
-            setSavedValue(value);
+        if (props.value !== undefined) {
+            setValueInternal(props.value);
+            setSavedValue(props.value);
         }
         if (props.editing !== undefined) {
             setEditingInternal(props.editing);
         }
-    }, [props.editing, value]);
+    }, [props.editing, props.value]);
     function handleKeyDown(e) {
         var _a;
         var isEnter = [13, 'Enter'].some(function (c) { return e.key === c || e.code === c; });
@@ -195,7 +183,7 @@ function EdiText(_a) {
     }
     function handleCancel() {
         var _a;
-        var val = savedValue !== null && savedValue !== void 0 ? savedValue : value;
+        var val = savedValue !== null && savedValue !== void 0 ? savedValue : props.value;
         setValid(true);
         setEditingInternal(false);
         setValueInternal(val);
@@ -220,7 +208,7 @@ function EdiText(_a) {
         props.onSave(valueInternal, props.inputProps);
     }
     function _renderInput() {
-        if (type === 'textarea') {
+        if (props.type === 'textarea') {
             return (jsxRuntime.jsx("textarea", __assign({ className: styles.Editext__input, 
                 // @ts-ignore
                 editext: dataAttributes.input, 
@@ -236,32 +224,33 @@ function EdiText(_a) {
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
-                tabIndex: props.tabIndex }, props.inputProps, { onKeyDown: handleKeyDown, onBlur: handleOnBlur, value: valueInternal, type: type, onChange: handleInputChange, autoFocus: editingInternal }), void 0));
+                tabIndex: props.tabIndex }, props.inputProps, { onKeyDown: handleKeyDown, onBlur: handleOnBlur, value: valueInternal, type: props.type || 'text', onChange: handleInputChange, autoFocus: editingInternal }), void 0));
         }
     }
     function _renderEditingMode() {
         var inputElem = _renderInput();
         // calculate save button classes
         var saveButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__save_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
-        var saveButtonClass = saveButtonClassName || saveButtonDefaultClasses;
+        var saveButtonClass = props.saveButtonClassName || saveButtonDefaultClasses;
         // calculate cancel button classes
         var cancelButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__cancel_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
-        var cancelButtonClass = cancelButtonClassName || cancelButtonDefaultClasses;
+        var cancelButtonClass = props.cancelButtonClassName || cancelButtonDefaultClasses;
         var editContainerClass = styles.Editext__editing_container;
-        if (editContainerClassName)
-            editContainerClass = editContainerClassName;
-        if (viewContainerClassName)
-            editContainerClass = viewContainerClassName;
-        var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "" + styles.Editext__buttons_before_aligned, buttonsAlign === 'after' && "" + styles.Editext__buttons_after_aligned);
+        if (props.editContainerClassName)
+            editContainerClass = props.editContainerClassName;
+        if (props.viewContainerClassName)
+            editContainerClass = props.viewContainerClassName;
+        var alignment = props.buttonsAlign || 'after';
+        var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "" + styles.Editext__buttons_before_aligned, alignment === 'after' && "" + styles.Editext__buttons_after_aligned);
         return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs("div", __assign({ ref: editingContainer, className: editContainerClass, 
                     // @ts-ignore
-                    editext: dataAttributes.editContainer }, { children: [buttonsAlign === 'after' && inputElem, jsxRuntime.jsxs("div", __assign({ className: buttonsContainerClass, ref: editingButtons }, { children: [jsxRuntime.jsx("button", __assign({ ref: saveButton, 
+                    editext: dataAttributes.editContainer }, { children: [alignment === 'after' && inputElem, jsxRuntime.jsxs("div", __assign({ className: buttonsContainerClass, ref: editingButtons }, { children: [jsxRuntime.jsx("button", __assign({ ref: saveButton, 
                                     // @ts-ignore
-                                    editext: dataAttributes.saveButton, type: "button", className: saveButtonClass, onClick: handleSave }, { children: saveButtonContent }), void 0),
+                                    editext: dataAttributes.saveButton, type: "button", className: saveButtonClass, onClick: handleSave }, { children: props.saveButtonContent }), void 0),
                                 jsxRuntime.jsx("button", __assign({ type: "button", 
                                     // @ts-ignore
-                                    editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, { children: cancelButtonContent }), void 0)] }), void 0), buttonsAlign === 'before' && inputElem] }), void 0),
-                !valid && !props.onValidationFail && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__validation_message }, { children: validationMessage }), void 0)),
+                                    editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, { children: props.cancelButtonContent }), void 0)] }), void 0), alignment === 'before' && inputElem] }), void 0),
+                !valid && !props.onValidationFail && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__validation_message }, { children: props.validationMessage || defaultValidationMessage }), void 0)),
                 props.hint && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__hint, 
                     // @ts-ignore
                     editext: dataAttributes.hint }, { children: props.hint }), void 0))] }, void 0));
@@ -269,10 +258,11 @@ function EdiText(_a) {
     function _renderViewMode() {
         // calculate edit button classes
         var editButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__edit_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
-        var editButtonClass = editButtonClassName || editButtonDefaultClasses;
-        var viewContainerClass = classnames(viewContainerClassName || styles.Editext__view_container, props.showButtonsOnHover &&
+        var editButtonClass = props.editButtonClassName || editButtonDefaultClasses;
+        var viewContainerClass = classnames(props.viewContainerClassName || styles.Editext__view_container, props.showButtonsOnHover &&
             "" + styles.Editext__buttons_showButtonsOnHover);
-        var buttonsContainerClass = classnames(styles.Editext__buttons_container, buttonsAlign === 'before' && "" + styles.Editext__buttons_before_aligned, buttonsAlign === 'after' && "" + styles.Editext__buttons_after_aligned);
+        var alignment = props.buttonsAlign || 'after';
+        var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "" + styles.Editext__buttons_before_aligned, alignment === 'after' && "" + styles.Editext__buttons_after_aligned);
         var viewClickHandler = props.editOnViewClick
             ? handleActivateEditMode
             : undefined;
@@ -281,7 +271,7 @@ function EdiText(_a) {
             : valueInternal;
         return (jsxRuntime.jsxs("div", __assign({ className: viewContainerClass, 
             // @ts-ignore
-            editext: dataAttributes.viewContainer }, { children: [buttonsAlign === 'after' && (jsxRuntime.jsx("div", __assign({ 
+            editext: dataAttributes.viewContainer }, { children: [alignment === 'after' && (jsxRuntime.jsx("div", __assign({ 
                     // this is here because,
                     // we still allow people to pass the tabIndex via inputProps
                     // also backward compatibility.
@@ -290,8 +280,8 @@ function EdiText(_a) {
                     editext: "view" }, { children: _value }), void 0)),
                 jsxRuntime.jsx("div", __assign({ className: buttonsContainerClass }, { children: jsxRuntime.jsx("button", __assign({ type: "button", 
                         // @ts-ignore
-                        editext: dataAttributes.editButton, className: editButtonClass, onClick: handleActivateEditMode }, { children: editButtonContent }), void 0) }), void 0),
-                buttonsAlign === 'before' && (jsxRuntime.jsx("div", __assign({ 
+                        editext: dataAttributes.editButton, className: editButtonClass, onClick: handleActivateEditMode }, { children: props.editButtonContent }), void 0) }), void 0),
+                alignment === 'before' && (jsxRuntime.jsx("div", __assign({ 
                     // this is here because,
                     // we still allow people to pass the tabIndex via inputProps
                     // also backward compatibility.
@@ -300,8 +290,10 @@ function EdiText(_a) {
                     editext: dataAttributes.viewContainer }, { children: _value }), void 0))] }), void 0));
     }
     var mode = editingInternal ? _renderEditingMode() : _renderViewMode();
-    var clsName = classnames(mainContainerClassName || styles.Editext__main_container, (_b = props.containerProps) === null || _b === void 0 ? void 0 : _b.className);
-    return (jsxRuntime.jsx("div", __assign({ className: clsName }, props.containerProps, { 
+    var clsName = classnames(((_a = props.containerProps) === null || _a === void 0 ? void 0 : _a.className) ||
+        props.mainContainerClassName ||
+        styles.Editext__main_container, props.className);
+    return (jsxRuntime.jsx("div", __assign({}, props.containerProps, { className: clsName, 
         // @ts-ignore
         editext: dataAttributes.mainContainer }, { children: mode }), void 0));
 }
