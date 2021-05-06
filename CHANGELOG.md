@@ -26,6 +26,11 @@ No new features.
 - Migrate to `Function Components`. No more Class Components.
 - Tests have rewritten with `@testing-library`.
 
+### ⚠ BREAKING CHANGES
+
+- Drop Node 8 support
+- Drop React 15 support
+
 ## [3.18.0](https://github.com/alioguzhan/react-editext/compare/v3.17.2...v3.18.0) (2021-04-02)
 
 

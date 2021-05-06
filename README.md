@@ -18,8 +18,10 @@ With v4.0, I rewrote this component.
 - Source code is now `Typescript`.
 - And it has written with `Function Components`. No more Class Components.
 - Tests have rewritten with `@testing-library`.
+- Drop Node 8 support
+- Drop React 15.x support
 
-There should be NO breaking changes. If you encounter any problem after upgrading to `v.4.0.0`:
+There should be NO breaking changes in the API. If you encounter any problem after upgrading to `v.4.0.0`:
 
 1. Please open an issue and let me know.
 2. Install the latest version before 4.0: `yarn add react-editext@3.18.0`
