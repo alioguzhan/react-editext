@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {
   useEffect,
   KeyboardEvent,
@@ -37,7 +38,7 @@ export type InputProps =
       React.TextareaHTMLAttributes<HTMLTextAreaElement>,
       HTMLTextAreaElement
     >;
-interface EdiTextProps {
+export interface EdiTextProps {
   /**
    * Props to be passed to input element.
    * Any kind of valid DOM attributes are welcome
