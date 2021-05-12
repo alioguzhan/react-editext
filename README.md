@@ -190,6 +190,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://brandonbits.com"><img src="https://avatars.githubusercontent.com/u/17344791?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Brandon Paris</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Abrandonparis" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://chris.schaub.com"><img src="https://avatars.githubusercontent.com/u/3321008?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christopher Schaub</b></sub></a><br /><a href="#ideas-chrisschaub" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://krzysztofdanek.pl"><img src="https://avatars.githubusercontent.com/u/1758834?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Krzysztof Danek</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Achrisdanek" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
