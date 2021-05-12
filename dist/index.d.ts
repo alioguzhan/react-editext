@@ -2,7 +2,7 @@ import React from 'react';
 export declare type EdiTextType = 'text' | 'textarea' | 'email' | 'number' | 'date' | 'datetime-local' | 'time' | 'month' | 'url' | 'week' | 'tel';
 export declare type ButtonsAlignment = 'after' | 'before';
 export declare type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> | React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
-interface EdiTextProps {
+export interface EdiTextProps {
     /**
      * Props to be passed to input element.
      * Any kind of valid DOM attributes are welcome
