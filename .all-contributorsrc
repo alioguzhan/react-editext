@@ -154,6 +154,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "chrisdanek",
+      "name": "Krzysztof Danek",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1758834?v=4",
+      "profile": "https://krzysztofdanek.pl",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
