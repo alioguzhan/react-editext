@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.4](https://github.com/alioguzhan/react-editext/compare/v4.1.3...v4.1.4) (2021-05-13)
+
+
+### Bug Fixes
+
+* cannot import 'react/jsx-runtime' ([e9e90fb](https://github.com/alioguzhan/react-editext/commit/e9e90fb5c6a3395ebd8418b3fc08c6283ba3cae7))
+
 ### [4.1.3](https://github.com/alioguzhan/react-editext/compare/v4.1.2...v4.1.3) (2021-05-12)
 
 ### [4.1.2](https://github.com/alioguzhan/react-editext/compare/v4.1.1...v4.1.2) (2021-05-12)
