@@ -1,6 +1,5 @@
 'use strict';
 
-var jsxRuntime = require('react/jsx-runtime');
 var React = require('react');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -209,22 +208,22 @@ function EdiText(props) {
     }
     function _renderInput() {
         if (props.type === 'textarea') {
-            return (jsxRuntime.jsx("textarea", __assign({ className: styles.Editext__input, 
+            return (React__default['default'].createElement("textarea", __assign({ className: styles.Editext__input, 
                 // @ts-ignore
                 editext: dataAttributes.input, 
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
-                tabIndex: props.tabIndex }, props.inputProps, { onBlur: handleOnBlur, value: valueInternal, onChange: handleInputChange, autoFocus: editingInternal }), void 0));
+                tabIndex: props.tabIndex }, props.inputProps, { onBlur: handleOnBlur, value: valueInternal, onChange: handleInputChange, autoFocus: editingInternal })));
         }
         else {
-            return (jsxRuntime.jsx("input", __assign({ className: styles.Editext__input, 
+            return (React__default['default'].createElement("input", __assign({ className: styles.Editext__input, 
                 // @ts-ignore
                 editext: dataAttributes.input, 
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
-                tabIndex: props.tabIndex }, props.inputProps, { onKeyDown: handleKeyDown, onBlur: handleOnBlur, value: valueInternal, type: props.type || 'text', onChange: handleInputChange, autoFocus: editingInternal }), void 0));
+                tabIndex: props.tabIndex }, props.inputProps, { onKeyDown: handleKeyDown, onBlur: handleOnBlur, value: valueInternal, type: props.type || 'text', onChange: handleInputChange, autoFocus: editingInternal })));
         }
     }
     function _renderEditingMode() {
@@ -242,18 +241,23 @@ function EdiText(props) {
             editContainerClass = props.viewContainerClassName;
         var alignment = props.buttonsAlign || 'after';
         var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "" + styles.Editext__buttons_before_aligned, alignment === 'after' && "" + styles.Editext__buttons_after_aligned);
-        return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs("div", __assign({ ref: editingContainer, className: editContainerClass, 
-                    // @ts-ignore
-                    editext: dataAttributes.editContainer }, { children: [alignment === 'after' && inputElem, jsxRuntime.jsxs("div", __assign({ className: buttonsContainerClass, ref: editingButtons }, { children: [jsxRuntime.jsx("button", __assign({ ref: saveButton, 
-                                    // @ts-ignore
-                                    editext: dataAttributes.saveButton, type: "button", className: saveButtonClass, onClick: handleSave }, { children: props.saveButtonContent }), void 0),
-                                jsxRuntime.jsx("button", __assign({ type: "button", 
-                                    // @ts-ignore
-                                    editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, { children: props.cancelButtonContent }), void 0)] }), void 0), alignment === 'before' && inputElem] }), void 0),
-                !valid && !props.onValidationFail && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__validation_message }, { children: props.validationMessage || defaultValidationMessage }), void 0)),
-                props.hint && (jsxRuntime.jsx("div", __assign({ className: styles.Editext__hint, 
-                    // @ts-ignore
-                    editext: dataAttributes.hint }, { children: props.hint }), void 0))] }, void 0));
+        return (React__default['default'].createElement("div", null,
+            React__default['default'].createElement("div", { ref: editingContainer, className: editContainerClass, 
+                // @ts-ignore
+                editext: dataAttributes.editContainer },
+                alignment === 'after' && inputElem,
+                React__default['default'].createElement("div", { className: buttonsContainerClass, ref: editingButtons },
+                    React__default['default'].createElement("button", { ref: saveButton, 
+                        // @ts-ignore
+                        editext: dataAttributes.saveButton, type: "button", className: saveButtonClass, onClick: handleSave }, props.saveButtonContent),
+                    React__default['default'].createElement("button", { type: "button", 
+                        // @ts-ignore
+                        editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, props.cancelButtonContent)),
+                alignment === 'before' && inputElem),
+            !valid && !props.onValidationFail && (React__default['default'].createElement("div", { className: styles.Editext__validation_message }, props.validationMessage || defaultValidationMessage)),
+            props.hint && (React__default['default'].createElement("div", { className: styles.Editext__hint, 
+                // @ts-ignore
+                editext: dataAttributes.hint }, props.hint))));
     }
     function _renderViewMode() {
         // calculate edit button classes
@@ -269,33 +273,35 @@ function EdiText(props) {
         var _value = typeof props.renderValue === 'function'
             ? props.renderValue(valueInternal)
             : valueInternal;
-        return (jsxRuntime.jsxs("div", __assign({ className: viewContainerClass, 
+        return (React__default['default'].createElement("div", { className: viewContainerClass, 
             // @ts-ignore
-            editext: dataAttributes.viewContainer }, { children: [alignment === 'after' && (jsxRuntime.jsx("div", __assign({ 
-                    // this is here because,
-                    // we still allow people to pass the tabIndex via inputProps
-                    // also backward compatibility.
-                    tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
+            editext: dataAttributes.viewContainer },
+            alignment === 'after' && (React__default['default'].createElement("div", __assign({ 
+                // this is here because,
+                // we still allow people to pass the tabIndex via inputProps
+                // also backward compatibility.
+                tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
+                // @ts-ignore
+                editext: "view" }), _value)),
+            React__default['default'].createElement("div", { className: buttonsContainerClass },
+                React__default['default'].createElement("button", { type: "button", 
                     // @ts-ignore
-                    editext: "view" }, { children: _value }), void 0)),
-                jsxRuntime.jsx("div", __assign({ className: buttonsContainerClass }, { children: jsxRuntime.jsx("button", __assign({ type: "button", 
-                        // @ts-ignore
-                        editext: dataAttributes.editButton, className: editButtonClass, onClick: handleActivateEditMode }, { children: props.editButtonContent }), void 0) }), void 0),
-                alignment === 'before' && (jsxRuntime.jsx("div", __assign({ 
-                    // this is here because,
-                    // we still allow people to pass the tabIndex via inputProps
-                    // also backward compatibility.
-                    tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
-                    // @ts-ignore
-                    editext: dataAttributes.viewContainer }, { children: _value }), void 0))] }), void 0));
+                    editext: dataAttributes.editButton, className: editButtonClass, onClick: handleActivateEditMode }, props.editButtonContent)),
+            alignment === 'before' && (React__default['default'].createElement("div", __assign({ 
+                // this is here because,
+                // we still allow people to pass the tabIndex via inputProps
+                // also backward compatibility.
+                tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
+                // @ts-ignore
+                editext: dataAttributes.viewContainer }), _value))));
     }
     var mode = editingInternal ? _renderEditingMode() : _renderViewMode();
     var clsName = classnames(((_a = props.containerProps) === null || _a === void 0 ? void 0 : _a.className) ||
         props.mainContainerClassName ||
         styles.Editext__main_container, props.className);
-    return (jsxRuntime.jsx("div", __assign({}, props.containerProps, { className: clsName, 
+    return (React__default['default'].createElement("div", __assign({}, props.containerProps, { className: clsName, 
         // @ts-ignore
-        editext: dataAttributes.mainContainer }, { children: mode }), void 0));
+        editext: dataAttributes.mainContainer }), mode));
 }
 
 module.exports = EdiText;

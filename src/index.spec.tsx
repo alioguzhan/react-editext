@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import EdiText from '.';
 import { cancelOnConflictMessage } from './utils';
-import { useState } from 'react';
 
 function Controlled() {
   const [editing, setEditing] = useState(true);
