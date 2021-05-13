@@ -22,7 +22,7 @@
     "allowJs": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "baseUrl": "./src",
     "paths": {
       "tslib": [
