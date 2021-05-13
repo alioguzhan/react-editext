@@ -163,6 +163,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "kalashnikovisme",
+      "name": "Pavel Kalashnikov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2001025?v=4",
+      "profile": "http://kalashnikovisme.medium.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
