@@ -37,7 +37,7 @@
     "prepare": "husky install"
   },
   "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0"
+    "react": ">=16"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
@@ -67,7 +67,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-standard": "^4.1.0",
     "gh-pages": "^3.1.0",
     "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
