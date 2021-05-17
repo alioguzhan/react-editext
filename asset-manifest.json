@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/react-editext/static/css/main.0b656d3b.chunk.css",
-    "main.js": "/react-editext/static/js/main.b3b38045.chunk.js",
-    "main.js.map": "/react-editext/static/js/main.b3b38045.chunk.js.map",
+    "main.js": "/react-editext/static/js/main.b5219cdb.chunk.js",
+    "main.js.map": "/react-editext/static/js/main.b5219cdb.chunk.js.map",
     "runtime-main.js": "/react-editext/static/js/runtime-main.2dca9401.js",
     "runtime-main.js.map": "/react-editext/static/js/runtime-main.2dca9401.js.map",
-    "static/js/2.6a505e66.chunk.js": "/react-editext/static/js/2.6a505e66.chunk.js",
-    "static/js/2.6a505e66.chunk.js.map": "/react-editext/static/js/2.6a505e66.chunk.js.map",
+    "static/js/2.e8f594e1.chunk.js": "/react-editext/static/js/2.e8f594e1.chunk.js",
+    "static/js/2.e8f594e1.chunk.js.map": "/react-editext/static/js/2.e8f594e1.chunk.js.map",
     "index.html": "/react-editext/index.html",
     "static/css/main.0b656d3b.chunk.css.map": "/react-editext/static/css/main.0b656d3b.chunk.css.map",
-    "static/js/2.6a505e66.chunk.js.LICENSE.txt": "/react-editext/static/js/2.6a505e66.chunk.js.LICENSE.txt"
+    "static/js/2.e8f594e1.chunk.js.LICENSE.txt": "/react-editext/static/js/2.e8f594e1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2dca9401.js",
-    "static/js/2.6a505e66.chunk.js",
+    "static/js/2.e8f594e1.chunk.js",
     "static/css/main.0b656d3b.chunk.css",
-    "static/js/main.b3b38045.chunk.js"
+    "static/js/main.b5219cdb.chunk.js"
   ]
 }
