@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.5](https://github.com/alioguzhan/react-editext/compare/v4.1.4...v4.1.5) (2021-05-17)
+
+
+### Bug Fixes
+
+* onChange handler is being ignored when passed with inputProps [#119](https://github.com/alioguzhan/react-editext/issues/119) ([6443a1f](https://github.com/alioguzhan/react-editext/commit/6443a1f9090d4c7e0607b0720e802827dd45de44))
+
 ### [4.1.4](https://github.com/alioguzhan/react-editext/compare/v4.1.3...v4.1.4) (2021-05-13)
 
 
