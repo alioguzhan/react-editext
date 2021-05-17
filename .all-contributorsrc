@@ -172,6 +172,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "johnnypea",
+      "name": "Ján Bočínec",
+      "avatar_url": "https://avatars.githubusercontent.com/u/169748?v=4",
+      "profile": "http://bocinec.sk",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
