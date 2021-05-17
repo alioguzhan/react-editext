@@ -89,6 +89,9 @@ export const example7 = `<EdiText
   type="text"
   hint="It is from Matrix Revolutions."
   inputProps={{
+    onChange: (e: ChangeEvent<HTMLInputElement>) => {
+      setValueLive(e.target.value)
+    },
     placeholder: 'Type your answer here',
     style: {
       backgroundColor: '#233C51',
