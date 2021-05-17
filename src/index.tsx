@@ -282,7 +282,7 @@ function EdiText(props: EdiTextProps) {
     props.inputProps?.onBlur && props.inputProps.onBlur(e);
   }
 
-  function handleViewFocus(e: FocusEvent<HTMLInputElement>): void {
+  function handleViewFocus(e: FocusEvent<HTMLDivElement>): void {
     setViewFocused(true);
     props.startEditingOnFocus && setEditingInternal(true);
     props.viewProps?.onFocus && props.viewProps.onFocus(e);
@@ -301,6 +301,7 @@ function EdiText(props: EdiTextProps) {
   ): void {
     setValid(true);
     setValueInternal(e.target.value);
+    props.inputProps?.onChange?.(e as any);
   }
 
   function handleCancel(): void {

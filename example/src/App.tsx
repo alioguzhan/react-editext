@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import EdiText, { InputProps } from 'react-editext'
 import styled from 'styled-components'
@@ -45,6 +45,7 @@ export default function App() {
   const [logs, setLogs] = useState<any[]>([])
   // const [value, setValue] = useState('Wake up, Neo')
   const [data, setData] = useState({ name: 'Wake up, Neo...' })
+  const [valueLive, setValueLive] = useState('No. The honor is still mine.')
 
   const handleSave = (val: string, inputProps?: InputProps) => {
     console.log('Edited Value -> ', val)
@@ -529,6 +530,9 @@ export default function App() {
                   type="text"
                   hint="It is from Matrix Revolutions."
                   inputProps={{
+                    onChange: (e: ChangeEvent<HTMLInputElement>) => {
+                      setValueLive(e.target.value)
+                    },
                     placeholder: 'Type your answer here',
                     style: {
                       backgroundColor: '#233C51',
@@ -543,11 +547,17 @@ export default function App() {
                   }}
                   containerProps={{
                     className: 'top-level-class',
-                    style: { marginTop: 20 }
+                    style: { padding: 3 }
                   }}
                   value="No. The honor is still mine."
                   onSave={handleSave}
                 />
+              </div>
+              <div style={{ marginTop: 30, marginBottom: 20 }}>live value:</div>
+              <div>
+                <code style={{ background: '#d3d3d3', padding: 10 }}>
+                  {valueLive}
+                </code>
               </div>
             </div>
           </div>

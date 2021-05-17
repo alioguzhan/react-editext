@@ -177,8 +177,10 @@ function EdiText(props) {
         ((_a = props.viewProps) === null || _a === void 0 ? void 0 : _a.onKeyDown) && props.viewProps.onKeyDown(e);
     }
     function handleInputChange(e) {
+        var _a, _b;
         setValid(true);
         setValueInternal(e.target.value);
+        (_b = (_a = props.inputProps) === null || _a === void 0 ? void 0 : _a.onChange) === null || _b === void 0 ? void 0 : _b.call(_a, e);
     }
     function handleCancel() {
         var _a;
