@@ -15,21 +15,6 @@
 
 This project is generated from [react-typescript-library template](https://github.com/alioguzhan/react-typescript-library).
 
-## v4.0 is here 🎉
-
-With v4.0, I rewrote this component.
-
-- Source code is now `Typescript`.
-- And it has written with `Function Components`. No more Class Components.
-- Tests have rewritten with `@testing-library`.
-- Drop Node 8 support
-- Drop React 15.x support
-
-There should be NO breaking changes in the API. If you encounter any problem after upgrading to `v.4.0.0`:
-
-1. Please open an issue and let me know.
-2. Install the latest version before 4.0: `yarn add react-editext@3.18.0`
-
 ## Install
 
 ```bash
@@ -76,10 +61,10 @@ You can customize almost everything based on your needs. Please navigate to [Pro
 
 | Prop                   | Type     | Required | Default       | Note                                                                                                                                                                                                         |
 | ---------------------- | -------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value                  | string   | Yes      | `''`          | Value of the content and input [in edit mode]                                                                                                                                                                |
+| value                  | string   | **Yes**  |               | Value of the content and input [in edit mode]                                                                                                                                                                |
+| onSave                 | function | **Yes**  |               | Function will be called when save button clicked. `value` and `inputProps` are passed to cb.                                                                                                                 |
 | type                   | string   | No       | text          | Input type. Possible options are: `text`, `password`, `number`, `email`, `textarea`, `date`, `datetime-local`, `time`, `month`, `url`, `week`, `tel`                                                         |
 | hint                   | node     | No       | `''`          | A simple hint message appears at the bottom of input element. Any valid element is allowed.                                                                                                                  |
-| onSave                 | function | Yes      |               | Function will be called when save button clicked. `value` and `inputProps` are passed to cb.                                                                                                                 |
 | inputProps             | object   | No       |               | Props to be passed to input element. Any kind of valid DOM attributes are welcome.                                                                                                                           |
 | viewProps              | object   | No       |               | Props to be passed to div element that shows the text. You can specify your own `styles` or `className`                                                                                                      |
 | containerProps         | object   | No       |               | Props to be passed to div element that is container for all elements. You can use this if you want to style or select the whole container.                                                                   |
