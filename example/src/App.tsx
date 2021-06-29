@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+// @ts-ignore
 import EdiText, { InputProps } from 'react-editext'
 import styled from 'styled-components'
 import * as examples from './_examples'
@@ -1037,7 +1038,8 @@ export default function App() {
                 onSave={handleSave}
                 submitOnEnter
                 renderValue={(value: string) => {
-                  const regexp = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gi
+                  const regexp =
+                    /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gi
                   const valueWithParsedURLS = value.replace(
                     regexp,
                     "<a target='_blank' href='http://$&'>$&</a>"
