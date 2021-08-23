@@ -44,6 +44,7 @@ const StyledEdiText = styled(EdiText)`
 export default function App() {
   const [editing, setEditing] = useState(false)
   const [logs, setLogs] = useState<any[]>([])
+  const [checked, setChecked] = useState<boolean>(false)
   // const [value, setValue] = useState('Wake up, Neo')
   const [data, setData] = useState({ name: 'Wake up, Neo...' })
   const [valueLive, setValueLive] = useState('No. The honor is still mine.')
@@ -811,6 +812,50 @@ export default function App() {
                 value={data.name}
                 onSave={handleSave}
                 editing={editing}
+              />
+            </div>
+          </div>
+        </div>
+        {/* ============ End of Example ============ */}
+        <div
+          className="tile is-parent is-vertical is-10"
+          id="conditioanl-editing"
+        >
+          <div className="subtitle">
+            <a href="#conditioanl-editing">Conditonal Editing</a>
+          </div>
+          <p className="content">
+            You can also pass a <code>canEdit</code>function to control the
+            editing state of the input. The function must return a boolean.
+          </p>
+          <div className="columns">
+            <div className="column is-half">
+              <SyntaxHighlighter language="javascript" showLineNumbers={true}>
+                {examples.example26}
+              </SyntaxHighlighter>
+            </div>
+            <div className="column">
+              <div className="subtitle">Output</div>
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <label>I agree the terms and conditions.</label>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={(e) => setChecked(e.target.checked)}
+                />
+              </div>
+              <br />
+              <EdiText
+                type="text"
+                value={data.name}
+                onSave={handleSave}
+                canEdit={() => {
+                  if (!checked) {
+                    alert('You must agree the terms and conditions.')
+                    return false
+                  }
+                  return true
+                }}
               />
             </div>
           </div>

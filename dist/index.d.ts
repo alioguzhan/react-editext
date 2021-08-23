@@ -14,6 +14,11 @@ export interface EdiTextProps {
      */
     viewProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
     /**
+     * Props to be passed to edit button.
+     * You can set `styles`, `className or disabled state.
+     */
+    editButtonProps?: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+    /**
      * Class name for the root container of the EdiText.
      */
     className?: string;
@@ -120,6 +125,11 @@ export interface EdiTextProps {
      * @default false
      */
     editing?: boolean;
+    /**
+     * control function that will be called when user clicks on the edit button.
+     * return false to prevent editing or return true to allow editing.
+     */
+    canEdit?: boolean | (() => boolean);
     /**
      * Will be called when the editing mode is active.
      *

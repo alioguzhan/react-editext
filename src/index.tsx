@@ -12,6 +12,7 @@ import {
   dataAttributes,
   classnames,
   defaultValidationMessage,
+  getCanEdit,
 } from './utils';
 
 export type EdiTextType =
@@ -51,6 +52,14 @@ export interface EdiTextProps {
   viewProps?: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
+  >;
+  /**
+   * Props to be passed to edit button.
+   * You can set `styles`, `className or disabled state.
+   */
+  editButtonProps?: React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
   >;
   /**
    * Class name for the root container of the EdiText.
@@ -162,6 +171,11 @@ export interface EdiTextProps {
    * @default false
    */
   editing?: boolean;
+  /**
+   * control function that will be called when user clicks on the edit button.
+   * return false to prevent editing or return true to allow editing.
+   */
+  canEdit?: boolean | (() => boolean);
   /**
    * Will be called when the editing mode is active.
    *
@@ -313,8 +327,10 @@ function EdiText(props: EdiTextProps) {
   }
 
   function handleActivateEditMode(): void {
-    setEditingInternal(true);
-    props.onEditingStart?.(valueInternal, props.inputProps);
+    if (getCanEdit(props.canEdit)) {
+      setEditingInternal(true);
+      props.onEditingStart?.(valueInternal, props.inputProps);
+    }
   }
 
   function handleSave(): void {
@@ -506,9 +522,10 @@ function EdiText(props: EdiTextProps) {
         <div className={buttonsContainerClass}>
           <button
             type="button"
+            className={editButtonClass}
+            {...props.editButtonProps}
             // @ts-ignore
             editext={dataAttributes.editButton}
-            className={editButtonClass}
             onClick={handleActivateEditMode}
           >
             {props.editButtonContent}

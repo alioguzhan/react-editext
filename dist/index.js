@@ -111,6 +111,12 @@ var dataAttributes = {
 var cancelOnConflictMessage = 'EdiText: Both `cancelOnUnfocus` and `submitOnUnfocus` are set to true. ' +
     '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
 var defaultValidationMessage = 'Invalid Value';
+function getCanEdit(canEdit) {
+    if (canEdit === undefined) {
+        return true;
+    }
+    return typeof canEdit === 'function' ? canEdit() : canEdit;
+}
 
 function EdiText(props) {
     var _a;
@@ -192,8 +198,10 @@ function EdiText(props) {
     }
     function handleActivateEditMode() {
         var _a;
-        setEditingInternal(true);
-        (_a = props.onEditingStart) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal, props.inputProps);
+        if (getCanEdit(props.canEdit)) {
+            setEditingInternal(true);
+            (_a = props.onEditingStart) === null || _a === void 0 ? void 0 : _a.call(props, valueInternal, props.inputProps);
+        }
     }
     function handleSave() {
         if (typeof props.validation === 'function') {
@@ -286,9 +294,9 @@ function EdiText(props) {
                 // @ts-ignore
                 editext: "view" }), _value)),
             React__default['default'].createElement("div", { className: buttonsContainerClass },
-                React__default['default'].createElement("button", { type: "button", 
+                React__default['default'].createElement("button", __assign({ type: "button", className: editButtonClass }, props.editButtonProps, { 
                     // @ts-ignore
-                    editext: dataAttributes.editButton, className: editButtonClass, onClick: handleActivateEditMode }, props.editButtonContent)),
+                    editext: dataAttributes.editButton, onClick: handleActivateEditMode }), props.editButtonContent)),
             alignment === 'before' && (React__default['default'].createElement("div", __assign({ 
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
