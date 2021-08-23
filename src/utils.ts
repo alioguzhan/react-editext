@@ -47,3 +47,12 @@ export const cancelOnConflictMessage =
   '`submitOnUnfocus` is ignored in this case. Please remove one of these.';
 
 export const defaultValidationMessage = 'Invalid Value';
+
+export function getCanEdit(
+  canEdit: boolean | (() => boolean) | undefined
+): boolean {
+  if (canEdit === undefined) {
+    return true;
+  }
+  return typeof canEdit === 'function' ? canEdit() : canEdit;
+}

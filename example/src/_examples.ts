@@ -438,3 +438,20 @@ export const example25 = `<EdiText
   }}
 />
 `
+
+export const example26 = `<EdiText
+  type="text"
+  value={data.name}
+  onSave={handleSave}<EdiText
+  type="text"
+  value={data.name}
+  onSave={handleSave}
+  canEdit={() => {
+    // checked is from state and connected to the above checkbox
+    if (!checked) {
+      alert('You must agree the terms and conditions.')
+      return false
+    }
+    return true
+  }}
+/>`

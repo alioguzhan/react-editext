@@ -432,3 +432,29 @@ test('custom containerProps are working', () => {
   expect(of).toBeCalled();
   expect(ob).toBeCalled();
 });
+
+test('canEdit prop is called before enabled the editin', () => {
+  let comp = render(
+    <EdiText value={VALUE} onSave={() => false} canEdit={() => false} />
+  );
+  let button = comp.container.querySelector('[editext="edit-button"]');
+  button && fireEvent.click(button, new MouseEvent('click'));
+  let input = comp.container.querySelector('input');
+  expect(input).not.toBeInTheDocument();
+
+  comp = render(
+    <EdiText value={VALUE} onSave={() => false} canEdit={() => true} />
+  );
+  button = comp.container.querySelector('[editext="edit-button"]');
+  button && fireEvent.click(button, new MouseEvent('click'));
+  input = comp.container.querySelector('input');
+  expect(input).toBeInTheDocument();
+  expect(input?.value).toBe(VALUE);
+
+  comp = render(<EdiText value={VALUE} onSave={() => false} canEdit={true} />);
+  button = comp.container.querySelector('[editext="edit-button"]');
+  button && fireEvent.click(button, new MouseEvent('click'));
+  input = comp.container.querySelector('input');
+  expect(input).toBeInTheDocument();
+  expect(input?.value).toBe(VALUE);
+});
