@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/alioguzhan/react-editext/compare/v4.1.5...v4.2.0) (2021-08-23)
+
+
+### Features
+
+* add `canEdit` and `editButtonProps` ([1c0b224](https://github.com/alioguzhan/react-editext/commit/1c0b2241075812146fc235b3558253c7cba8be93)), closes [#127](https://github.com/alioguzhan/react-editext/issues/127)
+
 ### [4.1.5](https://github.com/alioguzhan/react-editext/compare/v4.1.4...v4.1.5) (2021-05-17)
 
 
