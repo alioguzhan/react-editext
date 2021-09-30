@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/alioguzhan/react-editext/compare/v4.2.0...v4.2.1) (2021-09-30)
+
+
+### Bug Fixes
+
+* **security:** upgrade deps ([6b1b40f](https://github.com/alioguzhan/react-editext/commit/6b1b40f5c873f4287fe31321b9923a704961e053))
+
 ## [4.2.0](https://github.com/alioguzhan/react-editext/compare/v4.1.5...v4.2.0) (2021-08-23)
 
 
