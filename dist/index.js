@@ -6,7 +6,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-/*! *****************************************************************************
+/******************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -127,9 +127,9 @@ function EdiText(props) {
     var _e = React.useState(undefined), savedValue = _e[0], setSavedValue = _e[1];
     var _f = React.useState(false), viewFocused = _f[0], setViewFocused = _f[1];
     // refs
-    var saveButton = React__default['default'].createRef();
-    var editingContainer = React__default['default'].createRef();
-    var editingButtons = React__default['default'].createRef();
+    var saveButton = React__default["default"].createRef();
+    var editingContainer = React__default["default"].createRef();
+    var editingButtons = React__default["default"].createRef();
     React.useEffect(function () {
         if (props.cancelOnUnfocus && props.submitOnUnfocus) {
             console.warn(cancelOnConflictMessage);
@@ -218,7 +218,7 @@ function EdiText(props) {
     }
     function _renderInput() {
         if (props.type === 'textarea') {
-            return (React__default['default'].createElement("textarea", __assign({ className: styles.Editext__input, 
+            return (React__default["default"].createElement("textarea", __assign({ className: styles.Editext__input, 
                 // @ts-ignore
                 editext: dataAttributes.input, 
                 // this is here because,
@@ -227,7 +227,7 @@ function EdiText(props) {
                 tabIndex: props.tabIndex }, props.inputProps, { onBlur: handleOnBlur, value: valueInternal, onChange: handleInputChange, autoFocus: editingInternal })));
         }
         else {
-            return (React__default['default'].createElement("input", __assign({ className: styles.Editext__input, 
+            return (React__default["default"].createElement("input", __assign({ className: styles.Editext__input, 
                 // @ts-ignore
                 editext: dataAttributes.input, 
                 // this is here because,
@@ -239,10 +239,10 @@ function EdiText(props) {
     function _renderEditingMode() {
         var inputElem = _renderInput();
         // calculate save button classes
-        var saveButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__save_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
+        var saveButtonDefaultClasses = classnames("".concat(styles.Editext__button), "".concat(styles.Editext__save_button), props.hideIcons && "".concat(styles.Editext__hide_default_icons));
         var saveButtonClass = props.saveButtonClassName || saveButtonDefaultClasses;
         // calculate cancel button classes
-        var cancelButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__cancel_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
+        var cancelButtonDefaultClasses = classnames("".concat(styles.Editext__button), "".concat(styles.Editext__cancel_button), props.hideIcons && "".concat(styles.Editext__hide_default_icons));
         var cancelButtonClass = props.cancelButtonClassName || cancelButtonDefaultClasses;
         var editContainerClass = styles.Editext__editing_container;
         if (props.editContainerClassName)
@@ -250,54 +250,54 @@ function EdiText(props) {
         if (props.viewContainerClassName)
             editContainerClass = props.viewContainerClassName;
         var alignment = props.buttonsAlign || 'after';
-        var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "" + styles.Editext__buttons_before_aligned, alignment === 'after' && "" + styles.Editext__buttons_after_aligned);
-        return (React__default['default'].createElement("div", null,
-            React__default['default'].createElement("div", { ref: editingContainer, className: editContainerClass, 
+        var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "".concat(styles.Editext__buttons_before_aligned), alignment === 'after' && "".concat(styles.Editext__buttons_after_aligned));
+        return (React__default["default"].createElement("div", null,
+            React__default["default"].createElement("div", { ref: editingContainer, className: editContainerClass, 
                 // @ts-ignore
                 editext: dataAttributes.editContainer },
                 alignment === 'after' && inputElem,
-                React__default['default'].createElement("div", { className: buttonsContainerClass, ref: editingButtons },
-                    React__default['default'].createElement("button", { ref: saveButton, 
+                React__default["default"].createElement("div", { className: buttonsContainerClass, ref: editingButtons },
+                    React__default["default"].createElement("button", { ref: saveButton, 
                         // @ts-ignore
                         editext: dataAttributes.saveButton, type: "button", className: saveButtonClass, onClick: handleSave }, props.saveButtonContent),
-                    React__default['default'].createElement("button", { type: "button", 
+                    React__default["default"].createElement("button", { type: "button", 
                         // @ts-ignore
                         editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, props.cancelButtonContent)),
                 alignment === 'before' && inputElem),
-            !valid && !props.onValidationFail && (React__default['default'].createElement("div", { className: styles.Editext__validation_message }, props.validationMessage || defaultValidationMessage)),
-            props.hint && (React__default['default'].createElement("div", { className: styles.Editext__hint, 
+            !valid && !props.onValidationFail && (React__default["default"].createElement("div", { className: styles.Editext__validation_message }, props.validationMessage || defaultValidationMessage)),
+            props.hint && (React__default["default"].createElement("div", { className: styles.Editext__hint, 
                 // @ts-ignore
                 editext: dataAttributes.hint }, props.hint))));
     }
     function _renderViewMode() {
         // calculate edit button classes
-        var editButtonDefaultClasses = classnames("" + styles.Editext__button, "" + styles.Editext__edit_button, props.hideIcons && "" + styles.Editext__hide_default_icons);
+        var editButtonDefaultClasses = classnames("".concat(styles.Editext__button), "".concat(styles.Editext__edit_button), props.hideIcons && "".concat(styles.Editext__hide_default_icons));
         var editButtonClass = props.editButtonClassName || editButtonDefaultClasses;
         var viewContainerClass = classnames(props.viewContainerClassName || styles.Editext__view_container, props.showButtonsOnHover &&
-            "" + styles.Editext__buttons_showButtonsOnHover);
+            "".concat(styles.Editext__buttons_showButtonsOnHover));
         var alignment = props.buttonsAlign || 'after';
-        var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "" + styles.Editext__buttons_before_aligned, alignment === 'after' && "" + styles.Editext__buttons_after_aligned);
+        var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "".concat(styles.Editext__buttons_before_aligned), alignment === 'after' && "".concat(styles.Editext__buttons_after_aligned));
         var viewClickHandler = props.editOnViewClick
             ? handleActivateEditMode
             : undefined;
         var _value = typeof props.renderValue === 'function'
             ? props.renderValue(valueInternal)
             : valueInternal;
-        return (React__default['default'].createElement("div", { className: viewContainerClass, 
+        return (React__default["default"].createElement("div", { className: viewContainerClass, 
             // @ts-ignore
             editext: dataAttributes.viewContainer },
-            alignment === 'after' && (React__default['default'].createElement("div", __assign({ 
+            alignment === 'after' && (React__default["default"].createElement("div", __assign({ 
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
                 tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
                 // @ts-ignore
                 editext: "view" }), _value)),
-            React__default['default'].createElement("div", { className: buttonsContainerClass },
-                React__default['default'].createElement("button", __assign({ type: "button", className: editButtonClass }, props.editButtonProps, { 
+            React__default["default"].createElement("div", { className: buttonsContainerClass },
+                React__default["default"].createElement("button", __assign({ type: "button", className: editButtonClass }, props.editButtonProps, { 
                     // @ts-ignore
                     editext: dataAttributes.editButton, onClick: handleActivateEditMode }), props.editButtonContent)),
-            alignment === 'before' && (React__default['default'].createElement("div", __assign({ 
+            alignment === 'before' && (React__default["default"].createElement("div", __assign({ 
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
@@ -309,7 +309,7 @@ function EdiText(props) {
     var clsName = classnames(((_a = props.containerProps) === null || _a === void 0 ? void 0 : _a.className) ||
         props.mainContainerClassName ||
         styles.Editext__main_container, props.className);
-    return (React__default['default'].createElement("div", __assign({}, props.containerProps, { className: clsName, 
+    return (React__default["default"].createElement("div", __assign({}, props.containerProps, { className: clsName, 
         // @ts-ignore
         editext: dataAttributes.mainContainer }), mode));
 }
