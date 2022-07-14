@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/alioguzhan/react-editext/compare/v4.2.1...v5.0.0) (2022-07-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** minimum supported node version is now 12
+
+### chore
+
+* **deps:** drop support for NodeJS 10 ([6303a2b](https://github.com/alioguzhan/react-editext/commit/6303a2bcfefdf322e8e7f000afaefedcd62056b1))
+
 ### [4.2.1](https://github.com/alioguzhan/react-editext/compare/v4.2.0...v4.2.1) (2021-09-30)
 
 
