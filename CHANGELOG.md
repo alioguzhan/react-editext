@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file.
 
 ## [5.0.0](https://github.com/alioguzhan/react-editext/compare/v4.2.1...v5.0.0) (2022-07-14)
 

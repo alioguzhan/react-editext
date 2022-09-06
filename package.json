@@ -32,7 +32,6 @@
     "test:ci": "cross-env CI=1 jest",
     "predeploy": "cd example && yarn install && yarn run build && cp _redirects build/",
     "deploy": "gh-pages -d example/build",
-    "release": "standard-version",
     "prepare": "husky install"
   },
   "peerDependencies": {
@@ -55,7 +54,6 @@
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "codecov": "^3.8.3",
-    "colors": "^1.4.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
@@ -74,10 +72,8 @@
     "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
-    "prompt": "^1.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "replace-in-file": "^6.3.5",
     "rollup": "^2.76.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-delete": "^2.0.0",
@@ -88,10 +84,7 @@
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.32.1",
-    "shelljs": "^0.8.5",
-    "standard-version": "^9.5.0",
     "ts-jest": "^28.0.5",
-    "ts-node": "^10.8.2",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
     "typescript-plugin-css-modules": "^3.4.0"
