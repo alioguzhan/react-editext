@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.1](https://github.com/alioguzhan/react-editext/compare/react-editext-v5.0.0...react-editext-v5.0.1) (2022-09-06)
+
+
+### Bug Fixes
+
+* validation prop failed to validate when used with async/await ([c292e6e](https://github.com/alioguzhan/react-editext/commit/c292e6e5b9923896f05e0b7a3fea8790b8d5e1fb)), closes [#152](https://github.com/alioguzhan/react-editext/issues/152)
+
 ## [5.0.0](https://github.com/alioguzhan/react-editext/compare/v4.2.1...v5.0.0) (2022-07-14)
 
 
