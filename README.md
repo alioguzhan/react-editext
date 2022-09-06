@@ -213,6 +213,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://kalashnikovisme.medium.com"><img src="https://avatars.githubusercontent.com/u/2001025?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pavel Kalashnikov</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Akalashnikovisme" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://bocinec.sk"><img src="https://avatars.githubusercontent.com/u/169748?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ján Bočínec</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Ajohnnypea" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/shubh057"><img src="https://avatars.githubusercontent.com/u/83571748?v=4?s=100" width="100px;" alt=""/><br /><sub><b>shubh057</b></sub></a><br /><a href="#ideas-shubh057" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/sanjain-progress"><img src="https://avatars.githubusercontent.com/u/90894396?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sachin Jain</b></sub></a><br /><a href="https://github.com/alioguzhan/react-editext/issues?q=author%3Asanjain-progress" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
