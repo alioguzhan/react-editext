@@ -1,0 +1,9 @@
+{
+  "bootstrap-sha": "8b7e4c64aed0a8dfe320a83b9792cfa301793a97",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "react-editext"
+    }
+  }
+}
