@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import React, { useState } from 'react';
 import EdiText from '.';
 import { cancelOnConflictMessage } from './utils';
 
@@ -141,7 +141,7 @@ test('using cancelOnUnfocus and submitOnUnfocus together warns the user', () => 
   expect(warn).toBeCalledWith(cancelOnConflictMessage);
 });
 
-test('default validation handling is working', () => {
+test('default validation handling is working', async () => {
   const v = jest.fn((v: string) => v.length > 10);
   const { container } = render(
     <EdiText validation={v} value={VALUE} onSave={(v) => false} />
@@ -153,12 +153,14 @@ test('default validation handling is working', () => {
   fireEvent.change(input, { target: { value: 'Hello' } });
   const saveBtn = container.querySelector('[editext="save-button"]');
   saveBtn && fireEvent.click(saveBtn, new MouseEvent('click'));
-  expect(input).toBeInTheDocument();
-  expect(screen.getByText('Invalid Value'));
+  await waitFor(() => {
+    expect(input).toBeInTheDocument();
+    expect(screen.getByText('Invalid Value'));
+  });
   expect(v).toBeCalledTimes(1);
 });
 
-test('custom validation handling is working', () => {
+test('custom validation handling is working', async () => {
   const v = jest.fn((v: string) => v.length > 10);
   const message = 'At least 10 character...';
   const { container } = render(
@@ -176,15 +178,17 @@ test('custom validation handling is working', () => {
   fireEvent.change(input, { target: { value: 'Hello' } });
   const saveBtn = container.querySelector('[editext="save-button"]');
   saveBtn && fireEvent.click(saveBtn, new MouseEvent('click'));
-  expect(input).toBeInTheDocument();
-  expect(screen.getByText(message));
-  expect(v).toBeCalledTimes(1);
+  await waitFor(() => {
+    expect(input).toBeInTheDocument();
+    expect(screen.getByText(message));
+    expect(v).toBeCalledTimes(1);
+  });
 });
 
-test('onValidationCancel is working', () => {
+test('onValidationFail is working', async () => {
   const v = jest.fn((v: string) => v.length > 10);
   const f = jest
-    .fn((v: string) => console.log('validation failed.'))
+    .fn((v: string) => console.log(`validation failed for ${v}`))
     .mockImplementation(() => {});
   const { container } = render(
     <EdiText
@@ -201,7 +205,10 @@ test('onValidationCancel is working', () => {
   fireEvent.change(input, { target: { value: 'Hello' } });
   const saveBtn = container.querySelector('[editext="save-button"]');
   saveBtn && fireEvent.click(saveBtn, new MouseEvent('click'));
-  expect(input).toBeInTheDocument();
+  await waitFor(() => {
+    expect(input).toBeInTheDocument();
+  });
+
   expect(v).toBeCalledTimes(1);
   expect(f).toBeCalledTimes(1);
 });

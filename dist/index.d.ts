@@ -44,7 +44,7 @@ export interface EdiTextProps {
      * takes one param -> `value`.
      * It must return `true` or `false`
      */
-    validation?: (...args: string[]) => boolean;
+    validation?: (...args: string[]) => boolean | Promise<boolean>;
     /**
      * will be called when validation fails.
      * takes one param <value> which is the current value of input
