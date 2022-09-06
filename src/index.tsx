@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 import React, {
-  useEffect,
-  KeyboardEvent,
-  FocusEvent,
-  useState,
   ChangeEvent,
+  FocusEvent,
+  KeyboardEvent,
+  useEffect,
+  useState,
 } from 'react';
 import styles from './styles.module.css';
 import {
   cancelOnConflictMessage,
-  dataAttributes,
   classnames,
+  dataAttributes,
   defaultValidationMessage,
   getCanEdit,
 } from './utils';
@@ -90,7 +90,7 @@ export interface EdiTextProps {
    * takes one param -> `value`.
    * It must return `true` or `false`
    */
-  validation?: (...args: string[]) => boolean;
+  validation?: (...args: string[]) => boolean | Promise<boolean>;
   /**
    * will be called when validation fails.
    * takes one param <value> which is the current value of input
@@ -333,12 +333,12 @@ function EdiText(props: EdiTextProps) {
     }
   }
 
-  function handleSave(): void {
+  async function handleSave(): Promise<void> {
     if (typeof props.validation === 'function') {
-      const isValid = props.validation(valueInternal);
+      const isValid = await props.validation(valueInternal);
       if (!isValid) {
         setValid(false);
-        props.onValidationFail && props.onValidationFail(valueInternal);
+        await props.onValidationFail?.(valueInternal);
         return;
       }
     }
