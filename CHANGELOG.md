@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.1.0](https://github.com/alioguzhan/react-editext/compare/v5.0.2...v5.1.0) (2022-10-31)
+
+
+### Features
+
+* add new attr to allow customize the validation container ([4bfda73](https://github.com/alioguzhan/react-editext/commit/4bfda730eb89ad49244fed2f096d089508a284e5))
+
 ## [5.0.2](https://github.com/alioguzhan/react-editext/compare/v5.0.1...v5.0.2) (2022-09-06)
 
 
