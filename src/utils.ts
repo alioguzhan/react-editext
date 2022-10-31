@@ -35,6 +35,7 @@ export const dataAttributes = {
   viewContainer: 'view-container',
   buttonContainer: 'button-container',
   editContainer: 'edit-container',
+  validationContainer: 'validation-container',
   editButton: 'edit-button',
   saveButton: 'save-button',
   cancelButton: 'cancel-button',

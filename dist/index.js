@@ -140,6 +140,7 @@ var dataAttributes = {
     viewContainer: 'view-container',
     buttonContainer: 'button-container',
     editContainer: 'edit-container',
+    validationContainer: 'validation-container',
     editButton: 'edit-button',
     saveButton: 'save-button',
     cancelButton: 'cancel-button',
@@ -315,7 +316,9 @@ function EdiText(props) {
                         // @ts-ignore
                         editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, props.cancelButtonContent)),
                 alignment === 'before' && inputElem),
-            !valid && !props.onValidationFail && (React__default["default"].createElement("div", { className: styles.Editext__validation_message }, props.validationMessage || defaultValidationMessage)),
+            !valid && !props.onValidationFail && (React__default["default"].createElement("div", { className: styles.Editext__validation_message, 
+                // @ts-ignore
+                editext: dataAttributes.validationContainer }, props.validationMessage || defaultValidationMessage)),
             props.hint && (React__default["default"].createElement("div", { className: styles.Editext__hint, 
                 // @ts-ignore
                 editext: dataAttributes.hint }, props.hint))));

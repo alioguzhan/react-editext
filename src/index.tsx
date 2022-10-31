@@ -453,7 +453,11 @@ function EdiText(props: EdiTextProps) {
           {alignment === 'before' && inputElem}
         </div>
         {!valid && !props.onValidationFail && (
-          <div className={styles.Editext__validation_message}>
+          <div
+            className={styles.Editext__validation_message}
+            // @ts-ignore
+            editext={dataAttributes.validationContainer}
+          >
             {props.validationMessage || defaultValidationMessage}
           </div>
         )}

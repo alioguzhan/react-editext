@@ -104,16 +104,18 @@ You can style your `<EdiText/>` components with `styled-components` or similar l
 
 Each customizable HTML element has a `editext=xxx` attribute. Use below as a reference table:
 
-| Attr. Value        | Description                                                                      |
-| ------------------ | -------------------------------------------------------------------------------- |
-| `view-container`   | the container in `view` mode                                                     |
-| `edit-container`   | the container in `edit` mode                                                     |
-| `button-container` | the container for the `save` and `cancel` buttons                                |
-| `edit-button`      | use this to style the **edit button**                                            |
-| `save-button`      | use this to style the **save button**                                            |
-| `cancel-button`    | use this to style the **cancel button**                                          |
-| `input`            | There is only one input. You can select it directly or just use this attr value. |
-| `hint`             | To style the hint container.                                                     |
+| Attr. Value            | Description                                                                      |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| `main-container`       | the main container                                                               |
+| `view-container`       | the container in `view` mode                                                     |
+| `edit-container`       | the container in `edit` mode                                                     |
+| `button-container`     | the container for the `save` and `cancel` buttons                                |
+| `validation-container` | the container for validation message area                                        |
+| `edit-button`          | use this to style the **edit button**                                            |
+| `save-button`          | use this to style the **save button**                                            |
+| `cancel-button`        | use this to style the **cancel button**                                          |
+| `input`                | There is only one input. You can select it directly or just use this attr value. |
+| `hint`                 | To style the hint container.                                                     |
 
 Usage:
 
@@ -132,6 +134,11 @@ div[editext='view-container'] {
   color: #fff;
 }
 
+div[editext='validation-container'] {
+  color: #d3d3d3;
+  text-decoration: underline;
+}
+
 input,
 textarea {
   /** or input[editext="input"] {} */
@@ -147,9 +154,8 @@ textarea {
 ## Browser Support
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                | :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                        | :white_check_mark:                                                                                                                                                                                 |
-
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                | :white_check_mark:                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                                            | :white_check_mark:                                                                                                                                                                                        | :white_check_mark:                                                                                                                                                                                         |
 
 ## Development
 
