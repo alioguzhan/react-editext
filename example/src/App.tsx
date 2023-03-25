@@ -1,6 +1,5 @@
-import React, { useState, ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-// @ts-ignore
 import EdiText, { InputProps } from 'react-editext'
 import styled from 'styled-components'
 import * as examples from './_examples'
