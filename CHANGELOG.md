@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.0](https://github.com/alioguzhan/react-editext/compare/v5.1.0...v6.0.0) (2023-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* deprecate node 12
+
+### Miscellaneous Chores
+
+* deprecate node 12 ([4660eb6](https://github.com/alioguzhan/react-editext/commit/4660eb6b7f1e7882627ff9e90fcc5360e7f9f31a))
+* release 5.1.1 ([0320a62](https://github.com/alioguzhan/react-editext/commit/0320a62484a3d063977190d6344b6858f41e96cb))
+* release 6.0.0 ([c5b1013](https://github.com/alioguzhan/react-editext/commit/c5b101396533c6a8b223b496ccdf31d753942dc5))
+
 ## [5.1.0](https://github.com/alioguzhan/react-editext/compare/v5.0.2...v5.1.0) (2022-10-31)
 
 
