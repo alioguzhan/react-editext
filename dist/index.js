@@ -2,10 +2,6 @@
 
 var React = require('react');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -166,9 +162,9 @@ function EdiText(props) {
     var _e = React.useState(undefined), savedValue = _e[0], setSavedValue = _e[1];
     var _f = React.useState(false), viewFocused = _f[0], setViewFocused = _f[1];
     // refs
-    var saveButton = React__default["default"].createRef();
-    var editingContainer = React__default["default"].createRef();
-    var editingButtons = React__default["default"].createRef();
+    var saveButton = React.createRef();
+    var editingContainer = React.createRef();
+    var editingButtons = React.createRef();
     React.useEffect(function () {
         if (props.cancelOnUnfocus && props.submitOnUnfocus) {
             console.warn(cancelOnConflictMessage);
@@ -270,7 +266,7 @@ function EdiText(props) {
     }
     function _renderInput() {
         if (props.type === 'textarea') {
-            return (React__default["default"].createElement("textarea", __assign({ className: styles.Editext__input, 
+            return (React.createElement("textarea", __assign({ className: styles.Editext__input, 
                 // @ts-ignore
                 editext: dataAttributes.input, 
                 // this is here because,
@@ -279,7 +275,7 @@ function EdiText(props) {
                 tabIndex: props.tabIndex }, props.inputProps, { onBlur: handleOnBlur, value: valueInternal, onChange: handleInputChange, autoFocus: editingInternal })));
         }
         else {
-            return (React__default["default"].createElement("input", __assign({ className: styles.Editext__input, 
+            return (React.createElement("input", __assign({ className: styles.Editext__input, 
                 // @ts-ignore
                 editext: dataAttributes.input, 
                 // this is here because,
@@ -303,23 +299,23 @@ function EdiText(props) {
             editContainerClass = props.viewContainerClassName;
         var alignment = props.buttonsAlign || 'after';
         var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "".concat(styles.Editext__buttons_before_aligned), alignment === 'after' && "".concat(styles.Editext__buttons_after_aligned));
-        return (React__default["default"].createElement("div", null,
-            React__default["default"].createElement("div", { ref: editingContainer, className: editContainerClass, 
+        return (React.createElement("div", null,
+            React.createElement("div", { ref: editingContainer, className: editContainerClass, 
                 // @ts-ignore
                 editext: dataAttributes.editContainer },
                 alignment === 'after' && inputElem,
-                React__default["default"].createElement("div", { className: buttonsContainerClass, ref: editingButtons },
-                    React__default["default"].createElement("button", { ref: saveButton, 
+                React.createElement("div", { className: buttonsContainerClass, ref: editingButtons },
+                    React.createElement("button", { ref: saveButton, 
                         // @ts-ignore
                         editext: dataAttributes.saveButton, type: "button", className: saveButtonClass, onClick: handleSave }, props.saveButtonContent),
-                    React__default["default"].createElement("button", { type: "button", 
+                    React.createElement("button", { type: "button", 
                         // @ts-ignore
                         editext: dataAttributes.cancelButton, className: cancelButtonClass, onClick: handleCancel }, props.cancelButtonContent)),
                 alignment === 'before' && inputElem),
-            !valid && !props.onValidationFail && (React__default["default"].createElement("div", { className: styles.Editext__validation_message, 
+            !valid && !props.onValidationFail && (React.createElement("div", { className: styles.Editext__validation_message, 
                 // @ts-ignore
                 editext: dataAttributes.validationContainer }, props.validationMessage || defaultValidationMessage)),
-            props.hint && (React__default["default"].createElement("div", { className: styles.Editext__hint, 
+            props.hint && (React.createElement("div", { className: styles.Editext__hint, 
                 // @ts-ignore
                 editext: dataAttributes.hint }, props.hint))));
     }
@@ -337,21 +333,21 @@ function EdiText(props) {
         var _value = typeof props.renderValue === 'function'
             ? props.renderValue(valueInternal)
             : valueInternal;
-        return (React__default["default"].createElement("div", { className: viewContainerClass, 
+        return (React.createElement("div", { className: viewContainerClass, 
             // @ts-ignore
             editext: dataAttributes.viewContainer },
-            alignment === 'after' && (React__default["default"].createElement("div", __assign({ 
+            alignment === 'after' && (React.createElement("div", __assign({ 
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
                 tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
                 // @ts-ignore
                 editext: "view" }), _value)),
-            React__default["default"].createElement("div", { className: buttonsContainerClass },
-                React__default["default"].createElement("button", __assign({ type: "button", className: editButtonClass }, props.editButtonProps, { 
+            React.createElement("div", { className: buttonsContainerClass },
+                React.createElement("button", __assign({ type: "button", className: editButtonClass }, props.editButtonProps, { 
                     // @ts-ignore
                     editext: dataAttributes.editButton, onClick: handleActivateEditMode }), props.editButtonContent)),
-            alignment === 'before' && (React__default["default"].createElement("div", __assign({ 
+            alignment === 'before' && (React.createElement("div", __assign({ 
                 // this is here because,
                 // we still allow people to pass the tabIndex via inputProps
                 // also backward compatibility.
@@ -363,7 +359,7 @@ function EdiText(props) {
     var clsName = classnames(((_a = props.containerProps) === null || _a === void 0 ? void 0 : _a.className) ||
         props.mainContainerClassName ||
         styles.Editext__main_container, props.className);
-    return (React__default["default"].createElement("div", __assign({}, props.containerProps, { className: clsName, 
+    return (React.createElement("div", __assign({}, props.containerProps, { className: clsName, 
         // @ts-ignore
         editext: dataAttributes.mainContainer }), mode));
 }
