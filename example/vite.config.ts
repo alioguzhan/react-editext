@@ -7,6 +7,7 @@ import envCompatible from 'vite-plugin-env-compatible'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
+    base: mode === 'production' ? '/react-editext/' : '/',
     plugins: [
       react(),
       envCompatible({
