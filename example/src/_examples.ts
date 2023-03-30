@@ -1,20 +1,18 @@
 export const example1 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
-export default class App extends Component {
-  onSave = val => {
+export default function App() {
+  function onSave(val) {
     console.log('Edited Value -> ', val)
   }
 
-  render () {
-    return (
-      <EdiText
-        type='text'
-        value='What is real? How do you define real?'
-        onSave={this.onSave}
-      />
-    )
-  }
+  return (
+    <EdiText
+      type='text'
+      value='What is real? How do you define real?'
+      onSave={this.onSave}
+    />
+  )
 }
 `
 export const example2 = `<EdiText
@@ -50,29 +48,27 @@ export const example4 = `<EdiText
   onSave={this.onSave}
 />`
 
-export const example5 = `export default class App extends Component {
-  onSave = val => {
+export const example5 = `export default function App() {
+  function onSave(val) {
     console.log('Edited Value -> ', val)
   }
 
-  validationFailed = textValue => {
+  function validationFailed(textValue) {
     alert(\`The text <\${textValue}> is not valid.\nYou shall not use the word SMITH here!!!\`)
   }
 
-  render () {
-    return (
-      <EdiText
-        type="text"
-        validation={val => val.toLowerCase().indexOf('smith') < 0}
-        onValidationFail={this.validationFailed}
-        inputProps={{
-          placeholder: "Don't use the word 'Smith'..."
-        }}
-        value="Why Mr. Anderson? Why? Why? Why?"
-        onSave={this.onSave}
-      />
-    )
-  }
+  return (
+    <EdiText
+      type="text"
+      validation={val => val.toLowerCase().indexOf('smith') < 0}
+      onValidationFail={this.validationFailed}
+      inputProps={{
+        placeholder: "Don't use the word 'Smith'..."
+      }}
+      value="Why Mr. Anderson? Why? Why? Why?"
+      onSave={this.onSave}
+    />
+  )
 }`
 
 export const example6 = `<EdiText
@@ -173,28 +169,26 @@ export const example12 = `<EdiText
 export const example13 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
-export default class App extends Component {
-  onSave = val => {
+export default function App() {
+  function onSave(val) {
     console.log('Edited Value -> ', val)
   }
 
-  render () {
-    return (
-      <EdiText
-        viewContainerClassName='my-custom-view-wrapper'
-        type='textarea'
-        inputProps={{
-          rows: 5
-        }}
-        saveButtonContent='Apply'
-        cancelButtonContent={<strong>Cancel</strong>}
-        editButtonContent='Edit This Quote'
-        value="How do you define real? If you're talking about what you can feel, what you can smell,
-        what you can taste and see, then real is simply electrical signals interpreted by your brain"
-        onSave={this.onSave}
-      />
-    )
-  }
+  return (
+    <EdiText
+      viewContainerClassName='my-custom-view-wrapper'
+      type='textarea'
+      inputProps={{
+        rows: 5
+      }}
+      saveButtonContent='Apply'
+      cancelButtonContent={<strong>Cancel</strong>}
+      editButtonContent='Edit This Quote'
+      value="How do you define real? If you're talking about what you can feel, what you can smell,
+      what you can taste and see, then real is simply electrical signals interpreted by your brain"
+      onSave={this.onSave}
+    />
+  )
 }`
 
 export const example13Style = `
@@ -214,41 +208,37 @@ export const example13Style = `
 export const example14 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
-export default class App extends Component {
-  onSave = val => {
+export default function App() {
+  function onSave(val) {
     console.log('Edited Value -> ', val)
   }
 
-  render () {
-    return (
-      <EdiText
-        type='text'
-        buttonsAlign='before'
-        value='What is real? How do you define real?'
-        onSave={this.onSave}
-      />
-    )
-  }
+  return (
+    <EdiText
+      type='text'
+      buttonsAlign='before'
+      value='What is real? How do you define real?'
+      onSave={this.onSave}
+    />
+  )
 }
 `
 export const example15 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
-export default class App extends Component {
-  onSave = val => {
+export default function App() {
+  function onSave(val) {
     console.log('Edited Value -> ', val)
   }
 
-  render () {
-    return (
-      <EdiText
-        type='text'
-        value='What is real? How do you define real?'
-        onSave={this.onSave}
-        editOnViewClick={true}
-      />
-    )
-  }
+  return (
+    <EdiText
+      type='text'
+      value='What is real? How do you define real?'
+      onSave={this.onSave}
+      editOnViewClick={true}
+    />
+  )
 }`
 
 export const example16 = `import React, { Component } from 'react'
@@ -258,7 +248,7 @@ export default function App() {
   const [editing, setEditing] = useState(false)
   const [data, setData] = useState({ name: 'Wake up, Neo...' })
 
-  const onSave = val => {
+  function onSave(val) {
     console.log('Edited Value -> ', val)
   }
 
@@ -291,19 +281,17 @@ export default function App() {
 export const example17 = `import React, { Component } from 'react'
 import EdiText from 'react-editext'
 
-export default class App extends Component {
+export default function App() {
 
-  render () {
-    return (
-      <EdiText
-        type='text'
-        onCancel={v => console.log('CANCELLED: ', v}
-        onEditingStart={v => console.log('EDITING STARTED: ', v}
-        onSave={v => console.log('SAVED: ', v}
-        value={"You've been living in a dream world, Neo."}
-      />
-    )
-  }
+  return (
+    <EdiText
+      type='text'
+      onCancel={v => console.log('CANCELLED: ', v}
+      onEditingStart={v => console.log('EDITING STARTED: ', v}
+      onSave={v => console.log('SAVED: ', v}
+      value={"You've been living in a dream world, Neo."}
+    />
+  )
 }`
 
 export const example18 = `<EdiText
