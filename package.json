@@ -30,8 +30,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:ci": "cross-env CI=1 jest",
-    "predeploy": "cd example && yarn install && yarn run build && cp _redirects build/",
-    "deploy": "gh-pages -d example/build",
+    "build:example": "cd example && yarn install && yarn run build && cp _redirects build/",
     "prepare": "husky install"
   },
   "peerDependencies": {
@@ -69,7 +68,6 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.5.0",

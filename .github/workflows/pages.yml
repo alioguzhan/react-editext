@@ -35,7 +35,7 @@ jobs:
         run: yarn install
 
       - name: Build Example App
-        run: yarn predeploy
+        run: yarn build:example
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
