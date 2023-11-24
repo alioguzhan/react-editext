@@ -2,6 +2,8 @@
 <img src="./logo.png" alt="react-editext" width="200" />
 </div>
 
+[![FreePalestine.Dev](https://freepalestine.dev/header/1)](https://freepalestine.dev)
+
 # react-editext
 
 > Editable Text Component for React Applications
@@ -12,6 +14,7 @@
 [![codecov](https://codecov.io/gh/alioguzhan/react-editext/branch/master/graph/badge.svg)](https://codecov.io/gh/alioguzhan/react-editext)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alioguzhan_react-editext&metric=alert_status)](https://sonarcloud.io/dashboard?id=alioguzhan_react-editext)
 ![Github All Contributors](https://img.shields.io/github/all-contributors/alioguzhan/react-editext)
+[![FreePalestine.Dev](https://freepalestine.dev/badge?t=d&u=0&r=1)](https://freepalestine.dev)
 
 This project is generated from [react-typescript-library template](https://github.com/alioguzhan/react-typescript-library).
 
