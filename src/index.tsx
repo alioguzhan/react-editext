@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, {
   ChangeEvent,
   FocusEvent,
@@ -156,11 +155,6 @@ export interface EdiTextProps {
    * Will be set to viewContainerClassName if you set it and omit this.
    */
   editContainerClassName?: string;
-  /**
-   * Custom class name for the top-level main container.
-   * @deprecated please use `containerProps` instead of this
-   */
-  mainContainerClassName?: string;
   /**
    * Set it to `true` if you want clicking on the view to activate the editor.
    * @default false
@@ -557,9 +551,7 @@ function EdiText(props: EdiTextProps) {
 
   const mode = editingInternal ? _renderEditingMode() : _renderViewMode();
   const clsName = classnames(
-    props.containerProps?.className ||
-      props.mainContainerClassName ||
-      styles.Editext__main_container,
+    props.containerProps?.className || styles.Editext__main_container,
     props.className
   );
   return (

@@ -111,11 +111,6 @@ export interface EdiTextProps {
      */
     editContainerClassName?: string;
     /**
-     * Custom class name for the top-level main container.
-     * @deprecated please use `containerProps` instead of this
-     */
-    mainContainerClassName?: string;
-    /**
      * Set it to `true` if you want clicking on the view to activate the editor.
      * @default false
      */

@@ -65,7 +65,7 @@ export default [
       'react-hooks/exhaustive-deps': 'warn',
       'react/react-in-jsx-scope': 'off',
       'react/no-unescaped-entities': 'off',
+      'react/no-unknown-property': 'off',
     },
   },
 ];
-

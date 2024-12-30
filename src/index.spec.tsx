@@ -302,7 +302,7 @@ test('custom class names and button contents are working', () => {
       editButtonClassName={editButtonClassName}
       viewContainerClassName={viewContainerClassName}
       editContainerClassName={editContainerClassName}
-      mainContainerClassName={mainContainerClassName}
+      containerProps={{ className: mainContainerClassName }}
       value={VALUE}
       onSave={() => false}
     />
@@ -316,9 +316,7 @@ test('custom class names and button contents are working', () => {
   expect(
     container.querySelector(`div.${mainContainerClassName}`)
   ).toBeInTheDocument();
-  expect(
-    container.querySelector(`div.${mainContainerClassName}`)
-  ).toBeInTheDocument();
+
   const button = container.querySelector('[editext="edit-button"]');
   expect(button?.textContent).toBe(editButtonContent);
   button && fireEvent.click(button, new MouseEvent('click'));
