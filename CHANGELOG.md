@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.0](https://github.com/alioguzhan/react-editext/compare/v6.0.0...v7.0.0) (2024-12-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove deprecated `mainContainerClassName` prop
+* drop support for Node 14 and 16
+
+### Bug Fixes
+
+* wrong logic for editContainerClassName precedence ([b0cf594](https://github.com/alioguzhan/react-editext/commit/b0cf5946e55402a55f25f2cd1b0ba42b9efa5dd7))
+
+
+### Miscellaneous Chores
+
+* drop support for Node 14 and 16 ([ea71a3b](https://github.com/alioguzhan/react-editext/commit/ea71a3b41767290129e133eff88d3053597973f4))
+
+
+### Code Refactoring
+
+* remove deprecated `mainContainerClassName` prop ([d9ad9d4](https://github.com/alioguzhan/react-editext/commit/d9ad9d42b1d648e44c0d4b3cc75c6b7954282c8c))
+
 ## [6.0.0](https://github.com/alioguzhan/react-editext/compare/v5.1.0...v6.0.0) (2023-03-25)
 
 
