@@ -299,11 +299,9 @@ function EdiText(props) {
         // calculate cancel button classes
         var cancelButtonDefaultClasses = classnames("".concat(styles.Editext__button), "".concat(styles.Editext__cancel_button), props.hideIcons && "".concat(styles.Editext__hide_default_icons));
         var cancelButtonClass = props.cancelButtonClassName || cancelButtonDefaultClasses;
-        var editContainerClass = styles.Editext__editing_container;
-        if (props.editContainerClassName)
-            editContainerClass = props.editContainerClassName;
-        if (props.viewContainerClassName)
-            editContainerClass = props.viewContainerClassName;
+        var editContainerClass = props.editContainerClassName ||
+            props.viewContainerClassName ||
+            styles.Editext__editing_container;
         var alignment = props.buttonsAlign || 'after';
         var buttonsContainerClass = classnames(styles.Editext__buttons_container, alignment === 'before' && "".concat(styles.Editext__buttons_before_aligned), alignment === 'after' && "".concat(styles.Editext__buttons_after_aligned));
         return (React.createElement("div", null,

@@ -402,11 +402,10 @@ function EdiText(props: EdiTextProps) {
     );
     const cancelButtonClass =
       props.cancelButtonClassName || cancelButtonDefaultClasses;
-    let editContainerClass = styles.Editext__editing_container;
-    if (props.editContainerClassName)
-      editContainerClass = props.editContainerClassName;
-    if (props.viewContainerClassName)
-      editContainerClass = props.viewContainerClassName;
+    const editContainerClass =
+      props.editContainerClassName ||
+      props.viewContainerClassName ||
+      styles.Editext__editing_container;
 
     const alignment = props.buttonsAlign || 'after';
     const buttonsContainerClass = classnames(

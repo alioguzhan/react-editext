@@ -320,6 +320,10 @@ test('custom class names and button contents are working', () => {
   const button = container.querySelector('[editext="edit-button"]');
   expect(button?.textContent).toBe(editButtonContent);
   button && fireEvent.click(button, new MouseEvent('click'));
+
+  expect(
+    container.querySelector(`div.${editContainerClassName}`)
+  ).toBeInTheDocument();
   expect(
     container.querySelector(`button.${saveButtonClassName}`)
   ).toBeInTheDocument();
