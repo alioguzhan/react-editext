@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    {
+      "source": "/react-editext/:path*",
+      "destination": "/:path*"
+    }
+  ]
+}

@@ -30,7 +30,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:ci": "cross-env CI=1 jest",
-    "build:example": "cd example && yarn install && yarn run build && cp _redirects build/",
+    "build:example": "cd example && yarn install && yarn run build",
     "prepare": "husky"
   },
   "peerDependencies": {
