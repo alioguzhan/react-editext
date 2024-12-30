@@ -194,5 +194,5 @@ export interface EdiTextProps {
      */
     renderValue?: (value: any) => any;
 }
-declare function EdiText(props: EdiTextProps): JSX.Element;
+declare function EdiText(props: EdiTextProps): React.JSX.Element;
 export default EdiText;

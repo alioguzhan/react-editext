@@ -1,8 +1,10 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/dom';
 import React, { useState } from 'react';
 import EdiText from '.';
 import { cancelOnConflictMessage } from './utils';
+import userEvent from '@testing-library/user-event';
 
 function Controlled() {
   const [editing, setEditing] = useState(true);
@@ -138,7 +140,7 @@ test('using cancelOnUnfocus and submitOnUnfocus together warns the user', () => 
       onSave={() => false}
     />
   );
-  expect(warn).toBeCalledWith(cancelOnConflictMessage);
+  expect(warn).toHaveBeenCalledWith(cancelOnConflictMessage);
 });
 
 test('default validation handling is working', async () => {
@@ -157,7 +159,7 @@ test('default validation handling is working', async () => {
     expect(input).toBeInTheDocument();
     expect(screen.getByText('Invalid Value'));
   });
-  expect(v).toBeCalledTimes(1);
+  expect(v).toHaveBeenCalledTimes(1);
 });
 
 test('custom validation handling is working', async () => {
@@ -172,16 +174,17 @@ test('custom validation handling is working', async () => {
     />
   );
   const button = container.querySelector('[editext="edit-button"]');
-  button && fireEvent.click(button, new MouseEvent('click'));
+  if (!button) return;
+  fireEvent.click(button, new MouseEvent('click'));
   const input = screen.getByDisplayValue(VALUE);
   expect(input).toBeInTheDocument();
-  fireEvent.change(input, { target: { value: 'Hello' } });
+  await waitFor(() => fireEvent.change(input, { target: { value: 'Hello' } }));
   const saveBtn = container.querySelector('[editext="save-button"]');
-  saveBtn && fireEvent.click(saveBtn, new MouseEvent('click'));
+  saveBtn && userEvent.click(saveBtn);
   await waitFor(() => {
     expect(input).toBeInTheDocument();
     expect(screen.getByText(message));
-    expect(v).toBeCalledTimes(1);
+    expect(v).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -209,11 +212,11 @@ test('onValidationFail is working', async () => {
     expect(input).toBeInTheDocument();
   });
 
-  expect(v).toBeCalledTimes(1);
-  expect(f).toBeCalledTimes(1);
+  expect(v).toHaveBeenCalledTimes(1);
+  expect(f).toHaveBeenCalledTimes(1);
 });
 
-test('unfocusing saves the form', () => {
+test('unfocusing saves the form', async () => {
   const afterValue = 'Bye Bye World';
   const { container } = render(
     <EdiText value={VALUE} submitOnUnfocus onSave={() => false} />
@@ -222,13 +225,15 @@ test('unfocusing saves the form', () => {
   button && fireEvent.click(button, new MouseEvent('click'));
   const input = screen.getByDisplayValue(VALUE);
   expect(input).toBeInTheDocument();
-  fireEvent.change(input, { target: { value: afterValue } });
-  fireEvent.blur(input);
+  await waitFor(() =>
+    fireEvent.change(input, { target: { value: afterValue } })
+  );
+  await waitFor(() => userEvent.click(document.body));
   expect(input).not.toBeInTheDocument();
   expect(screen.getByText(afterValue)).toBeInTheDocument();
 });
 
-test('unfocusing cancels the form', () => {
+test('unfocusing cancels the form', async () => {
   const afterValue = 'Bye Bye World';
   const { container } = render(
     <EdiText value={VALUE} cancelOnUnfocus onSave={() => false} />
@@ -238,7 +243,7 @@ test('unfocusing cancels the form', () => {
   const input = screen.getByDisplayValue(VALUE);
   expect(input).toBeInTheDocument();
   fireEvent.change(input, { target: { value: afterValue } });
-  fireEvent.blur(input);
+  await waitFor(() => userEvent.click(document.body));
   expect(input).not.toBeInTheDocument();
   expect(screen.getByText(VALUE)).toBeInTheDocument();
 });
@@ -325,7 +330,7 @@ test('custom class names and button contents are working', () => {
   ).toBeInTheDocument();
 });
 
-test('custom viewProps are working', () => {
+test('custom viewProps are working', async () => {
   const kd = jest.fn(() => false);
   const of = jest.fn(() => false);
   const ob = jest.fn(() => false);
@@ -338,16 +343,18 @@ test('custom viewProps are working', () => {
   );
   const viewContainer = container.querySelector('[editext="view"]');
   if (viewContainer) {
-    fireEvent.focusIn(viewContainer);
-    fireEvent.keyDown(viewContainer, { key: 'Enter', code: 'Enter' });
-    fireEvent.blur(viewContainer);
+    await waitFor(() => {
+      fireEvent.focusIn(viewContainer);
+      fireEvent.keyDown(viewContainer, { key: 'Enter', code: 'Enter' });
+      fireEvent.focusOut(viewContainer);
+    });
+    expect(kd).toHaveBeenCalled();
+    expect(of).toHaveBeenCalled();
+    expect(ob).toHaveBeenCalled();
   }
-  expect(kd).toBeCalled();
-  expect(of).toBeCalled();
-  expect(ob).toBeCalled();
 });
 
-test('custom inputProps are working', () => {
+test('custom inputProps are working', async () => {
   const kd = jest.fn(() => false);
   const of = jest.fn(() => false);
   const ob = jest.fn(() => false);
@@ -364,13 +371,15 @@ test('custom inputProps are working', () => {
   expect(input).toBeInTheDocument();
   expect(input?.value).toBe(VALUE);
   if (input) {
-    fireEvent.focusIn(input);
-    fireEvent.keyDown(input, { key: 'Enter', code: 'enter' });
-    fireEvent.blur(input);
+    await waitFor(() => {
+      fireEvent.focusIn(input);
+      fireEvent.keyDown(input, { key: 'Enter', code: 'enter' });
+      fireEvent.focusOut(input);
+    });
+    expect(kd).toHaveBeenCalled();
+    expect(of).toHaveBeenCalled();
+    expect(ob).toHaveBeenCalled();
   }
-  expect(kd).toBeCalled();
-  expect(of).toBeCalled();
-  expect(ob).toBeCalled();
 });
 
 test('make sure undefined value is ignored', () => {
@@ -397,7 +406,7 @@ test('onCancel prop is working', () => {
   const cnclButton = container.querySelector('[editext="cancel-button"]');
   cnclButton && fireEvent.click(cnclButton, new MouseEvent('click'));
   expect(input).not.toBeInTheDocument();
-  expect(oc).toBeCalled();
+  expect(oc).toHaveBeenCalledTimes(1);
 });
 
 test('onEditingStart prop is working', () => {
@@ -410,10 +419,10 @@ test('onEditingStart prop is working', () => {
   const input = container.querySelector('input');
   expect(input).toBeInTheDocument();
   expect(input?.value).toBe(VALUE);
-  expect(oc).toBeCalled();
+  expect(oc).toHaveBeenCalledTimes(1);
 });
 
-test('custom containerProps are working', () => {
+test('custom containerProps are working', async () => {
   const kd = jest.fn(() => false);
   const of = jest.fn(() => false);
   const ob = jest.fn(() => false);
@@ -433,11 +442,12 @@ test('custom containerProps are working', () => {
   if (mainContainer) {
     fireEvent.focusIn(mainContainer);
     fireEvent.keyDown(mainContainer, { key: 'Enter', code: 'Enter' });
-    fireEvent.blur(mainContainer);
+    fireEvent.focusOut(mainContainer);
+
+    expect(kd).toHaveBeenCalledTimes(1);
+    expect(of).toHaveBeenCalledTimes(1);
+    expect(ob).toHaveBeenCalledTimes(1);
   }
-  expect(kd).toBeCalled();
-  expect(of).toBeCalled();
-  expect(ob).toBeCalled();
 });
 
 test('canEdit prop is called before enabled the editin', () => {
