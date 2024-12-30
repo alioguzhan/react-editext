@@ -78,6 +78,8 @@ export default function App() {
               <a
                 className="github-button"
                 href="https://github.com/alioguzhan/react-editext"
+                data-color-scheme="no-preference: light; light: light; dark: dark;"
+                data-icon="octicon-star"
                 data-size="large"
                 data-show-count="true"
                 aria-label="Star alioguzhan/react-editext on GitHub"
@@ -89,6 +91,8 @@ export default function App() {
               <a
                 className="github-button"
                 href="https://github.com/alioguzhan/react-editext/fork"
+                data-color-scheme="no-preference: light; light: light; dark: dark;"
+                data-icon="octicon-repo-forked"
                 data-size="large"
                 data-show-count="true"
                 aria-label="Fork alioguzhan/react-editext on GitHub"

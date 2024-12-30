@@ -12,7 +12,6 @@
 [![npm](https://img.shields.io/npm/dm/react-editext.svg)](https://www.npmjs.com/package/react-editext)
 [![Github](https://github.com/alioguzhan/react-editext/workflows/build/badge.svg)](https://github.com/alioguzhan/react-editext/actions)
 [![codecov](https://codecov.io/gh/alioguzhan/react-editext/branch/master/graph/badge.svg)](https://codecov.io/gh/alioguzhan/react-editext)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alioguzhan_react-editext&metric=alert_status)](https://sonarcloud.io/dashboard?id=alioguzhan_react-editext)
 ![Github All Contributors](https://img.shields.io/github/all-contributors/alioguzhan/react-editext)
 [![FreePalestine.Dev](https://freepalestine.dev/badge?t=d&u=0&r=1)](https://freepalestine.dev)
 
