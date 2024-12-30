@@ -1,8 +1,12 @@
-import { ChangeEvent, useState } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import React, { ChangeEvent, useState } from 'react'
+import { Prism, SyntaxHighlighterProps } from 'react-syntax-highlighter'
 import EdiText, { InputProps } from 'react-editext'
 import styled from 'styled-components'
 import * as examples from './_examples'
+
+// https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/539
+const SyntaxHighlighter =
+  Prism as typeof React.Component<SyntaxHighlighterProps>
 
 const StyledEdiText = styled(EdiText)`
   button {
