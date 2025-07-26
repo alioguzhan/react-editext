@@ -355,6 +355,37 @@ test('custom viewProps are working', async () => {
     expect(ob).toHaveBeenCalled();
   }
 });
+test('custom buttonsContainerProps are working', async () => {
+  const kd = jest.fn(() => false);
+  const of = jest.fn(() => false);
+  const ob = jest.fn(() => false);
+  const { container } = render(
+    <EdiText
+      value={VALUE}
+      onSave={() => false}
+      buttonsContainerProps={{
+        onKeyDown: kd,
+        onFocus: of,
+        onBlur: ob,
+        className: 'buttons-container',
+      }}
+    />
+  );
+  const buttonsContainer = container.querySelector(
+    '[editext="button-container"]'
+  );
+  if (buttonsContainer) {
+    await waitFor(() => {
+      fireEvent.focusIn(buttonsContainer);
+      fireEvent.keyDown(buttonsContainer, { key: 'Enter', code: 'Enter' });
+      fireEvent.focusOut(buttonsContainer);
+    });
+    expect(buttonsContainer).toHaveClass('buttons-container');
+    expect(kd).toHaveBeenCalled();
+    expect(of).toHaveBeenCalled();
+    expect(ob).toHaveBeenCalled();
+  }
+});
 
 test('custom inputProps are working', async () => {
   const kd = jest.fn(() => false);
