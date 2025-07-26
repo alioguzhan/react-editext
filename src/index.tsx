@@ -73,6 +73,14 @@ export interface EdiTextProps {
     HTMLDivElement
   >;
   /**
+   * Props to be passed to div element that is container for buttons.
+   * You can use this if you want to style or select the buttons container.
+   */
+  buttonsContainerProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  >;
+  /**
    * Value of the content [in view mode] and input [in edit mode]
    */
   value: string;
@@ -422,7 +430,13 @@ function EdiText(props: EdiTextProps) {
           editext={dataAttributes.editContainer}
         >
           {alignment === 'after' && inputElem}
-          <div className={buttonsContainerClass} ref={editingButtons}>
+          <div
+            className={buttonsContainerClass}
+            {...props.buttonsContainerProps}
+            ref={editingButtons}
+            // @ts-ignore
+            editext={dataAttributes.buttonContainer}
+          >
             <button
               ref={saveButton}
               // @ts-ignore
@@ -516,7 +530,12 @@ function EdiText(props: EdiTextProps) {
             {_value}
           </div>
         )}
-        <div className={buttonsContainerClass}>
+        <div
+          className={buttonsContainerClass}
+          {...props.buttonsContainerProps}
+          // @ts-ignore
+          editext={dataAttributes.buttonContainer}
+        >
           <button
             type="button"
             className={editButtonClass}

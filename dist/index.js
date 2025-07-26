@@ -309,7 +309,9 @@ function EdiText(props) {
                 // @ts-ignore
                 editext: dataAttributes.editContainer },
                 alignment === 'after' && inputElem,
-                React.createElement("div", { className: buttonsContainerClass, ref: editingButtons },
+                React.createElement("div", __assign({ className: buttonsContainerClass }, props.buttonsContainerProps, { ref: editingButtons, 
+                    // @ts-ignore
+                    editext: dataAttributes.buttonContainer }),
                     React.createElement("button", { ref: saveButton, 
                         // @ts-ignore
                         editext: dataAttributes.saveButton, type: "button", className: saveButtonClass, onClick: handleSave }, props.saveButtonContent),
@@ -348,7 +350,9 @@ function EdiText(props) {
                 tabIndex: props.tabIndex }, props.viewProps, { onKeyDown: handleKeyDownForView, onFocus: handleViewFocus, onClick: viewClickHandler, 
                 // @ts-ignore
                 editext: "view" }), _value)),
-            React.createElement("div", { className: buttonsContainerClass },
+            React.createElement("div", __assign({ className: buttonsContainerClass }, props.buttonsContainerProps, { 
+                // @ts-ignore
+                editext: dataAttributes.buttonContainer }),
                 React.createElement("button", __assign({ type: "button", className: editButtonClass }, props.editButtonProps, { 
                     // @ts-ignore
                     editext: dataAttributes.editButton, onClick: handleActivateEditMode }), props.editButtonContent)),
