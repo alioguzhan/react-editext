@@ -468,7 +468,8 @@ export default function App() {
             </a>
           </div>
           <p className="content">
-            You can use your own classes for main, edit and view containers.
+            You can use your own classes for main, edit, buttons, and view
+            containers.
           </p>
           <p className="content">
             <code>viewContainerClassName</code> and{' '}
@@ -495,6 +496,9 @@ export default function App() {
                 type="textarea"
                 inputProps={{
                   rows: 5
+                }}
+                buttonsContainerProps={{
+                  className: 'my-custom-buttons-wrapper'
                 }}
                 saveButtonContent="Apply"
                 cancelButtonContent={<strong>Cancel</strong>}

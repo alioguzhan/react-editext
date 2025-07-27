@@ -28,6 +28,11 @@ export interface EdiTextProps {
      */
     containerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
     /**
+     * Props to be passed to div element that is container for buttons.
+     * You can use this if you want to style or select the buttons container.
+     */
+    buttonsContainerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+    /**
      * Value of the content [in view mode] and input [in edit mode]
      */
     value: string;

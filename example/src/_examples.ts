@@ -181,6 +181,9 @@ export default function App() {
       inputProps={{
         rows: 5
       }}
+      buttonsContainerProps={{
+        className: 'my-custom-buttons-wrapper'
+      }}
       saveButtonContent='Apply'
       cancelButtonContent={<strong>Cancel</strong>}
       editButtonContent='Edit This Quote'
