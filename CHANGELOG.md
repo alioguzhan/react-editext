@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.0](https://github.com/alioguzhan/react-editext/compare/v7.0.0...v7.1.0) (2025-07-27)
+
+
+### Features
+
+* add `buttonsContainerProps` ([386a905](https://github.com/alioguzhan/react-editext/commit/386a905fde4f7765ab3c4f0176119c49b0904aab))
+
+
+### Bug Fixes
+
+* add missing `buttonContainer` editext attribute ([386a905](https://github.com/alioguzhan/react-editext/commit/386a905fde4f7765ab3c4f0176119c49b0904aab))
+
 ## [7.0.0](https://github.com/alioguzhan/react-editext/compare/v6.0.0...v7.0.0) (2024-12-30)
 
 
